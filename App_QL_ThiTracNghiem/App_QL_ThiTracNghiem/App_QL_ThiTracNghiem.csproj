@@ -61,6 +61,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\BaiThi_DAO.cs" />
+    <Compile Include="DAO\CaThi_DAO.cs" />
+    <Compile Include="DAO\CauHoi_DAO.cs" />
+    <Compile Include="DAO\ChucVu_DAO.cs" />
+    <Compile Include="DAO\CT_BaiThi_DAO.cs" />
+    <Compile Include="DAO\CT_CaThi_DAO.cs" />
+    <Compile Include="DAO\CT_DeThi_DAO.cs" />
+    <Compile Include="DAO\CT_GiangDay_DAO.cs" />
+    <Compile Include="DAO\CT_HocPhan_DAO.cs" />
+    <Compile Include="DAO\CT_NganHangCauHoi_DAO.cs" />
+    <Compile Include="DAO\DeThi_DAO.cs" />
+    <Compile Include="DAO\GiangVien_DAO.cs" />
+    <Compile Include="DAO\HocPhan%29DAO.cs" />
+    <Compile Include="DAO\Khoa_DAO.cs" />
+    <Compile Include="DAO\Lop_DAO.cs" />
+    <Compile Include="DAO\NganHangCauHoi_DaDuyet_DAO.cs" />
+    <Compile Include="DAO\NganHangCauHoi_DAO.cs" />
+    <Compile Include="DAO\SinhVien_DAO.cs" />
+    <Compile Include="DataProvider\SqlProvider.cs" />
     <Compile Include="DTO\BaiThi.cs" />
     <Compile Include="DTO\CaThi.cs" />
     <Compile Include="DTO\CauHoi.cs" />
@@ -405,10 +424,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DAO\" />
-    <Folder Include="DataProvider\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Content\metro-colors.css" />
     <Content Include="Content\metro-colors.min.css" />
