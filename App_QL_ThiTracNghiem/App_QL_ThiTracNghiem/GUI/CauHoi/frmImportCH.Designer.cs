@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmImportCH));
             this.btnOK = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnCapNhat = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnHuy = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -41,7 +40,6 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblNoiDungCauHoi = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kryptonGroupBox2 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.kryptonGroupBox1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
@@ -56,6 +54,10 @@
             this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.cboMonHoc = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.lblNoiDungCauHoi = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.kryptonPanel4 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox2.Panel)).BeginInit();
             this.kryptonGroupBox2.Panel.SuspendLayout();
@@ -74,6 +76,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cboMonHoc)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel4)).BeginInit();
+            this.kryptonPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnOK
@@ -89,16 +94,16 @@
             // 
             // btnCapNhat
             // 
-            this.btnCapNhat.Location = new System.Drawing.Point(253, 388);
+            this.btnCapNhat.Location = new System.Drawing.Point(257, 3);
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.btnCapNhat.Size = new System.Drawing.Size(182, 40);
+            this.btnCapNhat.Size = new System.Drawing.Size(182, 38);
             this.btnCapNhat.TabIndex = 9;
             this.btnCapNhat.Values.Text = "CẬP NHẬT";
             // 
             // btnHuy
             // 
-            this.btnHuy.Location = new System.Drawing.Point(62, 388);
+            this.btnHuy.Location = new System.Drawing.Point(56, 4);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.btnHuy.Size = new System.Drawing.Size(182, 40);
@@ -109,9 +114,9 @@
             // 
             this.radD.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.radD.Location = new System.Drawing.Point(43, 307);
+            this.radD.Location = new System.Drawing.Point(3, 388);
             this.radD.Name = "radD";
-            this.radD.Size = new System.Drawing.Size(158, 24);
+            this.radD.Size = new System.Drawing.Size(508, 24);
             this.radD.TabIndex = 4;
             this.radD.Values.Text = " Nội dung đáp án D";
             // 
@@ -119,9 +124,9 @@
             // 
             this.radC.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.radC.Location = new System.Drawing.Point(43, 253);
+            this.radC.Location = new System.Drawing.Point(3, 310);
             this.radC.Name = "radC";
-            this.radC.Size = new System.Drawing.Size(157, 24);
+            this.radC.Size = new System.Drawing.Size(508, 24);
             this.radC.TabIndex = 5;
             this.radC.Values.Text = " Nội dung đáp án C";
             // 
@@ -129,9 +134,9 @@
             // 
             this.radB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.radB.Location = new System.Drawing.Point(43, 199);
+            this.radB.Location = new System.Drawing.Point(3, 232);
             this.radB.Name = "radB";
-            this.radB.Size = new System.Drawing.Size(156, 24);
+            this.radB.Size = new System.Drawing.Size(508, 24);
             this.radB.TabIndex = 6;
             this.radB.Values.Text = " Nội dung đáp án B";
             // 
@@ -139,9 +144,9 @@
             // 
             this.radA.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.radA.Location = new System.Drawing.Point(43, 145);
+            this.radA.Location = new System.Drawing.Point(3, 154);
             this.radA.Name = "radA";
-            this.radA.Size = new System.Drawing.Size(157, 24);
+            this.radA.Size = new System.Drawing.Size(508, 24);
             this.radA.TabIndex = 7;
             this.radA.Values.Text = " Nội dung đáp án A";
             // 
@@ -175,17 +180,6 @@
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             // 
-            // lblNoiDungCauHoi
-            // 
-            this.lblNoiDungCauHoi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblNoiDungCauHoi.AutoSize = false;
-            this.lblNoiDungCauHoi.Location = new System.Drawing.Point(43, 44);
-            this.lblNoiDungCauHoi.Name = "lblNoiDungCauHoi";
-            this.lblNoiDungCauHoi.Size = new System.Drawing.Size(382, 65);
-            this.lblNoiDungCauHoi.TabIndex = 3;
-            this.lblNoiDungCauHoi.Values.Text = resources.GetString("lblNoiDungCauHoi.Values.Text");
-            // 
             // Column1
             // 
             this.Column1.HeaderText = "Nội dung";
@@ -201,13 +195,7 @@
             // 
             // kryptonGroupBox2.Panel
             // 
-            this.kryptonGroupBox2.Panel.Controls.Add(this.btnCapNhat);
-            this.kryptonGroupBox2.Panel.Controls.Add(this.btnHuy);
-            this.kryptonGroupBox2.Panel.Controls.Add(this.radD);
-            this.kryptonGroupBox2.Panel.Controls.Add(this.radC);
-            this.kryptonGroupBox2.Panel.Controls.Add(this.radB);
-            this.kryptonGroupBox2.Panel.Controls.Add(this.radA);
-            this.kryptonGroupBox2.Panel.Controls.Add(this.lblNoiDungCauHoi);
+            this.kryptonGroupBox2.Panel.Controls.Add(this.tableLayoutPanel1);
             this.kryptonGroupBox2.Size = new System.Drawing.Size(518, 642);
             this.kryptonGroupBox2.TabIndex = 0;
             this.kryptonGroupBox2.Values.Heading = "Chi tiết câu hỏi";
@@ -341,6 +329,59 @@
             this.cboMonHoc.Size = new System.Drawing.Size(194, 25);
             this.cboMonHoc.TabIndex = 2;
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(3, 516);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(500, 95);
+            this.richTextBox1.TabIndex = 11;
+            this.richTextBox1.Text = "";
+            // 
+            // lblNoiDungCauHoi
+            // 
+            this.lblNoiDungCauHoi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblNoiDungCauHoi.Location = new System.Drawing.Point(3, 3);
+            this.lblNoiDungCauHoi.Multiline = true;
+            this.lblNoiDungCauHoi.Name = "lblNoiDungCauHoi";
+            this.lblNoiDungCauHoi.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.lblNoiDungCauHoi.Size = new System.Drawing.Size(508, 145);
+            this.lblNoiDungCauHoi.TabIndex = 12;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.lblNoiDungCauHoi, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.radA, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.radD, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.radB, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.radC, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.richTextBox1, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.kryptonPanel4, 0, 5);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 7;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32.67327F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.83168F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.83168F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.83168F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.83168F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(514, 614);
+            this.tableLayoutPanel1.TabIndex = 13;
+            // 
+            // kryptonPanel4
+            // 
+            this.kryptonPanel4.Controls.Add(this.btnCapNhat);
+            this.kryptonPanel4.Controls.Add(this.btnHuy);
+            this.kryptonPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.kryptonPanel4.Location = new System.Drawing.Point(3, 466);
+            this.kryptonPanel4.Name = "kryptonPanel4";
+            this.kryptonPanel4.Size = new System.Drawing.Size(508, 44);
+            this.kryptonPanel4.TabIndex = 13;
+            // 
             // frmImportCH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -354,7 +395,6 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox2.Panel)).EndInit();
             this.kryptonGroupBox2.Panel.ResumeLayout(false);
-            this.kryptonGroupBox2.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox2)).EndInit();
             this.kryptonGroupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1.Panel)).EndInit();
@@ -372,6 +412,10 @@
             this.kryptonPanel1.ResumeLayout(false);
             this.kryptonPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cboMonHoc)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel4)).EndInit();
+            this.kryptonPanel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -390,7 +434,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel lblNoiDungCauHoi;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox kryptonGroupBox2;
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox kryptonGroupBox1;
@@ -405,5 +448,9 @@
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel1;
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox cboMonHoc;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox lblNoiDungCauHoi;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel4;
     }
 }

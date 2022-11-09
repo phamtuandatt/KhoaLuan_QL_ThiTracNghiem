@@ -1,4 +1,5 @@
 ﻿using App_QL_ThiTracNghiem.GUI;
+using App_QL_ThiTracNghiem.GUI.CauHoi;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace App_QL_ThiTracNghiem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            Application.Run(new frmImportCH());
         }
     }
 }
