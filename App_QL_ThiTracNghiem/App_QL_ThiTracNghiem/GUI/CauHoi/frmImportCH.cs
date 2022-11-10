@@ -21,7 +21,7 @@ namespace App_QL_ThiTracNghiem.GUI.CauHoi
 
         private void btnChonFile_Click(object sender, EventArgs e)
         {
-            dialogChonFile.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+            dialogChonFile.Filter = "All files (*.*)|*.*|Text files (*.txt)|*.txt";
             dialogChonFile.FilterIndex = 1;
             dialogChonFile.RestoreDirectory = true;
             if (dialogChonFile.ShowDialog() == DialogResult.OK)
@@ -40,91 +40,152 @@ namespace App_QL_ThiTracNghiem.GUI.CauHoi
                 document.ActiveWindow.Selection.WholeStory();
                 document.ActiveWindow.Selection.Copy();
                 IDataObject dataObject = Clipboard.GetDataObject();
-                richTextBox1.Rtf = dataObject.GetData(DataFormats.Rtf).ToString();
+                rickContentFile.Rtf = dataObject.GetData(DataFormats.Rtf).ToString();
                 application.Quit(ref missing, ref missing, ref missing);
+                
+                // Load file into RickTextBox
+                char[] content = rickContentFile.Text.ToCharArray();
+                
+                // Get Content and Add row into Grid
+                Read_Muliple_Question(content);
 
-                // Read content
-                char[] content = richTextBox1.Text.ToCharArray();
-                string number_question = "";
-                string content_question = "";
-                string a = "";
-                string b = "";
-                string c = "";
-                string d = "";
+                // Sum row
+                txtTongSoCauHoi.Text = gridDS_CauHoi.RowCount.ToString();
+            }
+        }
 
-                // Get number_question
-                int i = 0;
-                while (content[i] != '.')
+        public char[] Convert_string_to_charArray(string s)
+        {
+            char[] charArray = null;
+            charArray = s.ToCharArray();
+            return charArray;
+        }
+
+        // Get single question
+        public void Read_Muliple_Question(char[] content)
+        {
+            string content_question = "";
+            int entered = 0;
+            for (int i = 0; i < content.Length; i++)
+            {
+                if (content[i] == '\n')
                 {
-                    number_question += content[i];
-                    i++;
+                    entered++;
                 }
-
-                // Skip char '.'
-                i += 2;
-
-                // Get content_question
-                while (content[i] != '\n')
+                if (entered == 5)
                 {
-                    content_question += content[i];
-                    i++;
+                    Read_single_question(Convert_string_to_charArray(content_question + '\n'));
+                    entered = 0;
+                    content_question = "";
                 }
+                content_question += content[i];
+            }
+        }
 
+        // Read content single question
+        public void Read_single_question(char[] single_question)
+        {            
+            // Read content
+            string number_question = "";
+            string content_question = "";
+            string a = "";
+            string b = "";
+            string c = "";
+            string d = "";
+            string correct_answer = "";
+
+            // Get number_question
+            int i = 0;
+            while (single_question[i] != '.')
+            {
+                number_question += single_question[i];
                 i++;
-
-                // Get content A
-                while (content[i] != '\n')
-                {
-                    if (content[i] == '*')
-                    {
-                        radA.Checked = true;
-                    }
-                    a += content[i];
-                    i++;
-                }
-                i++;
-                // Get content B
-                while (content[i] != '\n')
-                {
-                    if (content[i] == '*')
-                    {
-                        radB.Checked = true;
-                    }
-                    b += content[i];
-                    i++;
-                }
-                i++;
-                // Get content C
-                while (content[i] != '\n')
-                {
-                    if (content[i] == '*')
-                    {
-                        radC.Checked = true;
-                    }
-                    c += content[i];
-                    i++;
-                }
-                i++;
-                // Get content D
-                while (content[i] != '\n')
-                {
-                    if (content[i] == '*')
-                    {
-                        radD.Checked = true;
-                    }
-                    d += content[i];
-                    i++;
-                }
-                radA.Text = a;
-                radB.Text = b;
-                radC.Text = c;
-                radD.Text = d;
-
-
-
-                lblNoiDungCauHoi.Text = content_question;
             }
 
+            // Skip char '.'
+            i += 2;
+
+            // Get content_question
+            while (single_question[i] != '\n')
+            {
+                content_question += single_question[i];
+                i++;
+            }
+
+            i++;
+
+            // Get content A
+            while (single_question[i] != '\n')
+            {
+                if (single_question[i] == '*')
+                {
+                    correct_answer = "A";
+                }
+                a += single_question[i];
+                i++;
+            }
+            a = a.Remove(0, 3);
+            i++;
+
+            // Get content B
+            while (single_question[i] != '\n')
+            {
+                if (single_question[i] == '*')
+                {
+                    correct_answer = "B";
+                }
+                b += single_question[i];
+                i++;
+            }
+            b = b.Remove(0, 3);
+            i++;
+
+            // Get content C
+            while (single_question[i] != '\n')
+            {
+                if (single_question[i] == '*')
+                {
+                    correct_answer = "C";
+                }
+                c += single_question[i];
+                i++;
+            }
+            c = c.Remove(0, 3);
+            i++;
+
+            // Get content D
+            while (single_question[i] != '\n')
+            {
+                if (single_question[i] == '*')
+                {
+                    correct_answer = "D";
+                }
+                d += single_question[i];
+                i++;
+            }
+            d = d.Remove(0, 3);
+
+            // Create row datagridView
+            string[] r = new string[] { content_question.Trim(), a.Trim(), b.Trim(), c.Trim(), d.Trim(), correct_answer.Trim() };
+            gridDS_CauHoi.Rows.Add(r);
+        }
+
+        private void gridDS_CauHoi_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int id_row = gridDS_CauHoi.CurrentRow.Index;
+            lblNoiDungCauHoi.Text = gridDS_CauHoi.Rows[id_row].Cells[0].Value.ToString();
+            radA.Text = gridDS_CauHoi.Rows[id_row].Cells[1].Value.ToString();
+            radB.Text = gridDS_CauHoi.Rows[id_row].Cells[2].Value.ToString();
+            radC.Text = gridDS_CauHoi.Rows[id_row].Cells[3].Value.ToString();
+            radD.Text = gridDS_CauHoi.Rows[id_row].Cells[4].Value.ToString();
+            string correct_answer = gridDS_CauHoi.Rows[id_row].Cells[5].Value.ToString();
+            switch (correct_answer)
+            {
+                case "A": radA.Checked = true; break;
+                case "B": radB.Checked = true; break;
+                case "C": radC.Checked = true; break;
+                case "D": radD.Checked = true; break;
+            }
         }
     }
 }
