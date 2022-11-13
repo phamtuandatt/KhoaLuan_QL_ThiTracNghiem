@@ -78,31 +78,31 @@
     <Compile Include="DAO\CT_NganHangCauHoi_DAO.cs" />
     <Compile Include="DAO\DeThi_DAO.cs" />
     <Compile Include="DAO\GiangVien_DAO.cs" />
-    <Compile Include="DAO\HocPhan%29DAO.cs" />
+    <Compile Include="DAO\HocPhan_DAO.cs" />
     <Compile Include="DAO\Khoa_DAO.cs" />
     <Compile Include="DAO\Lop_DAO.cs" />
     <Compile Include="DAO\NganHangCauHoi_DaDuyet_DAO.cs" />
     <Compile Include="DAO\NganHangCauHoi_DAO.cs" />
     <Compile Include="DAO\SinhVien_DAO.cs" />
     <Compile Include="DataProvider\SqlProvider.cs" />
-    <Compile Include="DTO\BaiThi.cs" />
-    <Compile Include="DTO\CaThi.cs" />
-    <Compile Include="DTO\CauHoi.cs" />
-    <Compile Include="DTO\ChucVu.cs" />
-    <Compile Include="DTO\CT_BaiThi.cs" />
-    <Compile Include="DTO\CT_CaThi.cs" />
-    <Compile Include="DTO\CT_DeThi.cs" />
-    <Compile Include="DTO\CT_GiangDay.cs" />
-    <Compile Include="DTO\CT_HocPhan.cs" />
-    <Compile Include="DTO\CT_NganHangCauHoi.cs" />
-    <Compile Include="DTO\DeThi.cs" />
-    <Compile Include="DTO\GiangVien.cs" />
-    <Compile Include="DTO\HocPhan.cs" />
-    <Compile Include="DTO\Khoa.cs" />
-    <Compile Include="DTO\Lop.cs" />
-    <Compile Include="DTO\NganHangCauHoi.cs" />
-    <Compile Include="DTO\NganHangCauHoi_DaDuyet.cs" />
-    <Compile Include="DTO\SinhVien.cs" />
+    <Compile Include="DTO\BaiThis.cs" />
+    <Compile Include="DTO\CaThis.cs" />
+    <Compile Include="DTO\CauHois.cs" />
+    <Compile Include="DTO\ChucVus.cs" />
+    <Compile Include="DTO\CT_BaiThis.cs" />
+    <Compile Include="DTO\CT_CaThis.cs" />
+    <Compile Include="DTO\CT_DeThis.cs" />
+    <Compile Include="DTO\CT_GiangDays.cs" />
+    <Compile Include="DTO\CT_HocPhans.cs" />
+    <Compile Include="DTO\CT_NganHangCauHois.cs" />
+    <Compile Include="DTO\DeThis.cs" />
+    <Compile Include="DTO\GiangViens.cs" />
+    <Compile Include="DTO\HocPhans.cs" />
+    <Compile Include="DTO\Khoas.cs" />
+    <Compile Include="DTO\Lops.cs" />
+    <Compile Include="DTO\NganHangCauHois.cs" />
+    <Compile Include="DTO\NganHangCauHoi_DaDuyets.cs" />
+    <Compile Include="DTO\SinhViens.cs" />
     <Compile Include="GUI\BaiThi\frmCT_BaiThi.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -151,40 +151,40 @@
     <Compile Include="GUI\CaThi\frmThemSV.Designer.cs">
       <DependentUpon>frmThemSV.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\CauHoi\frmCT_CauHoi.cs">
+    <Compile Include="GUI\CauHois\frmCT_CauHoi.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GUI\CauHoi\frmCT_CauHoi.Designer.cs">
+    <Compile Include="GUI\CauHois\frmCT_CauHoi.Designer.cs">
       <DependentUpon>frmCT_CauHoi.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\CauHoi\frmDS_MonHoc_CauHoi.cs">
+    <Compile Include="GUI\CauHois\frmDS_MonHoc_CauHoi.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GUI\CauHoi\frmDS_MonHoc_CauHoi.Designer.cs">
+    <Compile Include="GUI\CauHois\frmDS_MonHoc_CauHoi.Designer.cs">
       <DependentUpon>frmDS_MonHoc_CauHoi.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\CauHoi\frmImportCH.cs">
+    <Compile Include="GUI\CauHois\frmImportCH.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\CauHoi\frmImportCH.Designer.cs">
+    <Compile Include="GUI\CauHois\frmImportCH.Designer.cs">
       <DependentUpon>frmImportCH.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\CauHoi\frmNganHangCauHoi.cs">
+    <Compile Include="GUI\CauHois\frmNganHangCauHoi.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GUI\CauHoi\frmNganHangCauHoi.Designer.cs">
+    <Compile Include="GUI\CauHois\frmNganHangCauHoi.Designer.cs">
       <DependentUpon>frmNganHangCauHoi.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\CauHoi\frmTaoCauHoi.cs">
+    <Compile Include="GUI\CauHois\frmTaoCauHoi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\CauHoi\frmTaoCauHoi.Designer.cs">
+    <Compile Include="GUI\CauHois\frmTaoCauHoi.Designer.cs">
       <DependentUpon>frmTaoCauHoi.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\CauHoi\frmThemMonHoc.cs">
+    <Compile Include="GUI\CauHois\frmThemMonHoc.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\CauHoi\frmThemMonHoc.Designer.cs">
+    <Compile Include="GUI\CauHois\frmThemMonHoc.Designer.cs">
       <DependentUpon>frmThemMonHoc.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\DuyetNHCauHoi\frmDuyetCauHoi.cs">
@@ -327,22 +327,22 @@
     <EmbeddedResource Include="GUI\CaThi\frmThemSV.resx">
       <DependentUpon>frmThemSV.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\CauHoi\frmCT_CauHoi.resx">
+    <EmbeddedResource Include="GUI\CauHois\frmCT_CauHoi.resx">
       <DependentUpon>frmCT_CauHoi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\CauHoi\frmDS_MonHoc_CauHoi.resx">
+    <EmbeddedResource Include="GUI\CauHois\frmDS_MonHoc_CauHoi.resx">
       <DependentUpon>frmDS_MonHoc_CauHoi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\CauHoi\frmImportCH.resx">
+    <EmbeddedResource Include="GUI\CauHois\frmImportCH.resx">
       <DependentUpon>frmImportCH.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\CauHoi\frmNganHangCauHoi.resx">
+    <EmbeddedResource Include="GUI\CauHois\frmNganHangCauHoi.resx">
       <DependentUpon>frmNganHangCauHoi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\CauHoi\frmTaoCauHoi.resx">
+    <EmbeddedResource Include="GUI\CauHois\frmTaoCauHoi.resx">
       <DependentUpon>frmTaoCauHoi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\CauHoi\frmThemMonHoc.resx">
+    <EmbeddedResource Include="GUI\CauHois\frmThemMonHoc.resx">
       <DependentUpon>frmThemMonHoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\DuyetNHCauHoi\frmDuyetCauHoi.resx">

@@ -18,7 +18,7 @@ namespace App_QL_ThiTracNghiem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmImportCH());
+            Application.Run(new MainForm());
         }
     }
 }

@@ -105,7 +105,7 @@
             // 
             // btnNganHangCauHoi
             // 
-            this.btnNganHangCauHoi.Location = new System.Drawing.Point(1, 102);
+            this.btnNganHangCauHoi.Location = new System.Drawing.Point(1, 79);
             this.btnNganHangCauHoi.Name = "btnNganHangCauHoi";
             this.btnNganHangCauHoi.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.btnNganHangCauHoi.Size = new System.Drawing.Size(296, 57);
@@ -115,7 +115,7 @@
             // 
             // btnChonCaThi
             // 
-            this.btnChonCaThi.Location = new System.Drawing.Point(1, 422);
+            this.btnChonCaThi.Location = new System.Drawing.Point(1, 399);
             this.btnChonCaThi.Name = "btnChonCaThi";
             this.btnChonCaThi.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.btnChonCaThi.Size = new System.Drawing.Size(296, 57);
@@ -125,7 +125,7 @@
             // 
             // btnCaThi
             // 
-            this.btnCaThi.Location = new System.Drawing.Point(1, 342);
+            this.btnCaThi.Location = new System.Drawing.Point(1, 319);
             this.btnCaThi.Name = "btnCaThi";
             this.btnCaThi.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.btnCaThi.Size = new System.Drawing.Size(296, 57);
@@ -135,7 +135,7 @@
             // 
             // btnQuanLyBaiThi
             // 
-            this.btnQuanLyBaiThi.Location = new System.Drawing.Point(1, 502);
+            this.btnQuanLyBaiThi.Location = new System.Drawing.Point(1, 479);
             this.btnQuanLyBaiThi.Name = "btnQuanLyBaiThi";
             this.btnQuanLyBaiThi.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.btnQuanLyBaiThi.Size = new System.Drawing.Size(296, 57);
@@ -145,7 +145,7 @@
             // 
             // btnDuyetNHCauHoi
             // 
-            this.btnDuyetNHCauHoi.Location = new System.Drawing.Point(1, 182);
+            this.btnDuyetNHCauHoi.Location = new System.Drawing.Point(1, 159);
             this.btnDuyetNHCauHoi.Name = "btnDuyetNHCauHoi";
             this.btnDuyetNHCauHoi.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.btnDuyetNHCauHoi.Size = new System.Drawing.Size(296, 57);
@@ -155,7 +155,7 @@
             // 
             // btnDeThi
             // 
-            this.btnDeThi.Location = new System.Drawing.Point(1, 262);
+            this.btnDeThi.Location = new System.Drawing.Point(1, 239);
             this.btnDeThi.Name = "btnDeThi";
             this.btnDeThi.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.btnDeThi.Size = new System.Drawing.Size(296, 57);

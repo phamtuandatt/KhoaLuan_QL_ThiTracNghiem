@@ -16,14 +16,24 @@ namespace App_QL_ThiTracNghiem.GUI
 {
     public partial class MainForm : Form
     {
+        int MANGANHANG;
+        string MAGV;
         public MainForm()
         {
             InitializeComponent();
         }
 
+        public MainForm(int MANGANHANG, string MAGV)
+        {
+            InitializeComponent();
+            this.MANGANHANG = MANGANHANG;
+            this.MAGV = MAGV;
+        }
+
         private void btnNganHangCauHoi_Click(object sender, EventArgs e)
         {
-            frmNganHangCauHoi frmNHCH = new frmNganHangCauHoi();
+            // Lấy Mã ngân hàng - Mã giảng viên sau khi thực hiện đăng nhập
+            frmNganHangCauHoi frmNHCH = new frmNganHangCauHoi(1, "01001001");
             frmNHCH.Dock = System.Windows.Forms.DockStyle.Fill;
             pnMain.Controls.Add(frmNHCH);
             frmNHCH.BringToFront();
