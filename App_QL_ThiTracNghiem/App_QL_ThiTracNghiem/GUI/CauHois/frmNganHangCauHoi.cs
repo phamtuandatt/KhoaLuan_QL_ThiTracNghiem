@@ -20,7 +20,7 @@ namespace App_QL_ThiTracNghiem.GUI
         public frmNganHangCauHoi()
         {
             InitializeComponent();
-            frmDS_MonHoc_CauHoi frmDS_CauHoi = new frmDS_MonHoc_CauHoi(pnContent, false);
+            frmDS_MonHoc_CauHoi frmDS_CauHoi = new frmDS_MonHoc_CauHoi(pnContent, false, MANGANHANG, MAGV);
             frmDS_CauHoi.Dock = System.Windows.Forms.DockStyle.Fill;
             pnContent.Controls.Add(frmDS_CauHoi);
             frmDS_CauHoi.BringToFront();
@@ -32,7 +32,7 @@ namespace App_QL_ThiTracNghiem.GUI
             this.MANGANHANG = MANGANHANG;
             this.MAGV = MAGV;
 
-            frmDS_MonHoc_CauHoi frmDS_CauHoi = new frmDS_MonHoc_CauHoi(pnContent, false);
+            frmDS_MonHoc_CauHoi frmDS_CauHoi = new frmDS_MonHoc_CauHoi(pnContent, false, MANGANHANG, MAGV);
             frmDS_CauHoi.Dock = System.Windows.Forms.DockStyle.Fill;
             pnContent.Controls.Add(frmDS_CauHoi);
             frmDS_CauHoi.BringToFront();
@@ -40,7 +40,7 @@ namespace App_QL_ThiTracNghiem.GUI
 
         private void btnTroVe_Click(object sender, EventArgs e)
         {
-            frmDS_MonHoc_CauHoi frmDS_CauHoi = new frmDS_MonHoc_CauHoi(pnContent, false);
+            frmDS_MonHoc_CauHoi frmDS_CauHoi = new frmDS_MonHoc_CauHoi(pnContent, false, MANGANHANG, MAGV);
             frmDS_CauHoi.Dock = System.Windows.Forms.DockStyle.Fill;
             pnContent.Controls.Add(frmDS_CauHoi);
             frmDS_CauHoi.BringToFront();

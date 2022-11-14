@@ -18,31 +18,40 @@ namespace App_QL_ThiTracNghiem.GUI.CauHoi
     {
         KryptonPanel pnContent;
         bool check_duyet_nh_cauhoi;
+        int MANGANHANG;
+        string MAGIANGVIEN;
+
         public frmDS_MonHoc_CauHoi()
         {
             InitializeComponent();
         }
 
-        public frmDS_MonHoc_CauHoi(KryptonPanel pnContent, bool check_duyet_nh_cauhoi)
+        public frmDS_MonHoc_CauHoi(KryptonPanel pnContent, bool check_duyet_nh_cauhoi, int MANGANHANG, string MAGIANGVIEN)
         {
             InitializeComponent();
             this.pnContent = pnContent;
             this.check_duyet_nh_cauhoi = check_duyet_nh_cauhoi;
+            // Lấy danh sách các môn học theo từng ngân hàng được truyền từ Main
+            this.MANGANHANG = MANGANHANG;
+            this.MAGIANGVIEN = MAGIANGVIEN;
             Show_CT_NganHangCauHoi();
         }
 
         private void Show_CT_NganHangCauHoi()
         {
-            gridDSMonHoc.DataSource = NganHangCauHoi_DAO.Get_CT_NganHangCauHoi();
+            gridDSMonHoc.DataSource = NganHangCauHoi_DAO.Get_CT_NganHangCauHoi(MANGANHANG);
         }
 
         private void gridDSMonHoc_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            int row_sl = gridDSMonHoc.CurrentRow.Index;
             // Kiểm tra nếu được gọi từ frmDuyetNHCauHoi
             // Được gọi từ frmDuyetNHCauHoi -> true
             if (check_duyet_nh_cauhoi)
             {
-                frmDuyetCauHoi frmDuyetCauHoi = new frmDuyetCauHoi(1);
+                string MAHOCPHAN = gridDSMonHoc.Rows[row_sl].Cells[5].Value.ToString();
+
+                frmDuyetCauHoi frmDuyetCauHoi = new frmDuyetCauHoi(MANGANHANG, MAHOCPHAN);
                 frmDuyetCauHoi.Dock = System.Windows.Forms.DockStyle.Fill;
                 pnContent.Controls.Add(frmDuyetCauHoi);
                 frmDuyetCauHoi.BringToFront();
@@ -52,7 +61,6 @@ namespace App_QL_ThiTracNghiem.GUI.CauHoi
             else
             {
                 // Lấy mã ngân hàng, mã học phần
-                int row_sl = gridDSMonHoc.CurrentRow.Index;
                 int MANGANHANG = int.Parse(gridDSMonHoc.Rows[row_sl].Cells[0].Value.ToString());
                 string MAHOCPHAN = gridDSMonHoc.Rows[row_sl].Cells[5].Value.ToString();
 

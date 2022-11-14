@@ -238,7 +238,7 @@
             this.menuDangXuat,
             this.menuThoat});
             this.hệThốngToolStripMenuItem.Name = "hệThốngToolStripMenuItem";
-            this.hệThốngToolStripMenuItem.Size = new System.Drawing.Size(85, 24);
+            this.hệThốngToolStripMenuItem.Size = new System.Drawing.Size(85, 26);
             this.hệThốngToolStripMenuItem.Text = "Hệ thống";
             // 
             // menuDangXuat
@@ -260,7 +260,7 @@
             this.menuDSKhoa,
             this.menuHocPhan});
             this.quảnTrịToolStripMenuItem.Name = "quảnTrịToolStripMenuItem";
-            this.quảnTrịToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
+            this.quảnTrịToolStripMenuItem.Size = new System.Drawing.Size(76, 26);
             this.quảnTrịToolStripMenuItem.Text = "Quản trị";
             // 
             // menuDSGiangVien
@@ -287,7 +287,7 @@
             this.lớpHọcToolStripMenuItem,
             this.menuSinhVien});
             this.menuLopHoc.Name = "menuLopHoc";
-            this.menuLopHoc.Size = new System.Drawing.Size(147, 24);
+            this.menuLopHoc.Size = new System.Drawing.Size(147, 26);
             this.menuLopHoc.Text = "Thông tin sinh viên";
             // 
             // lớpHọcToolStripMenuItem
