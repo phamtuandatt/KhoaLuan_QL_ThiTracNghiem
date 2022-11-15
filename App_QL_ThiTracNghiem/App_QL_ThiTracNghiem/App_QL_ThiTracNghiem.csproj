@@ -199,6 +199,12 @@
     <Compile Include="GUI\DuyetNHCauHoi\frmDuyetNHCauHoi.Designer.cs">
       <DependentUpon>frmDuyetNHCauHoi.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\DuyetNHCauHoi\frmNH_CH_GiangVien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\DuyetNHCauHoi\frmNH_CH_GiangVien.Designer.cs">
+      <DependentUpon>frmNH_CH_GiangVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\GiangVien\frmAdd_Edit_GiangVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -350,6 +356,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\DuyetNHCauHoi\frmDuyetNHCauHoi.resx">
       <DependentUpon>frmDuyetNHCauHoi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\DuyetNHCauHoi\frmNH_CH_GiangVien.resx">
+      <DependentUpon>frmNH_CH_GiangVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\GiangVien\frmAdd_Edit_GiangVien.resx">
       <DependentUpon>frmAdd_Edit_GiangVien.cs</DependentUpon>

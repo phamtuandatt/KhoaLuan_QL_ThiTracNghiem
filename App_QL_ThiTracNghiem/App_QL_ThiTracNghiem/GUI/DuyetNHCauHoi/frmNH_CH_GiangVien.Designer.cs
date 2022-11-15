@@ -1,6 +1,6 @@
 ﻿namespace App_QL_ThiTracNghiem.GUI.DuyetNHCauHoi
 {
-    partial class frmDuyetNHCauHoi
+    partial class frmNH_CH_GiangVien
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.btnTrangChinh = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.pnContent = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonGroupBox1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.gridDSGiangVien = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,8 +38,6 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pnContent)).BeginInit();
-            this.pnContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1.Panel)).BeginInit();
             this.kryptonGroupBox1.Panel.SuspendLayout();
@@ -51,33 +47,13 @@
             // 
             // kryptonPanel1
             // 
-            this.kryptonPanel1.Controls.Add(this.btnTrangChinh);
-            this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.kryptonPanel1.Controls.Add(this.kryptonGroupBox1);
+            this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonPanel1.Location = new System.Drawing.Point(0, 0);
             this.kryptonPanel1.Name = "kryptonPanel1";
             this.kryptonPanel1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.kryptonPanel1.Size = new System.Drawing.Size(1158, 50);
+            this.kryptonPanel1.Size = new System.Drawing.Size(1130, 668);
             this.kryptonPanel1.TabIndex = 0;
-            // 
-            // btnTrangChinh
-            // 
-            this.btnTrangChinh.Location = new System.Drawing.Point(6, 5);
-            this.btnTrangChinh.Name = "btnTrangChinh";
-            this.btnTrangChinh.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.btnTrangChinh.Size = new System.Drawing.Size(113, 40);
-            this.btnTrangChinh.TabIndex = 0;
-            this.btnTrangChinh.Values.Text = "Trang chính";
-            this.btnTrangChinh.Click += new System.EventHandler(this.btnTrangChinh_Click);
-            // 
-            // pnContent
-            // 
-            this.pnContent.Controls.Add(this.kryptonGroupBox1);
-            this.pnContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnContent.Location = new System.Drawing.Point(0, 50);
-            this.pnContent.Name = "pnContent";
-            this.pnContent.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.pnContent.Size = new System.Drawing.Size(1158, 732);
-            this.pnContent.TabIndex = 1;
             // 
             // kryptonGroupBox1
             // 
@@ -89,8 +65,8 @@
             // kryptonGroupBox1.Panel
             // 
             this.kryptonGroupBox1.Panel.Controls.Add(this.gridDSGiangVien);
-            this.kryptonGroupBox1.Size = new System.Drawing.Size(1158, 732);
-            this.kryptonGroupBox1.TabIndex = 3;
+            this.kryptonGroupBox1.Size = new System.Drawing.Size(1130, 668);
+            this.kryptonGroupBox1.TabIndex = 2;
             this.kryptonGroupBox1.Values.Heading = "Danh sách giảng viên";
             // 
             // gridDSGiangVien
@@ -114,7 +90,7 @@
             this.gridDSGiangVien.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.gridDSGiangVien.RowHeadersWidth = 51;
             this.gridDSGiangVien.RowTemplate.Height = 24;
-            this.gridDSGiangVien.Size = new System.Drawing.Size(1154, 704);
+            this.gridDSGiangVien.Size = new System.Drawing.Size(1126, 640);
             this.gridDSGiangVien.TabIndex = 0;
             this.gridDSGiangVien.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridDSGiangVien_CellContentClick);
             // 
@@ -153,18 +129,15 @@
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
             // 
-            // frmDuyetNHCauHoi
+            // frmNH_CH_GiangVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.pnContent);
             this.Controls.Add(this.kryptonPanel1);
-            this.Name = "frmDuyetNHCauHoi";
-            this.Size = new System.Drawing.Size(1158, 782);
+            this.Name = "frmNH_CH_GiangVien";
+            this.Size = new System.Drawing.Size(1130, 668);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
             this.kryptonPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pnContent)).EndInit();
-            this.pnContent.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1.Panel)).EndInit();
             this.kryptonGroupBox1.Panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).EndInit();
@@ -177,8 +150,6 @@
         #endregion
 
         private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel1;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel pnContent;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnTrangChinh;
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox kryptonGroupBox1;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView gridDSGiangVien;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;

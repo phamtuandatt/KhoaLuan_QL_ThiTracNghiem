@@ -29,21 +29,16 @@
         private void InitializeComponent()
         {
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.cboDSMonHoc = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.btnTroVe = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnTaoDeThi = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.pnContent = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cboDSMonHoc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnContent)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonPanel1
             // 
-            this.kryptonPanel1.Controls.Add(this.cboDSMonHoc);
-            this.kryptonPanel1.Controls.Add(this.kryptonLabel1);
             this.kryptonPanel1.Controls.Add(this.btnTroVe);
             this.kryptonPanel1.Controls.Add(this.btnTaoDeThi);
             this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -52,25 +47,6 @@
             this.kryptonPanel1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.kryptonPanel1.Size = new System.Drawing.Size(1093, 50);
             this.kryptonPanel1.TabIndex = 0;
-            // 
-            // cboDSMonHoc
-            // 
-            this.cboDSMonHoc.DropDownWidth = 198;
-            this.cboDSMonHoc.Location = new System.Drawing.Point(260, 12);
-            this.cboDSMonHoc.Name = "cboDSMonHoc";
-            this.cboDSMonHoc.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.cboDSMonHoc.Size = new System.Drawing.Size(198, 25);
-            this.cboDSMonHoc.TabIndex = 2;
-            this.cboDSMonHoc.SelectedIndexChanged += new System.EventHandler(this.cboDSMonHoc_SelectedIndexChanged);
-            // 
-            // kryptonLabel1
-            // 
-            this.kryptonLabel1.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.kryptonLabel1.Location = new System.Drawing.Point(174, 13);
-            this.kryptonLabel1.Name = "kryptonLabel1";
-            this.kryptonLabel1.Size = new System.Drawing.Size(80, 24);
-            this.kryptonLabel1.TabIndex = 1;
-            this.kryptonLabel1.Values.Text = "Môn học:";
             // 
             // btnTroVe
             // 
@@ -115,8 +91,6 @@
             this.Size = new System.Drawing.Size(1093, 723);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
             this.kryptonPanel1.ResumeLayout(false);
-            this.kryptonPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cboDSMonHoc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnContent)).EndInit();
             this.ResumeLayout(false);
 
@@ -128,7 +102,5 @@
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnTroVe;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnTaoDeThi;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel pnContent;
-        private ComponentFactory.Krypton.Toolkit.KryptonComboBox cboDSMonHoc;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
     }
 }
