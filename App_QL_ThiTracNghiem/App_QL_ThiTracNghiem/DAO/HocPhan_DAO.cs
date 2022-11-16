@@ -31,5 +31,14 @@ namespace App_QL_ThiTracNghiem.DAO
 
             return dt_HocPhan;
         }
+
+        public static DataTable GetAllHocPhans()
+        {
+            DataTable dt_HocPhan = new DataTable();
+            string sql = "SELECT *FROM HOCPHAN";
+            dt_HocPhan = data.get_data(sql, "GetAllHocPhans");
+
+            return dt_HocPhan;
+        }
     }
 }

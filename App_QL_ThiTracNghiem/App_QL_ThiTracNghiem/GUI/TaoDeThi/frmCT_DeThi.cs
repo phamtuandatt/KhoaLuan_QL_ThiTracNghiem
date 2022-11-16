@@ -27,7 +27,7 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            frmTao_DeThi frmTao_DeThi = new frmTao_DeThi();
+            frmTao_DeThi frmTao_DeThi = new frmTao_DeThi(false);
             frmTao_DeThi.Dock = DockStyle.Fill;
             panel.Controls.Add(frmTao_DeThi);
             frmTao_DeThi.BringToFront();

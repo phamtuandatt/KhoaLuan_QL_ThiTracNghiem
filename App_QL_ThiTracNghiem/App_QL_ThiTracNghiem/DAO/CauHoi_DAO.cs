@@ -15,6 +15,8 @@ namespace App_QL_ThiTracNghiem.DAO
     {
         static SqlProvider data = new SqlProvider();
 
+        static DataTable dt_CauHoi = data.get_data("SELECT *FROM CAUHOI", "TABLE_CAUHOI");
+
         public static bool Insert_Questions(List<CauHois> lst_Question, int MANGANHANG, string MAHOCPHAN)
         {
             bool check = false;
@@ -36,7 +38,26 @@ namespace App_QL_ThiTracNghiem.DAO
             return data.insert_update_delete(sql) > 0;
         }
 
-        static DataTable dt_CauHoi = data.get_data("SELECT *FROM CAUHOI", "TABLE_CAUHOI");
+        public static CauHois GetCauHoi(int MACAUHOI)
+        {
+            foreach (DataRow item in dt_CauHoi.Rows)
+            {
+                if (item["MACAUHOI"].ToString().Trim() == MACAUHOI.ToString().Trim())
+                {
+                    CauHois hois = new CauHois();
+                    hois.NoiDung = item["NOIDUNG"].ToString();
+                    hois.DapAn1 = item["DAPAN1"].ToString();
+                    hois.DapAn2 = item["DAPAN2"].ToString();
+                    hois.DapAn3 = item["DAPAN3"].ToString();
+                    hois.DapAn4 = item["DAPAN4"].ToString();
+                    hois.DapAnDung = item["DAPANDUNG"].ToString();
+
+                    return hois;
+                }
+            }
+            return null;
+        }
+
         public static void Edit_CauHoi(List<CauHois> lst_CauHoi)
         {
             foreach (DataRow item in dt_CauHoi.Rows)

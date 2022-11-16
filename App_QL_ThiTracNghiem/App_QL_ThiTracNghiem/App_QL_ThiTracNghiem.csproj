@@ -277,6 +277,12 @@
     <Compile Include="GUI\SinhVien\frmDS_SinhVien.Designer.cs">
       <DependentUpon>frmDS_SinhVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\TaoDeThi\frmChon_SL_CauHoi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\TaoDeThi\frmChon_SL_CauHoi.Designer.cs">
+      <DependentUpon>frmChon_SL_CauHoi.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\TaoDeThi\frmCT_DeThi_CauHoi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -395,6 +401,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\SinhVien\frmDS_SinhVien.resx">
       <DependentUpon>frmDS_SinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\TaoDeThi\frmChon_SL_CauHoi.resx">
+      <DependentUpon>frmChon_SL_CauHoi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\TaoDeThi\frmCT_DeThi.resx">
       <DependentUpon>frmCT_DeThi.cs</DependentUpon>
