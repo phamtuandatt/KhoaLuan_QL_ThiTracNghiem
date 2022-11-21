@@ -37,6 +37,9 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.cboDSMonHoc = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
@@ -79,6 +82,7 @@
             // 
             // gridDSDeThi
             // 
+            this.gridDSDeThi.AllowUserToAddRows = false;
             this.gridDSDeThi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridDSDeThi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridDSDeThi.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -87,7 +91,10 @@
             this.Column3,
             this.Column4,
             this.Column5,
-            this.Column6});
+            this.Column6,
+            this.Column7,
+            this.Column8,
+            this.Column9});
             this.gridDSDeThi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridDSDeThi.Location = new System.Drawing.Point(0, 0);
             this.gridDSDeThi.Name = "gridDSDeThi";
@@ -100,39 +107,66 @@
             // 
             // Column1
             // 
+            this.Column1.DataPropertyName = "MADETHI";
             this.Column1.HeaderText = "Mã đề thi";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             // 
             // Column2
             // 
-            this.Column2.HeaderText = "Môn thi";
+            this.Column2.DataPropertyName = "MAHOCPHAN";
+            this.Column2.HeaderText = "Mã học phần";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             // 
             // Column3
             // 
-            this.Column3.HeaderText = "Ngày thi";
+            this.Column3.DataPropertyName = "TENHOCPHAN";
+            this.Column3.HeaderText = "Tên học phần";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             // 
             // Column4
             // 
-            this.Column4.HeaderText = "Thời gian làm bài";
+            this.Column4.DataPropertyName = "NGAYTAO";
+            this.Column4.HeaderText = "Ngày tạo";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
             // 
             // Column5
             // 
+            this.Column5.DataPropertyName = "GIOBATDAU";
             this.Column5.HeaderText = "Giờ bắt đầu";
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
             // 
             // Column6
             // 
-            this.Column6.HeaderText = "Số lượng câu hỏi";
+            this.Column6.DataPropertyName = "NGAYTHI";
+            this.Column6.HeaderText = "Ngày thi";
             this.Column6.MinimumWidth = 6;
             this.Column6.Name = "Column6";
+            // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "TGLAMBAI";
+            this.Column7.HeaderText = "Thời gian làm bài";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "SLCAUHOI";
+            this.Column8.HeaderText = "Số lượng câu hỏi";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "TINHTRANG";
+            this.Column9.HeaderText = "Tình trạng";
+            this.Column9.MinimumWidth = 6;
+            this.Column9.Name = "Column9";
             // 
             // kryptonPanel2
             // 
@@ -151,8 +185,9 @@
             this.cboDSMonHoc.Location = new System.Drawing.Point(96, 13);
             this.cboDSMonHoc.Name = "cboDSMonHoc";
             this.cboDSMonHoc.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.cboDSMonHoc.Size = new System.Drawing.Size(198, 25);
+            this.cboDSMonHoc.Size = new System.Drawing.Size(373, 25);
             this.cboDSMonHoc.TabIndex = 4;
+            this.cboDSMonHoc.SelectedIndexChanged += new System.EventHandler(this.cboDSMonHoc_SelectedIndexChanged);
             // 
             // kryptonLabel1
             // 
@@ -190,14 +225,17 @@
         private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel1;
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox kryptonGroupBox1;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView gridDSDeThi;
+        private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel2;
+        private ComponentFactory.Krypton.Toolkit.KryptonComboBox cboDSMonHoc;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel2;
-        private ComponentFactory.Krypton.Toolkit.KryptonComboBox cboDSMonHoc;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
     }
 }

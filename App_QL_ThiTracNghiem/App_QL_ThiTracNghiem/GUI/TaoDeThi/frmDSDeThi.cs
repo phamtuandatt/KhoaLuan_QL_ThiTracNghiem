@@ -1,4 +1,6 @@
-﻿using ComponentFactory.Krypton.Toolkit;
+﻿using App_QL_ThiTracNghiem.DAO;
+using App_QL_ThiTracNghiem.DTO;
+using ComponentFactory.Krypton.Toolkit;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,14 +20,47 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
         {
             InitializeComponent();
             this.panel = panel;
+            Show_DS_DeThi();
+        }
+
+        public void Show_DS_DeThi()
+        {
+            cboDSMonHoc.DataSource = HocPhan_DAO.GetAllHocPhans();
+            cboDSMonHoc.DisplayMember = "TENHOCPHAN";
+            cboDSMonHoc.ValueMember = "MAHOCPHAN";
+            gridDSDeThi.DataSource = DeThi_DAO.GetDS_DeThi(cboDSMonHoc.SelectedValue.ToString().Trim());
         }
 
         private void gridDSDeThi_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            frmCT_DeThi frmCT_DeThi = new frmCT_DeThi(panel);
+            int rsl = gridDSDeThi.CurrentRow.Index;
+            DeThis deThis = new DeThis();
+            deThis.MaDeThi = gridDSDeThi.Rows[rsl].Cells[0].Value.ToString();
+            deThis.MaHocPhan = gridDSDeThi.Rows[rsl].Cells[1].Value.ToString();
+            deThis.NgayTao = DateTime.Parse(gridDSDeThi.Rows[rsl].Cells[3].Value.ToString());
+            deThis.GioBatDau = gridDSDeThi.Rows[rsl].Cells[4].Value.ToString();
+            deThis.NgayThi = DateTime.Parse(gridDSDeThi.Rows[rsl].Cells[5].Value.ToString());
+            deThis.TGLamBai = int.Parse(gridDSDeThi.Rows[rsl].Cells[6].Value.ToString());
+            deThis.SLCauHoi = int.Parse(gridDSDeThi.Rows[rsl].Cells[7].Value.ToString());
+            if (bool.Parse(gridDSDeThi.Rows[rsl].Cells[8].Value.ToString()) == true)
+            {
+                deThis.TinhTrang = 0;
+            }
+            else
+            {
+                deThis.TinhTrang = 1;
+            }
+            
+
+            frmCT_DeThi frmCT_DeThi = new frmCT_DeThi(panel, deThis, cboDSMonHoc.Text.ToString());
             frmCT_DeThi.Dock = DockStyle.Fill;
             panel.Controls.Add(frmCT_DeThi);
             frmCT_DeThi.BringToFront();
+        }
+
+        private void cboDSMonHoc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            gridDSDeThi.DataSource = DeThi_DAO.GetDS_DeThi(cboDSMonHoc.SelectedValue.ToString().Trim());
         }
     }
 }

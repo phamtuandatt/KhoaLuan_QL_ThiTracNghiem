@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,23 +18,77 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
     public partial class frmTao_DeThi : UserControl
     {
         bool check_edit_DeThi;
+        DeThis deThis;
+        string TENHOCPHAN = "";
+        List<CauHois> cauHois = new List<CauHois>();
         public frmTao_DeThi()
         {
             InitializeComponent();
         }
 
-        public frmTao_DeThi(bool check_edit_DeThi)
+        public frmTao_DeThi(bool check_edit_DeThi, DeThis deThis, string TENHOCPHAN, List<CauHois> cauHois)
         {
             InitializeComponent();
             this.check_edit_DeThi = check_edit_DeThi;
-            // Nếu là edit thì hiển thị thông tin đề thi và cập nhật
-            // Nếu là tạo mới thì cho tạo mới
-            // true -> tạo mới
-            // false -> Edit
 
-            Load_Combox_HocPhan();
-            cboHocPhan.SelectedIndex = 0;
-            Show_DS_CauHoi_DaDuyet(cboHocPhan.SelectedValue.ToString());
+            // Create
+            if (check_edit_DeThi)
+            {
+                Load_Combox_HocPhan();
+                cboHocPhan.SelectedIndex = 0;
+                Show_DS_CauHoi_DaDuyet(cboHocPhan.SelectedValue.ToString());
+            }
+            // Edit
+            else
+            {
+                this.deThis = deThis;
+                this.TENHOCPHAN = TENHOCPHAN;
+                this.cauHois = cauHois;
+                cboHocPhan.Text = TENHOCPHAN;
+                Show_DS_CauHoi_DaDuyet(this.deThis.MaHocPhan);
+                cboHocPhan.Enabled = false;
+
+            }
+            Select_DS_CauHoi_DeThi();
+            show_DS_DeThi_CauHOi();
+            gridDSCauHoi[0, 1].Value = true;
+        }
+
+        public void show_DS_DeThi_CauHOi()
+        {
+            foreach (var item in cauHois)
+            {
+                string[] row = new string[]
+                {
+                    item.MaCauHoi.ToString(),
+                    item.NoiDung.ToString(),
+                    item.DapAn1.ToString(),
+                    item.DapAn2.ToString(),
+                    item.DapAn3.ToString(),
+                    item.DapAn4.ToString(),
+                    item.DapAnDung.ToString(),
+                };
+                gridDSCHDuocChon.Rows.Add(row);
+            }
+        }
+
+        public void Select_DS_CauHoi_DeThi()
+        {
+            foreach (DataGridViewRow item in gridDSCauHoi.Rows)
+            {
+                //foreach (var qs in cauHois)
+                //{
+                //    if (qs.MaCauHoi.ToString().Trim() == item.Cells[3].Value.ToString().Trim())
+                //    {
+                //        item.Cells[0].Value = true;
+                //        break;
+                //    }
+                //}
+                if (item.Cells[3].Value.ToString() == 69 + "")
+                {
+                    item.Cells[0].Value = true;
+                }
+            }
         }
 
         private void Load_Combox_HocPhan()
@@ -81,7 +136,7 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
                         if (gridDSCHDuocChon.Rows[i].Cells[1].Value.ToString().Trim()
                         .Equals(row[1].ToString().Trim()))
                         {
-                            gridDSCHDuocChon.Rows.RemoveAt(i); 
+                            gridDSCHDuocChon.Rows.RemoveAt(i);
                             txtSLCauHoi.Text = gridDSCHDuocChon.RowCount + "";
                             status = true;
                             return;
@@ -187,6 +242,8 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
                 deThis.MaDeThi = txtMaDe.Text.Trim();
                 deThis.MaHocPhan = cboHocPhan.SelectedValue.ToString();
                 deThis.NgayTao = DateTime.UtcNow;
+                deThis.GioBatDau = txtTGBatDau.Text.Trim();
+                deThis.NgayThi = txtNgayThi.Value;
                 deThis.TGLamBai = int.Parse(txtTGLamBai.Text.Trim());
                 deThis.SLCauHoi = int.Parse(txtSLCauHoi.Text.Trim());
                 deThis.TinhTrang = 0;
@@ -208,8 +265,24 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
                     }
                     else
                     {
-                        KryptonMessageBox.Show("Tạo đề thi KHÔNG thành công !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        string message = "";
+                        int sl = CT_DeThi_DAO.GetDS_DeThi_HocPhan(cboHocPhan.SelectedValue.ToString()).Count;
+                        foreach (var item in CT_DeThi_DAO.GetDS_DeThi_HocPhan(cboHocPhan.SelectedValue.ToString()))
+                        {
+                            message += " - " + item + " - ";
+                        }
+                        KryptonMessageBox.Show($"Tạo đề thi KHÔNG thành công !\nMôn học này đã có {sl} đề thi {message} \t", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
+                }
+                else
+                {
+                    string message = "";
+                    int sl = CT_DeThi_DAO.GetDS_DeThi_HocPhan(cboHocPhan.SelectedValue.ToString()).Count;
+                    foreach (var item in CT_DeThi_DAO.GetDS_DeThi_HocPhan(cboHocPhan.SelectedValue.ToString()))
+                    {
+                        message += " - " + item + " - ";
+                    }
+                    KryptonMessageBox.Show($"Tạo đề thi KHÔNG thành công !\nMôn học này đã có {sl} đề thi {message} \t", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             // Cập nhật câu hỏi cho đề thi
@@ -218,7 +291,7 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
 
             }
 
-            
+
         }
 
         private void cboHocPhan_SelectedIndexChanged(object sender, EventArgs e)

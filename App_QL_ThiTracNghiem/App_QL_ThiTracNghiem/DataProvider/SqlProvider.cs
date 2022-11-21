@@ -69,7 +69,11 @@ namespace App_QL_ThiTracNghiem.DataProvider
             }
             catch (SqlException ex)
             {
-                return -1;
+                if (ex.Number == 2627)
+                {
+                    return -1;
+                }
+                return -2;
                 throw new Exception(ex.Message);
             }
         }
