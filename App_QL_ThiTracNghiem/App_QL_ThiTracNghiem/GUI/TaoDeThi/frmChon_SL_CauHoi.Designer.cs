@@ -30,7 +30,7 @@
         {
             this.pnContent = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.btnOK = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.lblbTieuDe = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.txtSL = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pnContent)).BeginInit();
             this.pnContent.SuspendLayout();
@@ -39,7 +39,7 @@
             // pnContent
             // 
             this.pnContent.Controls.Add(this.btnOK);
-            this.pnContent.Controls.Add(this.kryptonLabel1);
+            this.pnContent.Controls.Add(this.lblbTieuDe);
             this.pnContent.Controls.Add(this.txtSL);
             this.pnContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnContent.Location = new System.Drawing.Point(0, 0);
@@ -59,14 +59,14 @@
             this.btnOK.Values.Text = "XÁC NHẬN";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
-            // kryptonLabel1
+            // lblbTieuDe
             // 
-            this.kryptonLabel1.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.kryptonLabel1.Location = new System.Drawing.Point(16, 18);
-            this.kryptonLabel1.Name = "kryptonLabel1";
-            this.kryptonLabel1.Size = new System.Drawing.Size(138, 24);
-            this.kryptonLabel1.TabIndex = 1;
-            this.kryptonLabel1.Values.Text = "Số lượng câu hỏi:";
+            this.lblbTieuDe.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
+            this.lblbTieuDe.Location = new System.Drawing.Point(16, 18);
+            this.lblbTieuDe.Name = "lblbTieuDe";
+            this.lblbTieuDe.Size = new System.Drawing.Size(138, 24);
+            this.lblbTieuDe.TabIndex = 1;
+            this.lblbTieuDe.Values.Text = "Số lượng câu hỏi:";
             // 
             // txtSL
             // 
@@ -97,7 +97,7 @@
         #endregion
 
         private ComponentFactory.Krypton.Toolkit.KryptonPanel pnContent;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel lblbTieuDe;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtSL;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnOK;
     }

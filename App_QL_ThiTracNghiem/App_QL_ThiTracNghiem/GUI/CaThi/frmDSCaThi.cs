@@ -1,4 +1,5 @@
-﻿using App_QL_ThiTracNghiem.GUI.TaoDeThi;
+﻿using App_QL_ThiTracNghiem.DAO;
+using App_QL_ThiTracNghiem.GUI.TaoDeThi;
 using ComponentFactory.Krypton.Toolkit;
 using System;
 using System.Collections.Generic;
@@ -28,6 +29,13 @@ namespace App_QL_ThiTracNghiem.GUI.CaThi
             this.check_user = check_user;
             // Nếu true -> Là giảng viên -> Tạo ca thi, sửa ca thi
             // Nêu false -> Là nhân viên phòng khảo thí -> Ẩn 2 cột edit, delete
+
+            Show_DS_CaThi();
+        }
+
+        public void Show_DS_CaThi()
+        {
+            gridDSCaThi.DataSource = CaThi_DAO.Get_DS_CaThi();
         }
 
         private void gridDSCaThi_CellContentClick(object sender, DataGridViewCellEventArgs e)

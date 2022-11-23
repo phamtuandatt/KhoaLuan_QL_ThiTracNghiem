@@ -36,8 +36,10 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewButtonColumn();
-            this.Column7 = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewButtonColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewButtonColumn();
+            this.Column9 = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupDSCaThi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupDSCaThi.Panel)).BeginInit();
@@ -79,7 +81,9 @@
             this.Column4,
             this.Column5,
             this.Column6,
-            this.Column7});
+            this.Column7,
+            this.Column8,
+            this.Column9});
             this.gridDSCaThi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridDSCaThi.Location = new System.Drawing.Point(0, 0);
             this.gridDSCaThi.Name = "gridDSCaThi";
@@ -92,46 +96,65 @@
             // 
             // Column1
             // 
+            this.Column1.DataPropertyName = "MACATHI";
             this.Column1.HeaderText = "Mã ca thi";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             // 
             // Column2
             // 
-            this.Column2.HeaderText = "Tên môn học";
+            this.Column2.DataPropertyName = "MAHOCPHAN";
+            this.Column2.HeaderText = "Mã học phần";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             // 
             // Column3
             // 
-            this.Column3.HeaderText = "Mã đề thi";
+            this.Column3.DataPropertyName = "TENHOCPHAN";
+            this.Column3.HeaderText = "Tên học phần";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             // 
             // Column4
             // 
-            this.Column4.HeaderText = "Ngày thi";
+            this.Column4.DataPropertyName = "MADETHI";
+            this.Column4.HeaderText = "Mã đề thi";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
             // 
             // Column5
             // 
-            this.Column5.HeaderText = "Tình trạng";
+            this.Column5.DataPropertyName = "NGAYTHI";
+            this.Column5.HeaderText = "Ngày thi";
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
             // 
             // Column6
             // 
-            this.Column6.HeaderText = "Sửa";
+            this.Column6.DataPropertyName = "GIOLAMBAI";
+            this.Column6.HeaderText = "Giờ làm bài";
             this.Column6.MinimumWidth = 6;
             this.Column6.Name = "Column6";
-            this.Column6.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // Column7
             // 
-            this.Column7.HeaderText = "Xóa";
+            this.Column7.DataPropertyName = "TINHTRANG";
+            this.Column7.HeaderText = "Tình trạng";
             this.Column7.MinimumWidth = 6;
             this.Column7.Name = "Column7";
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "SỬA";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            this.Column8.Text = "";
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "XÓA";
+            this.Column9.MinimumWidth = 6;
+            this.Column9.Name = "Column9";
             // 
             // frmDSCaThi
             // 
@@ -161,7 +184,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewButtonColumn Column6;
-        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewButtonColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewButtonColumn Column8;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewButtonColumn Column9;
     }
 }

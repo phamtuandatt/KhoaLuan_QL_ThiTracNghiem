@@ -35,20 +35,18 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
         {
             int rsl = gridDSDeThi.CurrentRow.Index;
             DeThis deThis = new DeThis();
-            deThis.MaDeThi = gridDSDeThi.Rows[rsl].Cells[0].Value.ToString();
+            deThis.MaDeThi = gridDSDeThi.Rows[rsl].Cells[0].Value.ToString().Trim();
             deThis.MaHocPhan = gridDSDeThi.Rows[rsl].Cells[1].Value.ToString();
             deThis.NgayTao = DateTime.Parse(gridDSDeThi.Rows[rsl].Cells[3].Value.ToString());
-            deThis.GioBatDau = gridDSDeThi.Rows[rsl].Cells[4].Value.ToString();
-            deThis.NgayThi = DateTime.Parse(gridDSDeThi.Rows[rsl].Cells[5].Value.ToString());
-            deThis.TGLamBai = int.Parse(gridDSDeThi.Rows[rsl].Cells[6].Value.ToString());
-            deThis.SLCauHoi = int.Parse(gridDSDeThi.Rows[rsl].Cells[7].Value.ToString());
-            if (bool.Parse(gridDSDeThi.Rows[rsl].Cells[8].Value.ToString()) == true)
+            deThis.TGLamBai = int.Parse(gridDSDeThi.Rows[rsl].Cells[4].Value.ToString());
+            deThis.SLCauHoi = int.Parse(gridDSDeThi.Rows[rsl].Cells[5].Value.ToString());
+            if (bool.Parse(gridDSDeThi.Rows[rsl].Cells[6].Value.ToString()) == true)
             {
-                deThis.TinhTrang = 0;
+                deThis.TinhTrang = 1;
             }
             else
             {
-                deThis.TinhTrang = 1;
+                deThis.TinhTrang = 0;
             }
             
 

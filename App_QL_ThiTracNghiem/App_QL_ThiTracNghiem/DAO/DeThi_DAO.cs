@@ -22,10 +22,34 @@ namespace App_QL_ThiTracNghiem.DAO
             return dt;
         }
 
+        public static List<string> Get_DS_DeThi_For_CaThi(string MAHOCPHAN)
+        {
+            List<string> lst = new List<string>();
+            DataTable dt = new DataTable();
+            string sql = string.Format("EXEC GET_DS_DETHI '{0}'", MAHOCPHAN);
+            dt = data.get_data(sql, "GetDSDeThi");
+            foreach (DataRow item in dt.Rows)
+            {
+                lst.Add(item["MADETHI"].ToString().Trim());
+            }
+
+            return lst;
+        }
+
+        public static bool UpdateDeThi(DeThis deThis, string MADETHI, string MAHOCPHAN)
+        {
+            string sql = string.Format("UPDATE DETHI\n " +
+                            "SET TGLAMBAI = '{0}', NGAYTAO = N'{1}', SLCAUHOI = {2}, TINHTRANG = {3}\n " +
+                            "WHERE MADETHI = '{4}' AND MAHOCPHAN = '{5}'",
+                            deThis.TGLamBai, deThis.NgayTao, deThis.SLCauHoi, deThis.TinhTrang, MADETHI, MAHOCPHAN);
+
+            return data.insert_update_delete(sql) > 0;
+        }
+
         public static bool Insert_DeThi(DeThis deThis)
         {
-            string sql = string.Format("SET DATEFORMAT DMY INSERT INTO DETHI VALUES ('{0}', '{1}', '{2}', N'{3}', N'{4}', {5}, {6}, {7})",
-                deThis.MaDeThi, deThis.MaHocPhan, deThis.NgayTao, deThis.GioBatDau, deThis.NgayThi, deThis.TGLamBai, deThis.SLCauHoi, deThis.TinhTrang);
+            string sql = string.Format("SET DATEFORMAT DMY INSERT INTO DETHI VALUES ('{0}', '{1}', '{2}', {3}, {4}, {5})",
+                deThis.MaDeThi, deThis.MaHocPhan, deThis.NgayTao, deThis.TGLamBai, deThis.SLCauHoi, deThis.TinhTrang);
             if (data.insert_update_delete(sql) == -1)
             {
                 return false;

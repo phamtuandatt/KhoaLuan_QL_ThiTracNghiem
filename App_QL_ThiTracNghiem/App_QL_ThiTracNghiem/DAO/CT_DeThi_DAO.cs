@@ -16,6 +16,13 @@ namespace App_QL_ThiTracNghiem.DAO
 
         static DataTable table_tam = data.get_data("SELECT *FROM CT_DETHI", "TABLE_TAM");
 
+        public static bool DeleteCT_DeThi(string MADETHI, string MAHOCPHAN)
+        {
+            string sql = string.Format("DELETE FROM CT_DETHI WHERE MADETHI = '{0}' AND MAHOCPHAN = '{1}'", MADETHI, MAHOCPHAN);
+
+            return data.insert_update_delete(sql) > 0;
+        }
+
         public static DataTable GetDS_DeThi_CauHoi(string MADETHI, string MAHOCPHAN)
         {
             DataTable dt = new DataTable();

@@ -44,14 +44,26 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
                 this.deThis = deThis;
                 this.TENHOCPHAN = TENHOCPHAN;
                 this.cauHois = cauHois;
-                cboHocPhan.Text = TENHOCPHAN;
-                Show_DS_CauHoi_DaDuyet(this.deThis.MaHocPhan);
-                cboHocPhan.Enabled = false;
 
+                cboHocPhan.Text = TENHOCPHAN;
+                cboHocPhan.Enabled = false;
+                txtMaDe.Text = deThis.MaDeThi;
+                txtSLCauHoi.Text = deThis.SLCauHoi + "";
+                txtTGLamBai.Text = deThis.TGLamBai + "";
+
+                txtMaDe.ReadOnly = true;
+                txtSLCauHoi.ReadOnly = true;
+
+                gridDSCauHoi.Columns[9].Visible = false;
+
+                gridDSCauHoi.ContextMenuStrip = contextLeft;
+                gridDSCHDuocChon.ContextMenuStrip = contextRight;
+
+                Show_DS_CauHoi_DaDuyet(this.deThis.MaHocPhan);
+
+                show_DS_DeThi_CauHOi();
             }
-            Select_DS_CauHoi_DeThi();
-            show_DS_DeThi_CauHOi();
-            gridDSCauHoi[0, 1].Value = true;
+
         }
 
         public void show_DS_DeThi_CauHOi()
@@ -69,25 +81,6 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
                     item.DapAnDung.ToString(),
                 };
                 gridDSCHDuocChon.Rows.Add(row);
-            }
-        }
-
-        public void Select_DS_CauHoi_DeThi()
-        {
-            foreach (DataGridViewRow item in gridDSCauHoi.Rows)
-            {
-                //foreach (var qs in cauHois)
-                //{
-                //    if (qs.MaCauHoi.ToString().Trim() == item.Cells[3].Value.ToString().Trim())
-                //    {
-                //        item.Cells[0].Value = true;
-                //        break;
-                //    }
-                //}
-                if (item.Cells[3].Value.ToString() == 69 + "")
-                {
-                    item.Cells[0].Value = true;
-                }
             }
         }
 
@@ -151,6 +144,7 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
             }
         }
 
+        int number_question = 0;
         private void btnRanDom_Click(object sender, EventArgs e)
         {
             if (gridDSCHDuocChon.RowCount > 0)
@@ -170,7 +164,7 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
                 int total_row = gridDSCauHoi.RowCount;
                 Random rd = new Random();
                 List<int> numbeHasRandom = new List<int>();
-                int number_question = 0;
+                
                 while (number_question < soLuong_CauHoi)
                 {
                     int row_sl = rd.Next(0, total_row);
@@ -205,7 +199,6 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
                 int total_row = gridDSCauHoi.RowCount;
                 Random rd = new Random();
                 List<int> numbeHasRandom = new List<int>();
-                int number_question = 0;
                 while (number_question < soLuong_CauHoi)
                 {
                     int row_sl = rd.Next(0, total_row);
@@ -242,8 +235,6 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
                 deThis.MaDeThi = txtMaDe.Text.Trim();
                 deThis.MaHocPhan = cboHocPhan.SelectedValue.ToString();
                 deThis.NgayTao = DateTime.UtcNow;
-                deThis.GioBatDau = txtTGBatDau.Text.Trim();
-                deThis.NgayThi = txtNgayThi.Value;
                 deThis.TGLamBai = int.Parse(txtTGLamBai.Text.Trim());
                 deThis.SLCauHoi = int.Parse(txtSLCauHoi.Text.Trim());
                 deThis.TinhTrang = 0;
@@ -288,10 +279,55 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
             // Cập nhật câu hỏi cho đề thi
             else
             {
+                // Xóa CT_DeThi hiện tại
+                if (CT_DeThi_DAO.DeleteCT_DeThi(txtMaDe.Text.Trim(), deThis.MaHocPhan.Trim()))
+                {
+                    DeThis deThis = new DeThis();
+                    deThis.MaDeThi = txtMaDe.Text.Trim();
+                    deThis.MaHocPhan = this.deThis.MaHocPhan.Trim();
+                    deThis.TGLamBai = int.Parse(txtTGLamBai.Text.Trim());
+                    deThis.SLCauHoi = int.Parse(txtSLCauHoi.Text.Trim());
+                    deThis.TinhTrang = 0;
 
+                    if (DeThi_DAO.UpdateDeThi(deThis, txtMaDe.Text.Trim(), deThis.MaHocPhan))
+                    {
+                        List<CT_DeThis> lst_CT_DeThi = new List<CT_DeThis>();
+                        foreach (DataGridViewRow item in gridDSCHDuocChon.Rows)
+                        {
+                            CT_DeThis cT_DeThis = new CT_DeThis();
+                            cT_DeThis.MaDeThi = txtMaDe.Text.Trim();
+                            cT_DeThis.MaCauHoi = int.Parse(item.Cells[0].Value.ToString());
+                            cT_DeThis.MaHocPhan = this.deThis.MaHocPhan.Trim();
+
+                            lst_CT_DeThi.Add(cT_DeThis);
+                        }
+                        if (CT_DeThi_DAO.Update_Database(lst_CT_DeThi))
+                        {
+                            KryptonMessageBox.Show("Cập nhật đề thi thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            string message = "";
+                            int sl = CT_DeThi_DAO.GetDS_DeThi_HocPhan(deThis.MaHocPhan).Count;
+                            foreach (var item in CT_DeThi_DAO.GetDS_DeThi_HocPhan(deThis.MaHocPhan))
+                            {
+                                message += " - " + item + " - ";
+                            }
+                            KryptonMessageBox.Show($"Cập nhật đề thi KHÔNG thành công !\nMôn học này đã có {sl} đề thi {message} \t", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                    else
+                    {
+                        string message = "";
+                        int sl = CT_DeThi_DAO.GetDS_DeThi_HocPhan(deThis.MaHocPhan).Count;
+                        foreach (var item in CT_DeThi_DAO.GetDS_DeThi_HocPhan(deThis.MaHocPhan))
+                        {
+                            message += " - " + item + " - ";
+                        }
+                        KryptonMessageBox.Show($"Tạo đề thi KHÔNG thành công !\nMôn học này đã có {sl} đề thi {message} \t", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
             }
-
-
         }
 
         private void cboHocPhan_SelectedIndexChanged(object sender, EventArgs e)
@@ -320,6 +356,55 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
             int MACAUHOI = int.Parse(gridDSCHDuocChon.Rows[row_sl].Cells[0].Value.ToString().Trim());
             frmCT_DeThi_CauHoi frmCT_DeThi_CauHoi = new frmCT_DeThi_CauHoi(MACAUHOI);
             frmCT_DeThi_CauHoi.ShowDialog();
+        }
+
+        private void contextLeft_Click(object sender, EventArgs e)
+        {
+            int row_sl = gridDSCauHoi.CurrentRow.Index;
+            gridDSCauHoi.Rows[row_sl].Cells[0].Value = true;
+
+            foreach (DataGridViewRow item in gridDSCHDuocChon.Rows)
+            {
+                if (item.Cells[0].Value.ToString().Trim() == gridDSCauHoi.Rows[row_sl].Cells[3].Value.ToString().Trim())
+                {
+                    KryptonMessageBox.Show("Câu hỏi đã được chọn !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+
+            string[] row = new string[]
+            {
+                 gridDSCauHoi.Rows[row_sl].Cells[3].Value.ToString().Trim(),
+                 gridDSCauHoi.Rows[row_sl].Cells[4].Value.ToString().Trim(),
+                 gridDSCauHoi.Rows[row_sl].Cells[5].Value.ToString().Trim(),
+                 gridDSCauHoi.Rows[row_sl].Cells[6].Value.ToString().Trim(),
+                 gridDSCauHoi.Rows[row_sl].Cells[7].Value.ToString().Trim(),
+                 gridDSCauHoi.Rows[row_sl].Cells[8].Value.ToString().Trim(),
+                 gridDSCauHoi.Rows[row_sl].Cells[9].Value.ToString().Trim(),
+            };
+            gridDSCHDuocChon.Rows.Add(row);
+            txtSLCauHoi.Text = gridDSCHDuocChon.RowCount + "";
+        }
+
+        private void contextRight_Click(object sender, EventArgs e)
+        {
+            int rsl = gridDSCHDuocChon.CurrentRow.Index;
+            gridDSCHDuocChon.Rows.RemoveAt(rsl);
+
+            txtSLCauHoi.Text = gridDSCHDuocChon.RowCount + "";
+        }
+
+        private void gridDSCauHoi_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                int rowSelected = e.RowIndex;
+                if (e.RowIndex != -1)
+                {
+                    this.gridDSCauHoi.ClearSelection();
+                    this.gridDSCauHoi.Rows[rowSelected].Selected = true;
+                }
+            }
         }
     }
 }

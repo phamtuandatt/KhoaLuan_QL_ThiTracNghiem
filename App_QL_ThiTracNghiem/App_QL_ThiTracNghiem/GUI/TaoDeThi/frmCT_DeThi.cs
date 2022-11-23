@@ -32,10 +32,8 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
 
             txtTenHP.Text = this.TENHOCPHAN;
             txtMaDe.Text = this.deThis.MaDeThi;
-            txtTGBatDau.Text = this.deThis.GioBatDau;
             txtSLCauHoi.Text = this.deThis.SLCauHoi + "";
             txtTGLamBai.Text = this.deThis.TGLamBai + "";
-            txtNgayThi.Text = this.deThis.NgayThi.ToString("dd/MMM/yy");
 
             Show_DS_CauHoi();
         }
@@ -50,8 +48,6 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
             DeThis deThi = new DeThis();
             deThi.MaDeThi = txtMaDe.Text.Trim();
             deThi.MaHocPhan = this.deThis.MaHocPhan.Trim();
-            deThi.GioBatDau = txtTGBatDau.Text;
-            deThi.NgayThi = DateTime.Parse(txtNgayThi.Text);
             deThi.TGLamBai = int.Parse(txtTGLamBai.Text.Trim());
             deThi.SLCauHoi = int.Parse(txtSLCauHoi.Text.Trim());
 
