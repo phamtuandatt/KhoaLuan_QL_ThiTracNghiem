@@ -159,7 +159,7 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
                 }
                 frmChon_SL_CauHoi frmChon_SL_CauHoi = new frmChon_SL_CauHoi();
                 frmChon_SL_CauHoi.ShowDialog();
-                int soLuong_CauHoi = frmChon_SL_CauHoi.SoLuongCauHoi;
+                int soLuong_CauHoi = frmChon_SL_CauHoi.SoLuong;
 
                 int total_row = gridDSCauHoi.RowCount;
                 Random rd = new Random();
@@ -194,7 +194,7 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
             {
                 frmChon_SL_CauHoi frmChon_SL_CauHoi = new frmChon_SL_CauHoi();
                 frmChon_SL_CauHoi.ShowDialog();
-                int soLuong_CauHoi = frmChon_SL_CauHoi.SoLuongCauHoi;
+                int soLuong_CauHoi = frmChon_SL_CauHoi.SoLuong;
 
                 int total_row = gridDSCauHoi.RowCount;
                 Random rd = new Random();

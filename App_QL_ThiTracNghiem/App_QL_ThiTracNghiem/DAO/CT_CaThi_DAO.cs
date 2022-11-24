@@ -15,12 +15,30 @@ namespace App_QL_ThiTracNghiem.DAO
 
         public static DataTable dt_tam = data.get_data("SELECT *FROM CT_CATHI", "TBTAM");
 
-        public static bool Insert_CT_CaThi(List<string> lst_SV, int MADETHI)
+        public static DataTable GetDS_SinhVien(int MACATHI)
+        {
+            DataTable dt = new DataTable();
+            string sql = string.Format("EXEC GET_DSSV_CATHI {0}", MACATHI);
+            dt = data.get_data(sql, "DSSINHVIEN");
+            
+            return dt;
+        }
+
+        public static DataTable GetDSSV_ChuaThi(string MAHOCPHAN)
+        {
+            DataTable dt = new DataTable();
+            string sql = string.Format("EXEC GET_DSSV_CHUA_THAM_GIA_THI '{0}'", MAHOCPHAN);
+            dt = data.get_data(sql, "DSSINHVIEN");
+
+            return dt;
+        }
+
+        public static bool Insert_CT_CaThi(List<string> lst_SV, int MACATHI)
         {
             foreach (var item in lst_SV)
             {
                 DataRow add_r = dt_tam.NewRow();
-                add_r[0] = MADETHI;
+                add_r[0] = MACATHI;
                 add_r[1] = item;
 
                 dt_tam.Rows.Add(add_r);

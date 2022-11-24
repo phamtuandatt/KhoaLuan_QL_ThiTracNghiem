@@ -21,15 +21,21 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
     {
         KryptonPanel content;
         bool check_create_edit;
+        int MACATHI;
+        string MAHOCPHAN, TENHOCPHAN;
         public frmTaoCaThi()
         {
             InitializeComponent();
         }
-        public frmTaoCaThi(KryptonPanel content, bool check_create_edit)
+        public frmTaoCaThi(KryptonPanel content, bool check_create_edit, int MACATHI, string MAHOCPHAN, string TENHOCPHAN)
         {
             InitializeComponent();
             this.content = content;
             this.check_create_edit = check_create_edit;
+            this.MACATHI = MACATHI;
+            this.MAHOCPHAN = MAHOCPHAN;
+            this.TENHOCPHAN = TENHOCPHAN;
+
             // Nếu là true -> Tạo mới ca thi
             if (this.check_create_edit)
             {
@@ -44,13 +50,26 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
             else
             {
                 btnThemSV.Visible = true;
+                btnSelectAll.Enabled = false;
+                cboDSMonHoc.Enabled = false;
+                cboDKLocSinhVien.Enabled = false;
+                cboDSMonHoc.DropDownStyle = ComboBoxStyle.DropDown;
+                cboDSMonHoc.Text = TENHOCPHAN;
+
                 Delete_Row_TableLayout();
+                Show_DSSV_CaThi(this.MACATHI);
+
             }
         }
 
         public void Show_DS_SV(string MAHOCPHAN)
         {
             gridDSSinhVien.DataSource = SinhVien_DAO.GetSinhViens(MAHOCPHAN);
+        }
+
+        public void Show_DSSV_CaThi(int MACATHI)
+        {
+            gridDSSVDuocChon.DataSource = CT_CaThi_DAO.GetDS_SinhVien(MACATHI);
         }
 
         public void Delete_Row_TableLayout()
@@ -98,7 +117,7 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
         private void btnThemSV_Click(object sender, EventArgs e)
         {
             // Truyền môn học vào form để hiển thị danh sách sinh viên đang theo học môn học đó
-            frmThemSV frmThemSV = new frmThemSV(5);
+            frmThemSV frmThemSV = new frmThemSV(MACATHI ,MAHOCPHAN, TENHOCPHAN);
             frmThemSV.ShowDialog();
         }
 
@@ -117,7 +136,7 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
 
                 frmChon_SL_CauHoi frmChon_SL_CauHoi = new frmChon_SL_CauHoi(true);
                 frmChon_SL_CauHoi.ShowDialog();
-                int soLuong = frmChon_SL_CauHoi.SoLuongCauHoi;
+                int soLuong = frmChon_SL_CauHoi.SoLuong;
 
                 for (int i = 0; i < soLuong; i++)
                 {
@@ -137,7 +156,7 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
             {
                 frmChon_SL_CauHoi frmChon_SL_CauHoi = new frmChon_SL_CauHoi(true);
                 frmChon_SL_CauHoi.ShowDialog();
-                int soLuong = frmChon_SL_CauHoi.SoLuongCauHoi;
+                int soLuong = frmChon_SL_CauHoi.SoLuong;
 
                 for (int i = 0; i < soLuong; i++)
                 {
@@ -203,7 +222,6 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
                         gridDSSVDuocChon.Rows.Add(row);
                     }
                 }
-
             }
         }
     }

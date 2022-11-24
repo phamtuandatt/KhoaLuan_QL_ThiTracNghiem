@@ -12,7 +12,7 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
 {
     public partial class frmChon_SL_CauHoi : Form
     {
-        public int SoLuongCauHoi { get; set; }
+        public int SoLuong { get; set; }
         bool check = false;
 
         public frmChon_SL_CauHoi()
@@ -24,12 +24,16 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
         {
             InitializeComponent();
             this.check = check;
-            lblbTieuDe.Text = "Số lượng sinh viên:";
+            if (check)
+            {
+                lblbTieuDe.Text = "Số lượng sinh viên:";
+            }
+            
         }
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            SoLuongCauHoi = int.Parse(txtSL.Text.Trim());
+            SoLuong = int.Parse(txtSL.Text.Trim());
             this.Close();
         }
     }

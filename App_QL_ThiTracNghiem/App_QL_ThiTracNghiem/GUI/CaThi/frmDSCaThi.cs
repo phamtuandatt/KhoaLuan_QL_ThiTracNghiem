@@ -44,7 +44,12 @@ namespace App_QL_ThiTracNghiem.GUI.CaThi
             if (check_user)
             {
                 // Khi nhấn vào từng ca thi -> Hiển thị thông tin chi tiết ca thi
-                frmTaoCaThi frmTaoCaThi = new frmTaoCaThi(content, false);
+                int rsl = gridDSCaThi.CurrentRow.Index;
+                int MACATHI = int.Parse(gridDSCaThi.Rows[rsl].Cells[2].Value.ToString());
+                string MAHOCPHAN = gridDSCaThi.Rows[rsl].Cells[3].Value.ToString();
+                string TENHOCPHAN = gridDSCaThi.Rows[rsl].Cells[4].Value.ToString();
+
+                frmTaoCaThi frmTaoCaThi = new frmTaoCaThi(content, false, MACATHI, MAHOCPHAN, TENHOCPHAN);
                 frmTaoCaThi.Dock = DockStyle.Fill;
                 content.Controls.Add(frmTaoCaThi);
                 frmTaoCaThi.BringToFront();

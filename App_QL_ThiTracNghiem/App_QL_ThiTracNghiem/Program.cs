@@ -1,4 +1,5 @@
 ﻿using App_QL_ThiTracNghiem.GUI;
+using App_QL_ThiTracNghiem.GUI.CaThi;
 using App_QL_ThiTracNghiem.GUI.CauHoi;
 using System;
 using System.Collections.Generic;
