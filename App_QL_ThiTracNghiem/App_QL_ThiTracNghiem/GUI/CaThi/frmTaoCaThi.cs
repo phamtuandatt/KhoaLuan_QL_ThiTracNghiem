@@ -16,18 +16,20 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
-{
+{ 
     public partial class frmTaoCaThi : UserControl
     {
         KryptonPanel content;
         bool check_create_edit;
         int MACATHI;
         string MAHOCPHAN, TENHOCPHAN;
+        CaThis ct;
+
         public frmTaoCaThi()
         {
             InitializeComponent();
         }
-        public frmTaoCaThi(KryptonPanel content, bool check_create_edit, int MACATHI, string MAHOCPHAN, string TENHOCPHAN)
+        public frmTaoCaThi(KryptonPanel content, bool check_create_edit, int MACATHI, string MAHOCPHAN, string TENHOCPHAN, CaThis ct)
         {
             InitializeComponent();
             this.content = content;
@@ -35,11 +37,12 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
             this.MACATHI = MACATHI;
             this.MAHOCPHAN = MAHOCPHAN;
             this.TENHOCPHAN = TENHOCPHAN;
+            this.ct = ct;
 
             // Nếu là true -> Tạo mới ca thi
             if (this.check_create_edit)
             {
-                btnThemSV.Visible = false;
+                btnThemSV.Visible = false; 
                 cboDSMonHoc.DataSource = HocPhan_DAO.GetAllHocPhans();
                 cboDSMonHoc.DisplayMember = "TENHOCPHAN";
                 cboDSMonHoc.ValueMember = "MAHOCPHAN";
@@ -56,9 +59,10 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
                 cboDSMonHoc.DropDownStyle = ComboBoxStyle.DropDown;
                 cboDSMonHoc.Text = TENHOCPHAN;
 
-                Delete_Row_TableLayout();
-                Show_DSSV_CaThi(this.MACATHI);
+                gridDSSVDuocChon.ContextMenuStrip = contextMenuSV;
 
+                Show_DSSV_CaThi(this.MACATHI);
+                Delete_Row_TableLayout();
             }
         }
 
@@ -104,14 +108,38 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            List<string> lst_SV = new List<string>();
-            foreach (DataGridViewRow item in gridDSSVDuocChon.Rows)
+            // Tạo ca thi
+            if (check_create_edit)
             {
-                lst_SV.Add(item.Cells[0].Value.ToString().Trim());
-            }
+                List<string> lst_SV = new List<string>();
+                foreach (DataGridViewRow item in gridDSSVDuocChon.Rows)
+                {
+                    lst_SV.Add(item.Cells[0].Value.ToString().Trim());
+                }
 
-            frmCT_CaThi frmCTCaThi = new frmCT_CaThi(cboDSMonHoc.SelectedValue.ToString(), cboDSMonHoc.Text.Trim(), lst_SV);
-            frmCTCaThi.ShowDialog();
+                frmCT_CaThi frmCTCaThi = new frmCT_CaThi(true, cboDSMonHoc.SelectedValue.ToString(), cboDSMonHoc.Text.Trim(), lst_SV, null);
+                frmCTCaThi.ShowDialog();
+            }
+            // Cập nhật ca thi
+            else
+            {
+                List<string> lst_SV = new List<string>();
+                foreach (DataGridViewRow item in gridDSSVDuocChon.Rows)
+                {
+                    lst_SV.Add(item.Cells[0].Value.ToString().Trim());
+                }
+                CaThis cts = new CaThis();
+                cts.MaCaThi = MACATHI;
+                cts.MaHocPhan = MAHOCPHAN;
+                cts.MaDeThi = ct.MaDeThi;
+                cts.NgayThi = ct.NgayThi;
+                cts.GioLamBai = ct.GioLamBai;
+                cts.TinhTrang = ct.TinhTrang;
+
+
+                frmCT_CaThi frmCTCaThi = new frmCT_CaThi(false, MAHOCPHAN, cboDSMonHoc.Text.Trim(), lst_SV, ct);
+                frmCTCaThi.ShowDialog();
+            }
         }
 
         private void btnThemSV_Click(object sender, EventArgs e)
@@ -119,6 +147,7 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
             // Truyền môn học vào form để hiển thị danh sách sinh viên đang theo học môn học đó
             frmThemSV frmThemSV = new frmThemSV(MACATHI ,MAHOCPHAN, TENHOCPHAN);
             frmThemSV.ShowDialog();
+            Show_DSSV_CaThi(MACATHI);
         }
 
         private void btnSelectAll_Click(object sender, EventArgs e)
@@ -134,7 +163,7 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
                     item.Cells[0].Value = false;
                 }
 
-                frmChon_SL_CauHoi frmChon_SL_CauHoi = new frmChon_SL_CauHoi(true);
+                frmChon_SL_CauHoi frmChon_SL_CauHoi = new frmChon_SL_CauHoi(true, false);
                 frmChon_SL_CauHoi.ShowDialog();
                 int soLuong = frmChon_SL_CauHoi.SoLuong;
 
@@ -154,7 +183,7 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
             }
             else
             {
-                frmChon_SL_CauHoi frmChon_SL_CauHoi = new frmChon_SL_CauHoi(true);
+                frmChon_SL_CauHoi frmChon_SL_CauHoi = new frmChon_SL_CauHoi(true, false);
                 frmChon_SL_CauHoi.ShowDialog();
                 int soLuong = frmChon_SL_CauHoi.SoLuong;
 
@@ -182,6 +211,19 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
         private void cboDSMonHoc_SelectedIndexChanged(object sender, EventArgs e)
         {
             Show_DS_SV(cboDSMonHoc.SelectedValue.ToString());
+        }
+
+        private void contextMenuSV_Click(object sender, EventArgs e)
+        {
+            int rowSL = gridDSSVDuocChon.CurrentRow.Index;
+            string masv = gridDSSVDuocChon.Rows[rowSL].Cells[0].Value.ToString().Trim();
+            foreach (DataGridViewRow item in gridDSSVDuocChon.Rows)
+            {
+                if (item.Cells[0].Value.ToString().Trim() == masv)
+                {
+                    gridDSSVDuocChon.Rows.RemoveAt(item.Index);
+                }
+            }
         }
 
         private void gridDSSinhVien_CellContentClick(object sender, DataGridViewCellEventArgs e)

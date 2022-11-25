@@ -109,3 +109,4 @@ D:\KhoaLuan_QL_ThiTracNghiem\App_QL_ThiTracNghiem\App_QL_ThiTracNghiem\obj\Debug
 D:\KhoaLuan_QL_ThiTracNghiem\App_QL_ThiTracNghiem\App_QL_ThiTracNghiem\obj\Debug\App_QL_ThiTracNghiem.pdb
 D:\KhoaLuan_QL_ThiTracNghiem\App_QL_ThiTracNghiem\App_QL_ThiTracNghiem\obj\Debug\App_QL_ThiTracNghiem.GUI.DuyetNHCauHoi.frmNH_CH_GiangVien.resources
 D:\KhoaLuan_QL_ThiTracNghiem\App_QL_ThiTracNghiem\App_QL_ThiTracNghiem\obj\Debug\App_QL_ThiTracNghiem.GUI.TaoDeThi.frmChon_SL_CauHoi.resources
+D:\KhoaLuan_QL_ThiTracNghiem\App_QL_ThiTracNghiem\App_QL_ThiTracNghiem\obj\Debug\App_QL_ThiTracNghiem.GUI.CaThi.frmShowDS_DeThiCon.resources

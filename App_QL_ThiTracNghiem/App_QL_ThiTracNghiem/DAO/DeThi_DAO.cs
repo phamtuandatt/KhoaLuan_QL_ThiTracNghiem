@@ -48,8 +48,8 @@ namespace App_QL_ThiTracNghiem.DAO
 
         public static bool Insert_DeThi(DeThis deThis)
         {
-            string sql = string.Format("SET DATEFORMAT DMY INSERT INTO DETHI VALUES ('{0}', '{1}', '{2}', {3}, {4}, {5})",
-                deThis.MaDeThi, deThis.MaHocPhan, deThis.NgayTao, deThis.TGLamBai, deThis.SLCauHoi, deThis.TinhTrang);
+            string sql = string.Format("SET DATEFORMAT DMY INSERT INTO DETHI(MAHOCPHAN, NGAYTAO, TGLAMBAI, SLCAUHOI, TINHTRANG) VALUES ('{0}', '{1}', {2}, {3}, {4})",
+                deThis.MaHocPhan, deThis.NgayTao, deThis.TGLamBai, deThis.SLCauHoi, deThis.TinhTrang);
             if (data.insert_update_delete(sql) == -1)
             {
                 return false;

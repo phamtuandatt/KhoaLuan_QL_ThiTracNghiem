@@ -33,6 +33,13 @@ namespace App_QL_ThiTracNghiem.DAO
             return dt;
         }
 
+        public static bool DeleteCT_CaThi(int MACATHI)
+        {
+            string sql = string.Format("DELETE FROM CT_CATHI WHERE MACATHI = {0}", MACATHI);
+
+            return data.insert_update_delete(sql) > 0;
+        }
+
         public static bool Insert_CT_CaThi(List<string> lst_SV, int MACATHI)
         {
             foreach (var item in lst_SV)

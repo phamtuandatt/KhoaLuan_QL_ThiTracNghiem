@@ -35,10 +35,10 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewButtonColumn();
             this.Column9 = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupDSCaThi)).BeginInit();
@@ -72,6 +72,7 @@
             // 
             // gridDSCaThi
             // 
+            this.gridDSCaThi.AllowUserToAddRows = false;
             this.gridDSCaThi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridDSCaThi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridDSCaThi.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -79,10 +80,10 @@
             this.Column2,
             this.Column3,
             this.Column4,
+            this.Column8,
             this.Column5,
             this.Column6,
             this.Column7,
-            this.Column8,
             this.Column9});
             this.gridDSCaThi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridDSCaThi.Location = new System.Drawing.Point(0, 0);
@@ -118,9 +119,16 @@
             // Column4
             // 
             this.Column4.DataPropertyName = "MADETHI";
-            this.Column4.HeaderText = "Mã đề thi";
+            this.Column4.HeaderText = "Tổ hợp đề";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "MADECON";
+            this.Column8.HeaderText = "Đề thi";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
             // 
             // Column5
             // 
@@ -143,18 +151,12 @@
             this.Column7.MinimumWidth = 6;
             this.Column7.Name = "Column7";
             // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "SỬA";
-            this.Column8.MinimumWidth = 6;
-            this.Column8.Name = "Column8";
-            this.Column8.Text = "";
-            // 
             // Column9
             // 
             this.Column9.HeaderText = "XÓA";
             this.Column9.MinimumWidth = 6;
             this.Column9.Name = "Column9";
+            this.Column9.Text = "XÓA";
             // 
             // frmDSCaThi
             // 
@@ -183,10 +185,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewButtonColumn Column8;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewButtonColumn Column9;
     }
 }

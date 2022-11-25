@@ -23,7 +23,7 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
             InitializeComponent();
         }
 
-        public frmCT_DeThi(KryptonPanel panel, DeThis deThis, string TENHOCPHAN)
+        public frmCT_DeThi(KryptonPanel panel, DeThis deThis, string TENHOCPHAN) 
         {
             InitializeComponent();
             this.panel = panel;
@@ -31,25 +31,45 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
             this.TENHOCPHAN = TENHOCPHAN;
 
             txtTenHP.Text = this.TENHOCPHAN;
-            txtMaDe.Text = this.deThis.MaDeThi;
             txtSLCauHoi.Text = this.deThis.SLCauHoi + "";
             txtTGLamBai.Text = this.deThis.TGLamBai + "";
+            txtNgayTao.Text = this.deThis.NgayTao + "";
+            if (this.deThis.TinhTrang == 0)
+            {
+                txtTrangThai.Text = "Chưa được được sử dụng";
+            }
+            else
+            {
+                txtTrangThai.Text = "Đã được sử dụng";
+            }
+            
 
+            Show_DS_DeCon(this.deThis.MaDeThi);
             Show_DS_CauHoi();
+            
         }
 
         public void Show_DS_CauHoi()
         {
-            gridDSCauHoi_DeThi.DataSource = CT_DeThi_DAO.GetDS_DeThi_CauHoi(deThis.MaDeThi.Trim(), deThis.MaHocPhan.Trim());
+            gridDSCauHoi_DeThi.DataSource = CT_DeThi_DAO.GetDS_DeThi_CauHoi(deThis.MaDeThi, cboDeCon.SelectedValue.ToString());
+        }
+
+        public void Show_DS_DeCon(int MADETHI)
+        {
+            cboDeCon.DataSource = CT_DeThi_DAO.Get_DS_DeCon(MADETHI);
+            cboDeCon.DisplayMember = "MADECON";
+            cboDeCon.ValueMember = "MADECON";
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
             DeThis deThi = new DeThis();
-            deThi.MaDeThi = txtMaDe.Text.Trim();
-            deThi.MaHocPhan = this.deThis.MaHocPhan.Trim();
+            deThi.MaDeThi = deThis.MaDeThi;
+            deThi.MaHocPhan = deThis.MaHocPhan.Trim();
+            deThi.NgayTao = deThis.NgayTao;
             deThi.TGLamBai = int.Parse(txtTGLamBai.Text.Trim());
             deThi.SLCauHoi = int.Parse(txtSLCauHoi.Text.Trim());
+            deThi.TinhTrang = deThis.TinhTrang;
 
             List<CauHois> cauHois = new List<CauHois>();
 
@@ -67,10 +87,15 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
                 cauHois.Add(qs);
             }
 
-            frmTao_DeThi frmTao_DeThi = new frmTao_DeThi(false, deThis, txtTenHP.Text.Trim(), cauHois);
+            frmTao_DeThi frmTao_DeThi = new frmTao_DeThi(false, deThis, cboDeCon.SelectedValue.ToString(), txtTenHP.Text.Trim(), cauHois);
             frmTao_DeThi.Dock = DockStyle.Fill;
             panel.Controls.Add(frmTao_DeThi);
             frmTao_DeThi.BringToFront();
+        }
+
+        private void cboDeCon_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            gridDSCauHoi_DeThi.DataSource = CT_DeThi_DAO.GetDS_DeThi_CauHoi(deThis.MaDeThi, cboDeCon.SelectedValue.ToString());
         }
 
         private void btnHuy_Click(object sender, EventArgs e)

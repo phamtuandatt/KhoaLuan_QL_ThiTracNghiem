@@ -9,7 +9,7 @@ namespace App_QL_ThiTracNghiem.DTO
 {
     public class DeThis
     {
-        public string MaDeThi { get; set; }
+        public int MaDeThi { get; set; }
         public string MaHocPhan { get; set; }
         public DateTime NgayTao { get; set; }
         public int TGLamBai { get; set; }

@@ -24,7 +24,7 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
         private void btnTaoDeThi_Click(object sender, EventArgs e)
         {
             // Khi tạo đề thi -> Hiện form truyền Id môn học để biết tạo đề cho môn học nào
-            frmTao_DeThi frmTao_DeThi = new frmTao_DeThi(true, null, null, null);
+            frmTao_DeThi frmTao_DeThi = new frmTao_DeThi(true, null, null, null, null);
             frmTao_DeThi.Dock = System.Windows.Forms.DockStyle.Fill;
             pnContent.Controls.Add(frmTao_DeThi);
             frmTao_DeThi.BringToFront();

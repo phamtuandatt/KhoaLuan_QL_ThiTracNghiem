@@ -56,9 +56,9 @@
             this.kryptonLabel2.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
             this.kryptonLabel2.Location = new System.Drawing.Point(12, 75);
             this.kryptonLabel2.Name = "kryptonLabel2";
-            this.kryptonLabel2.Size = new System.Drawing.Size(85, 24);
+            this.kryptonLabel2.Size = new System.Drawing.Size(89, 24);
             this.kryptonLabel2.TabIndex = 0;
-            this.kryptonLabel2.Values.Text = "Mã đề thi:";
+            this.kryptonLabel2.Values.Text = "Tổ hợp đề:";
             // 
             // kryptonLabel3
             // 

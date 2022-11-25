@@ -29,15 +29,13 @@
         private void InitializeComponent()
         {
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.txtNgayThi = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.txtNgayTao = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.txtTGLamBai = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.txtTGBatDau = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.txtMaDe = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.txtTrangThai = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.txtTenHP = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.txtSLCauHoi = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryptonLabel6 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel5 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel4 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel3 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
@@ -55,6 +53,8 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cboDeCon = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.kryptonLabel4 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
@@ -64,20 +64,21 @@
             this.kryptonGroupBox2.Panel.SuspendLayout();
             this.kryptonGroupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridDSCauHoi_DeThi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboDeCon)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonPanel1
             // 
-            this.kryptonPanel1.Controls.Add(this.txtNgayThi);
+            this.kryptonPanel1.Controls.Add(this.cboDeCon);
+            this.kryptonPanel1.Controls.Add(this.txtNgayTao);
             this.kryptonPanel1.Controls.Add(this.txtTGLamBai);
-            this.kryptonPanel1.Controls.Add(this.txtTGBatDau);
-            this.kryptonPanel1.Controls.Add(this.txtMaDe);
+            this.kryptonPanel1.Controls.Add(this.txtTrangThai);
             this.kryptonPanel1.Controls.Add(this.txtTenHP);
             this.kryptonPanel1.Controls.Add(this.txtSLCauHoi);
             this.kryptonPanel1.Controls.Add(this.kryptonLabel6);
             this.kryptonPanel1.Controls.Add(this.kryptonLabel5);
-            this.kryptonPanel1.Controls.Add(this.kryptonLabel4);
             this.kryptonPanel1.Controls.Add(this.kryptonLabel3);
+            this.kryptonPanel1.Controls.Add(this.kryptonLabel4);
             this.kryptonPanel1.Controls.Add(this.kryptonLabel2);
             this.kryptonPanel1.Controls.Add(this.kryptonLabel1);
             this.kryptonPanel1.Controls.Add(this.btnHuy);
@@ -90,41 +91,32 @@
             this.kryptonPanel1.Size = new System.Drawing.Size(1664, 102);
             this.kryptonPanel1.TabIndex = 0;
             // 
-            // txtNgayThi
+            // txtNgayTao
             // 
-            this.txtNgayThi.Location = new System.Drawing.Point(1063, 58);
-            this.txtNgayThi.Name = "txtNgayThi";
-            this.txtNgayThi.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.txtNgayThi.ReadOnly = true;
-            this.txtNgayThi.Size = new System.Drawing.Size(214, 27);
-            this.txtNgayThi.TabIndex = 20;
+            this.txtNgayTao.Location = new System.Drawing.Point(1063, 58);
+            this.txtNgayTao.Name = "txtNgayTao";
+            this.txtNgayTao.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.txtNgayTao.ReadOnly = true;
+            this.txtNgayTao.Size = new System.Drawing.Size(214, 27);
+            this.txtNgayTao.TabIndex = 20;
             // 
             // txtTGLamBai
             // 
-            this.txtTGLamBai.Location = new System.Drawing.Point(659, 58);
+            this.txtTGLamBai.Location = new System.Drawing.Point(657, 13);
             this.txtTGLamBai.Name = "txtTGLamBai";
             this.txtTGLamBai.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.txtTGLamBai.ReadOnly = true;
             this.txtTGLamBai.Size = new System.Drawing.Size(214, 27);
             this.txtTGLamBai.TabIndex = 20;
             // 
-            // txtTGBatDau
+            // txtTrangThai
             // 
-            this.txtTGBatDau.Location = new System.Drawing.Point(1063, 13);
-            this.txtTGBatDau.Name = "txtTGBatDau";
-            this.txtTGBatDau.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.txtTGBatDau.ReadOnly = true;
-            this.txtTGBatDau.Size = new System.Drawing.Size(214, 27);
-            this.txtTGBatDau.TabIndex = 21;
-            // 
-            // txtMaDe
-            // 
-            this.txtMaDe.Location = new System.Drawing.Point(659, 13);
-            this.txtMaDe.Name = "txtMaDe";
-            this.txtMaDe.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.txtMaDe.ReadOnly = true;
-            this.txtMaDe.Size = new System.Drawing.Size(214, 27);
-            this.txtMaDe.TabIndex = 21;
+            this.txtTrangThai.Location = new System.Drawing.Point(1063, 13);
+            this.txtTrangThai.Name = "txtTrangThai";
+            this.txtTrangThai.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.txtTrangThai.ReadOnly = true;
+            this.txtTrangThai.Size = new System.Drawing.Size(214, 27);
+            this.txtTrangThai.TabIndex = 21;
             // 
             // txtTenHP
             // 
@@ -149,32 +141,23 @@
             this.kryptonLabel6.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
             this.kryptonLabel6.Location = new System.Drawing.Point(913, 59);
             this.kryptonLabel6.Name = "kryptonLabel6";
-            this.kryptonLabel6.Size = new System.Drawing.Size(78, 24);
+            this.kryptonLabel6.Size = new System.Drawing.Size(82, 24);
             this.kryptonLabel6.TabIndex = 12;
-            this.kryptonLabel6.Values.Text = "Ngày thi:";
+            this.kryptonLabel6.Values.Text = "Ngày tạo:";
             // 
             // kryptonLabel5
             // 
             this.kryptonLabel5.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
             this.kryptonLabel5.Location = new System.Drawing.Point(913, 14);
             this.kryptonLabel5.Name = "kryptonLabel5";
-            this.kryptonLabel5.Size = new System.Drawing.Size(144, 24);
+            this.kryptonLabel5.Size = new System.Drawing.Size(90, 24);
             this.kryptonLabel5.TabIndex = 13;
-            this.kryptonLabel5.Values.Text = "Thời gian bắt đầu:";
-            // 
-            // kryptonLabel4
-            // 
-            this.kryptonLabel4.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.kryptonLabel4.Location = new System.Drawing.Point(513, 14);
-            this.kryptonLabel4.Name = "kryptonLabel4";
-            this.kryptonLabel4.Size = new System.Drawing.Size(61, 24);
-            this.kryptonLabel4.TabIndex = 14;
-            this.kryptonLabel4.Values.Text = "Mã đề:";
+            this.kryptonLabel5.Values.Text = "Trạng thái:";
             // 
             // kryptonLabel3
             // 
             this.kryptonLabel3.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.kryptonLabel3.Location = new System.Drawing.Point(513, 59);
+            this.kryptonLabel3.Location = new System.Drawing.Point(511, 14);
             this.kryptonLabel3.Name = "kryptonLabel3";
             this.kryptonLabel3.Size = new System.Drawing.Size(142, 24);
             this.kryptonLabel3.TabIndex = 15;
@@ -335,6 +318,26 @@
             this.Column8.MinimumWidth = 6;
             this.Column8.Name = "Column8";
             // 
+            // cboDeCon
+            // 
+            this.cboDeCon.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboDeCon.DropDownWidth = 214;
+            this.cboDeCon.Location = new System.Drawing.Point(657, 61);
+            this.cboDeCon.Name = "cboDeCon";
+            this.cboDeCon.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.cboDeCon.Size = new System.Drawing.Size(214, 25);
+            this.cboDeCon.TabIndex = 23;
+            this.cboDeCon.SelectedIndexChanged += new System.EventHandler(this.cboDeCon_SelectedIndexChanged);
+            // 
+            // kryptonLabel4
+            // 
+            this.kryptonLabel4.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
+            this.kryptonLabel4.Location = new System.Drawing.Point(511, 61);
+            this.kryptonLabel4.Name = "kryptonLabel4";
+            this.kryptonLabel4.Size = new System.Drawing.Size(61, 24);
+            this.kryptonLabel4.TabIndex = 16;
+            this.kryptonLabel4.Values.Text = "Mã đề:";
+            // 
             // frmCT_DeThi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -353,6 +356,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox2)).EndInit();
             this.kryptonGroupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridDSCauHoi_DeThi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboDeCon)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -367,16 +371,14 @@
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnOk;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnHuy;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtTGLamBai;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtMaDe;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtSLCauHoi;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel6;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel5;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel4;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel3;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel2;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtNgayThi;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtTGBatDau;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtNgayTao;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtTrangThai;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtTenHP;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
@@ -386,5 +388,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private ComponentFactory.Krypton.Toolkit.KryptonComboBox cboDeCon;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel4;
     }
 }

@@ -46,7 +46,7 @@ namespace App_QL_ThiTracNghiem.GUI.CaThi
 
         private void btnTaoCaThi_Click(object sender, EventArgs e)
         {
-            frmTaoCaThi frmTaoCaThi = new frmTaoCaThi(pnContent, true, 0, null, null);
+            frmTaoCaThi frmTaoCaThi = new frmTaoCaThi(pnContent, true, 0, null, null, null);
             frmTaoCaThi.Dock = DockStyle.Fill;
             pnContent.Controls.Add(frmTaoCaThi);
             frmTaoCaThi.BringToFront();

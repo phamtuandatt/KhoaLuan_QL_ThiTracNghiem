@@ -15,7 +15,7 @@ using System.Windows.Forms;
 namespace App_QL_ThiTracNghiem.GUI.CaThi
 {
     public partial class frmThemSV : Form
-    {
+    { 
         int MACATHI;
         string MAHOCPHAN, TENHOCPHAN;
         List<string> lst_SinhVien;
@@ -90,7 +90,7 @@ namespace App_QL_ThiTracNghiem.GUI.CaThi
 
         private void btnSelectAll_Click(object sender, EventArgs e)
         {
-            frmChon_SL_CauHoi sl = new frmChon_SL_CauHoi(true);
+            frmChon_SL_CauHoi sl = new frmChon_SL_CauHoi(true, false);
             sl.ShowDialog();
             int soLuong = sl.SoLuong;
             

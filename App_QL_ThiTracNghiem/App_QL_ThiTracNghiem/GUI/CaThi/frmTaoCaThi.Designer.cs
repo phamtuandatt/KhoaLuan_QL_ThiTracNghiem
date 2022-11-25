@@ -28,12 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.tableLayoutContent = new System.Windows.Forms.TableLayoutPanel();
             this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonGroupBox2 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.gridDSSVDuocChon = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kryptonPanel3 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonGroupBox1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.gridDSSinhVien = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
@@ -57,11 +63,8 @@
             this.btnHuy = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnSelectAll = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnThemSV = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuSV = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.xóaSinhViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             this.tableLayoutContent.SuspendLayout();
@@ -83,6 +86,7 @@
             this.kryptonPanal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cboDKLocSinhVien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboDSMonHoc)).BeginInit();
+            this.contextMenuSV.SuspendLayout();
             this.SuspendLayout();
             // 
             // kryptonPanel1
@@ -155,6 +159,41 @@
             this.gridDSSVDuocChon.RowTemplate.Height = 24;
             this.gridDSSVDuocChon.Size = new System.Drawing.Size(1646, 282);
             this.gridDSSVDuocChon.TabIndex = 1;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "MASV";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Mã sinh viên";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "TENSV";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Tên sinh viên";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "GIOITINH";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Giới Tính";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "NGAYSINH";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Ngày sinh";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "MALOP";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Lớp học";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
             // kryptonPanel3
             // 
@@ -279,9 +318,9 @@
             // 
             // Column12
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.NullValue = false;
-            this.Column12.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.NullValue = false;
+            this.Column12.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column12.FalseValue = null;
             this.Column12.HeaderText = "";
             this.Column12.IndeterminateValue = null;
@@ -401,40 +440,21 @@
             this.btnThemSV.Values.Text = "Bổ sung sinh viên";
             this.btnThemSV.Click += new System.EventHandler(this.btnThemSV_Click);
             // 
-            // dataGridViewTextBoxColumn1
+            // contextMenuSV
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "MASV";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Mã sinh viên";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.contextMenuSV.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.contextMenuSV.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuSV.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.xóaSinhViênToolStripMenuItem});
+            this.contextMenuSV.Name = "contextMenuSV";
+            this.contextMenuSV.Size = new System.Drawing.Size(211, 56);
+            this.contextMenuSV.Click += new System.EventHandler(this.contextMenuSV_Click);
             // 
-            // dataGridViewTextBoxColumn2
+            // xóaSinhViênToolStripMenuItem
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "TENSV";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Tên sinh viên";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "GIOITINH";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Giới Tính";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "NGAYSINH";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Ngày sinh";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "MALOP";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Lớp học";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.xóaSinhViênToolStripMenuItem.Name = "xóaSinhViênToolStripMenuItem";
+            this.xóaSinhViênToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.xóaSinhViênToolStripMenuItem.Text = "Xóa sinh viên";
             // 
             // frmTaoCaThi
             // 
@@ -465,6 +485,7 @@
             this.kryptonPanal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cboDKLocSinhVien)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboDSMonHoc)).EndInit();
+            this.contextMenuSV.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -504,5 +525,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.ContextMenuStrip contextMenuSV;
+        private System.Windows.Forms.ToolStripMenuItem xóaSinhViênToolStripMenuItem;
     }
 }

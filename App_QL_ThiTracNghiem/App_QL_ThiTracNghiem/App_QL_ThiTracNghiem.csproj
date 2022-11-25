@@ -145,6 +145,12 @@
     <Compile Include="GUI\CaThi\frmDSCaThi.Designer.cs">
       <DependentUpon>frmDSCaThi.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\CaThi\frmShowDS_DeThiCon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\CaThi\frmShowDS_DeThiCon.Designer.cs">
+      <DependentUpon>frmShowDS_DeThiCon.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\CaThi\frmThemSV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -335,6 +341,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\CaThi\frmDSCaThi.resx">
       <DependentUpon>frmDSCaThi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\CaThi\frmShowDS_DeThiCon.resx">
+      <DependentUpon>frmShowDS_DeThiCon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\CaThi\frmThemSV.resx">
       <DependentUpon>frmThemSV.cs</DependentUpon>
