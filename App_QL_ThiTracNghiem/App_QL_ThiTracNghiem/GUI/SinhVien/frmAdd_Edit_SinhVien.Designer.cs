@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonRadioButton2 = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
             this.kryptonRadioButton1 = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
             this.kryptonDateTimePicker1 = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
@@ -50,23 +51,52 @@
             this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel10 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonComboBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
             this.kryptonPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonComboBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonPanel1
             // 
             this.kryptonPanel1.Controls.Add(this.kryptonPanel2);
             this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonPanel1.Location = new System.Drawing.Point(0, 0);
+            this.kryptonPanel1.Location = new System.Drawing.Point(20, 60);
             this.kryptonPanel1.Name = "kryptonPanel1";
             this.kryptonPanel1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.kryptonPanel1.Size = new System.Drawing.Size(813, 330);
+            this.kryptonPanel1.Size = new System.Drawing.Size(807, 331);
             this.kryptonPanel1.TabIndex = 0;
+            // 
+            // kryptonPanel2
+            // 
+            this.kryptonPanel2.Controls.Add(this.kryptonRadioButton2);
+            this.kryptonPanel2.Controls.Add(this.kryptonRadioButton1);
+            this.kryptonPanel2.Controls.Add(this.kryptonDateTimePicker1);
+            this.kryptonPanel2.Controls.Add(this.kryptonButton2);
+            this.kryptonPanel2.Controls.Add(this.kryptonButton1);
+            this.kryptonPanel2.Controls.Add(this.kryptonTextBox5);
+            this.kryptonPanel2.Controls.Add(this.kryptonTextBox9);
+            this.kryptonPanel2.Controls.Add(this.kryptonTextBox8);
+            this.kryptonPanel2.Controls.Add(this.kryptonTextBox7);
+            this.kryptonPanel2.Controls.Add(this.kryptonTextBox2);
+            this.kryptonPanel2.Controls.Add(this.kryptonTextBox1);
+            this.kryptonPanel2.Controls.Add(this.kryptonComboBox1);
+            this.kryptonPanel2.Controls.Add(this.kryptonLabel3);
+            this.kryptonPanel2.Controls.Add(this.kryptonLabel8);
+            this.kryptonPanel2.Controls.Add(this.kryptonLabel7);
+            this.kryptonPanel2.Controls.Add(this.kryptonLabel6);
+            this.kryptonPanel2.Controls.Add(this.kryptonLabel5);
+            this.kryptonPanel2.Controls.Add(this.kryptonLabel4);
+            this.kryptonPanel2.Controls.Add(this.kryptonLabel2);
+            this.kryptonPanel2.Controls.Add(this.kryptonLabel10);
+            this.kryptonPanel2.Controls.Add(this.kryptonLabel1);
+            this.kryptonPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.kryptonPanel2.Location = new System.Drawing.Point(0, 0);
+            this.kryptonPanel2.Name = "kryptonPanel2";
+            this.kryptonPanel2.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.kryptonPanel2.Size = new System.Drawing.Size(807, 331);
+            this.kryptonPanel2.TabIndex = 1;
             // 
             // kryptonRadioButton2
             // 
@@ -248,50 +278,20 @@
             this.kryptonLabel1.TabIndex = 0;
             this.kryptonLabel1.Values.Text = "Tên sinh viên";
             // 
-            // kryptonPanel2
-            // 
-            this.kryptonPanel2.Controls.Add(this.kryptonRadioButton2);
-            this.kryptonPanel2.Controls.Add(this.kryptonRadioButton1);
-            this.kryptonPanel2.Controls.Add(this.kryptonDateTimePicker1);
-            this.kryptonPanel2.Controls.Add(this.kryptonButton2);
-            this.kryptonPanel2.Controls.Add(this.kryptonButton1);
-            this.kryptonPanel2.Controls.Add(this.kryptonTextBox5);
-            this.kryptonPanel2.Controls.Add(this.kryptonTextBox9);
-            this.kryptonPanel2.Controls.Add(this.kryptonTextBox8);
-            this.kryptonPanel2.Controls.Add(this.kryptonTextBox7);
-            this.kryptonPanel2.Controls.Add(this.kryptonTextBox2);
-            this.kryptonPanel2.Controls.Add(this.kryptonTextBox1);
-            this.kryptonPanel2.Controls.Add(this.kryptonComboBox1);
-            this.kryptonPanel2.Controls.Add(this.kryptonLabel3);
-            this.kryptonPanel2.Controls.Add(this.kryptonLabel8);
-            this.kryptonPanel2.Controls.Add(this.kryptonLabel7);
-            this.kryptonPanel2.Controls.Add(this.kryptonLabel6);
-            this.kryptonPanel2.Controls.Add(this.kryptonLabel5);
-            this.kryptonPanel2.Controls.Add(this.kryptonLabel4);
-            this.kryptonPanel2.Controls.Add(this.kryptonLabel2);
-            this.kryptonPanel2.Controls.Add(this.kryptonLabel10);
-            this.kryptonPanel2.Controls.Add(this.kryptonLabel1);
-            this.kryptonPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonPanel2.Location = new System.Drawing.Point(0, 0);
-            this.kryptonPanel2.Name = "kryptonPanel2";
-            this.kryptonPanel2.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.kryptonPanel2.Size = new System.Drawing.Size(813, 330);
-            this.kryptonPanel2.TabIndex = 1;
-            // 
             // frmAdd_Edit_SinhVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(813, 330);
+            this.ClientSize = new System.Drawing.Size(847, 411);
             this.Controls.Add(this.kryptonPanel1);
             this.Name = "frmAdd_Edit_SinhVien";
-            this.Text = "frmAdd_Edit_SinhVien";
+            this.Text = "Tùy chỉnh";
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
             this.kryptonPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonComboBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).EndInit();
             this.kryptonPanel2.ResumeLayout(false);
             this.kryptonPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonComboBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

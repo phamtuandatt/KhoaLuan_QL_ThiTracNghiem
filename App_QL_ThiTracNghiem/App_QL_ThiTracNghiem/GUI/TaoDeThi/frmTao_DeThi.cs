@@ -38,6 +38,11 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
                 Load_Combox_HocPhan();
                 cboHocPhan.SelectedIndex = 0;
                 Show_DS_CauHoi_DaDuyet(cboHocPhan.SelectedValue.ToString());
+
+                lblTT.Visible = false;
+                lblNT.Visible = false;
+                txtTrangThai.Visible = false;
+                txtNgayTao.Visible = false;
             }
             // Edit
             else
@@ -79,10 +84,7 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
 
                 gridDSCauHoi.ContextMenuStrip = contextLeft;
                 gridDSCHDuocChon.ContextMenuStrip = contextRight;
-
-
             }
-
         }
 
         public int CountElemntCbo(KryptonComboBox cbo)
@@ -445,6 +447,14 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
                     this.gridDSCauHoi.ClearSelection();
                     this.gridDSCauHoi.Rows[rowSelected].Selected = true;
                 }
+            }
+        }
+
+        private void txtTGLamBai_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }

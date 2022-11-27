@@ -26,7 +26,7 @@ namespace App_QL_ThiTracNghiem.GUI.DuyetNHCauHoi
         }
 
         public frmNH_CH_GiangVien(KryptonPanel pnContent)
-        {
+        { 
             InitializeComponent();
             this.pnContent = pnContent;
 

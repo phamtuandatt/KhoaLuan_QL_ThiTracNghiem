@@ -445,6 +445,7 @@
             // 
             // gridDSCauHoi
             // 
+            this.gridDSCauHoi.AllowUserToAddRows = false;
             this.gridDSCauHoi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridDSCauHoi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridDSCauHoi.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -461,8 +462,10 @@
             this.gridDSCauHoi.Location = new System.Drawing.Point(0, 0);
             this.gridDSCauHoi.Name = "gridDSCauHoi";
             this.gridDSCauHoi.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.gridDSCauHoi.ReadOnly = true;
             this.gridDSCauHoi.RowHeadersWidth = 51;
             this.gridDSCauHoi.RowTemplate.Height = 24;
+            this.gridDSCauHoi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridDSCauHoi.Size = new System.Drawing.Size(752, 704);
             this.gridDSCauHoi.TabIndex = 0;
             this.gridDSCauHoi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridDSCauHoi_CellContentClick);
@@ -473,6 +476,7 @@
             this.Column1.HeaderText = "MÃ CÂU HỎI";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             this.Column1.Visible = false;
             // 
             // Column2
@@ -481,6 +485,7 @@
             this.Column2.HeaderText = "NỘI DUNG";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
@@ -488,6 +493,7 @@
             this.Column3.HeaderText = "ĐÁP ÁN A";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             this.Column3.Visible = false;
             // 
             // Column4
@@ -496,6 +502,7 @@
             this.Column4.HeaderText = "ĐÁP ÁN B";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             this.Column4.Visible = false;
             // 
             // Column5
@@ -504,6 +511,7 @@
             this.Column5.HeaderText = "ĐÁP ÁN C";
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             this.Column5.Visible = false;
             // 
             // Column6
@@ -512,6 +520,7 @@
             this.Column6.HeaderText = "ĐÁP ÁN D";
             this.Column6.MinimumWidth = 6;
             this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
             this.Column6.Visible = false;
             // 
             // Column7
@@ -520,6 +529,7 @@
             this.Column7.HeaderText = "ĐÁP ÁN ĐÚNG";
             this.Column7.MinimumWidth = 6;
             this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
             // 
             // Column8
             // 
@@ -527,6 +537,7 @@
             this.Column8.HeaderText = "NGÀY TẠO";
             this.Column8.MinimumWidth = 6;
             this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
             // 
             // Column9
             // 
@@ -534,6 +545,7 @@
             this.Column9.HeaderText = "NGÀY CẬP NHẬT";
             this.Column9.MinimumWidth = 6;
             this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
             // 
             // frmCT_CauHoi
             // 

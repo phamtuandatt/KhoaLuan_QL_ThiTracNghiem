@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace App_QL_ThiTracNghiem.GUI.GiangVien
 {
-    public partial class frmAdd_Edit_GiangVien : Form
+    public partial class frmAdd_Edit_GiangVien : MetroFramework.Forms.MetroForm
     {
         public frmAdd_Edit_GiangVien()
         {

@@ -17,7 +17,7 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
     {
         KryptonPanel panel;
         public frmDSDeThi(KryptonPanel panel)
-        {
+        { 
             InitializeComponent();
             this.panel = panel;
             Show_DS_DeThi();
@@ -40,7 +40,6 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
             deThis.NgayTao = DateTime.Parse(gridDSDeThi.Rows[rsl].Cells[3].Value.ToString());
             deThis.TGLamBai = int.Parse(gridDSDeThi.Rows[rsl].Cells[4].Value.ToString());
             deThis.SLCauHoi = int.Parse(gridDSDeThi.Rows[rsl].Cells[5].Value.ToString());
-            //deThis.TinhTrang = byte.Parse(gridDSDeThi.Rows[rsl].Cells[5].Value.ToString());
             if (bool.Parse(gridDSDeThi.Rows[rsl].Cells[6].Value.ToString()) == true)
             {
                 deThis.TinhTrang = 1;
@@ -56,12 +55,6 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
             panel.Controls.Add(frmCT_DeThi);
             frmCT_DeThi.BringToFront();
         }
-        public int MaDeThi { get; set; }
-        public string MaHocPhan { get; set; }
-        public DateTime NgayTao { get; set; }
-        public int TGLamBai { get; set; }
-        public int SLCauHoi { get; set; }
-        public byte TinhTrang { get; set; }
 
         private void cboDSMonHoc_SelectedIndexChanged(object sender, EventArgs e)
         {

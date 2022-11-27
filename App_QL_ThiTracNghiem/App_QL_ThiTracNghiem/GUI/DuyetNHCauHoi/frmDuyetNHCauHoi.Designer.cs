@@ -95,6 +95,7 @@
             // 
             // gridDSGiangVien
             // 
+            this.gridDSGiangVien.AllowUserToAddRows = false;
             this.gridDSGiangVien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridDSGiangVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridDSGiangVien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -104,16 +105,13 @@
             this.Column4,
             this.Column5});
             this.gridDSGiangVien.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridDSGiangVien.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Sheet;
-            this.gridDSGiangVien.GridStyles.StyleBackground = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundSheet;
-            this.gridDSGiangVien.GridStyles.StyleColumn = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
-            this.gridDSGiangVien.GridStyles.StyleDataCells = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
-            this.gridDSGiangVien.GridStyles.StyleRow = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
             this.gridDSGiangVien.Location = new System.Drawing.Point(0, 0);
             this.gridDSGiangVien.Name = "gridDSGiangVien";
             this.gridDSGiangVien.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.gridDSGiangVien.ReadOnly = true;
             this.gridDSGiangVien.RowHeadersWidth = 51;
             this.gridDSGiangVien.RowTemplate.Height = 24;
+            this.gridDSGiangVien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridDSGiangVien.Size = new System.Drawing.Size(1154, 704);
             this.gridDSGiangVien.TabIndex = 0;
             this.gridDSGiangVien.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridDSGiangVien_CellContentClick);
@@ -124,6 +122,7 @@
             this.Column1.HeaderText = "Mã giảng viên";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // Column2
             // 
@@ -131,6 +130,7 @@
             this.Column2.HeaderText = "Tên giảng viên";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
@@ -138,6 +138,7 @@
             this.Column3.HeaderText = "Số lượng môn đã tạo";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // Column4
             // 
@@ -145,6 +146,7 @@
             this.Column4.HeaderText = "Ngày cập nhật";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
             // Column5
             // 
@@ -152,6 +154,7 @@
             this.Column5.HeaderText = "Mã ngân hàng";
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             // 
             // frmDuyetNHCauHoi
             // 

@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 namespace App_QL_ThiTracNghiem.GUI.CaThi
 {
-    public partial class frmThemSV : Form
+    public partial class frmThemSV : MetroFramework.Forms.MetroForm
     { 
         int MACATHI;
         string MAHOCPHAN, TENHOCPHAN;
@@ -93,6 +93,14 @@ namespace App_QL_ThiTracNghiem.GUI.CaThi
             frmChon_SL_CauHoi sl = new frmChon_SL_CauHoi(true, false);
             sl.ShowDialog();
             int soLuong = sl.SoLuong;
+
+            while (soLuong > gridDSSinhVien.RowCount)
+            {
+                KryptonMessageBox.Show("Số lượng sinh viên muốn chọn vượt quá số lượng đang có !\nHãy chọn lại hoặc bổ sung sinh viên.", "Cảnh báo",
+                        MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                sl.ShowDialog();
+                soLuong = sl.SoLuong;
+            }
             
             for (int i = 0; i < soLuong; i++)
             {

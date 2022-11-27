@@ -110,3 +110,7 @@ D:\KhoaLuan_QL_ThiTracNghiem\App_QL_ThiTracNghiem\App_QL_ThiTracNghiem\obj\Debug
 D:\KhoaLuan_QL_ThiTracNghiem\App_QL_ThiTracNghiem\App_QL_ThiTracNghiem\obj\Debug\App_QL_ThiTracNghiem.GUI.DuyetNHCauHoi.frmNH_CH_GiangVien.resources
 D:\KhoaLuan_QL_ThiTracNghiem\App_QL_ThiTracNghiem\App_QL_ThiTracNghiem\obj\Debug\App_QL_ThiTracNghiem.GUI.TaoDeThi.frmChon_SL_CauHoi.resources
 D:\KhoaLuan_QL_ThiTracNghiem\App_QL_ThiTracNghiem\App_QL_ThiTracNghiem\obj\Debug\App_QL_ThiTracNghiem.GUI.CaThi.frmShowDS_DeThiCon.resources
+D:\KhoaLuan_QL_ThiTracNghiem\App_QL_ThiTracNghiem\App_QL_ThiTracNghiem\obj\Debug\App_QL_ThiTracNghiem.GUI.frmDangNhap.resources
+D:\KhoaLuan_QL_ThiTracNghiem\App_QL_ThiTracNghiem\App_QL_ThiTracNghiem\bin\Debug\MetroFramework.Design.dll
+D:\KhoaLuan_QL_ThiTracNghiem\App_QL_ThiTracNghiem\App_QL_ThiTracNghiem\bin\Debug\MetroFramework.dll
+D:\KhoaLuan_QL_ThiTracNghiem\App_QL_ThiTracNghiem\App_QL_ThiTracNghiem\bin\Debug\MetroFramework.Fonts.dll

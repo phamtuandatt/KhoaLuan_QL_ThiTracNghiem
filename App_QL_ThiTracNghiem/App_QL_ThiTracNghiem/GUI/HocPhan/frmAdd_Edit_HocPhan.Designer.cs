@@ -61,10 +61,10 @@
             this.kryptonPanel1.Controls.Add(this.kryptonLabel10);
             this.kryptonPanel1.Controls.Add(this.kryptonLabel1);
             this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonPanel1.Location = new System.Drawing.Point(0, 0);
+            this.kryptonPanel1.Location = new System.Drawing.Point(20, 60);
             this.kryptonPanel1.Name = "kryptonPanel1";
             this.kryptonPanel1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.kryptonPanel1.Size = new System.Drawing.Size(820, 221);
+            this.kryptonPanel1.Size = new System.Drawing.Size(817, 216);
             this.kryptonPanel1.TabIndex = 0;
             // 
             // kryptonButton2
@@ -175,10 +175,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(820, 221);
+            this.ClientSize = new System.Drawing.Size(857, 296);
             this.Controls.Add(this.kryptonPanel1);
             this.Name = "frmAdd_Edit_HocPhan";
-            this.Text = "frmAdd_Edit_HocPhan";
+            this.Text = "Tùy chỉnh";
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
             this.kryptonPanel1.ResumeLayout(false);
             this.kryptonPanel1.PerformLayout();

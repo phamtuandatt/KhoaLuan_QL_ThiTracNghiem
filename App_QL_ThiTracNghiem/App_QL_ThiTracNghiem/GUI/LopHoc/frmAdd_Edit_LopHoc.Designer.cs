@@ -53,10 +53,10 @@
             // 
             this.kryptonPanel1.Controls.Add(this.kryptonPanel2);
             this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonPanel1.Location = new System.Drawing.Point(0, 0);
+            this.kryptonPanel1.Location = new System.Drawing.Point(20, 60);
             this.kryptonPanel1.Name = "kryptonPanel1";
             this.kryptonPanel1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.kryptonPanel1.Size = new System.Drawing.Size(827, 221);
+            this.kryptonPanel1.Size = new System.Drawing.Size(820, 219);
             this.kryptonPanel1.TabIndex = 0;
             // 
             // kryptonPanel2
@@ -77,7 +77,7 @@
             this.kryptonPanel2.Location = new System.Drawing.Point(0, 0);
             this.kryptonPanel2.Name = "kryptonPanel2";
             this.kryptonPanel2.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.kryptonPanel2.Size = new System.Drawing.Size(827, 221);
+            this.kryptonPanel2.Size = new System.Drawing.Size(820, 219);
             this.kryptonPanel2.TabIndex = 1;
             // 
             // kryptonButton2
@@ -188,7 +188,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(827, 221);
+            this.ClientSize = new System.Drawing.Size(860, 299);
             this.Controls.Add(this.kryptonPanel1);
             this.Name = "frmAdd_Edit_LopHoc";
             this.Text = "frmAdd_Edit_LopHoc";

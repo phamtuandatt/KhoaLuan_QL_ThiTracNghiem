@@ -42,16 +42,16 @@
             this.pnContent.Controls.Add(this.lblbTieuDe);
             this.pnContent.Controls.Add(this.txtSL);
             this.pnContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnContent.Location = new System.Drawing.Point(0, 0);
+            this.pnContent.Location = new System.Drawing.Point(20, 60);
             this.pnContent.Name = "pnContent";
             this.pnContent.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.pnContent.Size = new System.Drawing.Size(577, 112);
+            this.pnContent.Size = new System.Drawing.Size(564, 115);
             this.pnContent.TabIndex = 0;
             // 
             // btnOK
             // 
             this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOK.Location = new System.Drawing.Point(393, 60);
+            this.btnOK.Location = new System.Drawing.Point(380, 60);
             this.btnOK.Name = "btnOK";
             this.btnOK.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.btnOK.Size = new System.Drawing.Size(159, 40);
@@ -75,18 +75,18 @@
             this.txtSL.Location = new System.Drawing.Point(244, 17);
             this.txtSL.Name = "txtSL";
             this.txtSL.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.txtSL.Size = new System.Drawing.Size(308, 27);
+            this.txtSL.Size = new System.Drawing.Size(295, 27);
             this.txtSL.TabIndex = 0;
+            this.txtSL.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSL_KeyPress);
             // 
             // frmChon_SL_CauHoi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(577, 112);
+            this.ClientSize = new System.Drawing.Size(604, 195);
             this.Controls.Add(this.pnContent);
             this.Name = "frmChon_SL_CauHoi";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmChon_SL_CauHoi";
+            this.Text = "Tùy chỉnh";
             ((System.ComponentModel.ISupportInitialize)(this.pnContent)).EndInit();
             this.pnContent.ResumeLayout(false);
             this.pnContent.PerformLayout();

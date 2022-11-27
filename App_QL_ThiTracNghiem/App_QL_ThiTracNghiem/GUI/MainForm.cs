@@ -1,4 +1,5 @@
-﻿using App_QL_ThiTracNghiem.GUI.BaiThi;
+﻿using App_QL_ThiTracNghiem.DTO;
+using App_QL_ThiTracNghiem.GUI.BaiThi;
 using App_QL_ThiTracNghiem.GUI.CaThi;
 using App_QL_ThiTracNghiem.GUI.DuyetNHCauHoi;
 using App_QL_ThiTracNghiem.GUI.TaoDeThi;
@@ -18,22 +19,24 @@ namespace App_QL_ThiTracNghiem.GUI
     {
         int MANGANHANG;
         string MAGV;
+        GiangViens gv;
         public MainForm()
         {
             InitializeComponent();
         }
 
-        public MainForm(int MANGANHANG, string MAGV)
+        public MainForm(int MANGANHANG, GiangViens gv)
         {
             InitializeComponent();
             this.MANGANHANG = MANGANHANG;
-            this.MAGV = MAGV;
+            this.gv = gv;
+            this.MAGV = gv.MaGV;
         }
 
         private void btnNganHangCauHoi_Click(object sender, EventArgs e)
         {
             // Lấy Mã ngân hàng - Mã giảng viên sau khi thực hiện đăng nhập
-            frmNganHangCauHoi frmNHCH = new frmNganHangCauHoi(1, "01001001");
+            frmNganHangCauHoi frmNHCH = new frmNganHangCauHoi(MANGANHANG, MAGV);
             frmNHCH.Dock = System.Windows.Forms.DockStyle.Fill;
             pnMain.Controls.Add(frmNHCH);
             frmNHCH.BringToFront();
@@ -91,6 +94,14 @@ namespace App_QL_ThiTracNghiem.GUI
             frmQL_BaiThi.Dock = DockStyle.Fill;
             pnMain.Controls.Add(frmQL_BaiThi);
             frmQL_BaiThi.BringToFront();
+        }
+
+        private void comboBox1_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            if (e.Index != -1)
+            {
+                e.Graphics.DrawImage(imageList1.Images[e.Index], e.Bounds.Left, e.Bounds.Top);
+            }
         }
     }
 }

@@ -48,6 +48,15 @@
     <Reference Include="ComponentFactory.Krypton.Workspace">
       <HintPath>C:\Users\TUAN DAT\OneDrive - Ho Chi Minh city University of Food Industry\VisualStudio\Krypton-master\Bin\ComponentFactory.Krypton.Workspace.dll</HintPath>
     </Reference>
+    <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -211,6 +220,12 @@
     <Compile Include="GUI\DuyetNHCauHoi\frmNH_CH_GiangVien.Designer.cs">
       <DependentUpon>frmNH_CH_GiangVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\frmDangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmDangNhap.Designer.cs">
+      <DependentUpon>frmDangNhap.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\GiangVien\frmAdd_Edit_GiangVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -321,6 +336,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tools\ElipseControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="GUI\BaiThi\frmCT_BaiThi.resx">
       <DependentUpon>frmCT_BaiThi.cs</DependentUpon>
     </EmbeddedResource>
@@ -374,6 +392,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\DuyetNHCauHoi\frmNH_CH_GiangVien.resx">
       <DependentUpon>frmNH_CH_GiangVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmDangNhap.resx">
+      <DependentUpon>frmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\GiangVien\frmAdd_Edit_GiangVien.resx">
       <DependentUpon>frmAdd_Edit_GiangVien.cs</DependentUpon>

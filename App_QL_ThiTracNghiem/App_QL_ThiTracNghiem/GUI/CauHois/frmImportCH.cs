@@ -35,7 +35,20 @@ namespace App_QL_ThiTracNghiem.GUI.CauHoi
             this.MAGV = MAGV;
 
             Show_Cbo_HoaPhan();
-            
+
+            lblNoiDungCauHoi.ReadOnly = true;
+            txtA.ReadOnly = true;
+            txtB.ReadOnly = true;
+            txtC.ReadOnly = true;
+            txtD.ReadOnly = true;
+            btnHuy.Visible = false;
+            btnCapNhat.Visible = false;
+            radA.Enabled = false;
+            radB.Enabled = false;
+            radC.Enabled = false;
+            radD.Enabled = false;
+
+
         }
 
         private void btnChonFile_Click(object sender, EventArgs e)
@@ -70,6 +83,18 @@ namespace App_QL_ThiTracNghiem.GUI.CauHoi
 
                 // Sum row
                 txtTongSoCauHoi.Text = gridDS_CauHoi.RowCount.ToString();
+
+                lblNoiDungCauHoi.ReadOnly = false;
+                txtA.ReadOnly = false;
+                txtB.ReadOnly = false;
+                txtC.ReadOnly = false;
+                txtD.ReadOnly = false;
+                btnHuy.Visible = true;
+                btnCapNhat.Visible = true;
+                radA.Enabled = true;
+                radB.Enabled = true;
+                radC.Enabled = true;
+                radD.Enabled = true;
             }
         }
 
@@ -209,6 +234,11 @@ namespace App_QL_ThiTracNghiem.GUI.CauHoi
 
         private void btnOK_Click(object sender, EventArgs e)
         {
+            if (gridDS_CauHoi.RowCount == 0)
+            {
+                KryptonMessageBox.Show("Chưa có câu hỏi nào được thêm !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             // Create List<CauHoi>
             List<CauHois> lst_Question = new List<CauHois>();
             for (int i = 0; i < gridDS_CauHoi.RowCount - 1; i++)
@@ -294,6 +324,20 @@ namespace App_QL_ThiTracNghiem.GUI.CauHoi
             cboMonHoc.DataSource = HocPhan_DAO.GetHocPhans(MAGV);
             cboMonHoc.DisplayMember = "TENHOCPHAN";
             cboMonHoc.ValueMember = "MAHOCPHAN";
+        }
+
+        private void frmImportCH_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (gridDS_CauHoi.RowCount > 0)
+            {
+                if (KryptonMessageBox.Show("Bạn có muốn HỦY thao tác hiện tại ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                    == DialogResult.No)
+                    e.Cancel = true;
+            }
+            else
+            {
+                e.Cancel = false;
+            }
         }
     }
 }

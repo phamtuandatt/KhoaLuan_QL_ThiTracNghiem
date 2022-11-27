@@ -71,6 +71,7 @@
             // 
             // gridDSGiangVien
             // 
+            this.gridDSGiangVien.AllowUserToAddRows = false;
             this.gridDSGiangVien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridDSGiangVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridDSGiangVien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -80,16 +81,13 @@
             this.Column4,
             this.Column5});
             this.gridDSGiangVien.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridDSGiangVien.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Sheet;
-            this.gridDSGiangVien.GridStyles.StyleBackground = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundSheet;
-            this.gridDSGiangVien.GridStyles.StyleColumn = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
-            this.gridDSGiangVien.GridStyles.StyleDataCells = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
-            this.gridDSGiangVien.GridStyles.StyleRow = ComponentFactory.Krypton.Toolkit.GridStyle.Sheet;
             this.gridDSGiangVien.Location = new System.Drawing.Point(0, 0);
             this.gridDSGiangVien.Name = "gridDSGiangVien";
             this.gridDSGiangVien.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.gridDSGiangVien.ReadOnly = true;
             this.gridDSGiangVien.RowHeadersWidth = 51;
             this.gridDSGiangVien.RowTemplate.Height = 24;
+            this.gridDSGiangVien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridDSGiangVien.Size = new System.Drawing.Size(1126, 640);
             this.gridDSGiangVien.TabIndex = 0;
             this.gridDSGiangVien.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridDSGiangVien_CellContentClick);

@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace App_QL_ThiTracNghiem.GUI.CaThi
 {
-    public partial class frmShowDS_DeThiCon : Form
+    public partial class frmShowDS_DeThiCon : MetroFramework.Forms.MetroForm
     {
         int MADETHI, MACATHI;
         public frmShowDS_DeThiCon(int MADETHI, int MACATHI)

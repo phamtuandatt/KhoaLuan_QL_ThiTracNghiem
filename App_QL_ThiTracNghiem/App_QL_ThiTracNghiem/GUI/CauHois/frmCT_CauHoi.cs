@@ -24,13 +24,17 @@ namespace App_QL_ThiTracNghiem.GUI.CauHoi
             InitializeComponent();
         }
 
-        public frmCT_CauHoi(int MANGANHANG, string MAHOCPHAN)
+        public frmCT_CauHoi(int MANGANHANG, string MAHOCPHAN) 
         {
             InitializeComponent();
             this.MANGANHANG = MANGANHANG;
             this.MAHOCPHAN = MAHOCPHAN;
 
             Show_DS_CauHoi();
+            radA.Enabled = false;
+            radB.Enabled = false;
+            radC.Enabled = false;
+            radD.Enabled = false;
         }
 
         private void Show_DS_CauHoi()
@@ -48,6 +52,11 @@ namespace App_QL_ThiTracNghiem.GUI.CauHoi
             txtB.ReadOnly = false;
             txtC.ReadOnly = false;
             txtD.ReadOnly = false;
+           
+            radA.Enabled = true;
+            radB.Enabled = true;
+            radC.Enabled = true;
+            radD.Enabled = true;
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
@@ -59,6 +68,10 @@ namespace App_QL_ThiTracNghiem.GUI.CauHoi
             txtB.ReadOnly = true;
             txtC.ReadOnly = true;
             txtD.ReadOnly = true;
+            radA.Enabled = false;
+            radB.Enabled = false;
+            radC.Enabled = false;
+            radD.Enabled = false;
             int id_row = gridDSCauHoi.CurrentRow.Index;
             lblNoiDungCauHoi.Text = gridDSCauHoi.Rows[id_row].Cells[1].Value.ToString();
             txtA.Text = gridDSCauHoi.Rows[id_row].Cells[2].Value.ToString();
@@ -96,6 +109,10 @@ namespace App_QL_ThiTracNghiem.GUI.CauHoi
             txtB.ReadOnly = true;
             txtC.ReadOnly = true;
             txtD.ReadOnly = true;
+            radA.Enabled = false;
+            radB.Enabled = false;
+            radC.Enabled = false;
+            radD.Enabled = false;
 
             // Lấy danh sách câu hỏi được chỉnh sửa
             CauHois cauHois = new CauHois();
@@ -134,6 +151,10 @@ namespace App_QL_ThiTracNghiem.GUI.CauHoi
             txtB.ReadOnly = true;
             txtC.ReadOnly = true;
             txtD.ReadOnly = true;
+            radA.Enabled = false;
+            radB.Enabled = false;
+            radC.Enabled = false;
+            radD.Enabled = false;
         }
 
         private void btnUpDB_Click(object sender, EventArgs e)

@@ -89,8 +89,10 @@
             this.gridDSCaThi.Location = new System.Drawing.Point(0, 0);
             this.gridDSCaThi.Name = "gridDSCaThi";
             this.gridDSCaThi.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.gridDSCaThi.ReadOnly = true;
             this.gridDSCaThi.RowHeadersWidth = 51;
             this.gridDSCaThi.RowTemplate.Height = 24;
+            this.gridDSCaThi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridDSCaThi.Size = new System.Drawing.Size(1089, 613);
             this.gridDSCaThi.TabIndex = 0;
             this.gridDSCaThi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridDSCaThi_CellContentClick);
@@ -101,6 +103,7 @@
             this.Column1.HeaderText = "Mã ca thi";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // Column2
             // 
@@ -108,6 +111,7 @@
             this.Column2.HeaderText = "Mã học phần";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
@@ -115,6 +119,7 @@
             this.Column3.HeaderText = "Tên học phần";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // Column4
             // 
@@ -122,6 +127,7 @@
             this.Column4.HeaderText = "Tổ hợp đề";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
             // Column8
             // 
@@ -129,6 +135,7 @@
             this.Column8.HeaderText = "Đề thi";
             this.Column8.MinimumWidth = 6;
             this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
             // 
             // Column5
             // 
@@ -136,6 +143,7 @@
             this.Column5.HeaderText = "Ngày thi";
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             // 
             // Column6
             // 
@@ -143,6 +151,7 @@
             this.Column6.HeaderText = "Giờ làm bài";
             this.Column6.MinimumWidth = 6;
             this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
             // 
             // Column7
             // 
@@ -150,12 +159,14 @@
             this.Column7.HeaderText = "Tình trạng";
             this.Column7.MinimumWidth = 6;
             this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
             // 
             // Column9
             // 
             this.Column9.HeaderText = "XÓA";
             this.Column9.MinimumWidth = 6;
             this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
             this.Column9.Text = "XÓA";
             // 
             // frmDSCaThi

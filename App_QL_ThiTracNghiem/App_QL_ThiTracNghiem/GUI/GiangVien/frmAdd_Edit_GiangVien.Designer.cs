@@ -41,10 +41,12 @@
             this.kryptonTextBox2 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryptonTextBox6 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryptonTextBox1 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.kryptonComboBox2 = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.kryptonComboBox1 = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.kryptonLabel3 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel9 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel8 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel11 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel7 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel6 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel5 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
@@ -52,12 +54,10 @@
             this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel10 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel11 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonComboBox2 = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonComboBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonComboBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonComboBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonPanel1
@@ -88,10 +88,10 @@
             this.kryptonPanel1.Controls.Add(this.kryptonLabel10);
             this.kryptonPanel1.Controls.Add(this.kryptonLabel1);
             this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonPanel1.Location = new System.Drawing.Point(0, 0);
+            this.kryptonPanel1.Location = new System.Drawing.Point(20, 60);
             this.kryptonPanel1.Name = "kryptonPanel1";
             this.kryptonPanel1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.kryptonPanel1.Size = new System.Drawing.Size(812, 377);
+            this.kryptonPanel1.Size = new System.Drawing.Size(816, 378);
             this.kryptonPanel1.TabIndex = 0;
             // 
             // kryptonRadioButton2
@@ -192,6 +192,15 @@
             this.kryptonTextBox1.Size = new System.Drawing.Size(237, 27);
             this.kryptonTextBox1.TabIndex = 2;
             // 
+            // kryptonComboBox2
+            // 
+            this.kryptonComboBox2.DropDownWidth = 634;
+            this.kryptonComboBox2.Location = new System.Drawing.Point(149, 230);
+            this.kryptonComboBox2.Name = "kryptonComboBox2";
+            this.kryptonComboBox2.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.kryptonComboBox2.Size = new System.Drawing.Size(634, 25);
+            this.kryptonComboBox2.TabIndex = 1;
+            // 
             // kryptonComboBox1
             // 
             this.kryptonComboBox1.DropDownWidth = 634;
@@ -227,6 +236,15 @@
             this.kryptonLabel8.Size = new System.Drawing.Size(112, 24);
             this.kryptonLabel8.TabIndex = 0;
             this.kryptonLabel8.Values.Text = "Số điện thoại:";
+            // 
+            // kryptonLabel11
+            // 
+            this.kryptonLabel11.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
+            this.kryptonLabel11.Location = new System.Drawing.Point(20, 231);
+            this.kryptonLabel11.Name = "kryptonLabel11";
+            this.kryptonLabel11.Size = new System.Drawing.Size(74, 24);
+            this.kryptonLabel11.TabIndex = 0;
+            this.kryptonLabel11.Values.Text = "Chức vụ:";
             // 
             // kryptonLabel7
             // 
@@ -291,37 +309,19 @@
             this.kryptonLabel1.TabIndex = 0;
             this.kryptonLabel1.Values.Text = "Tên giảng viên:";
             // 
-            // kryptonLabel11
-            // 
-            this.kryptonLabel11.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.kryptonLabel11.Location = new System.Drawing.Point(20, 231);
-            this.kryptonLabel11.Name = "kryptonLabel11";
-            this.kryptonLabel11.Size = new System.Drawing.Size(74, 24);
-            this.kryptonLabel11.TabIndex = 0;
-            this.kryptonLabel11.Values.Text = "Chức vụ:";
-            // 
-            // kryptonComboBox2
-            // 
-            this.kryptonComboBox2.DropDownWidth = 634;
-            this.kryptonComboBox2.Location = new System.Drawing.Point(149, 230);
-            this.kryptonComboBox2.Name = "kryptonComboBox2";
-            this.kryptonComboBox2.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.kryptonComboBox2.Size = new System.Drawing.Size(634, 25);
-            this.kryptonComboBox2.TabIndex = 1;
-            // 
             // frmAdd_Edit_GiangVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(812, 377);
+            this.ClientSize = new System.Drawing.Size(856, 458);
             this.Controls.Add(this.kryptonPanel1);
             this.Name = "frmAdd_Edit_GiangVien";
-            this.Text = "frmAdd_GiangVien";
+            this.Text = "Thông tin giảng viên";
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
             this.kryptonPanel1.ResumeLayout(false);
             this.kryptonPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonComboBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonComboBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonComboBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

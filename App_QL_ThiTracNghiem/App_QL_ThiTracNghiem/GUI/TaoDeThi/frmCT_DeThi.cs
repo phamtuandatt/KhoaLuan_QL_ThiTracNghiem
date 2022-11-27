@@ -13,7 +13,7 @@ using System.Windows.Forms;
  
 namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
 {
-    public partial class frmCT_DeThi : UserControl
+    public partial class frmCT_DeThi : UserControl 
     {
         KryptonPanel panel;
         DeThis deThis;
@@ -43,10 +43,8 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
                 txtTrangThai.Text = "Đã được sử dụng";
             }
             
-
             Show_DS_DeCon(this.deThis.MaDeThi);
             Show_DS_CauHoi();
-            
         }
 
         public void Show_DS_CauHoi()
@@ -96,16 +94,6 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
         private void cboDeCon_SelectedIndexChanged(object sender, EventArgs e)
         {
             gridDSCauHoi_DeThi.DataSource = CT_DeThi_DAO.GetDS_DeThi_CauHoi(deThis.MaDeThi, cboDeCon.SelectedValue.ToString());
-        }
-
-        private void btnHuy_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnOk_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -59,6 +59,7 @@
             // 
             // gridDSMonHoc
             // 
+            this.gridDSMonHoc.AllowUserToAddRows = false;
             this.gridDSMonHoc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridDSMonHoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridDSMonHoc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -72,6 +73,7 @@
             this.gridDSMonHoc.Location = new System.Drawing.Point(0, 0);
             this.gridDSMonHoc.Name = "gridDSMonHoc";
             this.gridDSMonHoc.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.gridDSMonHoc.ReadOnly = true;
             this.gridDSMonHoc.RowHeadersWidth = 51;
             this.gridDSMonHoc.RowTemplate.Height = 24;
             this.gridDSMonHoc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -85,6 +87,7 @@
             this.Column6.HeaderText = "Mã Học Phần";
             this.Column6.MinimumWidth = 6;
             this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
             // 
             // Column1
             // 
@@ -92,6 +95,7 @@
             this.Column1.HeaderText = "Tên môn học";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // Column2
             // 
@@ -99,6 +103,7 @@
             this.Column2.HeaderText = "Số lượng câu hỏi";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             this.Column2.Visible = false;
             // 
             // Column3
@@ -107,6 +112,7 @@
             this.Column3.HeaderText = "Ngày tạo";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // Column4
             // 
@@ -114,6 +120,7 @@
             this.Column4.HeaderText = "Ngày cập nhật";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
             // Column5
             // 
@@ -121,6 +128,7 @@
             this.Column5.HeaderText = "Mã Ngân Hàng";
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             this.Column5.Visible = false;
             // 
             // frmDS_MonHoc_CauHoi

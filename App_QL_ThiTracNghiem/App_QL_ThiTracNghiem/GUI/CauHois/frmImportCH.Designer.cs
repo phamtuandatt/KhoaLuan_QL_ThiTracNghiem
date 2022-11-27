@@ -141,36 +141,42 @@
             this.Column6.HeaderText = "Đáp án chính xác";
             this.Column6.MinimumWidth = 6;
             this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
             // 
             // Column5
             // 
             this.Column5.HeaderText = "Đáp án D";
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             // 
             // Column4
             // 
             this.Column4.HeaderText = "Đáp án C";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Đáp án B";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "Đáp án A";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // Column1
             // 
             this.Column1.HeaderText = "Nội dung";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // kryptonGroupBox2
             // 
@@ -417,6 +423,7 @@
             // 
             // gridDS_CauHoi
             // 
+            this.gridDS_CauHoi.AllowUserToAddRows = false;
             this.gridDS_CauHoi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridDS_CauHoi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridDS_CauHoi.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -433,6 +440,7 @@
             this.gridDS_CauHoi.ReadOnly = true;
             this.gridDS_CauHoi.RowHeadersWidth = 51;
             this.gridDS_CauHoi.RowTemplate.Height = 24;
+            this.gridDS_CauHoi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridDS_CauHoi.Size = new System.Drawing.Size(837, 614);
             this.gridDS_CauHoi.TabIndex = 0;
             this.gridDS_CauHoi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridDS_CauHoi_CellContentClick);
@@ -543,6 +551,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thêm file câu hỏi";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmImportCH_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox2.Panel)).EndInit();
             this.kryptonGroupBox2.Panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox2)).EndInit();

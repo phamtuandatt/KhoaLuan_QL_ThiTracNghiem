@@ -34,7 +34,7 @@ namespace App_QL_ThiTracNghiem.GUI.CauHoi
             // Lấy danh sách các môn học theo từng ngân hàng được truyền từ Main
             this.MANGANHANG = MANGANHANG;
             this.MAGIANGVIEN = MAGIANGVIEN;
-            Show_CT_NganHangCauHoi();
+            Show_CT_NganHangCauHoi(); 
         }
 
         private void Show_CT_NganHangCauHoi()
@@ -50,12 +50,20 @@ namespace App_QL_ThiTracNghiem.GUI.CauHoi
             if (check_duyet_nh_cauhoi)
             {
                 string MAHOCPHAN = gridDSMonHoc.Rows[row_sl].Cells[5].Value.ToString();
+                string TENHOCPHAN = gridDSMonHoc.Rows[row_sl].Cells[1].Value.ToString();
 
-                frmDuyetCauHoi frmDuyetCauHoi = new frmDuyetCauHoi(MANGANHANG, MAHOCPHAN);
-                frmDuyetCauHoi.Dock = System.Windows.Forms.DockStyle.Fill;
-                pnContent.Controls.Add(frmDuyetCauHoi);
-                frmDuyetCauHoi.BringToFront();
-
+                DataTable dt = NganHangCauHoi_DAO.Get_DS_CauHoi(MANGANHANG, MAHOCPHAN);
+                if (dt.Rows.Count == 0)
+                {
+                    KryptonMessageBox.Show("Ngân hàng câu hỏi đã được duyệt !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    frmDuyetCauHoi frmDuyetCauHoi = new frmDuyetCauHoi(MANGANHANG, MAHOCPHAN, TENHOCPHAN);
+                    frmDuyetCauHoi.Dock = System.Windows.Forms.DockStyle.Fill;
+                    pnContent.Controls.Add(frmDuyetCauHoi);
+                    frmDuyetCauHoi.BringToFront();
+                }
             }
             // ĐƯợc gọi từ frmNganHangCauHoi -> false
             else

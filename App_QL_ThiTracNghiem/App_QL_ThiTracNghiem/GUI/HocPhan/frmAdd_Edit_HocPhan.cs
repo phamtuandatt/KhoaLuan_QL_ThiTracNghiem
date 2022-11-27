@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace App_QL_ThiTracNghiem.GUI.HocPhan
 {
-    public partial class frmAdd_Edit_HocPhan : Form
+    public partial class frmAdd_Edit_HocPhan : MetroFramework.Forms.MetroForm
     {
         public frmAdd_Edit_HocPhan()
         {

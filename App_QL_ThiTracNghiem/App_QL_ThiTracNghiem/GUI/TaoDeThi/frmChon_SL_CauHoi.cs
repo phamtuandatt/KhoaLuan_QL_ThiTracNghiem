@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
 {
-    public partial class frmChon_SL_CauHoi : Form
+    public partial class frmChon_SL_CauHoi : MetroFramework.Forms.MetroForm
     {
         public int SoLuong { get; set; }
         public List<string> ds_DeThi { get; set; }
@@ -53,6 +53,14 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
             }
 
             this.Close();
+        }
+
+        private void txtSL_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

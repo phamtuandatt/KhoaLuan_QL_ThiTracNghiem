@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace App_QL_ThiTracNghiem.GUI.CaThi
 {
-    public partial class frmCT_CaThi : Form
+    public partial class frmCT_CaThi : MetroFramework.Forms.MetroForm
     {
         bool check_edit = false;
         string MAHOCPHAN, TENHOCPHAN;

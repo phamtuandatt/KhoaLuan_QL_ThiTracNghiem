@@ -29,8 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.txtNgayTao = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.txtTrangThai = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.lblNT = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.lblTT = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.cbolstDe = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.txtTGLamBai = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.txtSLCauHoi = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -46,16 +50,6 @@
             this.kryptonPanel3 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonGroupBox1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.gridDSCauHoi = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chk = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewCheckBoxColumn();
             this.kryptonPanel4 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonGroupBox2 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.gridDSCHDuocChon = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
@@ -70,10 +64,16 @@
             this.thêmCâuHỏiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextRight = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.xóaCâuHỏiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtNgayTao = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.txtTrangThai = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.kryptonLabel6 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel5 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chk = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
             this.kryptonPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbolstDe)).BeginInit();
@@ -103,8 +103,8 @@
             // 
             this.kryptonPanel2.Controls.Add(this.txtNgayTao);
             this.kryptonPanel2.Controls.Add(this.txtTrangThai);
-            this.kryptonPanel2.Controls.Add(this.kryptonLabel6);
-            this.kryptonPanel2.Controls.Add(this.kryptonLabel5);
+            this.kryptonPanel2.Controls.Add(this.lblNT);
+            this.kryptonPanel2.Controls.Add(this.lblTT);
             this.kryptonPanel2.Controls.Add(this.cbolstDe);
             this.kryptonPanel2.Controls.Add(this.txtTGLamBai);
             this.kryptonPanel2.Controls.Add(this.txtSLCauHoi);
@@ -121,6 +121,42 @@
             this.kryptonPanel2.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.kryptonPanel2.Size = new System.Drawing.Size(1590, 100);
             this.kryptonPanel2.TabIndex = 0;
+            // 
+            // txtNgayTao
+            // 
+            this.txtNgayTao.Location = new System.Drawing.Point(1088, 57);
+            this.txtNgayTao.Name = "txtNgayTao";
+            this.txtNgayTao.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.txtNgayTao.ReadOnly = true;
+            this.txtNgayTao.Size = new System.Drawing.Size(214, 27);
+            this.txtNgayTao.TabIndex = 24;
+            // 
+            // txtTrangThai
+            // 
+            this.txtTrangThai.Location = new System.Drawing.Point(1088, 12);
+            this.txtTrangThai.Name = "txtTrangThai";
+            this.txtTrangThai.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.txtTrangThai.ReadOnly = true;
+            this.txtTrangThai.Size = new System.Drawing.Size(214, 27);
+            this.txtTrangThai.TabIndex = 25;
+            // 
+            // lblNT
+            // 
+            this.lblNT.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
+            this.lblNT.Location = new System.Drawing.Point(938, 58);
+            this.lblNT.Name = "lblNT";
+            this.lblNT.Size = new System.Drawing.Size(82, 24);
+            this.lblNT.TabIndex = 22;
+            this.lblNT.Values.Text = "Ngày tạo:";
+            // 
+            // lblTT
+            // 
+            this.lblTT.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
+            this.lblTT.Location = new System.Drawing.Point(938, 13);
+            this.lblTT.Name = "lblTT";
+            this.lblTT.Size = new System.Drawing.Size(90, 24);
+            this.lblTT.TabIndex = 23;
+            this.lblTT.Values.Text = "Trạng thái:";
             // 
             // cbolstDe
             // 
@@ -139,12 +175,14 @@
             this.txtTGLamBai.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.txtTGLamBai.Size = new System.Drawing.Size(214, 27);
             this.txtTGLamBai.TabIndex = 10;
+            this.txtTGLamBai.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTGLamBai_KeyPress);
             // 
             // txtSLCauHoi
             // 
             this.txtSLCauHoi.Location = new System.Drawing.Point(192, 59);
             this.txtSLCauHoi.Name = "txtSLCauHoi";
             this.txtSLCauHoi.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.txtSLCauHoi.ReadOnly = true;
             this.txtSLCauHoi.Size = new System.Drawing.Size(317, 27);
             this.txtSLCauHoi.TabIndex = 10;
             // 
@@ -288,6 +326,7 @@
             this.gridDSCauHoi.Location = new System.Drawing.Point(0, 0);
             this.gridDSCauHoi.Name = "gridDSCauHoi";
             this.gridDSCauHoi.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.gridDSCauHoi.ReadOnly = true;
             this.gridDSCauHoi.RowHeadersWidth = 51;
             this.gridDSCauHoi.RowTemplate.Height = 24;
             this.gridDSCauHoi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -296,81 +335,6 @@
             this.gridDSCauHoi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridDSCauHoi_CellContentClick);
             this.gridDSCauHoi.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridDSCauHoi_CellContentDoubleClick);
             this.gridDSCauHoi.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridDSCauHoi_CellMouseDown);
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "MANH";
-            this.Column1.HeaderText = "Mã ngân hàng";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "MAHOCPHAN";
-            this.Column2.HeaderText = "Mã học phần";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "MACAUHOI";
-            this.Column3.HeaderText = "Mã câu hỏi";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            // 
-            // Column12
-            // 
-            this.Column12.DataPropertyName = "NOIDUNG";
-            this.Column12.HeaderText = "Nội dung";
-            this.Column12.MinimumWidth = 6;
-            this.Column12.Name = "Column12";
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "DAPAN1";
-            this.Column6.HeaderText = "Đáp án 1";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            // 
-            // Column7
-            // 
-            this.Column7.DataPropertyName = "DAPAN2";
-            this.Column7.HeaderText = "Đáp án 2";
-            this.Column7.MinimumWidth = 6;
-            this.Column7.Name = "Column7";
-            // 
-            // Column8
-            // 
-            this.Column8.DataPropertyName = "DAPAN3";
-            this.Column8.HeaderText = "Đáp án 3";
-            this.Column8.MinimumWidth = 6;
-            this.Column8.Name = "Column8";
-            // 
-            // Column9
-            // 
-            this.Column9.DataPropertyName = "DAPAN4";
-            this.Column9.HeaderText = "Đáp án 4";
-            this.Column9.MinimumWidth = 6;
-            this.Column9.Name = "Column9";
-            // 
-            // Column10
-            // 
-            this.Column10.DataPropertyName = "DAPANDUNG";
-            this.Column10.HeaderText = "Đáp án đúng";
-            this.Column10.MinimumWidth = 6;
-            this.Column10.Name = "Column10";
-            // 
-            // chk
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.NullValue = false;
-            this.chk.DefaultCellStyle = dataGridViewCellStyle2;
-            this.chk.FalseValue = "False";
-            this.chk.HeaderText = "Check";
-            this.chk.IndeterminateValue = null;
-            this.chk.MinimumWidth = 6;
-            this.chk.Name = "chk";
-            this.chk.TrueValue = "True";
             // 
             // kryptonPanel4
             // 
@@ -413,6 +377,7 @@
             this.gridDSCHDuocChon.Location = new System.Drawing.Point(0, 0);
             this.gridDSCHDuocChon.Name = "gridDSCHDuocChon";
             this.gridDSCHDuocChon.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.gridDSCHDuocChon.ReadOnly = true;
             this.gridDSCHDuocChon.RowHeadersWidth = 51;
             this.gridDSCHDuocChon.RowTemplate.Height = 24;
             this.gridDSCHDuocChon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -425,42 +390,49 @@
             this.Column4.HeaderText = "Mã câu hỏi";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
             // Column5
             // 
             this.Column5.HeaderText = "Nội dung";
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             // 
             // Column13
             // 
             this.Column13.HeaderText = "Đáp án 1";
             this.Column13.MinimumWidth = 6;
             this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
             // 
             // Column14
             // 
             this.Column14.HeaderText = "Đáp án 2";
             this.Column14.MinimumWidth = 6;
             this.Column14.Name = "Column14";
+            this.Column14.ReadOnly = true;
             // 
             // Column15
             // 
             this.Column15.HeaderText = "Đáp án 3";
             this.Column15.MinimumWidth = 6;
             this.Column15.Name = "Column15";
+            this.Column15.ReadOnly = true;
             // 
             // Column16
             // 
             this.Column16.HeaderText = "Đáp án 4";
             this.Column16.MinimumWidth = 6;
             this.Column16.Name = "Column16";
+            this.Column16.ReadOnly = true;
             // 
             // Column17
             // 
             this.Column17.HeaderText = "Đáp án đúng";
             this.Column17.MinimumWidth = 6;
             this.Column17.Name = "Column17";
+            this.Column17.ReadOnly = true;
             // 
             // contextLeft
             // 
@@ -494,41 +466,90 @@
             this.xóaCâuHỏiToolStripMenuItem.Size = new System.Drawing.Size(156, 24);
             this.xóaCâuHỏiToolStripMenuItem.Text = "Xóa câu hỏi";
             // 
-            // txtNgayTao
+            // Column1
             // 
-            this.txtNgayTao.Location = new System.Drawing.Point(1088, 57);
-            this.txtNgayTao.Name = "txtNgayTao";
-            this.txtNgayTao.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.txtNgayTao.ReadOnly = true;
-            this.txtNgayTao.Size = new System.Drawing.Size(214, 27);
-            this.txtNgayTao.TabIndex = 24;
+            this.Column1.DataPropertyName = "MANH";
+            this.Column1.HeaderText = "Mã ngân hàng";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
-            // txtTrangThai
+            // Column2
             // 
-            this.txtTrangThai.Location = new System.Drawing.Point(1088, 12);
-            this.txtTrangThai.Name = "txtTrangThai";
-            this.txtTrangThai.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.txtTrangThai.ReadOnly = true;
-            this.txtTrangThai.Size = new System.Drawing.Size(214, 27);
-            this.txtTrangThai.TabIndex = 25;
+            this.Column2.DataPropertyName = "MAHOCPHAN";
+            this.Column2.HeaderText = "Mã học phần";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
-            // kryptonLabel6
+            // Column3
             // 
-            this.kryptonLabel6.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.kryptonLabel6.Location = new System.Drawing.Point(938, 58);
-            this.kryptonLabel6.Name = "kryptonLabel6";
-            this.kryptonLabel6.Size = new System.Drawing.Size(82, 24);
-            this.kryptonLabel6.TabIndex = 22;
-            this.kryptonLabel6.Values.Text = "Ngày tạo:";
+            this.Column3.DataPropertyName = "MACAUHOI";
+            this.Column3.HeaderText = "Mã câu hỏi";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
-            // kryptonLabel5
+            // Column12
             // 
-            this.kryptonLabel5.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.kryptonLabel5.Location = new System.Drawing.Point(938, 13);
-            this.kryptonLabel5.Name = "kryptonLabel5";
-            this.kryptonLabel5.Size = new System.Drawing.Size(90, 24);
-            this.kryptonLabel5.TabIndex = 23;
-            this.kryptonLabel5.Values.Text = "Trạng thái:";
+            this.Column12.DataPropertyName = "NOIDUNG";
+            this.Column12.HeaderText = "Nội dung";
+            this.Column12.MinimumWidth = 6;
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "DAPAN1";
+            this.Column6.HeaderText = "Đáp án 1";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "DAPAN2";
+            this.Column7.HeaderText = "Đáp án 2";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "DAPAN3";
+            this.Column8.HeaderText = "Đáp án 3";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "DAPAN4";
+            this.Column9.HeaderText = "Đáp án 4";
+            this.Column9.MinimumWidth = 6;
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
+            // Column10
+            // 
+            this.Column10.DataPropertyName = "DAPANDUNG";
+            this.Column10.HeaderText = "Đáp án đúng";
+            this.Column10.MinimumWidth = 6;
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            // 
+            // chk
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.NullValue = false;
+            this.chk.DefaultCellStyle = dataGridViewCellStyle1;
+            this.chk.FalseValue = "False";
+            this.chk.HeaderText = "Chọn";
+            this.chk.IndeterminateValue = null;
+            this.chk.MinimumWidth = 6;
+            this.chk.Name = "chk";
+            this.chk.ReadOnly = true;
+            this.chk.TrueValue = "True";
             // 
             // frmTao_DeThi
             // 
@@ -593,6 +614,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
+        private System.Windows.Forms.ContextMenuStrip contextLeft;
+        private System.Windows.Forms.ToolStripMenuItem thêmCâuHỏiToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip contextRight;
+        private System.Windows.Forms.ToolStripMenuItem xóaCâuHỏiToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonComboBox cbolstDe;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtNgayTao;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtTrangThai;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel lblNT;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel lblTT;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -603,14 +633,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewCheckBoxColumn chk;
-        private System.Windows.Forms.ContextMenuStrip contextLeft;
-        private System.Windows.Forms.ToolStripMenuItem thêmCâuHỏiToolStripMenuItem;
-        private System.Windows.Forms.ContextMenuStrip contextRight;
-        private System.Windows.Forms.ToolStripMenuItem xóaCâuHỏiToolStripMenuItem;
-        private ComponentFactory.Krypton.Toolkit.KryptonComboBox cbolstDe;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtNgayTao;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtTrangThai;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel6;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel5;
     }
 }

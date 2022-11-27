@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace App_QL_ThiTracNghiem.GUI.CauHoi
 {
-    public partial class frmThemMonHoc : Form
+    public partial class frmThemMonHoc : MetroFramework.Forms.MetroForm
     {
         int MANGANHANG;
         string MAGV;
@@ -22,7 +22,7 @@ namespace App_QL_ThiTracNghiem.GUI.CauHoi
             InitializeComponent();
         }
 
-        public frmThemMonHoc(int MANGANHANG, string MAGV)
+        public frmThemMonHoc(int MANGANHANG, string MAGV) 
         {
             InitializeComponent();
             // Lấy mã ngân hàng & Mã giảng viên sau khi đã đăng nhập

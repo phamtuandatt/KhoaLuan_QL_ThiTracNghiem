@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.tableLayoutContent = new System.Windows.Forms.TableLayoutPanel();
             this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
@@ -155,8 +155,10 @@
             this.gridDSSVDuocChon.Location = new System.Drawing.Point(0, 0);
             this.gridDSSVDuocChon.Name = "gridDSSVDuocChon";
             this.gridDSSVDuocChon.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.gridDSSVDuocChon.ReadOnly = true;
             this.gridDSSVDuocChon.RowHeadersWidth = 51;
             this.gridDSSVDuocChon.RowTemplate.Height = 24;
+            this.gridDSSVDuocChon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridDSSVDuocChon.Size = new System.Drawing.Size(1646, 282);
             this.gridDSSVDuocChon.TabIndex = 1;
             // 
@@ -166,6 +168,7 @@
             this.dataGridViewTextBoxColumn1.HeaderText = "Mã sinh viên";
             this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -173,6 +176,7 @@
             this.dataGridViewTextBoxColumn2.HeaderText = "Tên sinh viên";
             this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -180,6 +184,7 @@
             this.dataGridViewTextBoxColumn3.HeaderText = "Giới Tính";
             this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn4
             // 
@@ -187,6 +192,7 @@
             this.dataGridViewTextBoxColumn4.HeaderText = "Ngày sinh";
             this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -194,6 +200,7 @@
             this.dataGridViewTextBoxColumn5.HeaderText = "Lớp học";
             this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
             // kryptonPanel3
             // 
@@ -240,8 +247,10 @@
             this.gridDSSinhVien.Location = new System.Drawing.Point(0, 0);
             this.gridDSSinhVien.Name = "gridDSSinhVien";
             this.gridDSSinhVien.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.gridDSSinhVien.ReadOnly = true;
             this.gridDSSinhVien.RowHeadersWidth = 51;
             this.gridDSSinhVien.RowTemplate.Height = 24;
+            this.gridDSSinhVien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridDSSinhVien.Size = new System.Drawing.Size(1646, 281);
             this.gridDSSinhVien.TabIndex = 0;
             this.gridDSSinhVien.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridDSSinhVien_CellContentClick);
@@ -252,6 +261,7 @@
             this.Column1.HeaderText = "Mã sinh viên";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // Column3
             // 
@@ -259,6 +269,7 @@
             this.Column3.HeaderText = "Tên sinh viên";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // Column4
             // 
@@ -266,6 +277,7 @@
             this.Column4.HeaderText = "Giới tính";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
             // Column5
             // 
@@ -273,6 +285,7 @@
             this.Column5.HeaderText = "Ngày sinh";
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             // 
             // Column6
             // 
@@ -280,6 +293,7 @@
             this.Column6.HeaderText = "Email";
             this.Column6.MinimumWidth = 6;
             this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
             // 
             // Column7
             // 
@@ -287,6 +301,7 @@
             this.Column7.HeaderText = "Số điện thoại";
             this.Column7.MinimumWidth = 6;
             this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
             // 
             // Column8
             // 
@@ -294,6 +309,7 @@
             this.Column8.HeaderText = "Địa chỉ";
             this.Column8.MinimumWidth = 6;
             this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
             // 
             // Column9
             // 
@@ -301,6 +317,7 @@
             this.Column9.HeaderText = "Quê quán";
             this.Column9.MinimumWidth = 6;
             this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
             // 
             // Column10
             // 
@@ -308,6 +325,7 @@
             this.Column10.HeaderText = "Mã lớp";
             this.Column10.MinimumWidth = 6;
             this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
             // 
             // Column11
             // 
@@ -315,17 +333,19 @@
             this.Column11.HeaderText = "Học phí";
             this.Column11.MinimumWidth = 6;
             this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
             // 
             // Column12
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.NullValue = false;
-            this.Column12.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.NullValue = false;
+            this.Column12.DefaultCellStyle = dataGridViewCellStyle1;
             this.Column12.FalseValue = null;
             this.Column12.HeaderText = "";
             this.Column12.IndeterminateValue = null;
             this.Column12.MinimumWidth = 6;
             this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
             this.Column12.TrueValue = null;
             // 
             // kryptonPanal
@@ -447,13 +467,13 @@
             this.contextMenuSV.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.xóaSinhViênToolStripMenuItem});
             this.contextMenuSV.Name = "contextMenuSV";
-            this.contextMenuSV.Size = new System.Drawing.Size(211, 56);
+            this.contextMenuSV.Size = new System.Drawing.Size(166, 28);
             this.contextMenuSV.Click += new System.EventHandler(this.contextMenuSV_Click);
             // 
             // xóaSinhViênToolStripMenuItem
             // 
             this.xóaSinhViênToolStripMenuItem.Name = "xóaSinhViênToolStripMenuItem";
-            this.xóaSinhViênToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.xóaSinhViênToolStripMenuItem.Size = new System.Drawing.Size(165, 24);
             this.xóaSinhViênToolStripMenuItem.Text = "Xóa sinh viên";
             // 
             // frmTaoCaThi

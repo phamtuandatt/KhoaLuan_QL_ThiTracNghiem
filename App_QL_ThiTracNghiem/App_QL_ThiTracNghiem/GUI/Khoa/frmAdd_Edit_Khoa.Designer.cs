@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.kryptonButton2 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonTextBox5 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryptonLabel6 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.kryptonButton2 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -44,11 +44,28 @@
             this.kryptonPanel1.Controls.Add(this.kryptonButton2);
             this.kryptonPanel1.Controls.Add(this.kryptonButton1);
             this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonPanel1.Location = new System.Drawing.Point(0, 0);
+            this.kryptonPanel1.Location = new System.Drawing.Point(20, 60);
             this.kryptonPanel1.Name = "kryptonPanel1";
             this.kryptonPanel1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.kryptonPanel1.Size = new System.Drawing.Size(498, 147);
+            this.kryptonPanel1.Size = new System.Drawing.Size(482, 143);
             this.kryptonPanel1.TabIndex = 0;
+            // 
+            // kryptonTextBox5
+            // 
+            this.kryptonTextBox5.Location = new System.Drawing.Point(113, 32);
+            this.kryptonTextBox5.Name = "kryptonTextBox5";
+            this.kryptonTextBox5.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.kryptonTextBox5.Size = new System.Drawing.Size(334, 27);
+            this.kryptonTextBox5.TabIndex = 7;
+            // 
+            // kryptonLabel6
+            // 
+            this.kryptonLabel6.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
+            this.kryptonLabel6.Location = new System.Drawing.Point(21, 35);
+            this.kryptonLabel6.Name = "kryptonLabel6";
+            this.kryptonLabel6.Size = new System.Drawing.Size(82, 24);
+            this.kryptonLabel6.TabIndex = 6;
+            this.kryptonLabel6.Values.Text = "Tên khoa:";
             // 
             // kryptonButton2
             // 
@@ -68,31 +85,14 @@
             this.kryptonButton1.TabIndex = 5;
             this.kryptonButton1.Values.Text = "HỦY";
             // 
-            // kryptonTextBox5
-            // 
-            this.kryptonTextBox5.Location = new System.Drawing.Point(113, 32);
-            this.kryptonTextBox5.Name = "kryptonTextBox5";
-            this.kryptonTextBox5.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.kryptonTextBox5.Size = new System.Drawing.Size(334, 27);
-            this.kryptonTextBox5.TabIndex = 7;
-            // 
-            // kryptonLabel6
-            // 
-            this.kryptonLabel6.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.kryptonLabel6.Location = new System.Drawing.Point(21, 35);
-            this.kryptonLabel6.Name = "kryptonLabel6";
-            this.kryptonLabel6.Size = new System.Drawing.Size(82, 24);
-            this.kryptonLabel6.TabIndex = 6;
-            this.kryptonLabel6.Values.Text = "Tên khoa:";
-            // 
             // frmAdd_Edit_Khoa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(498, 147);
+            this.ClientSize = new System.Drawing.Size(522, 223);
             this.Controls.Add(this.kryptonPanel1);
             this.Name = "frmAdd_Edit_Khoa";
-            this.Text = "frmAdd_Edit_Khoa";
+            this.Text = "Tùy chỉnh";
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
             this.kryptonPanel1.ResumeLayout(false);
             this.kryptonPanel1.PerformLayout();

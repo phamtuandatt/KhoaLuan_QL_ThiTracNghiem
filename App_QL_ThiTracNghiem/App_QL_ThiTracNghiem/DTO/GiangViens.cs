@@ -20,6 +20,7 @@ namespace App_QL_ThiTracNghiem.DTO
         public string Sdt { get; set; }
         public string Email { get; set; }
         public string DiaChi { get; set; }
+        public string Avata { get; set; }
         public string MaKhoa { get; set; }
         public string MaChucVu { get; set; }
 

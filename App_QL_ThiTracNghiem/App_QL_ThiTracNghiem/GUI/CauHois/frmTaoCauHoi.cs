@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace App_QL_ThiTracNghiem.GUI.CauHoi
 {
-    public partial class frmTaoCauHoi : Form
+    public partial class frmTaoCauHoi : MetroFramework.Forms.MetroForm
     {
         int MANGANHANG;
         string MAGV;
@@ -57,7 +57,7 @@ namespace App_QL_ThiTracNghiem.GUI.CauHoi
             cauHois.MaHocPhan = cboMonHoc.SelectedValue.ToString();
             cauHois.NgayTao = DateTime.UtcNow;
             cauHois.NgayCapNhat = DateTime.UtcNow;
-
+             
             // Kiểm tra môn học đã được tạo trong ngân hàng chưa
             if (!CT_NganHangCauHoi_DAO.Check_MahocPhan_Exists(cboMonHoc.SelectedValue.ToString()))
             {

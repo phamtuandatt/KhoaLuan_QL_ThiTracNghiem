@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace App_QL_ThiTracNghiem.GUI.Khoa
 {
-    public partial class frmAdd_Edit_Khoa : Form
+    public partial class frmAdd_Edit_Khoa : MetroFramework.Forms.MetroForm
     {
         public frmAdd_Edit_Khoa()
         {

@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.pnHeader = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.picAnhDaiDien = new System.Windows.Forms.PictureBox();
             this.pnFeature = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
@@ -53,6 +55,10 @@
             this.menuLopHoc = new System.Windows.Forms.ToolStripMenuItem();
             this.lớpHọcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuSinhVien = new System.Windows.Forms.ToolStripMenuItem();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.elipseControl1 = new App_QL_ThiTracNghiem.Tools.ElipseControl();
+            this.elipseControl2 = new App_QL_ThiTracNghiem.Tools.ElipseControl();
             ((System.ComponentModel.ISupportInitialize)(this.pnHeader)).BeginInit();
             this.pnHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picAnhDaiDien)).BeginInit();
@@ -69,6 +75,7 @@
             // 
             // pnHeader
             // 
+            this.pnHeader.Controls.Add(this.comboBox1);
             this.pnHeader.Controls.Add(this.picAnhDaiDien);
             this.pnHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnHeader.Location = new System.Drawing.Point(0, 0);
@@ -97,10 +104,10 @@
             this.pnFeature.Controls.Add(this.btnDeThi);
             this.pnFeature.Controls.Add(this.kryptonPanel1);
             this.pnFeature.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnFeature.Location = new System.Drawing.Point(0, 28);
+            this.pnFeature.Location = new System.Drawing.Point(0, 30);
             this.pnFeature.Name = "pnFeature";
             this.pnFeature.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Black;
-            this.pnFeature.Size = new System.Drawing.Size(299, 661);
+            this.pnFeature.Size = new System.Drawing.Size(299, 659);
             this.pnFeature.TabIndex = 2;
             // 
             // btnNganHangCauHoi
@@ -202,9 +209,9 @@
             this.pnContent.Controls.Add(this.pnMain);
             this.pnContent.Controls.Add(this.pnHeader);
             this.pnContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnContent.Location = new System.Drawing.Point(299, 28);
+            this.pnContent.Location = new System.Drawing.Point(299, 30);
             this.pnContent.Name = "pnContent";
-            this.pnContent.Size = new System.Drawing.Size(844, 661);
+            this.pnContent.Size = new System.Drawing.Size(844, 659);
             this.pnContent.TabIndex = 3;
             // 
             // pnMain
@@ -214,7 +221,7 @@
             this.pnMain.Name = "pnMain";
             this.pnMain.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
             this.pnMain.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlClient;
-            this.pnMain.Size = new System.Drawing.Size(844, 581);
+            this.pnMain.Size = new System.Drawing.Size(844, 579);
             this.pnMain.TabIndex = 2;
             // 
             // menuStrip1
@@ -228,7 +235,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.menuStrip1.Size = new System.Drawing.Size(1143, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1143, 30);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -302,6 +309,39 @@
             this.menuSinhVien.Size = new System.Drawing.Size(151, 26);
             this.menuSinhVien.Text = "Sinh viên";
             // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "312477454_848113689520435_2392142812272977349_n.jpg");
+            this.imageList1.Images.SetKeyName(1, "2_img.jpg");
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Item 1",
+            "Item 1",
+            "Item 1",
+            "Item 1",
+            "Item 1"});
+            this.comboBox1.Location = new System.Drawing.Point(204, 32);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 23);
+            this.comboBox1.TabIndex = 1;
+            this.comboBox1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.comboBox1_DrawItem);
+            // 
+            // elipseControl1
+            // 
+            this.elipseControl1.CornerRadius = 50;
+            this.elipseControl1.TargetControl = this.picAnhDaiDien;
+            // 
+            // elipseControl2
+            // 
+            this.elipseControl2.CornerRadius = 50;
+            this.elipseControl2.TargetControl = this.picLogo;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -358,5 +398,9 @@
         private System.Windows.Forms.ToolStripMenuItem menuLopHoc;
         private System.Windows.Forms.ToolStripMenuItem lớpHọcToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menuSinhVien;
+        private Tools.ElipseControl elipseControl1;
+        private Tools.ElipseControl elipseControl2;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }

@@ -30,7 +30,7 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
             InitializeComponent();
         }
         public frmTaoCaThi(KryptonPanel content, bool check_create_edit, int MACATHI, string MAHOCPHAN, string TENHOCPHAN, CaThis ct)
-        {
+        { 
             InitializeComponent();
             this.content = content;
             this.check_create_edit = check_create_edit;
@@ -167,6 +167,14 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
                 frmChon_SL_CauHoi.ShowDialog();
                 int soLuong = frmChon_SL_CauHoi.SoLuong;
 
+                while (soLuong > gridDSSinhVien.RowCount)
+                {
+                    KryptonMessageBox.Show("Số lượng sinh viên muốn chọn vượt quá số lượng đang có !\nHãy chọn lại hoặc bổ sung sinh viên.", "Cảnh báo",
+                        MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    frmChon_SL_CauHoi.ShowDialog();
+                    soLuong = frmChon_SL_CauHoi.SoLuong;
+                }
+
                 for (int i = 0; i < soLuong; i++)
                 {
                     gridDSSinhVien.Rows[i].Cells[0].Value = true;
@@ -186,6 +194,14 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
                 frmChon_SL_CauHoi frmChon_SL_CauHoi = new frmChon_SL_CauHoi(true, false);
                 frmChon_SL_CauHoi.ShowDialog();
                 int soLuong = frmChon_SL_CauHoi.SoLuong;
+
+                while (soLuong > gridDSSinhVien.RowCount)
+                {
+                    KryptonMessageBox.Show("Số lượng sinh viên muốn chọn vượt quá số lượng đang có !\nHãy chọn lại hoặc bổ sung sinh viên.", "Cảnh báo",
+                        MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    frmChon_SL_CauHoi.ShowDialog();
+                    soLuong = frmChon_SL_CauHoi.SoLuong;
+                }
 
                 for (int i = 0; i < soLuong; i++)
                 {
@@ -242,6 +258,7 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
 
                 if (gridDSSVDuocChon.RowCount == 0)
                 {
+                    gridDSSinhVien.Rows[rsl].Cells[0].Value = true;
                     gridDSSVDuocChon.Rows.Add(row);
                 }
                 else
@@ -254,6 +271,7 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
                         if (gridDSSVDuocChon.Rows[i].Cells[1].Value.ToString().Trim()
                         .Equals(row[1].ToString().Trim()))
                         {
+                            gridDSSinhVien.Rows[rsl].Cells[0].Value = false;
                             gridDSSVDuocChon.Rows.RemoveAt(i);
                             status = true;
                             return;
@@ -261,6 +279,7 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
                     }
                     if (!status)
                     {
+                        gridDSSinhVien.Rows[rsl].Cells[0].Value = true;
                         gridDSSVDuocChon.Rows.Add(row);
                     }
                 }

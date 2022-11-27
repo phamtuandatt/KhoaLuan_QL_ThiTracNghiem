@@ -11,7 +11,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Windows.Forms; 
 
 namespace App_QL_ThiTracNghiem.GUI.DuyetNHCauHoi
 {
@@ -19,24 +19,38 @@ namespace App_QL_ThiTracNghiem.GUI.DuyetNHCauHoi
     {
         int maMh;
         int MANGANHANG;
-        string MAHOCPHAN;
+        string MAHOCPHAN, TENHOCPHAN;
         public frmDuyetCauHoi(int maMh)
         {
             InitializeComponent();
             this.maMh = maMh;
         }
 
-        public frmDuyetCauHoi(int MANGANHANG, string MAHOCPHAN)
+        public frmDuyetCauHoi(int MANGANHANG, string MAHOCPHAN, string TENHOCPHAN)
         {
             InitializeComponent();
             this.MANGANHANG = MANGANHANG;
             this.MAHOCPHAN = MAHOCPHAN;
+            this.TENHOCPHAN = TENHOCPHAN;
 
             Show_DS_CauHoi_HocPhan();
+            txtMonHoc.Text = TENHOCPHAN;
+
+            lblNoiDungCauHoi.ReadOnly = true;
+            txtA.ReadOnly = true;
+            txtB.ReadOnly = true;
+            txtC.ReadOnly = true;
+            txtD.ReadOnly = true;
+            radA.Enabled = false;
+            radB.Enabled = false;
+            radC.Enabled = false;
+            radD.Enabled = false;
+
         }
 
         private void Show_DS_CauHoi_HocPhan()
         {
+            // Hiển thị DS câu hỏi chưa được duyệt
             gridDSCauHoi.DataSource = NganHangCauHoi_DAO.Get_DS_CauHoi(MANGANHANG, MAHOCPHAN);
         }
 
@@ -108,6 +122,7 @@ namespace App_QL_ThiTracNghiem.GUI.DuyetNHCauHoi
 
                 if (gridDS_CauHoi_Duyet.RowCount == 0)
                 {
+                    gridDSCauHoi.Rows[row_sl].Cells[0].Value = true;
                     gridDS_CauHoi_Duyet.Rows.Add(row);
                 }
                 else
@@ -120,6 +135,7 @@ namespace App_QL_ThiTracNghiem.GUI.DuyetNHCauHoi
                         if (gridDS_CauHoi_Duyet.Rows[i].Cells[6].Value.ToString().Trim()
                         .Equals(row[6].ToString().Trim()))
                         {
+                            gridDSCauHoi.Rows[row_sl].Cells[0].Value = false;
                             gridDS_CauHoi_Duyet.Rows.RemoveAt(i);
                             status = true;
                             return;
@@ -127,6 +143,7 @@ namespace App_QL_ThiTracNghiem.GUI.DuyetNHCauHoi
                     }
                     if (!status)
                     {
+                        gridDSCauHoi.Rows[row_sl].Cells[0].Value = true;
                         gridDS_CauHoi_Duyet.Rows.Add(row);
                     }
                 }

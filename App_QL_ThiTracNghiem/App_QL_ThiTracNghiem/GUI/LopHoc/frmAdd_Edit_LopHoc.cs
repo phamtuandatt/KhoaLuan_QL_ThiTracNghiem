@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace App_QL_ThiTracNghiem.GUI.LopHoc
 {
-    public partial class frmAdd_Edit_LopHoc : Form
+    public partial class frmAdd_Edit_LopHoc : MetroFramework.Forms.MetroForm
     {
         public frmAdd_Edit_LopHoc()
         {

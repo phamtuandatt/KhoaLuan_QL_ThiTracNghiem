@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
 {
-    public partial class frmCT_DeThi_CauHoi : Form
+    public partial class frmCT_DeThi_CauHoi : MetroFramework.Forms.MetroForm
     {
         int MACAUHOI;
         public frmCT_DeThi_CauHoi(int MACAUHOI)

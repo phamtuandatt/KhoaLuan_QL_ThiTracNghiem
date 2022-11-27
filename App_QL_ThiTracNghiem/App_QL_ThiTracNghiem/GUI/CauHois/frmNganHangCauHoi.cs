@@ -77,7 +77,6 @@ namespace App_QL_ThiTracNghiem.GUI
                 frmThemMonHoc frmThemMonHoc = new frmThemMonHoc(MANGANHANG, MAGV);
                 frmThemMonHoc.ShowDialog();
             }
-
         }
     }
 }

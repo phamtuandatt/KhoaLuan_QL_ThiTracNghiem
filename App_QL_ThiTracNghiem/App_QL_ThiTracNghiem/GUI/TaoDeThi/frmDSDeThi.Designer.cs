@@ -31,9 +31,6 @@
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonGroupBox1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.gridDSDeThi = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.cboDSMonHoc = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,6 +38,9 @@
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.cboDSMonHoc = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).BeginInit();
@@ -95,11 +95,69 @@
             this.gridDSDeThi.Location = new System.Drawing.Point(0, 0);
             this.gridDSDeThi.Name = "gridDSDeThi";
             this.gridDSDeThi.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.gridDSDeThi.ReadOnly = true;
             this.gridDSDeThi.RowHeadersWidth = 51;
             this.gridDSDeThi.RowTemplate.Height = 24;
+            this.gridDSDeThi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridDSDeThi.Size = new System.Drawing.Size(1005, 578);
             this.gridDSDeThi.TabIndex = 0;
             this.gridDSDeThi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridDSDeThi_CellContentClick);
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "MADETHI";
+            this.Column1.HeaderText = "Mã đề thi";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "MAHOCPHAN";
+            this.Column2.HeaderText = "Mã học phần";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "TENHOCPHAN";
+            this.Column3.HeaderText = "Tên học phần";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "NGAYTAO";
+            this.Column4.HeaderText = "Ngày tạo";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "TGLAMBAI";
+            this.Column7.HeaderText = "Thời gian làm bài";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "SLCAUHOI";
+            this.Column8.HeaderText = "Số lượng câu hỏi";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "TINHTRANG";
+            this.Column9.HeaderText = "Tình trạng";
+            this.Column9.MinimumWidth = 6;
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
             // 
             // kryptonPanel2
             // 
@@ -130,55 +188,6 @@
             this.kryptonLabel1.Size = new System.Drawing.Size(80, 24);
             this.kryptonLabel1.TabIndex = 3;
             this.kryptonLabel1.Values.Text = "Môn học:";
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "MADETHI";
-            this.Column1.HeaderText = "Mã đề thi";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "MAHOCPHAN";
-            this.Column2.HeaderText = "Mã học phần";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "TENHOCPHAN";
-            this.Column3.HeaderText = "Tên học phần";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "NGAYTAO";
-            this.Column4.HeaderText = "Ngày tạo";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            // 
-            // Column7
-            // 
-            this.Column7.DataPropertyName = "TGLAMBAI";
-            this.Column7.HeaderText = "Thời gian làm bài";
-            this.Column7.MinimumWidth = 6;
-            this.Column7.Name = "Column7";
-            // 
-            // Column8
-            // 
-            this.Column8.DataPropertyName = "SLCAUHOI";
-            this.Column8.HeaderText = "Số lượng câu hỏi";
-            this.Column8.MinimumWidth = 6;
-            this.Column8.Name = "Column8";
-            // 
-            // Column9
-            // 
-            this.Column9.DataPropertyName = "TINHTRANG";
-            this.Column9.HeaderText = "Tình trạng";
-            this.Column9.MinimumWidth = 6;
-            this.Column9.Name = "Column9";
             // 
             // frmDSDeThi
             // 
