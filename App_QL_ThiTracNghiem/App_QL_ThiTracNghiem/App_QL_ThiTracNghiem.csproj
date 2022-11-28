@@ -232,11 +232,17 @@
     <Compile Include="GUI\GiangVien\frmAdd_Edit_GiangVien.Designer.cs">
       <DependentUpon>frmAdd_Edit_GiangVien.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\GiangVien\frmDS_GiangVien.cs">
+    <Compile Include="GUI\GiangVien\frmDMK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\GiangVien\frmDMK.Designer.cs">
+      <DependentUpon>frmDMK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\GiangVien\frmDSGiangVien.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GUI\GiangVien\frmDS_GiangVien.Designer.cs">
-      <DependentUpon>frmDS_GiangVien.cs</DependentUpon>
+    <Compile Include="GUI\GiangVien\frmDSGiangVien.Designer.cs">
+      <DependentUpon>frmDSGiangVien.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\HocPhan\frmAdd_Edit_HocPhan.cs">
       <SubType>Form</SubType>
@@ -399,8 +405,11 @@
     <EmbeddedResource Include="GUI\GiangVien\frmAdd_Edit_GiangVien.resx">
       <DependentUpon>frmAdd_Edit_GiangVien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\GiangVien\frmDS_GiangVien.resx">
-      <DependentUpon>frmDS_GiangVien.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\GiangVien\frmDMK.resx">
+      <DependentUpon>frmDMK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\GiangVien\frmDSGiangVien.resx">
+      <DependentUpon>frmDSGiangVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\HocPhan\frmAdd_Edit_HocPhan.resx">
       <DependentUpon>frmAdd_Edit_HocPhan.cs</DependentUpon>

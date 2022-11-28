@@ -2,6 +2,11 @@
 using App_QL_ThiTracNghiem.GUI.BaiThi;
 using App_QL_ThiTracNghiem.GUI.CaThi;
 using App_QL_ThiTracNghiem.GUI.DuyetNHCauHoi;
+using App_QL_ThiTracNghiem.GUI.GiangVien;
+using App_QL_ThiTracNghiem.GUI.HocPhan;
+using App_QL_ThiTracNghiem.GUI.Khoa;
+using App_QL_ThiTracNghiem.GUI.LopHoc;
+using App_QL_ThiTracNghiem.GUI.SinhVien;
 using App_QL_ThiTracNghiem.GUI.TaoDeThi;
 using System;
 using System.Collections.Generic;
@@ -96,12 +101,50 @@ namespace App_QL_ThiTracNghiem.GUI
             frmQL_BaiThi.BringToFront();
         }
 
-        private void comboBox1_DrawItem(object sender, DrawItemEventArgs e)
+        private void picAnhDaiDien_Click(object sender, EventArgs e)
         {
-            if (e.Index != -1)
-            {
-                e.Graphics.DrawImage(imageList1.Images[e.Index], e.Bounds.Left, e.Bounds.Top);
-            }
+            frmAdd_Edit_GiangVien edit_gv = new frmAdd_Edit_GiangVien(gv);
+            edit_gv.ShowDialog();
+        }
+
+        private void menuDSGiangVien_Click(object sender, EventArgs e)
+        {
+            frmDSGiangVien dsgv = new frmDSGiangVien();
+            dsgv.Dock = System.Windows.Forms.DockStyle.Fill;
+            pnMain.Controls.Add(dsgv);
+            dsgv.BringToFront();
+        }
+
+        private void menuDSKhoa_Click(object sender, EventArgs e)
+        {
+            frmDS_Khoa dS_Khoa = new frmDS_Khoa();
+            dS_Khoa.Dock = System.Windows.Forms.DockStyle.Fill;
+            pnMain.Controls.Add(dS_Khoa);
+            dS_Khoa.BringToFront();
+        }
+
+        private void menuHocPhan_Click(object sender, EventArgs e)
+        {
+            frmDS_HocPhan hp = new frmDS_HocPhan();
+            hp.Dock = System.Windows.Forms.DockStyle.Fill;
+            pnMain.Controls.Add(hp);
+            hp.BringToFront();
+        }
+
+        private void lớpHọcToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDS_LopHoc lophoc = new frmDS_LopHoc();
+            lophoc.Dock = System.Windows.Forms.DockStyle.Fill;
+            pnMain.Controls.Add(lophoc);
+            lophoc.BringToFront();
+        }
+
+        private void menuSinhVien_Click(object sender, EventArgs e)
+        {
+            frmDS_SinhVien sinhVien = new frmDS_SinhVien();
+            sinhVien.Dock = System.Windows.Forms.DockStyle.Fill;
+            pnMain.Controls.Add(sinhVien);
+            sinhVien.BringToFront();
         }
     }
 }

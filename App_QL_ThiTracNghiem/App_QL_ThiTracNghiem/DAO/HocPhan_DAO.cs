@@ -40,5 +40,35 @@ namespace App_QL_ThiTracNghiem.DAO
 
             return dt_HocPhan;
         }
+
+        public static DataTable GetDSHP()
+        {
+            DataTable dt = new DataTable();
+            string sql = "EXEC GET_DSHOCPHAN";
+            dt = data.get_data(sql, "DSHP");
+
+            return dt;
+        }
+
+        public static bool UpdateHP(HocPhans hp)
+        {
+            string sql = $"UPDATE HOCPHAN SET TENHOCPHAN = N'{hp.TenHocPhan}', SOTC = {hp.SoTC} , SOTIET_LT = {hp.SoTietLT} , SOTIET_TH = {hp.SoTietTH} WHERE MAHOCPHAN = '{hp.MaHocPhan}'";
+
+            return data.insert_update_delete(sql) > 0;
+        }
+
+        public static bool InsertHP(HocPhans hp)
+        {
+            string sql = $"INSERT INTO HOCPHAN VALUES ((SELECT DBO.AUTO_MAHOCPHAN()), N'{hp.TenHocPhan}', {hp.SoTC}, {hp.SoTietLT}, {hp.SoTietTH}, '{hp.MaKhoa}')";
+
+            return data.insert_update_delete(sql) > 0;
+        }
+
+        public static bool DeleteHP(string MAHOCPHAN)
+        {
+            string sql = $"DELETE FROM HOCPHAN WHERE MAHOCPHAN = '{MAHOCPHAN}'";
+
+            return data.insert_update_delete(sql) > 0;
+        }
     }
 }

@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.kryptonTextBox5 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.txtTen = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryptonLabel6 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonButton2 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnOk = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnHuy = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // kryptonPanel1
             // 
-            this.kryptonPanel1.Controls.Add(this.kryptonTextBox5);
+            this.kryptonPanel1.Controls.Add(this.txtTen);
             this.kryptonPanel1.Controls.Add(this.kryptonLabel6);
-            this.kryptonPanel1.Controls.Add(this.kryptonButton2);
-            this.kryptonPanel1.Controls.Add(this.kryptonButton1);
+            this.kryptonPanel1.Controls.Add(this.btnOk);
+            this.kryptonPanel1.Controls.Add(this.btnHuy);
             this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonPanel1.Location = new System.Drawing.Point(20, 60);
             this.kryptonPanel1.Name = "kryptonPanel1";
@@ -50,13 +50,13 @@
             this.kryptonPanel1.Size = new System.Drawing.Size(482, 143);
             this.kryptonPanel1.TabIndex = 0;
             // 
-            // kryptonTextBox5
+            // txtTen
             // 
-            this.kryptonTextBox5.Location = new System.Drawing.Point(113, 32);
-            this.kryptonTextBox5.Name = "kryptonTextBox5";
-            this.kryptonTextBox5.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.kryptonTextBox5.Size = new System.Drawing.Size(334, 27);
-            this.kryptonTextBox5.TabIndex = 7;
+            this.txtTen.Location = new System.Drawing.Point(113, 32);
+            this.txtTen.Name = "txtTen";
+            this.txtTen.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.txtTen.Size = new System.Drawing.Size(336, 27);
+            this.txtTen.TabIndex = 7;
             // 
             // kryptonLabel6
             // 
@@ -67,23 +67,25 @@
             this.kryptonLabel6.TabIndex = 6;
             this.kryptonLabel6.Values.Text = "Tên khoa:";
             // 
-            // kryptonButton2
+            // btnOk
             // 
-            this.kryptonButton2.Location = new System.Drawing.Point(288, 77);
-            this.kryptonButton2.Name = "kryptonButton2";
-            this.kryptonButton2.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.kryptonButton2.Size = new System.Drawing.Size(159, 46);
-            this.kryptonButton2.TabIndex = 4;
-            this.kryptonButton2.Values.Text = "XÁC NHẬN";
+            this.btnOk.Location = new System.Drawing.Point(290, 77);
+            this.btnOk.Name = "btnOk";
+            this.btnOk.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.btnOk.Size = new System.Drawing.Size(159, 46);
+            this.btnOk.TabIndex = 4;
+            this.btnOk.Values.Text = "XÁC NHẬN";
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
-            // kryptonButton1
+            // btnHuy
             // 
-            this.kryptonButton1.Location = new System.Drawing.Point(103, 77);
-            this.kryptonButton1.Name = "kryptonButton1";
-            this.kryptonButton1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.kryptonButton1.Size = new System.Drawing.Size(159, 46);
-            this.kryptonButton1.TabIndex = 5;
-            this.kryptonButton1.Values.Text = "HỦY";
+            this.btnHuy.Location = new System.Drawing.Point(122, 77);
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.btnHuy.Size = new System.Drawing.Size(159, 46);
+            this.btnHuy.TabIndex = 5;
+            this.btnHuy.Values.Text = "HỦY";
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // frmAdd_Edit_Khoa
             // 
@@ -103,9 +105,9 @@
         #endregion
 
         private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel1;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton2;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton1;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox kryptonTextBox5;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnOk;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnHuy;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtTen;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel6;
     }
 }

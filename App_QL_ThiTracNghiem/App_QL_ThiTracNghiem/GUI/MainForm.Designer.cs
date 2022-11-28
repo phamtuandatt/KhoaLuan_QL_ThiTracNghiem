@@ -56,7 +56,6 @@
             this.lớpHọcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuSinhVien = new System.Windows.Forms.ToolStripMenuItem();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.elipseControl1 = new App_QL_ThiTracNghiem.Tools.ElipseControl();
             this.elipseControl2 = new App_QL_ThiTracNghiem.Tools.ElipseControl();
             ((System.ComponentModel.ISupportInitialize)(this.pnHeader)).BeginInit();
@@ -75,7 +74,6 @@
             // 
             // pnHeader
             // 
-            this.pnHeader.Controls.Add(this.comboBox1);
             this.pnHeader.Controls.Add(this.picAnhDaiDien);
             this.pnHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnHeader.Location = new System.Drawing.Point(0, 0);
@@ -93,6 +91,7 @@
             this.picAnhDaiDien.Size = new System.Drawing.Size(78, 63);
             this.picAnhDaiDien.TabIndex = 0;
             this.picAnhDaiDien.TabStop = false;
+            this.picAnhDaiDien.Click += new System.EventHandler(this.picAnhDaiDien_Click);
             // 
             // pnFeature
             // 
@@ -104,10 +103,10 @@
             this.pnFeature.Controls.Add(this.btnDeThi);
             this.pnFeature.Controls.Add(this.kryptonPanel1);
             this.pnFeature.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnFeature.Location = new System.Drawing.Point(0, 30);
+            this.pnFeature.Location = new System.Drawing.Point(0, 28);
             this.pnFeature.Name = "pnFeature";
             this.pnFeature.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Black;
-            this.pnFeature.Size = new System.Drawing.Size(299, 659);
+            this.pnFeature.Size = new System.Drawing.Size(299, 661);
             this.pnFeature.TabIndex = 2;
             // 
             // btnNganHangCauHoi
@@ -209,9 +208,9 @@
             this.pnContent.Controls.Add(this.pnMain);
             this.pnContent.Controls.Add(this.pnHeader);
             this.pnContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnContent.Location = new System.Drawing.Point(299, 30);
+            this.pnContent.Location = new System.Drawing.Point(299, 28);
             this.pnContent.Name = "pnContent";
-            this.pnContent.Size = new System.Drawing.Size(844, 659);
+            this.pnContent.Size = new System.Drawing.Size(844, 661);
             this.pnContent.TabIndex = 3;
             // 
             // pnMain
@@ -221,7 +220,7 @@
             this.pnMain.Name = "pnMain";
             this.pnMain.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
             this.pnMain.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlClient;
-            this.pnMain.Size = new System.Drawing.Size(844, 579);
+            this.pnMain.Size = new System.Drawing.Size(844, 581);
             this.pnMain.TabIndex = 2;
             // 
             // menuStrip1
@@ -235,7 +234,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.menuStrip1.Size = new System.Drawing.Size(1143, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1143, 28);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -275,18 +274,21 @@
             this.menuDSGiangVien.Name = "menuDSGiangVien";
             this.menuDSGiangVien.Size = new System.Drawing.Size(162, 26);
             this.menuDSGiangVien.Text = "Giảng viên";
+            this.menuDSGiangVien.Click += new System.EventHandler(this.menuDSGiangVien_Click);
             // 
             // menuDSKhoa
             // 
             this.menuDSKhoa.Name = "menuDSKhoa";
             this.menuDSKhoa.Size = new System.Drawing.Size(162, 26);
             this.menuDSKhoa.Text = "Khoa";
+            this.menuDSKhoa.Click += new System.EventHandler(this.menuDSKhoa_Click);
             // 
             // menuHocPhan
             // 
             this.menuHocPhan.Name = "menuHocPhan";
             this.menuHocPhan.Size = new System.Drawing.Size(162, 26);
             this.menuHocPhan.Text = "Học phần";
+            this.menuHocPhan.Click += new System.EventHandler(this.menuHocPhan_Click);
             // 
             // menuLopHoc
             // 
@@ -300,14 +302,16 @@
             // lớpHọcToolStripMenuItem
             // 
             this.lớpHọcToolStripMenuItem.Name = "lớpHọcToolStripMenuItem";
-            this.lớpHọcToolStripMenuItem.Size = new System.Drawing.Size(151, 26);
+            this.lớpHọcToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.lớpHọcToolStripMenuItem.Text = "Lớp học";
+            this.lớpHọcToolStripMenuItem.Click += new System.EventHandler(this.lớpHọcToolStripMenuItem_Click);
             // 
             // menuSinhVien
             // 
             this.menuSinhVien.Name = "menuSinhVien";
-            this.menuSinhVien.Size = new System.Drawing.Size(151, 26);
+            this.menuSinhVien.Size = new System.Drawing.Size(224, 26);
             this.menuSinhVien.Text = "Sinh viên";
+            this.menuSinhVien.Click += new System.EventHandler(this.menuSinhVien_Click);
             // 
             // imageList1
             // 
@@ -315,22 +319,6 @@
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "312477454_848113689520435_2392142812272977349_n.jpg");
             this.imageList1.Images.SetKeyName(1, "2_img.jpg");
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Item 1",
-            "Item 1",
-            "Item 1",
-            "Item 1",
-            "Item 1"});
-            this.comboBox1.Location = new System.Drawing.Point(204, 32);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 23);
-            this.comboBox1.TabIndex = 1;
-            this.comboBox1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.comboBox1_DrawItem);
             // 
             // elipseControl1
             // 
@@ -400,7 +388,6 @@
         private System.Windows.Forms.ToolStripMenuItem menuSinhVien;
         private Tools.ElipseControl elipseControl1;
         private Tools.ElipseControl elipseControl2;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ImageList imageList1;
     }
 }

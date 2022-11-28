@@ -1,4 +1,5 @@
-﻿using System;
+﻿using App_QL_ThiTracNghiem.DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,29 @@ namespace App_QL_ThiTracNghiem.GUI.SinhVien
 {
     public partial class frmAdd_Edit_SinhVien : MetroFramework.Forms.MetroForm
     {
-        public frmAdd_Edit_SinhVien()
+        bool check_edit;
+        SinhViens sinhVien;
+        public frmAdd_Edit_SinhVien(bool check_edit, SinhViens sinhViens)
         {
             InitializeComponent();
+            this.check_edit = check_edit;
+            this.sinhVien = sinhViens;
+
+            if (check_edit)
+            {
+
+            }
+
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

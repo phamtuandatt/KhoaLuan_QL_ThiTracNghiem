@@ -51,5 +51,36 @@ namespace App_QL_ThiTracNghiem.DAO
 
             return data.get_result_int(sql);
         }
+
+        public static bool ChangePassword(string MAGV, string MK)
+        {
+            string sql = string.Format("UPDATE GIANGVIEN SET MATKHAU = '{0}' WHERE MAGV = {1}", MK, MAGV);
+
+            return data.insert_update_delete(sql) > 0;
+        }
+
+        public static bool Update_GV(GiangViens gv)
+        {
+            string sql = $"SET DATEFORMAT DMY UPDATE GIANGVIEN SET TENGV = N'{gv.TenGV}', NGAYSINH = '{gv.NgaySinh}', GIOITINH = N'{gv.GioiTinh}', " +
+                            $"QUEQUAN = N'{gv.QueQuan}', HOCVI = N'{gv.HocVi}', SDT = '{gv.Sdt}', EMAIL = N'{gv.Email}', DIACHI = N'{gv.DiaChi}' WHERE MAGV = '{gv.MaGV}'";
+
+            return data.insert_update_delete(sql) > 0;
+        }
+
+        public static DataTable GetDSGV()
+        {
+            DataTable dt = new DataTable();
+            string sql = "EXEC GET_DSGV";
+            dt = data.get_data(sql, "DSGV");
+
+            return dt;
+        }
+
+        public static bool DeleteGV(string MAGV)
+        {
+            string sql = $"DELETE FROM GIANGVIEN WHERE MAGV = '{MAGV}'";
+
+            return data.insert_update_delete(sql) > 0;
+        }
     }
 }

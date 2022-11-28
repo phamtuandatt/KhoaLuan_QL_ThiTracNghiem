@@ -19,6 +19,7 @@ namespace App_QL_ThiTracNghiem.DTO
         public string Sdt { get; set; }
         public string DiaChi { get; set; }
         public string QueQuan { get; set; }
+        public string HocPhi { get; set; }
         public string MaLop { get; set; }
     }
 }

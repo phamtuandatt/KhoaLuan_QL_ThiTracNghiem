@@ -1,4 +1,7 @@
-﻿using System;
+﻿using App_QL_ThiTracNghiem.DAO;
+using App_QL_ThiTracNghiem.DTO;
+using ComponentFactory.Krypton.Toolkit;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +15,72 @@ namespace App_QL_ThiTracNghiem.GUI.LopHoc
 {
     public partial class frmAdd_Edit_LopHoc : MetroFramework.Forms.MetroForm
     {
-        public frmAdd_Edit_LopHoc()
+        Lops lops;
+        bool check_edit;
+        public frmAdd_Edit_LopHoc(bool check_edit, Lops lops)
         {
             InitializeComponent();
+            this.check_edit = check_edit;
+            this.lops = lops;
+
+            ShowCboKhoa();
+            if (check_edit)
+            {
+                cboKhoa.SelectedValue = lops.MaKhoa;
+                txtMaLop.Text = lops.MaLop;
+                txtTenLop.Text = lops.TenLop;
+            }
+        }
+
+        public void ShowCboKhoa()
+        {
+            cboKhoa.DataSource = Khoa_DAO.GetKhoas();
+            cboKhoa.DisplayMember = "TENKHOA";
+            cboKhoa.ValueMember = "MAKHOA";
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+            if (check_edit)
+            {
+                Lops lop = new Lops();
+                lop.MaLop = txtMaLop.Text;
+                lop.TenLop = txtTenLop.Text;
+
+                if (Lop_DAO.UpdateLop(lop))
+                {
+                    KryptonMessageBox.Show("Cập nhật LỚP thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                else
+                {
+                    KryptonMessageBox.Show("Cập nhật LỚP KHÔNG thành công !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    this.Close();
+                }
+            }
+            else
+            {
+                Lops lop = new Lops();
+                lop.MaLop = txtMaLop.Text;
+                lop.TenLop = txtTenLop.Text;
+                lop.MaKhoa = cboKhoa.SelectedValue.ToString();
+
+                if (Lop_DAO.InsertLop(lop))
+                {
+                    KryptonMessageBox.Show("Tạo LỚP thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                else
+                {
+                    KryptonMessageBox.Show("Tạo LỚP KHÔNG thành công !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    this.Close();
+                }
+            }
         }
     }
 }

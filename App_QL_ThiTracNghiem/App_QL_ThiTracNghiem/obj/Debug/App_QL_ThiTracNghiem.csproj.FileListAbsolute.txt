@@ -85,7 +85,6 @@ D:\KhoaLuan_QL_ThiTracNghiem\App_QL_ThiTracNghiem\App_QL_ThiTracNghiem\obj\Debug
 D:\KhoaLuan_QL_ThiTracNghiem\App_QL_ThiTracNghiem\App_QL_ThiTracNghiem\obj\Debug\App_QL_ThiTracNghiem.GUI.DuyetNHCauHoi.frmDuyetCauHoi.resources
 D:\KhoaLuan_QL_ThiTracNghiem\App_QL_ThiTracNghiem\App_QL_ThiTracNghiem\obj\Debug\App_QL_ThiTracNghiem.GUI.DuyetNHCauHoi.frmDuyetNHCauHoi.resources
 D:\KhoaLuan_QL_ThiTracNghiem\App_QL_ThiTracNghiem\App_QL_ThiTracNghiem\obj\Debug\App_QL_ThiTracNghiem.GUI.GiangVien.frmAdd_Edit_GiangVien.resources
-D:\KhoaLuan_QL_ThiTracNghiem\App_QL_ThiTracNghiem\App_QL_ThiTracNghiem\obj\Debug\App_QL_ThiTracNghiem.GUI.GiangVien.frmDS_Khoa.resources
 D:\KhoaLuan_QL_ThiTracNghiem\App_QL_ThiTracNghiem\App_QL_ThiTracNghiem\obj\Debug\App_QL_ThiTracNghiem.GUI.HocPhan.frmAdd_Edit_HocPhan.resources
 D:\KhoaLuan_QL_ThiTracNghiem\App_QL_ThiTracNghiem\App_QL_ThiTracNghiem\obj\Debug\App_QL_ThiTracNghiem.GUI.HocPhan.frmDS_HocPhan.resources
 D:\KhoaLuan_QL_ThiTracNghiem\App_QL_ThiTracNghiem\App_QL_ThiTracNghiem\obj\Debug\App_QL_ThiTracNghiem.GUI.Khoa.frmAdd_Edit_Khoa.resources
@@ -114,3 +113,5 @@ D:\KhoaLuan_QL_ThiTracNghiem\App_QL_ThiTracNghiem\App_QL_ThiTracNghiem\obj\Debug
 D:\KhoaLuan_QL_ThiTracNghiem\App_QL_ThiTracNghiem\App_QL_ThiTracNghiem\bin\Debug\MetroFramework.Design.dll
 D:\KhoaLuan_QL_ThiTracNghiem\App_QL_ThiTracNghiem\App_QL_ThiTracNghiem\bin\Debug\MetroFramework.dll
 D:\KhoaLuan_QL_ThiTracNghiem\App_QL_ThiTracNghiem\App_QL_ThiTracNghiem\bin\Debug\MetroFramework.Fonts.dll
+D:\KhoaLuan_QL_ThiTracNghiem\App_QL_ThiTracNghiem\App_QL_ThiTracNghiem\obj\Debug\App_QL_ThiTracNghiem.GUI.GiangVien.frmDMK.resources
+D:\KhoaLuan_QL_ThiTracNghiem\App_QL_ThiTracNghiem\App_QL_ThiTracNghiem\obj\Debug\App_QL_ThiTracNghiem.GUI.GiangVien.frmDSGiangVien.resources
