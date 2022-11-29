@@ -22,6 +22,24 @@ namespace App_QL_ThiTracNghiem.DAO
             return dt;
         }
 
+        public static DataTable GetDSLH_Khoa(string MAKHOA)
+        {
+            DataTable dt = new DataTable();
+            string sql = $"EXEC GET_DSLOPHOC_KHOA '{MAKHOA}'";
+            dt = data.get_data(sql, "DSLH");
+
+            return dt;
+        }
+
+        public static DataTable GetDSLop_Khoa(string MAKHOA)
+        {
+            DataTable dt = new DataTable();
+            string sql = $"SELECT *FROM LOPHOC WHERE MAKHOA = '{MAKHOA}'";
+            dt = data.get_data(sql, "DSLH_KHOA");
+
+            return dt;
+        }
+
         public static bool UpdateLop(Lops lop)
         {
             string sql = $"UPDATE LOPHOC SET TENLOP = N'{lop.TenLop}' WHERE MALOP = '{lop.MaLop}'";

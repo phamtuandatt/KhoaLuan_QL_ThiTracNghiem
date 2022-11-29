@@ -41,10 +41,10 @@ namespace App_QL_ThiTracNghiem.DAO
             return dt_HocPhan;
         }
 
-        public static DataTable GetDSHP()
+        public static DataTable GetDSHP(string MAKHOA)
         {
             DataTable dt = new DataTable();
-            string sql = "EXEC GET_DSHOCPHAN";
+            string sql = $"EXEC GET_DSHOCPHAN_KHOA '{MAKHOA}'";
             dt = data.get_data(sql, "DSHP");
 
             return dt;

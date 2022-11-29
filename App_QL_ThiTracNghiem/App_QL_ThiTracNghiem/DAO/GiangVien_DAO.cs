@@ -67,10 +67,10 @@ namespace App_QL_ThiTracNghiem.DAO
             return data.insert_update_delete(sql) > 0;
         }
 
-        public static DataTable GetDSGV()
+        public static DataTable GetDSGV(string MAKHOA)
         {
             DataTable dt = new DataTable();
-            string sql = "EXEC GET_DSGV";
+            string sql = $"EXEC GET_DSGV_KHOA '{MAKHOA}'";
             dt = data.get_data(sql, "DSGV");
 
             return dt;

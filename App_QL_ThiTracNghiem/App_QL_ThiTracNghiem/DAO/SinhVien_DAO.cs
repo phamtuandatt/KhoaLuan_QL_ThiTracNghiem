@@ -22,10 +22,10 @@ namespace App_QL_ThiTracNghiem.DAO
             return dT;
         }
 
-        public static DataTable GetDSSV()
+        public static DataTable GetDSSV(string MALOP)
         {
             DataTable dT = new DataTable();
-            string sql = "SELECT MASV, TENSV, GIOITINH, NGAYSINH, EMAIL, SDT, DIACHI, QUEQUAN, MALOP, HOCPHI FROM SINHVIEN";
+            string sql = $"SELECT MASV, TENSV, GIOITINH, NGAYSINH, EMAIL, SDT, DIACHI, QUEQUAN, HOCPHI, MALOP FROM SINHVIEN WHERE MALOP = '{MALOP}'";
             dT = data.get_data(sql, "DSSV");
 
             return dT;

@@ -23,7 +23,11 @@ namespace App_QL_ThiTracNghiem.GUI.GiangVien
 
         public void Show_DSGV()
         {
-            gridDSGiangVien.DataSource = GiangVien_DAO.GetDSGV();
+            cboKhoa.DataSource = Khoa_DAO.GetKhoas();
+            cboKhoa.DisplayMember = "TENKHOA";
+            cboKhoa.ValueMember = "MAKHOA";
+
+            gridDSGiangVien.DataSource = GiangVien_DAO.GetDSGV("01");
         }
 
         private void gridDSGiangVien_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -62,6 +66,11 @@ namespace App_QL_ThiTracNghiem.GUI.GiangVien
             {
                 KryptonMessageBox.Show("Xóa Giảng viên KHÔNG thành công !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void cboKhoa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            gridDSGiangVien.DataSource = GiangVien_DAO.GetDSGV(cboKhoa.SelectedValue.ToString());
         }
     }
 }

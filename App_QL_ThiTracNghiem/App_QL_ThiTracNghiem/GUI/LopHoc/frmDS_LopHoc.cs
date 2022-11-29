@@ -24,7 +24,11 @@ namespace App_QL_ThiTracNghiem.GUI.LopHoc
 
         public void ShowDSLopHoc()
         {
-            gridDSLopHoc.DataSource = Lop_DAO.GetDSLH();
+            cboKhoa.DataSource = Khoa_DAO.GetKhoas();
+            cboKhoa.DisplayMember = "TENKHOA";
+            cboKhoa.ValueMember = "MAKHOA";
+
+            gridDSLopHoc.DataSource = Lop_DAO.GetDSLop_Khoa("01");
         }
 
         private void xÓAToolStripMenuItem_Click(object sender, EventArgs e)
@@ -50,9 +54,9 @@ namespace App_QL_ThiTracNghiem.GUI.LopHoc
         {
             int rsl = gridDSLopHoc.CurrentRow.Index;
             Lops lop = new Lops();
-            lop.MaLop = gridDSLopHoc.Rows[rsl].Cells[0].Value.ToString().Trim();
-            lop.TenLop = gridDSLopHoc.Rows[rsl].Cells[1].Value.ToString().Trim();
-            lop.Siso = int.Parse(gridDSLopHoc.Rows[rsl].Cells[2].Value.ToString().Trim());
+            lop.MaLop = gridDSLopHoc.Rows[rsl].Cells[1].Value.ToString().Trim();
+            lop.TenLop = gridDSLopHoc.Rows[rsl].Cells[2].Value.ToString().Trim();
+            lop.Siso = int.Parse(gridDSLopHoc.Rows[rsl].Cells[3].Value.ToString().Trim());
             lop.MaKhoa = gridDSLopHoc.Rows[rsl].Cells[4].Value.ToString().Trim();
 
             frmAdd_Edit_LopHoc edit = new frmAdd_Edit_LopHoc(true, lop);
@@ -65,6 +69,11 @@ namespace App_QL_ThiTracNghiem.GUI.LopHoc
             frmAdd_Edit_LopHoc edit = new frmAdd_Edit_LopHoc(false, null);
             edit.ShowDialog();
             ShowDSLopHoc();
+        }
+
+        private void cboKhoa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            gridDSLopHoc.DataSource = Lop_DAO.GetDSLop_Khoa(cboKhoa.SelectedValue.ToString());
         }
     }
 }

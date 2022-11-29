@@ -29,13 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.kryptonButton3 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.kryptonButton2 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.gridDSGiangVien = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.kryptonGroupBox1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
-            this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,26 +47,22 @@
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextDelete = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.xÓAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kryptonGroupBox1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+            this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.cboKhoa = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
             this.kryptonPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridDSGiangVien)).BeginInit();
+            this.contextDelete.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1.Panel)).BeginInit();
             this.kryptonGroupBox1.Panel.SuspendLayout();
             this.kryptonGroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
-            this.contextDelete.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cboKhoa)).BeginInit();
             this.SuspendLayout();
-            // 
-            // kryptonButton3
-            // 
-            this.kryptonButton3.Location = new System.Drawing.Point(224, 5);
-            this.kryptonButton3.Name = "kryptonButton3";
-            this.kryptonButton3.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.kryptonButton3.Size = new System.Drawing.Size(102, 40);
-            this.kryptonButton3.TabIndex = 0;
-            this.kryptonButton3.Values.Text = "SỬA";
             // 
             // kryptonButton1
             // 
@@ -83,8 +75,8 @@
             // 
             // kryptonPanel2
             // 
-            this.kryptonPanel2.Controls.Add(this.kryptonButton3);
-            this.kryptonPanel2.Controls.Add(this.kryptonButton2);
+            this.kryptonPanel2.Controls.Add(this.kryptonLabel1);
+            this.kryptonPanel2.Controls.Add(this.cboKhoa);
             this.kryptonPanel2.Controls.Add(this.kryptonButton1);
             this.kryptonPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.kryptonPanel2.Location = new System.Drawing.Point(0, 0);
@@ -92,15 +84,6 @@
             this.kryptonPanel2.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.kryptonPanel2.Size = new System.Drawing.Size(1440, 50);
             this.kryptonPanel2.TabIndex = 0;
-            // 
-            // kryptonButton2
-            // 
-            this.kryptonButton2.Location = new System.Drawing.Point(116, 5);
-            this.kryptonButton2.Name = "kryptonButton2";
-            this.kryptonButton2.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.kryptonButton2.Size = new System.Drawing.Size(102, 40);
-            this.kryptonButton2.TabIndex = 0;
-            this.kryptonButton2.Values.Text = "XÓA";
             // 
             // gridDSGiangVien
             // 
@@ -133,31 +116,6 @@
             this.gridDSGiangVien.Size = new System.Drawing.Size(1436, 641);
             this.gridDSGiangVien.TabIndex = 0;
             this.gridDSGiangVien.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridDSGiangVien_CellDoubleClick);
-            // 
-            // kryptonGroupBox1
-            // 
-            this.kryptonGroupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonGroupBox1.Location = new System.Drawing.Point(0, 50);
-            this.kryptonGroupBox1.Name = "kryptonGroupBox1";
-            this.kryptonGroupBox1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            // 
-            // kryptonGroupBox1.Panel
-            // 
-            this.kryptonGroupBox1.Panel.Controls.Add(this.gridDSGiangVien);
-            this.kryptonGroupBox1.Size = new System.Drawing.Size(1440, 669);
-            this.kryptonGroupBox1.TabIndex = 1;
-            this.kryptonGroupBox1.Values.Heading = "Danh sách giảng viên";
-            // 
-            // kryptonPanel1
-            // 
-            this.kryptonPanel1.Controls.Add(this.kryptonGroupBox1);
-            this.kryptonPanel1.Controls.Add(this.kryptonPanel2);
-            this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonPanel1.Location = new System.Drawing.Point(0, 0);
-            this.kryptonPanel1.Name = "kryptonPanel1";
-            this.kryptonPanel1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.kryptonPanel1.Size = new System.Drawing.Size(1440, 719);
-            this.kryptonPanel1.TabIndex = 1;
             // 
             // Column1
             // 
@@ -276,8 +234,54 @@
             // xÓAToolStripMenuItem
             // 
             this.xÓAToolStripMenuItem.Name = "xÓAToolStripMenuItem";
-            this.xÓAToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.xÓAToolStripMenuItem.Size = new System.Drawing.Size(108, 24);
             this.xÓAToolStripMenuItem.Text = "XÓA";
+            // 
+            // kryptonGroupBox1
+            // 
+            this.kryptonGroupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.kryptonGroupBox1.Location = new System.Drawing.Point(0, 50);
+            this.kryptonGroupBox1.Name = "kryptonGroupBox1";
+            this.kryptonGroupBox1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            // 
+            // kryptonGroupBox1.Panel
+            // 
+            this.kryptonGroupBox1.Panel.Controls.Add(this.gridDSGiangVien);
+            this.kryptonGroupBox1.Size = new System.Drawing.Size(1440, 669);
+            this.kryptonGroupBox1.TabIndex = 1;
+            this.kryptonGroupBox1.Values.Heading = "Danh sách giảng viên";
+            // 
+            // kryptonPanel1
+            // 
+            this.kryptonPanel1.Controls.Add(this.kryptonGroupBox1);
+            this.kryptonPanel1.Controls.Add(this.kryptonPanel2);
+            this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.kryptonPanel1.Location = new System.Drawing.Point(0, 0);
+            this.kryptonPanel1.Name = "kryptonPanel1";
+            this.kryptonPanel1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.kryptonPanel1.Size = new System.Drawing.Size(1440, 719);
+            this.kryptonPanel1.TabIndex = 1;
+            // 
+            // kryptonLabel1
+            // 
+            this.kryptonLabel1.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
+            this.kryptonLabel1.Location = new System.Drawing.Point(135, 12);
+            this.kryptonLabel1.Name = "kryptonLabel1";
+            this.kryptonLabel1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.kryptonLabel1.Size = new System.Drawing.Size(53, 26);
+            this.kryptonLabel1.TabIndex = 9;
+            this.kryptonLabel1.Values.Text = "Khoa:";
+            // 
+            // cboKhoa
+            // 
+            this.cboKhoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboKhoa.DropDownWidth = 450;
+            this.cboKhoa.Location = new System.Drawing.Point(211, 13);
+            this.cboKhoa.Name = "cboKhoa";
+            this.cboKhoa.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.cboKhoa.Size = new System.Drawing.Size(446, 25);
+            this.cboKhoa.TabIndex = 8;
+            this.cboKhoa.SelectedIndexChanged += new System.EventHandler(this.cboKhoa_SelectedIndexChanged);
             // 
             // frmDSGiangVien
             // 
@@ -288,24 +292,23 @@
             this.Size = new System.Drawing.Size(1440, 719);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).EndInit();
             this.kryptonPanel2.ResumeLayout(false);
+            this.kryptonPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridDSGiangVien)).EndInit();
+            this.contextDelete.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1.Panel)).EndInit();
             this.kryptonGroupBox1.Panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).EndInit();
             this.kryptonGroupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
             this.kryptonPanel1.ResumeLayout(false);
-            this.contextDelete.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cboKhoa)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton3;
         private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton1;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel2;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton2;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView gridDSGiangVien;
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox kryptonGroupBox1;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel1;
@@ -324,5 +327,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
         private System.Windows.Forms.ContextMenuStrip contextDelete;
         private System.Windows.Forms.ToolStripMenuItem xÓAToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
+        private ComponentFactory.Krypton.Toolkit.KryptonComboBox cboKhoa;
     }
 }

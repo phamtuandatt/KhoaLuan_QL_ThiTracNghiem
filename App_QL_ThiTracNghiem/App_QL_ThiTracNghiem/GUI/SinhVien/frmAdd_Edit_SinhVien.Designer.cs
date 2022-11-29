@@ -125,7 +125,7 @@
             this.btnOk.Name = "btnOk";
             this.btnOk.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.btnOk.Size = new System.Drawing.Size(159, 46);
-            this.btnOk.TabIndex = 3;
+            this.btnOk.TabIndex = 8;
             this.btnOk.Values.Text = "XÁC NHẬN";
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
@@ -135,7 +135,7 @@
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.btnHuy.Size = new System.Drawing.Size(159, 46);
-            this.btnHuy.TabIndex = 3;
+            this.btnHuy.TabIndex = 7;
             this.btnHuy.Values.Text = "HỦY";
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
@@ -145,7 +145,7 @@
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.txtDiaChi.Size = new System.Drawing.Size(634, 27);
-            this.txtDiaChi.TabIndex = 2;
+            this.txtDiaChi.TabIndex = 6;
             // 
             // txtQueQuan
             // 
@@ -153,7 +153,7 @@
             this.txtQueQuan.Name = "txtQueQuan";
             this.txtQueQuan.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.txtQueQuan.Size = new System.Drawing.Size(237, 27);
-            this.txtQueQuan.TabIndex = 2;
+            this.txtQueQuan.TabIndex = 5;
             // 
             // txtEmail
             // 
@@ -161,7 +161,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.txtEmail.Size = new System.Drawing.Size(634, 27);
-            this.txtEmail.TabIndex = 2;
+            this.txtEmail.TabIndex = 3;
             // 
             // txtSDT
             // 
@@ -177,16 +177,17 @@
             this.txtTEn.Name = "txtTEn";
             this.txtTEn.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.txtTEn.Size = new System.Drawing.Size(237, 27);
-            this.txtTEn.TabIndex = 2;
+            this.txtTEn.TabIndex = 1;
             // 
             // cboLop
             // 
+            this.cboLop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboLop.DropDownWidth = 634;
             this.cboLop.Location = new System.Drawing.Point(146, 18);
             this.cboLop.Name = "cboLop";
             this.cboLop.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.cboLop.Size = new System.Drawing.Size(634, 25);
-            this.cboLop.TabIndex = 1;
+            this.cboLop.TabIndex = 0;
             // 
             // kryptonLabel8
             // 

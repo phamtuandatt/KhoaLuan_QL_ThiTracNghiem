@@ -24,7 +24,11 @@ namespace App_QL_ThiTracNghiem.GUI.HocPhan
 
         public void Show_DSHP()
         {
-            gridDSHP.DataSource = HocPhan_DAO.GetDSHP();
+            cboKhoa.DataSource = Khoa_DAO.GetKhoas();
+            cboKhoa.DisplayMember = "TENKHOA";
+            cboKhoa.ValueMember = "MAKHOA";
+
+            gridDSHP.DataSource = HocPhan_DAO.GetDSHP("01");
         }
 
         private void xÓAToolStripMenuItem_Click(object sender, EventArgs e)
@@ -37,10 +41,12 @@ namespace App_QL_ThiTracNghiem.GUI.HocPhan
             if (HocPhan_DAO.DeleteHP(MAHOCPHAN))
             {
                 KryptonMessageBox.Show("Đã xóa HỌC PHẦN !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Show_DSHP();
             }
             else
             {
                 KryptonMessageBox.Show("Xóa HỌC PHẦN KHÔNG thành công !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Show_DSHP();
             }
         }
 
@@ -65,6 +71,11 @@ namespace App_QL_ThiTracNghiem.GUI.HocPhan
             frmAdd_Edit_HocPhan edit = new frmAdd_Edit_HocPhan(false, null);
             edit.ShowDialog();
             Show_DSHP();
+        }
+
+        private void cboKhoa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            gridDSHP.DataSource = HocPhan_DAO.GetDSHP(cboKhoa.SelectedValue.ToString());
         }
     }
 }

@@ -67,11 +67,12 @@ namespace App_QL_ThiTracNghiem.GUI.HocPhan
             else
             {
                 HocPhans hocPhan = new HocPhans();
-                hocPhan.MaHocPhan = hp.MaHocPhan;
                 hocPhan.TenHocPhan = txtTen.Text;
                 hocPhan.SoTC = int.Parse(txtSoTC.Text.Trim());
                 hocPhan.SoTietLT = int.Parse(txtLT.Text.Trim());
                 hocPhan.SoTietTH = int.Parse(txtTH.Text.Trim());
+                hocPhan.MaKhoa = cboKhoa.SelectedValue.ToString();
+
                 if (HocPhan_DAO.InsertHP(hocPhan))
                 {
                     KryptonMessageBox.Show("Tạo HỌC PHẦN thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
