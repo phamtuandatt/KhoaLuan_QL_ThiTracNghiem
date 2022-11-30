@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,34 +17,57 @@ namespace App_QL_ThiTracNghiem.GUI.GiangVien
     public partial class frmAdd_Edit_GiangVien : MetroFramework.Forms.MetroForm
     {
         GiangViens gv;
+        bool check_edit;
         public frmAdd_Edit_GiangVien()
         {
             InitializeComponent();
         }
 
-        public frmAdd_Edit_GiangVien(GiangViens giangViens)
+        public frmAdd_Edit_GiangVien(bool check_edit, GiangViens giangViens)
         {
             InitializeComponent();
             this.gv = giangViens;
-
+            this.check_edit = check_edit;
+            
             Show_Khoa_ChucVu();
-            cboKhoa.SelectedValue = gv.MaKhoa;
-            txtTen.Text = gv.TenGV;
-            txtHocvi.Text = gv.HocVi;
-            txtSDT.Text = gv.Sdt;
-            txtNgaySinh.Value = gv.NgaySinh;
-            txtEmail.Text = gv.Email;
-            txtQuequan.Text = gv.QueQuan;
-            cboChucVu.SelectedValue = gv.MaChucVu;
-            txtdiachi.Text = gv.DiaChi;
-            if (gv.GioiTinh == "NAM")
+
+            // true -> edit
+            if (check_edit)
             {
-                radNam.Checked = true;
+                Show_Khoa_ChucVu();
+                cboKhoa.SelectedValue = gv.MaKhoa;
+                txtTen.Text = gv.TenGV;
+                txtHocvi.Text = gv.HocVi;
+                txtSDT.Text = gv.Sdt;
+                txtNgaySinh.Value = gv.NgaySinh;
+                txtEmail.Text = gv.Email;
+                txtQuequan.Text = gv.QueQuan;
+                cboChucVu.SelectedValue = gv.MaChucVu;
+                txtdiachi.Text = gv.DiaChi;
+                if (gv.GioiTinh == "NAM")
+                {
+                    radNam.Checked = true;
+                }
+                else
+                {
+                    radNu.Checked = true;
+                }
             }
             else
             {
-                radNu.Checked = true;
-            }    
+                txtHocvi.SelectedIndex = 0;
+                btnEdit.Visible = false;
+                btnDoiMatKhau.Visible = false;
+                cboKhoa.Enabled = true;
+                cboChucVu.Enabled = true;
+                txtNgaySinh.Enabled = true;
+                txtHocvi.Enabled = true;
+                txtTen.ReadOnly = false;
+                txtSDT.ReadOnly = false;
+                txtQuequan.ReadOnly = false;
+                txtdiachi.ReadOnly = false;
+                txtEmail.ReadOnly = false;
+            }
         }
 
         public void Show_Khoa_ChucVu()
@@ -59,32 +83,85 @@ namespace App_QL_ThiTracNghiem.GUI.GiangVien
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            GiangViens gvien = new GiangViens();
-            gvien.MaGV = this.gv.MaGV;
-            gvien.TenGV = txtTen.Text.Trim();
-            gvien.HocVi = txtHocvi.Text.Trim();
-            gvien.Sdt = txtSDT.Text.Trim();
-            gvien.NgaySinh = txtNgaySinh.Value;
-            gvien.Email = txtEmail.Text.Trim();
-            gvien.QueQuan = txtQuequan.Text.Trim();
-            gvien.DiaChi = txtdiachi.Text.Trim();
-            if (radNam.Checked)
+            if (check_edit)
             {
-                gvien.GioiTinh = "NAM";
-            }
-            else
-            {
-                gvien.GioiTinh = "Nữ";
-            }
+                GiangViens gvien = new GiangViens();
+                gvien.MaGV = this.gv.MaGV;
+                gvien.TenGV = txtTen.Text.Trim();
+                gvien.HocVi = txtHocvi.Text.Trim();
+                gvien.Sdt = txtSDT.Text.Trim();
+                gvien.NgaySinh = txtNgaySinh.Value;
+                gvien.Email = txtEmail.Text.Trim();
+                gvien.QueQuan = txtQuequan.Text.Trim();
+                gvien.DiaChi = txtdiachi.Text.Trim();
+                if (radNam.Checked)
+                {
+                    gvien.GioiTinh = "NAM";
+                }
+                else
+                {
+                    gvien.GioiTinh = "Nữ";
+                }
 
-            if (GiangVien_DAO.Update_GV(gvien))
-            {
-                KryptonMessageBox.Show("Cập nhật thông tin thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (GiangVien_DAO.Update_GV(gvien))
+                {
+                    KryptonMessageBox.Show("Cập nhật thông tin thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                else
+                {
+                    KryptonMessageBox.Show("Cập nhật thông tin KHÔNG thành công !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    this.Close();
+                }
             }
+            // Add
             else
             {
-                KryptonMessageBox.Show("Cập nhật thông tin KHÔNG thành công !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                string mk;
+                string[] ten = txtTen.Text.Split(' ');
+                if (ten.Length == 1)
+                    mk = chuyen_khong_dau(ten[0]);
+                else
+                    mk = chuyen_khong_dau((ten[(ten.Length - 1) - 1] + ten[ten.Length - 1]).ToLower());
+
+                GiangViens gvien = new GiangViens();
+                gvien.MatKhau = mk;
+                gvien.TenGV = txtTen.Text.Trim();
+                gvien.NgaySinh = txtNgaySinh.Value;
+                if (radNam.Checked)
+                {
+                    gvien.GioiTinh = "NAM";
+                }
+                else
+                {
+                    gvien.GioiTinh = "NỮ";
+                }
+                gvien.QueQuan = txtQuequan.Text.Trim();
+                gvien.HocVi = txtHocvi.Text.Trim();
+                gvien.Sdt = txtSDT.Text.Trim();
+                gvien.Email = txtEmail.Text.Trim();
+                gvien.DiaChi = txtdiachi.Text.Trim();
+                gvien.MaKhoa = cboKhoa.SelectedValue.ToString().Trim();
+                gvien.MaChucVu = cboChucVu.SelectedValue.ToString();
+
+                if (GiangVien_DAO.Insert(gvien))
+                {
+                    KryptonMessageBox.Show("Tạo GIẢNG VIÊN thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                else
+                {
+                    KryptonMessageBox.Show("Tạo GIẢNG VIÊN KHÔNG thành công !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    this.Close();
+                }
             }
+        }
+
+        private string chuyen_khong_dau(string s)
+        {
+            Regex regex = new Regex("\\p{IsCombiningDiacriticalMarks}+");
+            string temp = s.Normalize(NormalizationForm.FormD);
+            return regex.Replace(temp, String.Empty).Replace('\u0111', 'd').Replace('\u0110', 'D');
         }
 
         private void btnDoiMatKhau_Click(object sender, EventArgs e)
@@ -103,8 +180,8 @@ namespace App_QL_ThiTracNghiem.GUI.GiangVien
             //cboKhoa.Enabled = true;
             //cboChucVu.Enabled = true;
             txtNgaySinh.Enabled = true;
+            txtHocvi.Enabled = true;
             txtTen.ReadOnly = false;
-            txtHocvi.ReadOnly = false;
             txtSDT.ReadOnly = false;
             txtQuequan.ReadOnly = false;
             txtdiachi.ReadOnly = false;
@@ -112,14 +189,6 @@ namespace App_QL_ThiTracNghiem.GUI.GiangVien
         }
 
         private void txtTen_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void txtHocvi_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && char.IsDigit(e.KeyChar))
             {
@@ -137,10 +206,7 @@ namespace App_QL_ThiTracNghiem.GUI.GiangVien
 
         private void txtEmail_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
+
         }
 
         private void txtQuequan_KeyPress(object sender, KeyPressEventArgs e)
@@ -150,10 +216,7 @@ namespace App_QL_ThiTracNghiem.GUI.GiangVien
 
         private void txtdiachi_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
+
         }
     }
 }

@@ -46,7 +46,7 @@ namespace App_QL_ThiTracNghiem.GUI.GiangVien
             gv.MaKhoa = gridDSGiangVien.Rows[rsl].Cells[11].Value.ToString().Trim();
             gv.MaChucVu = gridDSGiangVien.Rows[rsl].Cells[12].Value.ToString();
 
-            frmAdd_Edit_GiangVien edit = new frmAdd_Edit_GiangVien(gv);
+            frmAdd_Edit_GiangVien edit = new frmAdd_Edit_GiangVien(true, gv);
             edit.ShowDialog();
             Show_DSGV();
         }
@@ -61,16 +61,25 @@ namespace App_QL_ThiTracNghiem.GUI.GiangVien
             if (GiangVien_DAO.DeleteGV(MAGV))
             {
                 KryptonMessageBox.Show("Đã xóa Giảng viên !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Show_DSGV();
             }
             else
             {
                 KryptonMessageBox.Show("Xóa Giảng viên KHÔNG thành công !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Show_DSGV();
             }
         }
 
         private void cboKhoa_SelectedIndexChanged(object sender, EventArgs e)
         {
             gridDSGiangVien.DataSource = GiangVien_DAO.GetDSGV(cboKhoa.SelectedValue.ToString());
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            frmAdd_Edit_GiangVien add = new frmAdd_Edit_GiangVien(false, null);
+            add.ShowDialog();
+            Show_DSGV();
         }
     }
 }

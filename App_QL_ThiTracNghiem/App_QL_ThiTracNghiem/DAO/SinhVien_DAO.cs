@@ -31,6 +31,15 @@ namespace App_QL_ThiTracNghiem.DAO
             return dT;
         }
 
+        public static DataTable GetDSSV_Chua_ThamGia_HocPhan_Khoa(string MAKHOA, string MALOPHOCPHAN)
+        {
+            DataTable dt = new DataTable();
+            string sql = $"EXEC GET_DSSV_CHUA_THAMGIA_HOCPHAN '{MAKHOA}', '{MALOPHOCPHAN}'";
+            dt = data.get_data(sql, "DSDVCHUATHAMGIA");
+
+            return dt;
+        }
+
         public static bool UpdateSV(SinhViens sv)
         {
             string sql = $"SET DATEFORMAT DMY UPDATE SINHVIEN SET TENSV = N'{sv.TenSV}', GIOITINH = N'{sv.GioiTinh}', NGAYSINH = '{sv.NgaySinh}', EMAIL = '{sv.Email}', SDT = '{sv.Sdt}', " +

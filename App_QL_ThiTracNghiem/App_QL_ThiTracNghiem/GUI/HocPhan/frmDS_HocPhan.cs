@@ -52,6 +52,10 @@ namespace App_QL_ThiTracNghiem.GUI.HocPhan
 
         private void sỬAĐỔIToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // HIển thị danh sách các lớp học phần của học phần khi click vào
+
+            // Sau khi nhấn vào lớp học phần -> Hiện frmEdit_....
+
             int rsl = gridDSHP.CurrentRow.Index;
             HocPhans hocPhan = new HocPhans();
             hocPhan.MaHocPhan = gridDSHP.Rows[rsl].Cells[0].Value.ToString();
@@ -61,14 +65,16 @@ namespace App_QL_ThiTracNghiem.GUI.HocPhan
             hocPhan.SoTietTH = int.Parse(gridDSHP.Rows[rsl].Cells[4].Value.ToString()); 
             hocPhan.MaKhoa = gridDSHP.Rows[rsl].Cells[6].Value.ToString();
 
-            frmAdd_Edit_HocPhan edit = new frmAdd_Edit_HocPhan(true, hocPhan);
+            CT_HocPhans ct_hocphan = CT_HocPhan_DAO.CT_HocPhan(hocPhan.MaHocPhan);
+
+            frmAdd_Edit_HocPhan edit = new frmAdd_Edit_HocPhan(true, hocPhan, ct_hocphan);
             edit.ShowDialog();
             Show_DSHP();
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            frmAdd_Edit_HocPhan edit = new frmAdd_Edit_HocPhan(false, null);
+            frmAdd_Edit_HocPhan edit = new frmAdd_Edit_HocPhan(false, null, null);
             edit.ShowDialog();
             Show_DSHP();
         }

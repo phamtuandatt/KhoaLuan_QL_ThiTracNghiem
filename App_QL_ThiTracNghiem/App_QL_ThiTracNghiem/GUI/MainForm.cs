@@ -103,7 +103,7 @@ namespace App_QL_ThiTracNghiem.GUI
 
         private void picAnhDaiDien_Click(object sender, EventArgs e)
         {
-            frmAdd_Edit_GiangVien edit_gv = new frmAdd_Edit_GiangVien(gv);
+            frmAdd_Edit_GiangVien edit_gv = new frmAdd_Edit_GiangVien(true, gv);
             edit_gv.ShowDialog();
         }
 

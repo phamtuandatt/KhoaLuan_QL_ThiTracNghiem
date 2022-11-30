@@ -29,6 +29,9 @@ namespace App_QL_ThiTracNghiem.GUI.LopHoc
                 cboKhoa.SelectedValue = lops.MaKhoa;
                 txtMaLop.Text = lops.MaLop;
                 txtTenLop.Text = lops.TenLop;
+                cboKhoa.Enabled = false;
+                txtMaLop.ReadOnly = true;
+                txtTenLop.Focus();
             }
         }
 

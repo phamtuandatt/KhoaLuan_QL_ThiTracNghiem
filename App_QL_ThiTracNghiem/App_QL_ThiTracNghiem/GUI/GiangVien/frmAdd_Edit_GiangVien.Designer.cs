@@ -33,12 +33,13 @@
             this.radNam = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
             this.txtNgaySinh = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
             this.btnOk = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnEdit = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnDoiMatKhau = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnHuy = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.txtQuequan = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.txtdiachi = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.txtEmail = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.txtSDT = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.txtHocvi = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.txtTen = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.cboChucVu = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.cboKhoa = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
@@ -52,12 +53,12 @@
             this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel10 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.btnEdit = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.txtdiachi = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.txtHocvi = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cboChucVu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboKhoa)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtHocvi)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonPanel1
@@ -73,8 +74,8 @@
             this.kryptonPanel1.Controls.Add(this.txtdiachi);
             this.kryptonPanel1.Controls.Add(this.txtEmail);
             this.kryptonPanel1.Controls.Add(this.txtSDT);
-            this.kryptonPanel1.Controls.Add(this.txtHocvi);
             this.kryptonPanel1.Controls.Add(this.txtTen);
+            this.kryptonPanel1.Controls.Add(this.txtHocvi);
             this.kryptonPanel1.Controls.Add(this.cboChucVu);
             this.kryptonPanel1.Controls.Add(this.cboKhoa);
             this.kryptonPanel1.Controls.Add(this.kryptonLabel9);
@@ -104,6 +105,7 @@
             // 
             // radNam
             // 
+            this.radNam.Checked = true;
             this.radNam.Location = new System.Drawing.Point(149, 193);
             this.radNam.Name = "radNam";
             this.radNam.Size = new System.Drawing.Size(56, 24);
@@ -125,9 +127,19 @@
             this.btnOk.Name = "btnOk";
             this.btnOk.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.btnOk.Size = new System.Drawing.Size(159, 46);
-            this.btnOk.TabIndex = 3;
+            this.btnOk.TabIndex = 8;
             this.btnOk.Values.Text = "XÁC NHẬN";
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(129, 313);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.btnEdit.Size = new System.Drawing.Size(159, 46);
+            this.btnEdit.TabIndex = 11;
+            this.btnEdit.Values.Text = "CHỈNH SỬA";
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDoiMatKhau
             // 
@@ -135,7 +147,7 @@
             this.btnDoiMatKhau.Name = "btnDoiMatKhau";
             this.btnDoiMatKhau.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.btnDoiMatKhau.Size = new System.Drawing.Size(159, 46);
-            this.btnDoiMatKhau.TabIndex = 3;
+            this.btnDoiMatKhau.TabIndex = 10;
             this.btnDoiMatKhau.Values.Text = "ĐỔI MẬT KHẨU";
             this.btnDoiMatKhau.Click += new System.EventHandler(this.btnDoiMatKhau_Click);
             // 
@@ -145,7 +157,7 @@
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.btnHuy.Size = new System.Drawing.Size(159, 46);
-            this.btnHuy.TabIndex = 3;
+            this.btnHuy.TabIndex = 9;
             this.btnHuy.Values.Text = "HỦY";
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
@@ -158,6 +170,16 @@
             this.txtQuequan.Size = new System.Drawing.Size(237, 27);
             this.txtQuequan.TabIndex = 5;
             this.txtQuequan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQuequan_KeyPress);
+            // 
+            // txtdiachi
+            // 
+            this.txtdiachi.Location = new System.Drawing.Point(149, 268);
+            this.txtdiachi.Name = "txtdiachi";
+            this.txtdiachi.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.txtdiachi.ReadOnly = true;
+            this.txtdiachi.Size = new System.Drawing.Size(634, 27);
+            this.txtdiachi.TabIndex = 7;
+            this.txtdiachi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEmail_KeyPress);
             // 
             // txtEmail
             // 
@@ -178,16 +200,6 @@
             this.txtSDT.Size = new System.Drawing.Size(237, 27);
             this.txtSDT.TabIndex = 2;
             this.txtSDT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSDT_KeyPress);
-            // 
-            // txtHocvi
-            // 
-            this.txtHocvi.Location = new System.Drawing.Point(546, 75);
-            this.txtHocvi.Name = "txtHocvi";
-            this.txtHocvi.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.txtHocvi.ReadOnly = true;
-            this.txtHocvi.Size = new System.Drawing.Size(237, 27);
-            this.txtHocvi.TabIndex = 1;
-            this.txtHocvi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtHocvi_KeyPress);
             // 
             // txtTen
             // 
@@ -311,25 +323,21 @@
             this.kryptonLabel1.TabIndex = 0;
             this.kryptonLabel1.Values.Text = "Tên giảng viên:";
             // 
-            // btnEdit
+            // txtHocvi
             // 
-            this.btnEdit.Location = new System.Drawing.Point(129, 313);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.btnEdit.Size = new System.Drawing.Size(159, 46);
-            this.btnEdit.TabIndex = 3;
-            this.btnEdit.Values.Text = "CHỈNH SỬA";
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // txtdiachi
-            // 
-            this.txtdiachi.Location = new System.Drawing.Point(149, 268);
-            this.txtdiachi.Name = "txtdiachi";
-            this.txtdiachi.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.txtdiachi.ReadOnly = true;
-            this.txtdiachi.Size = new System.Drawing.Size(634, 27);
-            this.txtdiachi.TabIndex = 5;
-            this.txtdiachi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEmail_KeyPress);
+            this.txtHocvi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtHocvi.DropDownWidth = 200;
+            this.txtHocvi.Enabled = false;
+            this.txtHocvi.Items.AddRange(new object[] {
+            "TIẾN SĨ",
+            "THẠC SĨ",
+            "GIÁO SƯ",
+            "CỬ NHÂN"});
+            this.txtHocvi.Location = new System.Drawing.Point(546, 76);
+            this.txtHocvi.Name = "txtHocvi";
+            this.txtHocvi.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.txtHocvi.Size = new System.Drawing.Size(237, 25);
+            this.txtHocvi.TabIndex = 1;
             // 
             // frmAdd_Edit_GiangVien
             // 
@@ -344,6 +352,7 @@
             this.kryptonPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cboChucVu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboKhoa)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtHocvi)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -356,7 +365,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtQuequan;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtEmail;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtSDT;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtHocvi;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtTen;
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox cboKhoa;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel9;
@@ -376,5 +384,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnDoiMatKhau;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnEdit;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtdiachi;
+        private ComponentFactory.Krypton.Toolkit.KryptonComboBox txtHocvi;
     }
 }

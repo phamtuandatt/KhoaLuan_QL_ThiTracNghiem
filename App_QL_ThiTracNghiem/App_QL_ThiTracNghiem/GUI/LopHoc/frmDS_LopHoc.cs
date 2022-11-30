@@ -28,14 +28,14 @@ namespace App_QL_ThiTracNghiem.GUI.LopHoc
             cboKhoa.DisplayMember = "TENKHOA";
             cboKhoa.ValueMember = "MAKHOA";
 
-            gridDSLopHoc.DataSource = Lop_DAO.GetDSLop_Khoa("01");
+            gridDSLopHoc.DataSource = Lop_DAO.GetDSLH_Khoa("01");
         }
 
         private void xÓAToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int rsl = gridDSLopHoc.CurrentRow.Index;
-            string MALOP = gridDSLopHoc.Rows[rsl].Cells[0].Value.ToString();
-            string TENLOP = gridDSLopHoc.Rows[rsl].Cells[1].Value.ToString();
+            string MALOP = gridDSLopHoc.Rows[rsl].Cells[0].Value.ToString().Trim();
+            string TENLOP = gridDSLopHoc.Rows[rsl].Cells[1].Value.ToString().Trim();
             if (KryptonMessageBox.Show($"Bạn có muốn xóa LỚP [{TENLOP}] không ?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
                 return;
             if (Lop_DAO.DeleteLop(MALOP))
@@ -54,9 +54,9 @@ namespace App_QL_ThiTracNghiem.GUI.LopHoc
         {
             int rsl = gridDSLopHoc.CurrentRow.Index;
             Lops lop = new Lops();
-            lop.MaLop = gridDSLopHoc.Rows[rsl].Cells[1].Value.ToString().Trim();
-            lop.TenLop = gridDSLopHoc.Rows[rsl].Cells[2].Value.ToString().Trim();
-            lop.Siso = int.Parse(gridDSLopHoc.Rows[rsl].Cells[3].Value.ToString().Trim());
+            lop.MaLop = gridDSLopHoc.Rows[rsl].Cells[0].Value.ToString().Trim();
+            lop.TenLop = gridDSLopHoc.Rows[rsl].Cells[3].Value.ToString().Trim();
+            lop.Siso = int.Parse(gridDSLopHoc.Rows[rsl].Cells[2].Value.ToString().Trim());
             lop.MaKhoa = gridDSLopHoc.Rows[rsl].Cells[4].Value.ToString().Trim();
 
             frmAdd_Edit_LopHoc edit = new frmAdd_Edit_LopHoc(true, lop);
@@ -73,7 +73,15 @@ namespace App_QL_ThiTracNghiem.GUI.LopHoc
 
         private void cboKhoa_SelectedIndexChanged(object sender, EventArgs e)
         {
-            gridDSLopHoc.DataSource = Lop_DAO.GetDSLop_Khoa(cboKhoa.SelectedValue.ToString());
+            gridDSLopHoc.DataSource = Lop_DAO.GetDSLH_Khoa(cboKhoa.SelectedValue.ToString());
+        }
+
+        private void gridDSLopHoc_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int rsl = gridDSLopHoc.CurrentRow.Index;
+            string MALOP = gridDSLopHoc.Rows[rsl].Cells[0].Value.ToString().Trim();
+            frmDSSinhVienLop dsLop = new frmDSSinhVienLop(MALOP);
+            dsLop.ShowDialog();
         }
     }
 }

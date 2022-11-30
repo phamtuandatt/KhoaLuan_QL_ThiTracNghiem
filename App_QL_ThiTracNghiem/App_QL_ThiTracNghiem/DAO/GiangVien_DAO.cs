@@ -82,5 +82,13 @@ namespace App_QL_ThiTracNghiem.DAO
 
             return data.insert_update_delete(sql) > 0;
         }
+
+        public static bool Insert(GiangViens gv)
+        {
+            string sql = $"SET DATEFORMAT DMY INSERT INTO GIANGVIEN VALUES ((SELECT DBO.AUTO_MAGV('010', '{gv.MaKhoa}')), '{gv.MatKhau}', N'{gv.TenGV}', '{gv.NgaySinh}'," +
+                            $" N'{gv.GioiTinh}', N'{gv.QueQuan}', N'{gv.HocVi}', '{gv.Sdt}', N'{gv.Email}', N'{gv.DiaChi}', '{gv.MaKhoa}', '{gv.MaChucVu}', ' ')";
+
+            return data.insert_update_delete(sql) > 0;
+        }
     }
 }

@@ -41,9 +41,9 @@
             this.xÓAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sỬAĐỔIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.btnThem = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.cboKhoa = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.btnThem = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).BeginInit();
@@ -104,6 +104,7 @@
             this.gridDSLopHoc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridDSLopHoc.Size = new System.Drawing.Size(1142, 646);
             this.gridDSLopHoc.TabIndex = 0;
+            this.gridDSLopHoc.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridDSLopHoc_CellDoubleClick);
             // 
             // Column1
             // 
@@ -181,16 +182,6 @@
             this.kryptonPanel2.Size = new System.Drawing.Size(1146, 50);
             this.kryptonPanel2.TabIndex = 2;
             // 
-            // btnThem
-            // 
-            this.btnThem.Location = new System.Drawing.Point(6, 7);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.btnThem.Size = new System.Drawing.Size(102, 40);
-            this.btnThem.TabIndex = 3;
-            this.btnThem.Values.Text = "THÊM";
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
-            // 
             // kryptonLabel1
             // 
             this.kryptonLabel1.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
@@ -211,6 +202,16 @@
             this.cboKhoa.Size = new System.Drawing.Size(446, 25);
             this.cboKhoa.TabIndex = 6;
             this.cboKhoa.SelectedIndexChanged += new System.EventHandler(this.cboKhoa_SelectedIndexChanged);
+            // 
+            // btnThem
+            // 
+            this.btnThem.Location = new System.Drawing.Point(6, 7);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.btnThem.Size = new System.Drawing.Size(102, 40);
+            this.btnThem.TabIndex = 3;
+            this.btnThem.Values.Text = "THÊM";
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // frmDS_LopHoc
             // 

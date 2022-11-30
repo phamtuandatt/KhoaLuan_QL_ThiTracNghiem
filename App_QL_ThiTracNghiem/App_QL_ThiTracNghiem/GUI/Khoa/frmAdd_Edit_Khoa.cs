@@ -44,7 +44,7 @@ namespace App_QL_ThiTracNghiem.GUI.Khoa
             // Tạo mới
             else
             {
-                if (Khoa_DAO.UpdateKhoa(MAKHOA, txtTen.Text.Trim()))
+                if (Khoa_DAO.InsertKhoa(txtTen.Text.Trim()))
                 {
                     KryptonMessageBox.Show("Tạo KHOA thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();

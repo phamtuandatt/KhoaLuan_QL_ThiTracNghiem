@@ -13,6 +13,7 @@ namespace App_QL_ThiTracNghiem.DTO
         public string MaSV { get; set; }
         public string MaHocPhan { get; set; }
         public string MaGV { get; set; }
+        public string TenGV { get; set; }
         public int Thu { get; set; }
         public string Tiet { get; set; }
         public string Phong { get; set; }
