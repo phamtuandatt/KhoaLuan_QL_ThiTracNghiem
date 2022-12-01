@@ -116,3 +116,6 @@ D:\KhoaLuan_QL_ThiTracNghiem\App_QL_ThiTracNghiem\App_QL_ThiTracNghiem\bin\Debug
 D:\KhoaLuan_QL_ThiTracNghiem\App_QL_ThiTracNghiem\App_QL_ThiTracNghiem\obj\Debug\App_QL_ThiTracNghiem.GUI.GiangVien.frmDMK.resources
 D:\KhoaLuan_QL_ThiTracNghiem\App_QL_ThiTracNghiem\App_QL_ThiTracNghiem\obj\Debug\App_QL_ThiTracNghiem.GUI.GiangVien.frmDSGiangVien.resources
 D:\KhoaLuan_QL_ThiTracNghiem\App_QL_ThiTracNghiem\App_QL_ThiTracNghiem\obj\Debug\App_QL_ThiTracNghiem.GUI.LopHoc.frmDSSinhVienLop.resources
+D:\KhoaLuan_QL_ThiTracNghiem\App_QL_ThiTracNghiem\App_QL_ThiTracNghiem\obj\Debug\App_QL_ThiTracNghiem.GUI.HocPhan.frmDS_LopHocPhan.resources
+D:\KhoaLuan_QL_ThiTracNghiem\App_QL_ThiTracNghiem\App_QL_ThiTracNghiem\obj\Debug\App_QL_ThiTracNghiem.GUI.HocPhan.frmEditHP.resources
+D:\KhoaLuan_QL_ThiTracNghiem\App_QL_ThiTracNghiem\App_QL_ThiTracNghiem\obj\Debug\App_QL_ThiTracNghiem.GUI.HocPhan.frmDSHP.resources

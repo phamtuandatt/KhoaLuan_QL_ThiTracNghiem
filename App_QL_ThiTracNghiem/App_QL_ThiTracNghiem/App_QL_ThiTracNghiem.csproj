@@ -250,11 +250,29 @@
     <Compile Include="GUI\HocPhan\frmAdd_Edit_HocPhan.Designer.cs">
       <DependentUpon>frmAdd_Edit_HocPhan.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\HocPhan\frmDSHP.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\HocPhan\frmDSHP.Designer.cs">
+      <DependentUpon>frmDSHP.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\HocPhan\frmDS_HocPhan.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="GUI\HocPhan\frmDS_HocPhan.Designer.cs">
       <DependentUpon>frmDS_HocPhan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\HocPhan\frmDS_LopHocPhan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\HocPhan\frmDS_LopHocPhan.Designer.cs">
+      <DependentUpon>frmDS_LopHocPhan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\HocPhan\frmEditHP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\HocPhan\frmEditHP.Designer.cs">
+      <DependentUpon>frmEditHP.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Khoa\frmAdd_Edit_Khoa.cs">
       <SubType>Form</SubType>
@@ -420,8 +438,17 @@
     <EmbeddedResource Include="GUI\HocPhan\frmAdd_Edit_HocPhan.resx">
       <DependentUpon>frmAdd_Edit_HocPhan.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\HocPhan\frmDSHP.resx">
+      <DependentUpon>frmDSHP.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\HocPhan\frmDS_HocPhan.resx">
       <DependentUpon>frmDS_HocPhan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\HocPhan\frmDS_LopHocPhan.resx">
+      <DependentUpon>frmDS_LopHocPhan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\HocPhan\frmEditHP.resx">
+      <DependentUpon>frmEditHP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Khoa\frmAdd_Edit_Khoa.resx">
       <DependentUpon>frmAdd_Edit_Khoa.cs</DependentUpon>

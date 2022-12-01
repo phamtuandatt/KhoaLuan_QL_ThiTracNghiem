@@ -6,12 +6,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using System.Security.Cryptography;
 
 namespace App_QL_ThiTracNghiem.DAO
 {
     public class HocPhan_DAO
     {
         static SqlProvider data = new SqlProvider();
+
+        public static HocPhans GetHP(string MAHOCPHAN)
+        {
+            DataTable dt = new DataTable();
+            string sql = $"SELECT *FROM HOCPHAN WHERE MAHOCPHAN = '{MAHOCPHAN}'";
+            dt = data.get_data(sql, "HP");
+            HocPhans hp = new HocPhans();
+            foreach (DataRow item in dt.Rows)
+            {
+                hp.MaHocPhan = item["MAHOCPHAN"].ToString();
+                hp.TenHocPhan= item["TENHOCPHAN"].ToString();
+                hp.SoTC = int.Parse(item["SOTC"].ToString());
+                hp.SoTietLT = int.Parse(item["SOTIET_LT"].ToString());
+                hp.SoTietTH = int.Parse(item["SOTIET_TH"].ToString());
+                hp.MaKhoa = item["MAKHOA"].ToString();
+
+                return hp;
+            }
+            return null;
+        }
 
         public static DataTable GetHocPhans(string MAGV)
         {
@@ -48,6 +69,18 @@ namespace App_QL_ThiTracNghiem.DAO
             dt = data.get_data(sql, "DSHP");
 
             return dt;
+        }
+
+        public static string GetMHPMax()
+        {
+            DataTable dt = new DataTable();
+            string sql = $"SELECT MAX(MAHOCPHAN) AS MAHP FROM HOCPHAN";
+            dt = data.get_data(sql, "MHPMAX");
+            foreach (DataRow item in dt.Rows)
+            {
+                return item["MAHP"].ToString();
+            }
+            return null;
         }
 
         public static bool UpdateHP(HocPhans hp)

@@ -122,7 +122,7 @@ namespace App_QL_ThiTracNghiem.GUI.HocPhan
                     lstCT_HocPhan.Add(ct_hp);
                 }
                 
-                if (HocPhan_DAO.UpdateHP(hocPhan) && CT_HocPhan_DAO.Update_DB_CT_HocPhan(txtMaLopHocPhan.Text.Trim(), lstCT_HocPhan))
+                if (HocPhan_DAO.UpdateHP(hocPhan) && CT_HocPhan_DAO.Update_DB_CT_HocPhan(true, txtMaLopHocPhan.Text.Trim(), lstCT_HocPhan))
                 {
                     KryptonMessageBox.Show("Cập nhật HỌC PHẦN thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
@@ -145,8 +145,33 @@ namespace App_QL_ThiTracNghiem.GUI.HocPhan
 
                 if (HocPhan_DAO.InsertHP(hocPhan))
                 {
-                    KryptonMessageBox.Show("Tạo HỌC PHẦN thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
+                    string MHP = HocPhan_DAO.GetMHPMax();
+                    string MLHP = CT_HocPhan_DAO.GetMaCTHP(MHP);
+                    List<CT_HocPhans> lstCT_HocPhan = new List<CT_HocPhans>();
+                    foreach (DataGridViewRow item in gridDSSV.Rows)
+                    {
+                        CT_HocPhans ct_hp = new CT_HocPhans();
+                        ct_hp.MaLopHocPhan = MLHP;
+                        ct_hp.MaSV = item.Cells[0].Value.ToString().Trim();
+                        ct_hp.MaHocPhan = MHP;
+                        ct_hp.MaGV = "01001001";
+                        ct_hp.Thu = int.Parse(cboThu.Text.Trim());
+                        ct_hp.Tiet = cboTiet.Text.Trim();
+                        ct_hp.Phong = cboPhong.Text.Trim();
+                        ct_hp.NgayBD = txtNgayBD.Value;
+                        ct_hp.NgayKT = txtNgayKT.Value;
+
+                        lstCT_HocPhan.Add(ct_hp);
+                    }
+                    if (CT_HocPhan_DAO.Update_DB_CT_HocPhan(false, null, lstCT_HocPhan))
+                    {
+                        KryptonMessageBox.Show("Tạo HỌC PHẦN thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        KryptonMessageBox.Show("Tạo HỌC PHẦN KHÔNG thành công !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
                 else
                 {

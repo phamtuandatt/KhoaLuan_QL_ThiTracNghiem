@@ -15,6 +15,27 @@ namespace App_QL_ThiTracNghiem.DAO
 
         static DataTable dt_tam = data.get_data("SELECT *FROM CT_HOCPHAN", "CT");
 
+        public static DataTable GetDSLopHP(string MAHOCPHAN)
+        {
+            DataTable dt = new DataTable();
+            string sql = $"SELECT DISTINCT(MALOPHOCPHAN), MAHOCPHAN, MAGV, THU, TIET, PHONG, NGAYBD, NGAYKT FROM CT_HOCPHAN WHERE MAHOCPHAN = '{MAHOCPHAN}'";
+            dt = data.get_data(sql, "DSLHP");
+
+            return dt;
+        }
+
+        public static string GetMaCTHP(string MAHOCPHAN)
+        {
+            DataTable dt = new DataTable();
+            string sql = $"SELECT DBO.AUTO_MALOPHOCPHAN('{MAHOCPHAN}') AS MALHP";
+            dt = data.get_data(sql, "DSLHP");
+            foreach (DataRow item in dt.Rows)
+            {
+                return item["MALHP"].ToString();
+            }
+            return null;
+        }
+
         public static CT_HocPhans CT_HocPhan(string MAHOCPHAN)
         {
             DataTable dt = new DataTable();
@@ -66,13 +87,6 @@ namespace App_QL_ThiTracNghiem.DAO
             }
         }
 
-        public static bool Update_CT_HocPhan(CT_HocPhans ct_hp)
-        {
-            string sql = "";
-
-            return data.insert_update_delete(sql) > 0;
-        }
-
         public static bool DeleteCT_HocPhan(string MALOPHOCPHAN)
         {
             string sql = $"DELETE FROM CT_HOCPHAN WHERE MALOPHOCPHAN = '{MALOPHOCPHAN}'";
@@ -80,12 +94,21 @@ namespace App_QL_ThiTracNghiem.DAO
             return data.insert_update_delete(sql) > 0;
         }
 
-        public static bool Update_DB_CT_HocPhan(string MALOPHOCPHAN,List<CT_HocPhans> lst)
+        public static bool Update_DB_CT_HocPhan(bool check_update, string MALOPHOCPHAN,List<CT_HocPhans> lst)
         {
-            if (DeleteCT_HocPhan(MALOPHOCPHAN))
+            // true -> cập nhật
+            if (check_update == true)
+            {
+                if (DeleteCT_HocPhan(MALOPHOCPHAN))
+                {
+                    InsertCT_HocPhan(lst);
+                }
+            }
+            else
             {
                 InsertCT_HocPhan(lst);
             }
+
             try
             {
                 data.update_database("SELECT *FROM CT_HOCPHAN", dt_tam);
