@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.btnOk = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.cboDSDeThi = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.btnHuy = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
@@ -50,18 +51,9 @@
             this.kryptonPanel1.Size = new System.Drawing.Size(410, 116);
             this.kryptonPanel1.TabIndex = 0;
             // 
-            // kryptonLabel1
-            // 
-            this.kryptonLabel1.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.kryptonLabel1.Location = new System.Drawing.Point(13, 17);
-            this.kryptonLabel1.Name = "kryptonLabel1";
-            this.kryptonLabel1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.kryptonLabel1.Size = new System.Drawing.Size(136, 26);
-            this.kryptonLabel1.TabIndex = 0;
-            this.kryptonLabel1.Values.Text = "Danh sách đề thi:";
-            // 
             // kryptonPanel2
             // 
+            this.kryptonPanel2.Controls.Add(this.btnHuy);
             this.kryptonPanel2.Controls.Add(this.btnOk);
             this.kryptonPanel2.Controls.Add(this.cboDSDeThi);
             this.kryptonPanel2.Controls.Add(this.kryptonLabel1);
@@ -75,12 +67,13 @@
             // btnOk
             // 
             this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOk.Location = new System.Drawing.Point(215, 60);
+            this.btnOk.Location = new System.Drawing.Point(258, 63);
             this.btnOk.Name = "btnOk";
             this.btnOk.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.btnOk.Size = new System.Drawing.Size(167, 41);
+            this.btnOk.Size = new System.Drawing.Size(124, 38);
             this.btnOk.TabIndex = 2;
             this.btnOk.Values.Text = "XÁC NHẬN";
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // cboDSDeThi
             // 
@@ -93,6 +86,27 @@
             this.cboDSDeThi.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.cboDSDeThi.Size = new System.Drawing.Size(216, 25);
             this.cboDSDeThi.TabIndex = 1;
+            // 
+            // kryptonLabel1
+            // 
+            this.kryptonLabel1.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
+            this.kryptonLabel1.Location = new System.Drawing.Point(13, 17);
+            this.kryptonLabel1.Name = "kryptonLabel1";
+            this.kryptonLabel1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.kryptonLabel1.Size = new System.Drawing.Size(136, 26);
+            this.kryptonLabel1.TabIndex = 0;
+            this.kryptonLabel1.Values.Text = "Danh sách đề thi:";
+            // 
+            // btnHuy
+            // 
+            this.btnHuy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnHuy.Location = new System.Drawing.Point(128, 63);
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.btnHuy.Size = new System.Drawing.Size(124, 38);
+            this.btnHuy.TabIndex = 2;
+            this.btnHuy.Values.Text = "HỦY";
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // frmShowDS_DeThiCon
             // 
@@ -119,5 +133,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnOk;
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox cboDSDeThi;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnHuy;
     }
 }

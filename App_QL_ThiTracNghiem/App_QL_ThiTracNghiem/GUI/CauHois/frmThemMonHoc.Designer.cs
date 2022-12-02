@@ -72,6 +72,7 @@
             this.btnHUY.Size = new System.Drawing.Size(135, 40);
             this.btnHUY.TabIndex = 2;
             this.btnHUY.Values.Text = "HỦY";
+            this.btnHUY.Click += new System.EventHandler(this.btnHUY_Click);
             // 
             // btnXN
             // 
@@ -81,6 +82,7 @@
             this.btnXN.Size = new System.Drawing.Size(135, 40);
             this.btnXN.TabIndex = 2;
             this.btnXN.Values.Text = "XÁC NHẬN";
+            this.btnXN.Click += new System.EventHandler(this.btnXN_Click);
             // 
             // kryptonLabel1
             // 
@@ -93,6 +95,7 @@
             // 
             // cboDSMonHoc
             // 
+            this.cboDSMonHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboDSMonHoc.DropDownWidth = 305;
             this.cboDSMonHoc.Location = new System.Drawing.Point(110, 16);
             this.cboDSMonHoc.Name = "cboDSMonHoc";

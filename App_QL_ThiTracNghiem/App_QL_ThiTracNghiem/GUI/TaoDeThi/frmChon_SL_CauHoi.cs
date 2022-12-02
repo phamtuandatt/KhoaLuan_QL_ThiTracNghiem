@@ -13,6 +13,7 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
     public partial class frmChon_SL_CauHoi : MetroFramework.Forms.MetroForm
     {
         public int SoLuong { get; set; }
+        public bool Check { get; set; }
         public List<string> ds_DeThi { get; set; }
 
         bool check = false;
@@ -51,7 +52,7 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
                     ds_DeThi.Add($"0{i + 1}");
                 }
             }
-
+            Check = true;
             this.Close();
         }
 
@@ -61,6 +62,12 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
             {
                 e.Handled = true;
             }
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            Check = false;
+            this.Close();
         }
     }
 }

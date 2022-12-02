@@ -15,6 +15,7 @@ namespace App_QL_ThiTracNghiem.DTO
         public string MaDeCon { get; set; }
         public DateTime NgayThi { get; set; }
         public string GioLamBai { get; set; }
+        public string Phong { get; set; }
         public byte TinhTrang { get; set; }
     }
 }

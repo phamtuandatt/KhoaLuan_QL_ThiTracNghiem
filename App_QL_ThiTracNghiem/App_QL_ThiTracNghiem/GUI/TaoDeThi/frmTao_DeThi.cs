@@ -26,7 +26,7 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
         {
             InitializeComponent();
         }
-         
+
         public frmTao_DeThi(bool check_edit_DeThi, DeThis deThis, string MADECON, string TENHOCPHAN, List<CauHois> cauHois)
         {
             InitializeComponent();
@@ -41,8 +41,11 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
 
                 lblTT.Visible = false;
                 lblNT.Visible = false;
+                lblMaDe.Visible = false;
                 txtTrangThai.Visible = false;
                 txtNgayTao.Visible = false;
+                cbolstDe.Visible = false;
+
             }
             // Edit
             else
@@ -55,7 +58,7 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
                 Show_DS_CauHoi_DaDuyet(this.deThis.MaHocPhan);
                 show_DS_DeThi_CauHOi();
                 Show_DS_DeCon(deThis.MaDeThi);
-               
+
                 cboHocPhan.Text = TENHOCPHAN;
                 if (CountElemntCbo(cbolstDe) == 1)
                 {
@@ -154,6 +157,7 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
 
                 if (gridDSCHDuocChon.RowCount == 0)
                 {
+                    gridDSCauHoi.Rows[row_sl].Cells[0].Value = true;
                     gridDSCHDuocChon.Rows.Add(row);
                     txtSLCauHoi.Text = gridDSCHDuocChon.RowCount + "";
                 }
@@ -167,6 +171,7 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
                         if (gridDSCHDuocChon.Rows[i].Cells[1].Value.ToString().Trim()
                         .Equals(row[1].ToString().Trim()))
                         {
+                            gridDSCauHoi.Rows[row_sl].Cells[0].Value = false;
                             gridDSCHDuocChon.Rows.RemoveAt(i);
                             txtSLCauHoi.Text = gridDSCHDuocChon.RowCount + "";
                             status = true;
@@ -175,6 +180,7 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
                     }
                     if (!status)
                     {
+                        gridDSCauHoi.Rows[row_sl].Cells[0].Value = true;
                         gridDSCHDuocChon.Rows.Add(row);
                         txtSLCauHoi.Text = gridDSCHDuocChon.RowCount + "";
                     }
@@ -197,12 +203,24 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
                 }
                 frmChon_SL_CauHoi frmChon_SL_CauHoi = new frmChon_SL_CauHoi();
                 frmChon_SL_CauHoi.ShowDialog();
+                if (frmChon_SL_CauHoi.Check == false)
+                {
+                    return;
+                }
+
                 int soLuong_CauHoi = frmChon_SL_CauHoi.SoLuong;
+                if (soLuong_CauHoi > gridDSCauHoi.RowCount)
+                {
+                    KryptonMessageBox.Show("Số lượng câu hỏi muốn chọn vượt quá số lượng đang có !\nHãy chọn lại hoặc bổ sung câu hỏi.", "Cảnh báo",
+                            MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    return;
+                }
+
 
                 int total_row = gridDSCauHoi.RowCount;
                 Random rd = new Random();
                 List<int> numbeHasRandom = new List<int>();
-                
+
                 while (number_question < soLuong_CauHoi)
                 {
                     int row_sl = rd.Next(0, total_row);
@@ -232,7 +250,18 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
             {
                 frmChon_SL_CauHoi frmChon_SL_CauHoi = new frmChon_SL_CauHoi();
                 frmChon_SL_CauHoi.ShowDialog();
+                if (frmChon_SL_CauHoi.Check == false)
+                {
+                    return;
+                }
+
                 int soLuong_CauHoi = frmChon_SL_CauHoi.SoLuong;
+                if (soLuong_CauHoi > gridDSCauHoi.RowCount)
+                {
+                    KryptonMessageBox.Show("Số lượng câu hỏi muốn chọn vượt quá số lượng đang có !\nHãy chọn lại hoặc bổ sung câu hỏi.", "Cảnh báo",
+                        MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    return;
+                }
 
                 int total_row = gridDSCauHoi.RowCount;
                 Random rd = new Random();
@@ -266,12 +295,23 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
 
         private void btnHoanThanh_Click(object sender, EventArgs e)
         {
+            if (txtTGLamBai.Text == "" || txtTGLamBai.Text.Length <= 0
+                || gridDSCHDuocChon.RowCount <= 0)
+            {
+                KryptonMessageBox.Show("Hãy hoàn thành đầy đủ thông tin !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             // Thêm danh thông tin đề thi vào DETHI, CT_DETHI
             if (check_edit_DeThi)
             {
                 // Hiện form cho chọn số lượng đề thi muốn sinh ra từ bộ câu hỏi
                 frmChon_SL_CauHoi soluongde = new frmChon_SL_CauHoi(false, true);
                 soluongde.ShowDialog();
+                if (soluongde.Check == false)
+                {
+                    return;
+                }
+
                 List<string> dethi = soluongde.ds_DeThi;
 
                 DeThis deThis = new DeThis();

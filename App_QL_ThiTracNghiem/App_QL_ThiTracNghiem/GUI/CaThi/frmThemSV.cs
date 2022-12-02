@@ -56,6 +56,11 @@ namespace App_QL_ThiTracNghiem.GUI.CaThi
             lst_SinhVien = new List<string>();
         }
 
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void btnOK_Click(object sender, EventArgs e)
         {
             if (add_sv_hocphan == false)
@@ -169,14 +174,17 @@ namespace App_QL_ThiTracNghiem.GUI.CaThi
         {
             frmChon_SL_CauHoi sl = new frmChon_SL_CauHoi(true, false);
             sl.ShowDialog();
+            if (sl.Check == false)
+            {
+                return;
+            }
             int soLuong = sl.SoLuong;
 
-            while (soLuong > gridDSSinhVien.RowCount)
+            if (soLuong > gridDSSinhVien.RowCount)
             {
                 KryptonMessageBox.Show("Số lượng sinh viên muốn chọn vượt quá số lượng đang có !\nHãy chọn lại hoặc bổ sung sinh viên.", "Cảnh báo",
                         MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                sl.ShowDialog();
-                soLuong = sl.SoLuong;
+                return;
             }
             if (add_sv_hocphan == false)
             {

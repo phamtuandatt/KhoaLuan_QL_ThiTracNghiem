@@ -15,6 +15,7 @@ namespace App_QL_ThiTracNghiem.GUI.CaThi
     public partial class frmShowDS_DeThiCon : MetroFramework.Forms.MetroForm
     {
         int MADETHI, MACATHI;
+        public bool check { get; set; }
         public frmShowDS_DeThiCon(int MADETHI, int MACATHI)
         {
             InitializeComponent();
@@ -26,11 +27,18 @@ namespace App_QL_ThiTracNghiem.GUI.CaThi
             cboDSDeThi.ValueMember = "MADECON";
         }
 
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            check = false;
+            this.Close();
+        }
+
         private void btnOk_Click(object sender, EventArgs e)
         {
-            if (CaThi_DAO.Update_DeThi_CaThi(cboDSDeThi.SelectedValue.ToString(), MACATHI))
+            if (CaThi_DAO.Update_DeThi_CaThi(cboDSDeThi.SelectedValue.ToString().Trim(), MACATHI))
             {
                 KryptonMessageBox.Show("Cập nhật ĐỀ THI cho CA THI thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                check = true;
                 this.Close();
             }
             else

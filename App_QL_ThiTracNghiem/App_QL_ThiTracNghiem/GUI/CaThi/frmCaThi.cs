@@ -1,4 +1,5 @@
-﻿using App_QL_ThiTracNghiem.GUI.TaoDeThi;
+﻿using App_QL_ThiTracNghiem.DAO;
+using App_QL_ThiTracNghiem.GUI.TaoDeThi;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,20 +16,31 @@ namespace App_QL_ThiTracNghiem.GUI.CaThi
     public partial class frmCaThi : UserControl
     {
         bool check_role_id;
+        DataTable dt;
         public frmCaThi()
         {
             InitializeComponent();
+
         }
 
         public frmCaThi(bool check_role_id)
         {
             InitializeComponent();
             this.check_role_id = check_role_id;
+            cboKhoa.DataSource = Khoa_DAO.GetKhoas();
+            cboKhoa.DisplayMember = "TENKHOA";
+            cboKhoa.ValueMember = "MAKHOA";
+
+            cboHocPhan.DataSource = HocPhan_DAO.GetDSHP(cboKhoa.SelectedValue.ToString());
+            cboHocPhan.DisplayMember = "TENHOCPHAN";
+            cboHocPhan.ValueMember = "MAHOCPHAN";
+
+            dt = CaThi_DAO.Get_DS_CaThi_MaHocPhan(cboHocPhan.SelectedValue.ToString());
             // Kiểm tra mã giảng viên 
             // True -> Nếu là giảng viên
-            if (check_role_id)
+            if (check_role_id) 
             {
-                frmDSCaThi frmDSCaThi = new frmDSCaThi(pnContent, true);
+                frmDSCaThi frmDSCaThi = new frmDSCaThi(pnContent, true, dt);
                 frmDSCaThi.Dock = DockStyle.Fill;
                 pnContent.Controls.Add(frmDSCaThi);
                 frmDSCaThi.BringToFront();
@@ -37,7 +49,7 @@ namespace App_QL_ThiTracNghiem.GUI.CaThi
             else
             {
                 btnTaoCaThi.Visible = false;
-                frmDSCaThi frmDSCaThi = new frmDSCaThi(pnContent, false);
+                frmDSCaThi frmDSCaThi = new frmDSCaThi(pnContent, false, dt);
                 frmDSCaThi.Dock = DockStyle.Fill;
                 pnContent.Controls.Add(frmDSCaThi);
                 frmDSCaThi.BringToFront();
@@ -58,7 +70,7 @@ namespace App_QL_ThiTracNghiem.GUI.CaThi
             // True -> Nếu là giảng viên
             if (check_role_id)
             {
-                frmDSCaThi frmDSCaThi = new frmDSCaThi(pnContent, true);
+                frmDSCaThi frmDSCaThi = new frmDSCaThi(pnContent, true, dt);
                 frmDSCaThi.Dock = DockStyle.Fill;
                 pnContent.Controls.Add(frmDSCaThi);
                 frmDSCaThi.BringToFront();
@@ -66,11 +78,27 @@ namespace App_QL_ThiTracNghiem.GUI.CaThi
             // False -> Nếu là nhân viên phòng khảo thí
             else
             {
-                frmDSCaThi frmDSCaThi = new frmDSCaThi(pnContent, false);
+                frmDSCaThi frmDSCaThi = new frmDSCaThi(pnContent, false, dt);
                 frmDSCaThi.Dock = DockStyle.Fill;
                 pnContent.Controls.Add(frmDSCaThi);
                 frmDSCaThi.BringToFront();
             }
+        }
+
+        private void cboKhoa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cboHocPhan.DataSource = HocPhan_DAO.GetDSHP(cboKhoa.SelectedValue.ToString());
+            cboHocPhan.DisplayMember = "TENHOCPHAN";
+            cboHocPhan.ValueMember = "MAHOCPHAN";
+        }
+
+        private void cboHocPhan_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataTable data = CaThi_DAO.Get_DS_CaThi_MaHocPhan(cboHocPhan.SelectedValue.ToString());
+            frmDSCaThi frmDSCaThi = new frmDSCaThi(pnContent, false, data);
+            frmDSCaThi.Dock = DockStyle.Fill;
+            pnContent.Controls.Add(frmDSCaThi);
+            frmDSCaThi.BringToFront();
         }
     }
 }

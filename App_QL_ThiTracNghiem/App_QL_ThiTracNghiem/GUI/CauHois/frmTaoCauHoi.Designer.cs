@@ -130,6 +130,7 @@
             this.btnHuy.Size = new System.Drawing.Size(178, 40);
             this.btnHuy.TabIndex = 3;
             this.btnHuy.Values.Text = "HỦY";
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // kryptonPanel6
             // 

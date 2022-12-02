@@ -19,6 +19,7 @@ namespace App_QL_ThiTracNghiem.GUI.CaThi
         string MAHOCPHAN, TENHOCPHAN;
         List<string> lst_SV;
         CaThis CaThis;
+
         public frmCT_CaThi()
         {
             InitializeComponent();
@@ -42,6 +43,7 @@ namespace App_QL_ThiTracNghiem.GUI.CaThi
             else
             {
                 txtMonHoc.Text = this.TENHOCPHAN;
+                txtMaDe.Enabled = false;
                 txtNgayThi.Value = DateTime.Parse(this.CaThis.NgayThi.ToString());
                 txtGioThi.Text = this.CaThis.GioLamBai;
             }
@@ -60,6 +62,11 @@ namespace App_QL_ThiTracNghiem.GUI.CaThi
             txtMaDe.SelectedIndex = 0;
         }
 
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void btnOK_Click(object sender, EventArgs e)
         {
             if (check_edit)
@@ -70,6 +77,20 @@ namespace App_QL_ThiTracNghiem.GUI.CaThi
                 caThis.NgayThi = txtNgayThi.Value;
                 caThis.GioLamBai = txtGioThi.Text.Trim();
                 caThis.TinhTrang = 0;
+                caThis.Phong = cboPhong.Text.Trim();
+
+                // Kiểm tra Học phần đó, ngày đó, tiết đó, phòng đó - đã có hay chưa   
+                //                 HP1 - 1 - 1 - A1
+                //                 HP1 - 1 - 1 - A1 -> K ĐƯỢC
+                //                 HP1 - 1 - 1 - A2 -> ĐƯỢC
+                //                 HP2 - 1 - 1 - A1 -> K ĐƯỢC
+                //                 HP2 - 1 - 1 - A3 -> ĐƯỢC
+                // NGÀY ĐÓ - PHÒNG ĐÓ - TIẾT ĐÓ -> CHỈ ĐƯỢC THUỘC VỀ 1 HỌC PHẦN
+                if (CaThi_DAO.CaThiIsExisted(caThis.NgayThi.ToString(), caThis.GioLamBai, caThis.Phong))
+                {
+                    KryptonMessageBox.Show("Phòng thi đã được sử dụng !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
                 if (CaThi_DAO.Insert_CaThi(caThis))
                 {
@@ -84,11 +105,10 @@ namespace App_QL_ThiTracNghiem.GUI.CaThi
                         else
                         {
                             KryptonMessageBox.Show("Tạo ca thi KHÔNG thành công !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            this.Close();
                         }
                     }
                 }
-
-                this.Close();
             }
             // Cập nhật
             else
@@ -97,10 +117,10 @@ namespace App_QL_ThiTracNghiem.GUI.CaThi
                 caThi.MaCaThi = CaThis.MaCaThi;
                 caThi.MaHocPhan = MAHOCPHAN;
                 caThi.MaDeThi = txtMaDe.Text.Trim();
-                caThi.MaDeCon = txtMaDe.SelectedValue.ToString();
                 caThi.NgayThi = txtNgayThi.Value;
                 caThi.GioLamBai = txtGioThi.Text.Trim();
                 caThi.TinhTrang = 0;
+                caThi.Phong = cboPhong.Text.Trim();
 
                 if (CaThi_DAO.UpdateCaThi(caThi))
                 {
@@ -111,6 +131,7 @@ namespace App_QL_ThiTracNghiem.GUI.CaThi
                             if (CT_CaThi_DAO.Up_DB_CT_CaThi())
                             {
                                 KryptonMessageBox.Show("Cập nhật thông tin ca thi thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                this.Close();
                             }
                             else
                             {

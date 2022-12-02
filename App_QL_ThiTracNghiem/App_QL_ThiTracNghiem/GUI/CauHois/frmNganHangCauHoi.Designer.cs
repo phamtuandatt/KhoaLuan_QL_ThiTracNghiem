@@ -82,6 +82,7 @@
             this.btnCapNhat.Size = new System.Drawing.Size(90, 40);
             this.btnCapNhat.TabIndex = 1;
             this.btnCapNhat.Values.Text = "Cập nhật";
+            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
             // 
             // btnTroVe
             // 

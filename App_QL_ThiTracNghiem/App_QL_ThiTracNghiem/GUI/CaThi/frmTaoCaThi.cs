@@ -56,6 +56,8 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
                 btnSelectAll.Enabled = false;
                 cboDSMonHoc.Enabled = false;
                 cboDKLocSinhVien.Enabled = false;
+                txtLoc.Visible = false;
+                cboDKLocSinhVien.Visible = false;
                 cboDSMonHoc.DropDownStyle = ComboBoxStyle.DropDown;
                 cboDSMonHoc.Text = TENHOCPHAN;
 
@@ -165,6 +167,10 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
 
                 frmChon_SL_CauHoi frmChon_SL_CauHoi = new frmChon_SL_CauHoi(true, false);
                 frmChon_SL_CauHoi.ShowDialog();
+                if (frmChon_SL_CauHoi.Check == false)
+                {
+                    return;
+                }
                 int soLuong = frmChon_SL_CauHoi.SoLuong;
 
                 while (soLuong > gridDSSinhVien.RowCount)
@@ -193,6 +199,10 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
             {
                 frmChon_SL_CauHoi frmChon_SL_CauHoi = new frmChon_SL_CauHoi(true, false);
                 frmChon_SL_CauHoi.ShowDialog();
+                if (frmChon_SL_CauHoi.Check == false)
+                {
+                    return;
+                }
                 int soLuong = frmChon_SL_CauHoi.SoLuong;
 
                 while (soLuong > gridDSSinhVien.RowCount)
@@ -227,6 +237,7 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
         private void cboDSMonHoc_SelectedIndexChanged(object sender, EventArgs e)
         {
             Show_DS_SV(cboDSMonHoc.SelectedValue.ToString());
+            gridDSSVDuocChon.Rows.Clear();
         }
 
         private void contextMenuSV_Click(object sender, EventArgs e)
@@ -268,8 +279,8 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
                     // -> Nếu rồi thì xóa dòng (Do click lần 2 là bỏ check -> Nên xóa)
                     for (int i = 0; i < gridDSSVDuocChon.RowCount; i++)
                     {
-                        if (gridDSSVDuocChon.Rows[i].Cells[1].Value.ToString().Trim()
-                        .Equals(row[1].ToString().Trim()))
+                        if (gridDSSVDuocChon.Rows[i].Cells[0].Value.ToString().Trim()
+                        .Equals(row[0].ToString().Trim()))
                         {
                             gridDSSinhVien.Rows[rsl].Cells[0].Value = false;
                             gridDSSVDuocChon.Rows.RemoveAt(i);

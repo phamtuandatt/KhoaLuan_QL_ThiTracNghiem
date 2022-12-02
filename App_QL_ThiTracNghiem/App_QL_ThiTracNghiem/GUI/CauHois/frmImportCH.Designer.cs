@@ -533,6 +533,7 @@
             // 
             // cboMonHoc
             // 
+            this.cboMonHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMonHoc.DropDownWidth = 194;
             this.cboMonHoc.Location = new System.Drawing.Point(193, 12);
             this.cboMonHoc.Name = "cboMonHoc";

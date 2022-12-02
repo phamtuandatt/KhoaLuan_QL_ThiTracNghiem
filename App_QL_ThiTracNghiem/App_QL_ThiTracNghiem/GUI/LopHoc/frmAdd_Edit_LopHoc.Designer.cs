@@ -32,12 +32,12 @@
             this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.btnOk = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnHuy = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.txtTenLop = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.txtMaLop = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.cboKhoa = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.kryptonLabel9 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel10 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel9 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.txtTenLop = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
@@ -92,6 +92,14 @@
             this.btnHuy.Values.Text = "HỦY";
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
+            // txtTenLop
+            // 
+            this.txtTenLop.Location = new System.Drawing.Point(557, 63);
+            this.txtTenLop.Name = "txtTenLop";
+            this.txtTenLop.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.txtTenLop.Size = new System.Drawing.Size(237, 27);
+            this.txtTenLop.TabIndex = 23;
+            // 
             // txtMaLop
             // 
             this.txtMaLop.Location = new System.Drawing.Point(156, 63);
@@ -102,12 +110,22 @@
             // 
             // cboKhoa
             // 
+            this.cboKhoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboKhoa.DropDownWidth = 634;
             this.cboKhoa.Location = new System.Drawing.Point(156, 20);
             this.cboKhoa.Name = "cboKhoa";
             this.cboKhoa.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.cboKhoa.Size = new System.Drawing.Size(638, 25);
             this.cboKhoa.TabIndex = 16;
+            // 
+            // kryptonLabel9
+            // 
+            this.kryptonLabel9.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
+            this.kryptonLabel9.Location = new System.Drawing.Point(450, 64);
+            this.kryptonLabel9.Name = "kryptonLabel9";
+            this.kryptonLabel9.Size = new System.Drawing.Size(70, 24);
+            this.kryptonLabel9.TabIndex = 13;
+            this.kryptonLabel9.Values.Text = "Tên lớp:";
             // 
             // kryptonLabel10
             // 
@@ -126,23 +144,6 @@
             this.kryptonLabel1.Size = new System.Drawing.Size(67, 24);
             this.kryptonLabel1.TabIndex = 6;
             this.kryptonLabel1.Values.Text = "Mã lớp:";
-            // 
-            // kryptonLabel9
-            // 
-            this.kryptonLabel9.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.kryptonLabel9.Location = new System.Drawing.Point(450, 64);
-            this.kryptonLabel9.Name = "kryptonLabel9";
-            this.kryptonLabel9.Size = new System.Drawing.Size(70, 24);
-            this.kryptonLabel9.TabIndex = 13;
-            this.kryptonLabel9.Values.Text = "Tên lớp:";
-            // 
-            // txtTenLop
-            // 
-            this.txtTenLop.Location = new System.Drawing.Point(557, 63);
-            this.txtTenLop.Name = "txtTenLop";
-            this.txtTenLop.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.txtTenLop.Size = new System.Drawing.Size(237, 27);
-            this.txtTenLop.TabIndex = 23;
             // 
             // frmAdd_Edit_LopHoc
             // 

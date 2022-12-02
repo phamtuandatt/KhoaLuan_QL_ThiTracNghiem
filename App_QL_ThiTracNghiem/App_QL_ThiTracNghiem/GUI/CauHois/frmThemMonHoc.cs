@@ -57,5 +57,10 @@ namespace App_QL_ThiTracNghiem.GUI.CauHoi
                 KryptonMessageBox.Show("Thêm học phần KHÔNG thành công !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void btnHUY_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -78,5 +78,10 @@ namespace App_QL_ThiTracNghiem.GUI
                 frmThemMonHoc.ShowDialog();
             }
         }
+
+        private void btnCapNhat_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

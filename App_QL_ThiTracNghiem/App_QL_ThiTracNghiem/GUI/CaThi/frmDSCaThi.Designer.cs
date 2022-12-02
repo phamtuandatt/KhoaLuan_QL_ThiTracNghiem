@@ -155,19 +155,19 @@
             // 
             // Column7
             // 
-            this.Column7.DataPropertyName = "TINHTRANG";
-            this.Column7.HeaderText = "Tình trạng";
+            this.Column7.DataPropertyName = "PHONGTHI";
+            this.Column7.HeaderText = "Phòng thi";
             this.Column7.MinimumWidth = 6;
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
             // 
             // Column9
             // 
-            this.Column9.HeaderText = "XÓA";
+            this.Column9.HeaderText = "THI";
             this.Column9.MinimumWidth = 6;
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
-            this.Column9.Text = "XÓA";
+            this.Column9.Text = "THI";
             // 
             // frmDSCaThi
             // 

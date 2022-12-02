@@ -261,7 +261,7 @@
             this.kryptonPage1,
             this.kryptonPage2});
             this.kryptonNavigator1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.kryptonNavigator1.SelectedIndex = 0;
+            this.kryptonNavigator1.SelectedIndex = 1;
             this.kryptonNavigator1.Size = new System.Drawing.Size(1369, 131);
             this.kryptonNavigator1.TabIndex = 17;
             this.kryptonNavigator1.Text = "kryptonNavigator1";
@@ -439,6 +439,7 @@
             // 
             // cboThu
             // 
+            this.cboThu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboThu.DropDownWidth = 121;
             this.cboThu.Items.AddRange(new object[] {
             "2",
@@ -452,9 +453,11 @@
             this.cboThu.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.cboThu.Size = new System.Drawing.Size(198, 25);
             this.cboThu.TabIndex = 26;
+            this.cboThu.Text = "2";
             // 
             // cboTiet
             // 
+            this.cboTiet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTiet.DropDownWidth = 121;
             this.cboTiet.Items.AddRange(new object[] {
             "1-3",
@@ -474,9 +477,11 @@
             this.cboTiet.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.cboTiet.Size = new System.Drawing.Size(121, 25);
             this.cboTiet.TabIndex = 26;
+            this.cboTiet.Text = "1-3";
             // 
             // cboPhong
             // 
+            this.cboPhong.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboPhong.DropDownWidth = 121;
             this.cboPhong.Items.AddRange(new object[] {
             "A101",
@@ -547,6 +552,7 @@
             this.cboPhong.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.cboPhong.Size = new System.Drawing.Size(121, 25);
             this.cboPhong.TabIndex = 26;
+            this.cboPhong.Text = "A101";
             // 
             // kryptonLabel13
             // 

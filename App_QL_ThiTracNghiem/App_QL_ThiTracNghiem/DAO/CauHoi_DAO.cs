@@ -60,6 +60,7 @@ namespace App_QL_ThiTracNghiem.DAO
 
         public static void Edit_CauHoi(List<CauHois> lst_CauHoi)
         {
+            dt_CauHoi = data.get_data("SELECT *FROM CAUHOI", "TEST");
             foreach (DataRow item in dt_CauHoi.Rows)
             {
                 foreach (var c in lst_CauHoi)
