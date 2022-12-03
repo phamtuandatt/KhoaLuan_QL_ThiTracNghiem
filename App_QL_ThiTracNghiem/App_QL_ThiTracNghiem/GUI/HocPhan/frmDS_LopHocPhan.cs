@@ -45,6 +45,12 @@ namespace App_QL_ThiTracNghiem.GUI.HocPhan
             }
         }
 
+        private void tHÊMLỚPHỌCPHẦNToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAdd_Edit_HocPhan addHp = new frmAdd_Edit_HocPhan(false, true, MAKHOA, MAHOCPHAN);
+            addHp.ShowDialog();
+        }
+
         private void gridDSLOPHP_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             // HIển thị danh sách các lớp học phần của học phần khi click vào

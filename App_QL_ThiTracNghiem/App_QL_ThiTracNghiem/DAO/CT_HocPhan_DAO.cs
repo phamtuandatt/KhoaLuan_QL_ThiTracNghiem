@@ -94,6 +94,14 @@ namespace App_QL_ThiTracNghiem.DAO
             return data.insert_update_delete(sql) > 0;
         }
 
+        public static bool UpdateCT_HocPhan(CT_HocPhans cthp)
+        {
+            string sql = $"UPDATE CT_HOCPHAN SET MAGV = '{cthp.MaGV}', THU = {cthp.Thu}, TIET = '{cthp.Tiet}', PHONG = '{cthp.Phong}', " +
+                                $"NGAYBD = '{cthp.NgayBD}', NGAYKT = '{cthp.NgayKT}' WHERE MALOPHOCPHAN = '{cthp.MaLopHocPhan}'";
+
+            return data.insert_update_delete(sql) > 0;
+        }
+
         public static bool Update_DB_CT_HocPhan(bool check_update, string MALOPHOCPHAN,List<CT_HocPhans> lst)
         {
             // true -> cập nhật

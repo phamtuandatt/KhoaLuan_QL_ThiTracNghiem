@@ -22,6 +22,15 @@ namespace App_QL_ThiTracNghiem.DAO
             return dT;
         }
 
+        public static DataTable GetDSKhoaLopHP(string MAKHOA, int THU, string TIET)
+        {
+            DataTable dT = new DataTable();
+            string sql = $"EXEC GETDSSVKHOALOPHP '{MAKHOA}', {THU}, '{TIET}'";
+            dT = data.get_data(sql, "GETDSSVKHOALOPHP");
+
+            return dT;
+        }
+
         public static DataTable GetDSSV(string MALOP)
         {
             DataTable dT = new DataTable();

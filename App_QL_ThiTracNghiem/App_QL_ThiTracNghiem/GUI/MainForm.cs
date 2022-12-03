@@ -8,15 +8,20 @@ using App_QL_ThiTracNghiem.GUI.Khoa;
 using App_QL_ThiTracNghiem.GUI.LopHoc;
 using App_QL_ThiTracNghiem.GUI.SinhVien;
 using App_QL_ThiTracNghiem.GUI.TaoDeThi;
+using ComponentFactory.Krypton.Toolkit;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Runtime.CompilerServices.RuntimeHelpers;
+using System.Xml.Linq;
 
 namespace App_QL_ThiTracNghiem.GUI
 {
@@ -25,6 +30,10 @@ namespace App_QL_ThiTracNghiem.GUI
         int MANGANHANG;
         string MAGV;
         GiangViens gv;
+        string imgLocal;
+        SqlConnection connection = null;
+        string connectionString = @"server=PHAMTUANDAT\TUANDAT;database=QL_HETHONGTHITRACNGHIEM;Integrated Security = true;uid=sa;pwd=123";
+
         public MainForm()
         {
             InitializeComponent();
@@ -36,6 +45,9 @@ namespace App_QL_ThiTracNghiem.GUI
             this.MANGANHANG = MANGANHANG;
             this.gv = gv;
             this.MAGV = gv.MaGV;
+            connection = new SqlConnection(connectionString);
+
+            LoadAnh(MAGV);
         }
 
         private void btnNganHangCauHoi_Click(object sender, EventArgs e)
@@ -145,6 +157,84 @@ namespace App_QL_ThiTracNghiem.GUI
             sinhVien.Dock = System.Windows.Forms.DockStyle.Fill;
             pnMain.Controls.Add(sinhVien);
             sinhVien.BringToFront();
+        }
+
+        private void cẬPNHẬTẢNHĐẠIDIỆNToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Chọn ảnh
+            openFile_Picture.Filter = "Pictures files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png)|*.jpg; *.jpeg; *.jpe; *.jfif; *.png|All files (*.*)|*.*";
+            openFile_Picture.FilterIndex = 1;
+            openFile_Picture.RestoreDirectory = true;
+            if (openFile_Picture.ShowDialog() == DialogResult.OK)
+            {
+                if (KryptonMessageBox.Show("Bạn có muốn cập nhật ảnh đại diện không ?", "Thông báo",
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
+                    return;
+                imgLocal = openFile_Picture.FileName.ToString();
+                picAnhDaiDien.ImageLocation = imgLocal;
+            }
+
+            // Insert Ảnh
+            try
+            {
+                byte[] img = null;
+                FileStream fs = new FileStream(imgLocal, FileMode.Open, FileAccess.Read);
+                BinaryReader br = new BinaryReader(fs);
+                img = br.ReadBytes((int)fs.Length);
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+                
+                string sql = "UPDATE GIANGVIEN SET AVATA = @AVATA WHERE MAGV = @MAGV";
+                SqlCommand cmd = new SqlCommand(sql, connection);
+                cmd.Parameters.Add(new SqlParameter("@AVATA", img));
+                cmd.Parameters.Add(new SqlParameter("MAGV", MAGV));
+                int x = cmd.ExecuteNonQuery();
+                connection.Close();
+
+                if (x > 0)
+                {
+                    KryptonMessageBox.Show(this, "Cập nhật ảnh đại diện thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    KryptonMessageBox.Show(this, "Cập nhật không thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                connection.Close();
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void LoadAnh(string MAGV)
+        {
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+                string sql = $"SELECT AVATA FROM GIANGVIEN WHERE MAGV = '{MAGV.Trim()}'";
+                SqlCommand cmd = new SqlCommand(sql, connection);
+                SqlDataReader reader = cmd.ExecuteReader();
+                reader.Read();
+                byte[] img = (byte[])(reader[0]);
+                if (reader.HasRows)
+                {
+                    MemoryStream ms = new MemoryStream(img);
+                    picAnhDaiDien.Image = Image.FromStream(ms);
+                }
+
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                connection.Close();
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

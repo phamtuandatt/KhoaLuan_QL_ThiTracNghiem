@@ -40,8 +40,9 @@
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contextXoa = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contexteEdit = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.xÓALỚPHỌCPHẦNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tHÊMLỚPHỌCPHẦNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).BeginInit();
@@ -49,7 +50,7 @@
             this.kryptonGroupBox1.Panel.SuspendLayout();
             this.kryptonGroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridDSLOPHP)).BeginInit();
-            this.contextXoa.SuspendLayout();
+            this.contexteEdit.SuspendLayout();
             this.SuspendLayout();
             // 
             // kryptonPanel1
@@ -90,7 +91,7 @@
             this.Column7,
             this.Column8,
             this.Column9});
-            this.gridDSLOPHP.ContextMenuStrip = this.contextXoa;
+            this.gridDSLOPHP.ContextMenuStrip = this.contexteEdit;
             this.gridDSLOPHP.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridDSLOPHP.Location = new System.Drawing.Point(0, 0);
             this.gridDSLOPHP.Name = "gridDSLOPHP";
@@ -167,21 +168,29 @@
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
             // 
-            // contextXoa
+            // contexteEdit
             // 
-            this.contextXoa.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.contextXoa.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextXoa.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.xÓALỚPHỌCPHẦNToolStripMenuItem});
-            this.contextXoa.Name = "contextXoa";
-            this.contextXoa.Size = new System.Drawing.Size(218, 28);
+            this.contexteEdit.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.contexteEdit.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contexteEdit.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.xÓALỚPHỌCPHẦNToolStripMenuItem,
+            this.tHÊMLỚPHỌCPHẦNToolStripMenuItem});
+            this.contexteEdit.Name = "contextXoa";
+            this.contexteEdit.Size = new System.Drawing.Size(228, 80);
             // 
             // xÓALỚPHỌCPHẦNToolStripMenuItem
             // 
             this.xÓALỚPHỌCPHẦNToolStripMenuItem.Name = "xÓALỚPHỌCPHẦNToolStripMenuItem";
-            this.xÓALỚPHỌCPHẦNToolStripMenuItem.Size = new System.Drawing.Size(217, 24);
+            this.xÓALỚPHỌCPHẦNToolStripMenuItem.Size = new System.Drawing.Size(227, 24);
             this.xÓALỚPHỌCPHẦNToolStripMenuItem.Text = "XÓA LỚP HỌC PHẦN";
             this.xÓALỚPHỌCPHẦNToolStripMenuItem.Click += new System.EventHandler(this.xÓALỚPHỌCPHẦNToolStripMenuItem_Click);
+            // 
+            // tHÊMLỚPHỌCPHẦNToolStripMenuItem
+            // 
+            this.tHÊMLỚPHỌCPHẦNToolStripMenuItem.Name = "tHÊMLỚPHỌCPHẦNToolStripMenuItem";
+            this.tHÊMLỚPHỌCPHẦNToolStripMenuItem.Size = new System.Drawing.Size(227, 24);
+            this.tHÊMLỚPHỌCPHẦNToolStripMenuItem.Text = "THÊM LỚP HỌC PHẦN";
+            this.tHÊMLỚPHỌCPHẦNToolStripMenuItem.Click += new System.EventHandler(this.tHÊMLỚPHỌCPHẦNToolStripMenuItem_Click);
             // 
             // frmDS_LopHocPhan
             // 
@@ -197,7 +206,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).EndInit();
             this.kryptonGroupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridDSLOPHP)).EndInit();
-            this.contextXoa.ResumeLayout(false);
+            this.contexteEdit.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -215,7 +224,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.ContextMenuStrip contextXoa;
+        private System.Windows.Forms.ContextMenuStrip contexteEdit;
         private System.Windows.Forms.ToolStripMenuItem xÓALỚPHỌCPHẦNToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tHÊMLỚPHỌCPHẦNToolStripMenuItem;
     }
 }

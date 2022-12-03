@@ -32,6 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.pnHeader = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.picAnhDaiDien = new System.Windows.Forms.PictureBox();
+            this.contextAvata = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cẬPNHẬTẢNHĐẠIDIỆNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnFeature = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.btnNganHangCauHoi = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnChonCaThi = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -56,11 +58,13 @@
             this.lớpHọcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuSinhVien = new System.Windows.Forms.ToolStripMenuItem();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.openFile_Picture = new System.Windows.Forms.OpenFileDialog();
             this.elipseControl1 = new App_QL_ThiTracNghiem.Tools.ElipseControl();
             this.elipseControl2 = new App_QL_ThiTracNghiem.Tools.ElipseControl();
             ((System.ComponentModel.ISupportInitialize)(this.pnHeader)).BeginInit();
             this.pnHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picAnhDaiDien)).BeginInit();
+            this.contextAvata.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnFeature)).BeginInit();
             this.pnFeature.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
@@ -86,12 +90,30 @@
             // 
             this.picAnhDaiDien.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.picAnhDaiDien.Location = new System.Drawing.Point(748, 8);
+            this.picAnhDaiDien.ContextMenuStrip = this.contextAvata;
+            this.picAnhDaiDien.Location = new System.Drawing.Point(743, 2);
             this.picAnhDaiDien.Name = "picAnhDaiDien";
-            this.picAnhDaiDien.Size = new System.Drawing.Size(78, 63);
+            this.picAnhDaiDien.Size = new System.Drawing.Size(85, 77);
+            this.picAnhDaiDien.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picAnhDaiDien.TabIndex = 0;
             this.picAnhDaiDien.TabStop = false;
             this.picAnhDaiDien.Click += new System.EventHandler(this.picAnhDaiDien_Click);
+            // 
+            // contextAvata
+            // 
+            this.contextAvata.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.contextAvata.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextAvata.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cẬPNHẬTẢNHĐẠIDIỆNToolStripMenuItem});
+            this.contextAvata.Name = "contextAvata";
+            this.contextAvata.Size = new System.Drawing.Size(253, 28);
+            // 
+            // cẬPNHẬTẢNHĐẠIDIỆNToolStripMenuItem
+            // 
+            this.cẬPNHẬTẢNHĐẠIDIỆNToolStripMenuItem.Name = "cẬPNHẬTẢNHĐẠIDIỆNToolStripMenuItem";
+            this.cẬPNHẬTẢNHĐẠIDIỆNToolStripMenuItem.Size = new System.Drawing.Size(252, 24);
+            this.cẬPNHẬTẢNHĐẠIDIỆNToolStripMenuItem.Text = "CẬP NHẬT ẢNH ĐẠI DIỆN";
+            this.cẬPNHẬTẢNHĐẠIDIỆNToolStripMenuItem.Click += new System.EventHandler(this.cẬPNHẬTẢNHĐẠIDIỆNToolStripMenuItem_Click);
             // 
             // pnFeature
             // 
@@ -103,10 +125,10 @@
             this.pnFeature.Controls.Add(this.btnDeThi);
             this.pnFeature.Controls.Add(this.kryptonPanel1);
             this.pnFeature.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnFeature.Location = new System.Drawing.Point(0, 28);
+            this.pnFeature.Location = new System.Drawing.Point(0, 30);
             this.pnFeature.Name = "pnFeature";
             this.pnFeature.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2007Black;
-            this.pnFeature.Size = new System.Drawing.Size(299, 661);
+            this.pnFeature.Size = new System.Drawing.Size(299, 659);
             this.pnFeature.TabIndex = 2;
             // 
             // btnNganHangCauHoi
@@ -208,9 +230,9 @@
             this.pnContent.Controls.Add(this.pnMain);
             this.pnContent.Controls.Add(this.pnHeader);
             this.pnContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnContent.Location = new System.Drawing.Point(299, 28);
+            this.pnContent.Location = new System.Drawing.Point(299, 30);
             this.pnContent.Name = "pnContent";
-            this.pnContent.Size = new System.Drawing.Size(844, 661);
+            this.pnContent.Size = new System.Drawing.Size(844, 659);
             this.pnContent.TabIndex = 3;
             // 
             // pnMain
@@ -220,7 +242,7 @@
             this.pnMain.Name = "pnMain";
             this.pnMain.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
             this.pnMain.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlClient;
-            this.pnMain.Size = new System.Drawing.Size(844, 581);
+            this.pnMain.Size = new System.Drawing.Size(844, 579);
             this.pnMain.TabIndex = 2;
             // 
             // menuStrip1
@@ -234,7 +256,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.menuStrip1.Size = new System.Drawing.Size(1143, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1143, 30);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -302,14 +324,14 @@
             // lớpHọcToolStripMenuItem
             // 
             this.lớpHọcToolStripMenuItem.Name = "lớpHọcToolStripMenuItem";
-            this.lớpHọcToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.lớpHọcToolStripMenuItem.Size = new System.Drawing.Size(151, 26);
             this.lớpHọcToolStripMenuItem.Text = "Lớp học";
             this.lớpHọcToolStripMenuItem.Click += new System.EventHandler(this.lớpHọcToolStripMenuItem_Click);
             // 
             // menuSinhVien
             // 
             this.menuSinhVien.Name = "menuSinhVien";
-            this.menuSinhVien.Size = new System.Drawing.Size(224, 26);
+            this.menuSinhVien.Size = new System.Drawing.Size(151, 26);
             this.menuSinhVien.Text = "Sinh viên";
             this.menuSinhVien.Click += new System.EventHandler(this.menuSinhVien_Click);
             // 
@@ -320,9 +342,13 @@
             this.imageList1.Images.SetKeyName(0, "312477454_848113689520435_2392142812272977349_n.jpg");
             this.imageList1.Images.SetKeyName(1, "2_img.jpg");
             // 
+            // openFile_Picture
+            // 
+            this.openFile_Picture.FileName = "openFileDialog1";
+            // 
             // elipseControl1
             // 
-            this.elipseControl1.CornerRadius = 50;
+            this.elipseControl1.CornerRadius = 77;
             this.elipseControl1.TargetControl = this.picAnhDaiDien;
             // 
             // elipseControl2
@@ -345,6 +371,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pnHeader)).EndInit();
             this.pnHeader.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picAnhDaiDien)).EndInit();
+            this.contextAvata.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pnFeature)).EndInit();
             this.pnFeature.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
@@ -389,5 +416,8 @@
         private Tools.ElipseControl elipseControl1;
         private Tools.ElipseControl elipseControl2;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.ContextMenuStrip contextAvata;
+        private System.Windows.Forms.ToolStripMenuItem cẬPNHẬTẢNHĐẠIDIỆNToolStripMenuItem;
+        private System.Windows.Forms.OpenFileDialog openFile_Picture;
     }
 }

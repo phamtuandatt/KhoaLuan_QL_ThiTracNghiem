@@ -21,8 +21,25 @@ namespace App_QL_ThiTracNghiem.GUI.CaThi
         bool add_sv_hocphan = false;
         string MAKHOA, MALOPHOCPHAN, MAHOCPHAN, TENHOCPHAN;
         List<string> lst_SinhVien;
+        public bool check { get; set; }
 
         public List<SinhViens> svs { get; set; }
+
+        public frmThemSV(int THU, string TIET, string TENHOCPHAN, bool themHocPhan, string MAKHOA, bool add_sv_hocphan)
+        {
+            InitializeComponent();
+            this.add_sv_hocphan = add_sv_hocphan;
+
+            txtMonHoc.Text = TENHOCPHAN;
+            cboDKLocSinhVien.SelectedIndex = 0;
+
+            // Hiển thị danh sách sinh viên của khoa, nhưng chưa tham gia lớp học phần
+            // Kiểm tra sinh viên vào THƯ đó - TIẾT đó đã có lịch hay chưa
+            // Có rồi thì k hiển thị
+            gridDSSinhVien.DataSource = SinhVien_DAO.GetDSKhoaLopHP(MAKHOA, THU, TIET);
+
+            lst_SinhVien = new List<string>();
+        }
 
         public frmThemSV(bool add_sv_hocphan, string MAKHOA, string MALOPHOCPHAN, string TENHOCPHAN)
         {
@@ -81,6 +98,7 @@ namespace App_QL_ThiTracNghiem.GUI.CaThi
             else
             {
                 // Thêm danh sách sinh viên tham gia học phần
+                check = true;
                 this.Close();
             }
 
