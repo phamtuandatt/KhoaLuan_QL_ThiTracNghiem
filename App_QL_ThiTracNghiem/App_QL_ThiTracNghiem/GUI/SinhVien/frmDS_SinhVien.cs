@@ -48,7 +48,7 @@ namespace App_QL_ThiTracNghiem.GUI.SinhVien
             }
             else
             {
-                KryptonMessageBox.Show("Xóa HỌC SINH VIÊN thành công !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                KryptonMessageBox.Show("Sinh viên đang tham gia lớp học KHÔNG thể xóa!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 ShowDSSV_CboKhoa_CboLop();
             }
         }

@@ -18,5 +18,15 @@ namespace App_QL_ThiTracNghiem.GUI.LopHoc
             InitializeComponent();
             gridDSSV.DataSource = SinhVien_DAO.GetDSSV(MALOP.Trim());
         }
+
+        private void btnImport_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnok_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

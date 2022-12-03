@@ -127,7 +127,7 @@
             this.txtMK.PasswordChar = '●';
             this.txtMK.Size = new System.Drawing.Size(252, 27);
             this.txtMK.TabIndex = 2;
-            this.txtMK.Text = "000000000";
+            this.txtMK.Text = "321321";
             this.txtMK.UseSystemPasswordChar = true;
             this.txtMK.WordWrap = false;
             // 

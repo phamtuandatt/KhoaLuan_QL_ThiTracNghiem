@@ -39,6 +39,7 @@ namespace App_QL_ThiTracNghiem.GUI.CaThi
             gridDSSinhVien.DataSource = SinhVien_DAO.GetDSKhoaLopHP(MAKHOA, THU, TIET);
 
             lst_SinhVien = new List<string>();
+            svs = new List<SinhViens>();
         }
 
         public frmThemSV(bool add_sv_hocphan, string MAKHOA, string MALOPHOCPHAN, string TENHOCPHAN)
@@ -226,8 +227,8 @@ namespace App_QL_ThiTracNghiem.GUI.CaThi
                     sv.Sdt = gridDSSinhVien.Rows[i].Cells[6].Value.ToString();
                     sv.DiaChi = gridDSSinhVien.Rows[i].Cells[7].Value.ToString();
                     sv.QueQuan = gridDSSinhVien.Rows[i].Cells[8].Value.ToString();
-                    sv.MaLop = gridDSSinhVien.Rows[i].Cells[9].Value.ToString();
-                    sv.HocPhi = gridDSSinhVien.Rows[i].Cells[10].Value.ToString();
+                    sv.MaLop = gridDSSinhVien.Rows[i].Cells[10].Value.ToString().Trim();
+                    sv.HocPhi = gridDSSinhVien.Rows[i].Cells[9].Value.ToString();
 
                     svs.Add(sv);
                 }

@@ -181,11 +181,7 @@ namespace App_QL_ThiTracNghiem.GUI.HocPhan
             // Tạo mới
             else
             {
-                if (txtSTC.Text == "" || txtSTC.Text.Length <= 0
-                    || txtLT.Text == "" || txtLT.Text.Length <= 0
-                    || txtTH.Text == "" || txtTH.Text.Length <= 0
-                    || txtTen.Text == "" || txtTen.Text.Length <= 0
-                    || gridDSSV.RowCount <= 0)
+                if ( gridDSSV.RowCount <= 0)
                 {
                     KryptonMessageBox.Show("Hãy hoàn điền đầy đủ thông tin !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
@@ -237,68 +233,71 @@ namespace App_QL_ThiTracNghiem.GUI.HocPhan
                         }
                     }
                 }
-                HocPhans hocPhan = new HocPhans();
-                hocPhan.TenHocPhan = txtTen.Text;
-                hocPhan.SoTC = int.Parse(txtTH.Text.Trim());
-                hocPhan.SoTietLT = int.Parse(txtLT.Text.Trim());
-                hocPhan.SoTietTH = int.Parse(txtTH.Text.Trim());
-                hocPhan.MaKhoa = cboKhoa.SelectedValue.ToString();
-
-                if (HocPhan_DAO.InsertHP(hocPhan))
+                else
                 {
-                    string MHP = HocPhan_DAO.GetMHPMax();
-                    string MLHP = CT_HocPhan_DAO.GetMaCTHP(MHP);
-                    List<CT_HocPhans> lstCT_HocPhan = new List<CT_HocPhans>();
-                    foreach (DataGridViewRow item in gridDSSV.Rows)
-                    {
-                        CT_HocPhans ct_hp = new CT_HocPhans();
-                        ct_hp.MaLopHocPhan = MLHP;
-                        ct_hp.MaSV = item.Cells[0].Value.ToString().Trim();
-                        ct_hp.MaHocPhan = MHP;
-                        ct_hp.MaGV = cboGiangVien.SelectedValue.ToString().Trim();
-                        ct_hp.Thu = int.Parse(cboThu.Text.Trim());
-                        ct_hp.Tiet = cboTiet.Text.Trim();
-                        ct_hp.Phong = cboPhong.Text.Trim();
-                        ct_hp.NgayBD = txtNgayBD.Value;
-                        ct_hp.NgayKT = txtNgayKT.Value;
+                    HocPhans hocPhan = new HocPhans();
+                    hocPhan.TenHocPhan = txtTen.Text;
+                    hocPhan.SoTC = int.Parse(txtTH.Text.Trim());
+                    hocPhan.SoTietLT = int.Parse(txtLT.Text.Trim());
+                    hocPhan.SoTietTH = int.Parse(txtTH.Text.Trim());
+                    hocPhan.MaKhoa = cboKhoa.SelectedValue.ToString();
 
-                        lstCT_HocPhan.Add(ct_hp);
-                    }
-                    if (CT_HocPhan_DAO.Update_DB_CT_HocPhan(false, null, lstCT_HocPhan))
+                    if (HocPhan_DAO.InsertHP(hocPhan))
                     {
-                        // THÊM VÀO CT_GIANGDAY -> KHI THÊM KIỂM TRA GIẢNG VIÊN ĐÃ PHỤ TRÁCH HỌC PHẦN ĐÓ CHƯA
-                        // CHƯA THÌ THÊM 'MAHOCPHAN' - 'MAGV' VÀO CT_GIANGDAY
-                        CT_GiangDays ct = new CT_GiangDays();
-                        ct.MaHocPhan = MHP;
-                        ct.MaGV = cboGiangVien.SelectedValue.ToString().Trim();
-                        if (CT_GiangDay_DAO.GVIsExisted(ct))
+                        string MHP = HocPhan_DAO.GetMHPMax();
+                        string MLHP = CT_HocPhan_DAO.GetMaCTHP(MHP);
+                        List<CT_HocPhans> lstCT_HocPhan = new List<CT_HocPhans>();
+                        foreach (DataGridViewRow item in gridDSSV.Rows)
                         {
-                            KryptonMessageBox.Show("Tạo HỌC PHẦN thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.Close();
+                            CT_HocPhans ct_hp = new CT_HocPhans();
+                            ct_hp.MaLopHocPhan = MLHP;
+                            ct_hp.MaSV = item.Cells[0].Value.ToString().Trim();
+                            ct_hp.MaHocPhan = MHP;
+                            ct_hp.MaGV = cboGiangVien.SelectedValue.ToString().Trim();
+                            ct_hp.Thu = int.Parse(cboThu.Text.Trim());
+                            ct_hp.Tiet = cboTiet.Text.Trim();
+                            ct_hp.Phong = cboPhong.Text.Trim();
+                            ct_hp.NgayBD = txtNgayBD.Value;
+                            ct_hp.NgayKT = txtNgayKT.Value;
+
+                            lstCT_HocPhan.Add(ct_hp);
                         }
-                        else
+                        if (CT_HocPhan_DAO.Update_DB_CT_HocPhan(false, null, lstCT_HocPhan))
                         {
-                            if (CT_GiangDay_DAO.InsertCT_GiangDay(ct))
+                            // THÊM VÀO CT_GIANGDAY -> KHI THÊM KIỂM TRA GIẢNG VIÊN ĐÃ PHỤ TRÁCH HỌC PHẦN ĐÓ CHƯA
+                            // CHƯA THÌ THÊM 'MAHOCPHAN' - 'MAGV' VÀO CT_GIANGDAY
+                            CT_GiangDays ct = new CT_GiangDays();
+                            ct.MaHocPhan = MHP;
+                            ct.MaGV = cboGiangVien.SelectedValue.ToString().Trim();
+                            if (CT_GiangDay_DAO.GVIsExisted(ct))
                             {
                                 KryptonMessageBox.Show("Tạo HỌC PHẦN thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 this.Close();
                             }
                             else
                             {
-                                KryptonMessageBox.Show("Tạo HỌC PHẦN KHÔNG thành công !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                this.Close();
+                                if (CT_GiangDay_DAO.InsertCT_GiangDay(ct))
+                                {
+                                    KryptonMessageBox.Show("Tạo HỌC PHẦN thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    this.Close();
+                                }
+                                else
+                                {
+                                    KryptonMessageBox.Show("Tạo HỌC PHẦN KHÔNG thành công !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    this.Close();
+                                }
                             }
+                        }
+                        else
+                        {
+                            KryptonMessageBox.Show("Tạo HỌC PHẦN KHÔNG thành công !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     }
                     else
                     {
                         KryptonMessageBox.Show("Tạo HỌC PHẦN KHÔNG thành công !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        this.Close();
                     }
-                }
-                else
-                {
-                    KryptonMessageBox.Show("Tạo HỌC PHẦN KHÔNG thành công !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    this.Close();
                 }
             }
         }
