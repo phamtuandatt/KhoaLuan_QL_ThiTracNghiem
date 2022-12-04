@@ -13,6 +13,8 @@ namespace App_QL_ThiTracNghiem.DAO
     {
         static SqlProvider data = new SqlProvider();
 
+        static DataTable dt_tam = data.get_data("SELECT *FROM SINHVIEN", "DSTAM");
+
         public static DataTable GetSinhViens(string MAHOCPHAN)
         {
             DataTable dT = new DataTable();
@@ -70,6 +72,42 @@ namespace App_QL_ThiTracNghiem.DAO
             string sql = $"DELETE FROM SINHVIEN WHERE MASV = '{MASV}'";
 
             return data.insert_update_delete(sql) > 0;
+        }
+
+        public static void InsertSinhViens(List<SinhViens> lstSv)
+        {
+            foreach (var item in lstSv)
+            {
+                DataRow add_r = dt_tam.NewRow();
+                add_r[0] = item.MaSV;
+                add_r[1] = item.MatKhau;
+                add_r[2] = item.TenSV;
+                add_r[3] = item.GioiTinh;
+                add_r[4] = item.NgaySinh;
+                add_r[5] = item.Email;
+                add_r[6] = item.Sdt;
+                add_r[7] = item.DiaChi;
+                add_r[8] = item.QueQuan;
+                add_r[9] = item.MaLop;
+                add_r[10] = item.HocPhi;
+
+                dt_tam.Rows.Add(add_r);
+            }
+        }
+
+        public static bool UpdateDBSinhVien(List<SinhViens> lstSv)
+        {
+            try
+            {
+                InsertSinhViens(lstSv);
+                data.update_database("SELECT *FROM SINHVIEN", dt_tam);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+                throw;
+            }
         }
     }
 }

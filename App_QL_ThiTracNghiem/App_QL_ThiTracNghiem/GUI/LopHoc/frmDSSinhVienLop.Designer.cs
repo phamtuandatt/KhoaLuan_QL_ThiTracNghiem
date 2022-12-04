@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.kryptonPanel3 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonGroupBox1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.gridDSSV = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,12 +40,6 @@
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnok = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btnImport = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
-            this.kryptonPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel3)).BeginInit();
-            this.kryptonPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1.Panel)).BeginInit();
             this.kryptonGroupBox1.Panel.SuspendLayout();
@@ -55,40 +47,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridDSSV)).BeginInit();
             this.SuspendLayout();
             // 
-            // kryptonPanel2
-            // 
-            this.kryptonPanel2.Controls.Add(this.kryptonGroupBox1);
-            this.kryptonPanel2.Controls.Add(this.kryptonPanel3);
-            this.kryptonPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonPanel2.Location = new System.Drawing.Point(20, 60);
-            this.kryptonPanel2.Name = "kryptonPanel2";
-            this.kryptonPanel2.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.kryptonPanel2.Size = new System.Drawing.Size(1410, 590);
-            this.kryptonPanel2.TabIndex = 1;
-            // 
-            // kryptonPanel3
-            // 
-            this.kryptonPanel3.Controls.Add(this.btnImport);
-            this.kryptonPanel3.Controls.Add(this.btnok);
-            this.kryptonPanel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.kryptonPanel3.Location = new System.Drawing.Point(0, 0);
-            this.kryptonPanel3.Name = "kryptonPanel3";
-            this.kryptonPanel3.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.kryptonPanel3.Size = new System.Drawing.Size(1410, 50);
-            this.kryptonPanel3.TabIndex = 1;
-            // 
             // kryptonGroupBox1
             // 
             this.kryptonGroupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonGroupBox1.Location = new System.Drawing.Point(0, 50);
+            this.kryptonGroupBox1.Location = new System.Drawing.Point(20, 60);
             this.kryptonGroupBox1.Name = "kryptonGroupBox1";
             this.kryptonGroupBox1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             // 
             // kryptonGroupBox1.Panel
             // 
             this.kryptonGroupBox1.Panel.Controls.Add(this.gridDSSV);
-            this.kryptonGroupBox1.Size = new System.Drawing.Size(1410, 540);
-            this.kryptonGroupBox1.TabIndex = 2;
+            this.kryptonGroupBox1.Size = new System.Drawing.Size(1497, 590);
+            this.kryptonGroupBox1.TabIndex = 3;
             this.kryptonGroupBox1.Values.Heading = "Danh sách sinh viên";
             // 
             // gridDSSV
@@ -115,7 +85,7 @@
             this.gridDSSV.RowHeadersWidth = 51;
             this.gridDSSV.RowTemplate.Height = 24;
             this.gridDSSV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridDSSV.Size = new System.Drawing.Size(1406, 512);
+            this.gridDSSV.Size = new System.Drawing.Size(1493, 562);
             this.gridDSSV.TabIndex = 2;
             // 
             // Column1
@@ -198,40 +168,15 @@
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
             // 
-            // btnok
-            // 
-            this.btnok.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnok.Location = new System.Drawing.Point(1270, 5);
-            this.btnok.Name = "btnok";
-            this.btnok.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.btnok.Size = new System.Drawing.Size(133, 40);
-            this.btnok.TabIndex = 0;
-            this.btnok.Values.Text = "XÁC NHẬN";
-            this.btnok.Click += new System.EventHandler(this.btnok_Click);
-            // 
-            // btnImport
-            // 
-            this.btnImport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnImport.Location = new System.Drawing.Point(1131, 5);
-            this.btnImport.Name = "btnImport";
-            this.btnImport.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.btnImport.Size = new System.Drawing.Size(133, 40);
-            this.btnImport.TabIndex = 0;
-            this.btnImport.Values.Text = "ĐỌC FILE";
-            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
-            // 
             // frmDSSinhVienLop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1450, 670);
-            this.Controls.Add(this.kryptonPanel2);
+            this.ClientSize = new System.Drawing.Size(1537, 670);
+            this.Controls.Add(this.kryptonGroupBox1);
             this.Name = "frmDSSinhVienLop";
             this.Text = "Danh sách sinh viên";
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).EndInit();
-            this.kryptonPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel3)).EndInit();
-            this.kryptonPanel3.ResumeLayout(false);
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1.Panel)).EndInit();
             this.kryptonGroupBox1.Panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).EndInit();
@@ -242,8 +187,7 @@
         }
 
         #endregion
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel2;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel3;
+
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox kryptonGroupBox1;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView gridDSSV;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
@@ -256,7 +200,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnImport;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnok;
     }
 }

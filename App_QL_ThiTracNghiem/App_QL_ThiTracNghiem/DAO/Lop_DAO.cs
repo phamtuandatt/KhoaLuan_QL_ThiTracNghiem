@@ -60,5 +60,12 @@ namespace App_QL_ThiTracNghiem.DAO
 
             return data.insert_update_delete(sql) > 0;
         }
+
+        public static bool LopIsExisted(string MALOP)
+        {
+            string sql = $"SELECT COUNT(MALOP) FROM LOPHOC WHERE MALOP = '{MALOP}'";
+
+            return data.get_result_int(sql) > 0;
+        }
     }
 }

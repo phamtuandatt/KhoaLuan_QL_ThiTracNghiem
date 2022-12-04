@@ -55,7 +55,7 @@ namespace App_QL_ThiTracNghiem.GUI.LopHoc
             int rsl = gridDSLopHoc.CurrentRow.Index;
             Lops lop = new Lops();
             lop.MaLop = gridDSLopHoc.Rows[rsl].Cells[0].Value.ToString().Trim();
-            lop.TenLop = gridDSLopHoc.Rows[rsl].Cells[3].Value.ToString().Trim();
+            lop.TenLop = gridDSLopHoc.Rows[rsl].Cells[1].Value.ToString().Trim();
             lop.Siso = int.Parse(gridDSLopHoc.Rows[rsl].Cells[2].Value.ToString().Trim());
             lop.MaKhoa = gridDSLopHoc.Rows[rsl].Cells[4].Value.ToString().Trim();
 
@@ -80,8 +80,16 @@ namespace App_QL_ThiTracNghiem.GUI.LopHoc
         {
             int rsl = gridDSLopHoc.CurrentRow.Index;
             string MALOP = gridDSLopHoc.Rows[rsl].Cells[0].Value.ToString().Trim();
-            frmDSSinhVienLop dsLop = new frmDSSinhVienLop(MALOP);
+            string TENLOP = gridDSLopHoc.Rows[rsl].Cells[1].Value.ToString().Trim();
+            frmDSSinhVienLop dsLop = new frmDSSinhVienLop(MALOP, TENLOP);
             dsLop.ShowDialog();
+        }
+
+        private void btnImport_Click(object sender, EventArgs e)
+        {
+            frmImportSV import = new frmImportSV();
+            import.ShowDialog();
+
         }
     }
 }

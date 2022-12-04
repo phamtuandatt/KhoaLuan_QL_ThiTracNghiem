@@ -44,6 +44,7 @@
             this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.cboKhoa = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.btnThem = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnImport = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).BeginInit();
@@ -172,6 +173,7 @@
             // 
             // kryptonPanel2
             // 
+            this.kryptonPanel2.Controls.Add(this.btnImport);
             this.kryptonPanel2.Controls.Add(this.kryptonLabel1);
             this.kryptonPanel2.Controls.Add(this.cboKhoa);
             this.kryptonPanel2.Controls.Add(this.btnThem);
@@ -213,6 +215,17 @@
             this.btnThem.Values.Text = "THÊM";
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
+            // btnImport
+            // 
+            this.btnImport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnImport.Location = new System.Drawing.Point(1008, 7);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.btnImport.Size = new System.Drawing.Size(133, 40);
+            this.btnImport.TabIndex = 8;
+            this.btnImport.Values.Text = "ĐỌC FILE";
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
+            // 
             // frmDS_LopHoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -253,5 +266,6 @@
         private System.Windows.Forms.ToolStripMenuItem sỬAĐỔIToolStripMenuItem;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox cboKhoa;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnImport;
     }
 }
