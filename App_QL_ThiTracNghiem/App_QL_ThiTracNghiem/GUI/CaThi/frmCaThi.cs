@@ -94,11 +94,22 @@ namespace App_QL_ThiTracNghiem.GUI.CaThi
 
         private void cboHocPhan_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DataTable data = CaThi_DAO.Get_DS_CaThi_MaHocPhan(cboHocPhan.SelectedValue.ToString());
-            frmDSCaThi frmDSCaThi = new frmDSCaThi(pnContent, false, data);
-            frmDSCaThi.Dock = DockStyle.Fill;
-            pnContent.Controls.Add(frmDSCaThi);
-            frmDSCaThi.BringToFront();
+            if (check_role_id == true)
+            {
+                DataTable data = CaThi_DAO.Get_DS_CaThi_MaHocPhan(cboHocPhan.SelectedValue.ToString());
+                frmDSCaThi frmDSCaThi = new frmDSCaThi(pnContent, true, data);
+                frmDSCaThi.Dock = DockStyle.Fill;
+                pnContent.Controls.Add(frmDSCaThi);
+                frmDSCaThi.BringToFront();
+            }    
+            else
+            {
+                DataTable data = CaThi_DAO.Get_DS_CaThi_MaHocPhan(cboHocPhan.SelectedValue.ToString());
+                frmDSCaThi frmDSCaThi = new frmDSCaThi(pnContent, false, data);
+                frmDSCaThi.Dock = DockStyle.Fill;
+                pnContent.Controls.Add(frmDSCaThi);
+                frmDSCaThi.BringToFront();
+            }
         }
     }
 }
