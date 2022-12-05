@@ -63,6 +63,10 @@
             this.kryptonPanel4 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonGroupBox2 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.gridDSCHDuocChon = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.contextLeft = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.thêmCâuHỏiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextRight = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.xóaCâuHỏiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,10 +74,7 @@
             this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contextLeft = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.thêmCâuHỏiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextRight = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.xóaCâuHỏiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
             this.kryptonPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbolstDe)).BeginInit();
@@ -458,7 +459,8 @@
             this.Column14,
             this.Column15,
             this.Column16,
-            this.Column17});
+            this.Column17,
+            this.Column11});
             this.gridDSCHDuocChon.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridDSCHDuocChon.Location = new System.Drawing.Point(0, 0);
             this.gridDSCHDuocChon.Name = "gridDSCHDuocChon";
@@ -470,6 +472,38 @@
             this.gridDSCHDuocChon.Size = new System.Drawing.Size(785, 583);
             this.gridDSCHDuocChon.TabIndex = 0;
             this.gridDSCHDuocChon.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridDSCHDuocChon_CellContentDoubleClick);
+            // 
+            // contextLeft
+            // 
+            this.contextLeft.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.contextLeft.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextLeft.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.thêmCâuHỏiToolStripMenuItem});
+            this.contextLeft.Name = "contextLeft";
+            this.contextLeft.Size = new System.Drawing.Size(168, 28);
+            this.contextLeft.Click += new System.EventHandler(this.contextLeft_Click);
+            // 
+            // thêmCâuHỏiToolStripMenuItem
+            // 
+            this.thêmCâuHỏiToolStripMenuItem.Name = "thêmCâuHỏiToolStripMenuItem";
+            this.thêmCâuHỏiToolStripMenuItem.Size = new System.Drawing.Size(167, 24);
+            this.thêmCâuHỏiToolStripMenuItem.Text = "Thêm câu hỏi";
+            // 
+            // contextRight
+            // 
+            this.contextRight.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.contextRight.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextRight.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.xóaCâuHỏiToolStripMenuItem});
+            this.contextRight.Name = "contextRight";
+            this.contextRight.Size = new System.Drawing.Size(157, 28);
+            this.contextRight.Click += new System.EventHandler(this.contextRight_Click);
+            // 
+            // xóaCâuHỏiToolStripMenuItem
+            // 
+            this.xóaCâuHỏiToolStripMenuItem.Name = "xóaCâuHỏiToolStripMenuItem";
+            this.xóaCâuHỏiToolStripMenuItem.Size = new System.Drawing.Size(156, 24);
+            this.xóaCâuHỏiToolStripMenuItem.Text = "Xóa câu hỏi";
             // 
             // Column4
             // 
@@ -520,37 +554,12 @@
             this.Column17.Name = "Column17";
             this.Column17.ReadOnly = true;
             // 
-            // contextLeft
+            // Column11
             // 
-            this.contextLeft.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.contextLeft.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextLeft.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.thêmCâuHỏiToolStripMenuItem});
-            this.contextLeft.Name = "contextLeft";
-            this.contextLeft.Size = new System.Drawing.Size(168, 28);
-            this.contextLeft.Click += new System.EventHandler(this.contextLeft_Click);
-            // 
-            // thêmCâuHỏiToolStripMenuItem
-            // 
-            this.thêmCâuHỏiToolStripMenuItem.Name = "thêmCâuHỏiToolStripMenuItem";
-            this.thêmCâuHỏiToolStripMenuItem.Size = new System.Drawing.Size(167, 24);
-            this.thêmCâuHỏiToolStripMenuItem.Text = "Thêm câu hỏi";
-            // 
-            // contextRight
-            // 
-            this.contextRight.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.contextRight.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextRight.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.xóaCâuHỏiToolStripMenuItem});
-            this.contextRight.Name = "contextRight";
-            this.contextRight.Size = new System.Drawing.Size(157, 28);
-            this.contextRight.Click += new System.EventHandler(this.contextRight_Click);
-            // 
-            // xóaCâuHỏiToolStripMenuItem
-            // 
-            this.xóaCâuHỏiToolStripMenuItem.Name = "xóaCâuHỏiToolStripMenuItem";
-            this.xóaCâuHỏiToolStripMenuItem.Size = new System.Drawing.Size(156, 24);
-            this.xóaCâuHỏiToolStripMenuItem.Text = "Xóa câu hỏi";
+            this.Column11.HeaderText = "Mã ngân hàng câu hỏi";
+            this.Column11.MinimumWidth = 6;
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
             // 
             // frmTao_DeThi
             // 
@@ -607,13 +616,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtTGLamBai;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtSLCauHoi;
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox cboHocPhan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
         private System.Windows.Forms.ContextMenuStrip contextLeft;
         private System.Windows.Forms.ToolStripMenuItem thêmCâuHỏiToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip contextRight;
@@ -634,5 +636,13 @@
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewCheckBoxColumn chk;
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox cbolstDe;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel lblMaDe;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
     }
 }

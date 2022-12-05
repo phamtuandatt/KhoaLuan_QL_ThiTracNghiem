@@ -153,6 +153,7 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
                     gridDSCauHoi.Rows[row_sl].Cells[7].Value.ToString().Trim(),
                     gridDSCauHoi.Rows[row_sl].Cells[8].Value.ToString().Trim(),
                     gridDSCauHoi.Rows[row_sl].Cells[9].Value.ToString().Trim(),
+                    gridDSCauHoi.Rows[row_sl].Cells[1].Value.ToString().Trim(),
                 };
 
                 if (gridDSCHDuocChon.RowCount == 0)
@@ -240,6 +241,7 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
                         gridDSCauHoi.Rows[row_sl].Cells[7].Value.ToString().Trim(),
                         gridDSCauHoi.Rows[row_sl].Cells[8].Value.ToString().Trim(),
                         gridDSCauHoi.Rows[row_sl].Cells[9].Value.ToString().Trim(),
+                        gridDSCauHoi.Rows[row_sl].Cells[1].Value.ToString().Trim(),
                     };
                     gridDSCHDuocChon.Rows.Add(row);
                     number_question++;
@@ -285,6 +287,7 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
                         gridDSCauHoi.Rows[row_sl].Cells[7].Value.ToString().Trim(),
                         gridDSCauHoi.Rows[row_sl].Cells[8].Value.ToString().Trim(),
                         gridDSCauHoi.Rows[row_sl].Cells[9].Value.ToString().Trim(),
+                        gridDSCauHoi.Rows[row_sl].Cells[1].Value.ToString().Trim(),
                     };
                     gridDSCHDuocChon.Rows.Add(row);
                     number_question++;
@@ -301,6 +304,7 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
                 KryptonMessageBox.Show("Hãy hoàn thành đầy đủ thông tin !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
             // Thêm danh thông tin đề thi vào DETHI, CT_DETHI
             if (check_edit_DeThi)
             {
@@ -311,11 +315,25 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
                 {
                     return;
                 }
-
                 List<string> dethi = soluongde.ds_DeThi;
 
+                // Tạo danh sách câu hỏi mới với các đáp án đã được trộn từ DS câu hỏi được chọn
+                List<CauHois> lstCauHoi = new List<CauHois>();
+                for (int i = 0; i < gridDSCHDuocChon.RowCount; i++)
+                {
+                    CauHois ch = new CauHois();
+                    ch.NoiDung = gridDSCHDuocChon.Rows[i].Cells[1].Value.ToString().Trim();
+                    ch.DapAn1 = gridDSCHDuocChon.Rows[i].Cells[2].Value.ToString().Trim();
+                    ch.DapAn2 = gridDSCHDuocChon.Rows[i].Cells[3].Value.ToString().Trim();
+                    ch.DapAn3 = gridDSCHDuocChon.Rows[i].Cells[4].Value.ToString().Trim();
+                    ch.DapAn4 = gridDSCHDuocChon.Rows[i].Cells[5].Value.ToString().Trim();
+                    ch.DapAnDung = gridDSCHDuocChon.Rows[i].Cells[6].Value.ToString().Trim();
+                    ch.MaNganHang = int.Parse(gridDSCHDuocChon.Rows[i].Cells[7].Value.ToString().Trim());
+
+                    lstCauHoi.Add(ch);
+                }
+
                 DeThis deThis = new DeThis();
-                //deThis.MaDeThi = int.Parse(txtMaDe.Text.Trim());
                 deThis.MaHocPhan = cboHocPhan.SelectedValue.ToString();
                 deThis.NgayTao = DateTime.UtcNow;
                 deThis.TGLamBai = int.Parse(txtTGLamBai.Text.Trim());
@@ -323,16 +341,9 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
                 deThis.TinhTrang = 0;
                 if (DeThi_DAO.Insert_DeThi(deThis))
                 {
-                    List<CT_DeThis> lst_CT_DeThi = new List<CT_DeThis>();
-                    foreach (DataGridViewRow item in gridDSCHDuocChon.Rows)
-                    {
-                        CT_DeThis cT_DeThis = new CT_DeThis();
-                        cT_DeThis.MaDeThi = CT_DeThi_DAO.GetMaDeThi_MAX();
-                        cT_DeThis.MaCauHoi = int.Parse(item.Cells[0].Value.ToString());
-
-                        lst_CT_DeThi.Add(cT_DeThis);
-                    }
-                    if (CT_DeThi_DAO.Update_Database(lst_CT_DeThi, dethi))
+                    int MADETHI = CT_DeThi_DAO.GetMaDeThi_MAX();
+                    
+                    if (CT_DeThi_DAO.UpdateDatabase(lstCauHoi, dethi, MADETHI, cboHocPhan.SelectedValue.ToString().Trim()))
                     {
                         KryptonMessageBox.Show("Tạo đề thi thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }

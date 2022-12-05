@@ -8,6 +8,7 @@ using System.Data;
 using App_QL_ThiTracNghiem.DTO;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Security.Policy;
+using System.Windows.Forms;
 
 namespace App_QL_ThiTracNghiem.DAO
 {
@@ -28,6 +29,38 @@ namespace App_QL_ThiTracNghiem.DAO
                 if (data.insert_update_delete(sql) > -1) { check = true; }
             }
             return check;
+        }
+
+        public static List<CauHois> InsertQuestions(List<CauHois> lst_Question, string MAHOCPHAN)
+        {
+            List<CauHois> list = new List<CauHois>();
+            foreach (var item in lst_Question)
+            {
+                string sql = string.Format("SET DATEFORMAT DMY INSERT INTO CAUHOI(NOIDUNG, DAPAN1, DAPAN2, DAPAN3, DAPAN4, DAPANDUNG, NGAYTAO, NGAYCAPNHAT, MANGANHANG, MAHOCPHAN)" +
+                    "VALUES (N'{0}', N'{1}', N'{2}', N'{3}', N'{4}', N'{5}', '{6}', '{7}', {8}, '{9}')",
+                    item.NoiDung, item.DapAn1, item.DapAn2, item.DapAn3, item.DapAn4, item.DapAnDung, DateTime.UtcNow, DateTime.UtcNow, item.MaNganHang, MAHOCPHAN);
+                if (data.insert_update_delete(sql) > -1)
+                {
+                    int MACAUHOI = data.get_result_int("SELECT MAX(MACAUHOI) FROM CAUHOI");
+                    DataTable dt = data.get_data($"SELECT *FROM CAUHOI WHERE MACAUHOI = {MACAUHOI}", "CAUHOI");
+                    foreach (DataRow r in dt.Rows)
+                    {
+                        CauHois ch = new CauHois();
+                        ch.MaCauHoi = int.Parse(r["MACAUHOI"].ToString());
+                        ch.NoiDung = r["NOIDUNG"].ToString();
+                        ch.DapAn1 = r["DAPAN1"].ToString();
+                        ch.DapAn2 = r["DAPAN2"].ToString();
+                        ch.DapAn3 = r["DAPAN3"].ToString();
+                        ch.DapAn4 = r["DAPAN4"].ToString();
+                        ch.DapAnDung = r["DAPANDUNG"].ToString().Trim();
+                        ch.MaNganHang = int.Parse(r["MANGANHANG"].ToString());
+                        ch.MaHocPhan = r["MAHOCPHAN"].ToString().Trim();
+
+                        list.Add(ch);
+                    }
+                }
+            }
+            return list;
         }
 
         public static bool Insert_Single_Question(CauHois cauHois)
