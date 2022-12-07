@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a3db2b5ac77a4a19b278b54564653625" Name="Diagram1">
+        <EntityTypeShape EntityType="QL_HETHONGTHITRACNGHIEMModel.BAITHI" Width="1.5" PointX="15" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_HETHONGTHITRACNGHIEMModel.CATHI" Width="1.5" PointX="12.75" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_HETHONGTHITRACNGHIEMModel.CAUHOI" Width="1.5" PointX="10.5" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_HETHONGTHITRACNGHIEMModel.CHUCVU" Width="1.5" PointX="0.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_HETHONGTHITRACNGHIEMModel.CT_BAITHI" Width="1.5" PointX="17.25" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_HETHONGTHITRACNGHIEMModel.CT_CATHI" Width="1.5" PointX="18" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_HETHONGTHITRACNGHIEMModel.CT_DETHI" Width="1.5" PointX="15.75" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_HETHONGTHITRACNGHIEMModel.CT_HOCPHAN" Width="1.5" PointX="10.5" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_HETHONGTHITRACNGHIEMModel.CT_NGANHANGCAUHOI" Width="1.5" PointX="5.25" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_HETHONGTHITRACNGHIEMModel.DETHI" Width="1.5" PointX="10.5" PointY="26.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_HETHONGTHITRACNGHIEMModel.GIANGVIEN" Width="1.5" PointX="3" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_HETHONGTHITRACNGHIEMModel.HOCPHAN" Width="1.5" PointX="8.25" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_HETHONGTHITRACNGHIEMModel.KHOA" Width="1.5" PointX="0.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_HETHONGTHITRACNGHIEMModel.LOPHOC" Width="1.5" PointX="3" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_HETHONGTHITRACNGHIEMModel.NGANHANGCAUHOI" Width="1.5" PointX="3" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_HETHONGTHITRACNGHIEMModel.NGANHANGCAUHOI_DADUYET" Width="1.5" PointX="12.75" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_HETHONGTHITRACNGHIEMModel.SINHVIEN" Width="1.5" PointX="5.25" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_HETHONGTHITRACNGHIEMModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="QL_HETHONGTHITRACNGHIEMModel.FK_BAITHI_CATHI" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_HETHONGTHITRACNGHIEMModel.FK_BAITHI_SINHVIEN" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_HETHONGTHITRACNGHIEMModel.FK_CT_BAITHI_BAITHI" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_HETHONGTHITRACNGHIEMModel.FK_CATHI_DETHI" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_HETHONGTHITRACNGHIEMModel.FK_CATHI_HOCPHAN" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_HETHONGTHITRACNGHIEMModel.FK_CT_CATHI_CATHI" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_HETHONGTHITRACNGHIEMModel.FK_CAUHOI_MAHOCPHAN" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_HETHONGTHITRACNGHIEMModel.FK_CAUHOI_NGANHANGCAUHOI" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_HETHONGTHITRACNGHIEMModel.FK_CT_BAITHI_CAUHOI" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_HETHONGTHITRACNGHIEMModel.FK_CT_DETHI_CAUHOI" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_HETHONGTHITRACNGHIEMModel.FK_NGANHANGCAUHOI_DADUYET_CAUHOI" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_HETHONGTHITRACNGHIEMModel.FK_GIANGVIEN_CHUCVU" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_HETHONGTHITRACNGHIEMModel.FK_CT_CATHI_SINHVIEN" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_HETHONGTHITRACNGHIEMModel.FK_CT_DETHI_DETHI" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_HETHONGTHITRACNGHIEMModel.FK_CT_HOCPHAN_HOCPHAN" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_HETHONGTHITRACNGHIEMModel.FK_CT_HOCPHAN_SINHVIEN" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_HETHONGTHITRACNGHIEMModel.FK_NGANHANGCAUHOI_GIANGVIEN" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_HETHONGTHITRACNGHIEMModel.FK_NGANHANGCAUHOI_HOCPHAN" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_HETHONGTHITRACNGHIEMModel.FK_NGANHANGCAUHOI_NGANHANGCAUHOI" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_HETHONGTHITRACNGHIEMModel.FK_DETHI_HOCPHAN" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_HETHONGTHITRACNGHIEMModel.FK_GIANGVIEN_KHOA" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_HETHONGTHITRACNGHIEMModel.FK_HOCPHAN_KHOA" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_HETHONGTHITRACNGHIEMModel.FK_NGANHANGCAUHOI_DADUYET_HOCPHAN" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_HETHONGTHITRACNGHIEMModel.FK_LOPHOC_KHOA" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_HETHONGTHITRACNGHIEMModel.FK_SINHVIEN_LOPHOC" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_HETHONGTHITRACNGHIEMModel.CT_GIANGDAY" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Session["LOGIN"] != null)
+{
+    <script>
+        alert(@Session["LOGIN"].ToString());
+    </script>
+}
+@using (Html.BeginForm())
+{
+    <div class="login">
+        <h1 style="text-align: center; padding-top: 50px">ĐĂNG NHẬP</h1>
+        <div style="padding:50px">
+            <div class="mb-3">
+                <label for="username" class="form-label">Tên đăng nhập</label>
+                <input type="text" class="form-control" name="username" id="username" placeholder="Tên đăng nhập">
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Mật khẩu</label>
+                <input type="password" class="form-control" name="password" id="password" placeholder="Mật khẩu">
+            </div>
+            <div class="d-grid gap-2">
+                <input style="margin-top: 50px" class="btn btn-primary" type="submit" value="ĐĂNG NHẬP">
+            </div>
+        </div>
+    </div>
+}
+
+
