@@ -29,6 +29,7 @@ namespace Web_ThiTracNghiem.Models
         public string PHONGTHI { get; set; }
         public string GIOLAMBAI { get; set; }
         public Nullable<bool> TINHTRANG { get; set; }
+        public Nullable<bool> TINHTRANGTHI { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BAITHI> BAITHIs { get; set; }

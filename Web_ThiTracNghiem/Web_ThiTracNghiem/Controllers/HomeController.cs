@@ -11,7 +11,7 @@ namespace Web_ThiTracNghiem.Controllers
 {
     public class HomeController : Controller
     {
-        QL_HETHONGTHITRACNGHIEMEntities6 data = new QL_HETHONGTHITRACNGHIEMEntities6();
+        QL_HETHONGTHITRACNGHIEMEntities7 data = new QL_HETHONGTHITRACNGHIEMEntities7();
 
         [HttpGet]
         public ActionResult Login()
@@ -36,9 +36,30 @@ namespace Web_ThiTracNghiem.Controllers
 
         public async Task<ActionResult> InfoSVLichThi()
         {
-            //@model IEnumerable < Web_ThiTracNghiem.Models.SINHVIEN >
-
+            // Lấy MASV
             string MASV = Session["MASV"].ToString();
+            int MACATHI = 0;
+
+            // Khi update TINHTRANG -> UPDATE ngày thì là ngày hiện tại
+            // Lấy danh sách ca thi được kích hoạt trong ngày hôm đó
+            DateTime ngay = DateTime.UtcNow.Date;
+            var cts = data.CATHIs.Where(ct => ct.TINHTRANG == true && ct.NGAYTHI == ngay).ToList();
+
+            // Lấy CT_CATHI của CATHI
+            foreach (var item in cts)
+            {
+                var ctct = data.CT_CATHI.Where(c => c.MACATHI == item.MACATHI).ToList();
+                foreach (var s in ctct)
+                {
+                    if (s.MASV.Trim().Equals(MASV.Trim()))
+                    {
+                        MACATHI = s.MACATHI;
+                        break;
+                    } 
+                }
+                break;
+            }
+
             var sv = await data.SINHVIENs.FirstOrDefaultAsync(s => s.MASV == MASV);
             var lop = await data.LOPHOCs.FirstOrDefaultAsync(l => l.MALOP == sv.MALOP);
             ViewBag.TenLop = lop.TENLOP;
@@ -53,8 +74,7 @@ namespace Web_ThiTracNghiem.Controllers
             };
 
             // Lấy mã ca thi
-            var mact = "";
-            var caThi = await data.CATHIs.FirstOrDefaultAsync(ca => ca.MACATHI == 6 && ca.TINHTRANG == false);
+            CATHI caThi = await data.CATHIs.FirstOrDefaultAsync(ca => ca.MACATHI == MACATHI && ca.TINHTRANG == true);
             
             if (caThi != null)
             {
@@ -67,6 +87,7 @@ namespace Web_ThiTracNghiem.Controllers
                 List<CaThiModel> modelCaThi = new List<CaThiModel>();
                 // Tạo model cathi
                 CaThiModel modelCT = new CaThiModel();
+                modelCT.MACATHI = caThi.MACATHI;
                 modelCT.MAHOCPHAN = caThi.MAHOCPHAN;
                 modelCT.TENHOCPHAN = hp.TENHOCPHAN;
                 modelCT.MADECON = caThi.MADECON;
@@ -79,12 +100,6 @@ namespace Web_ThiTracNghiem.Controllers
             }
             List<CaThiModel> modelCaThis = new List<CaThiModel>();
             return View(modelCaThis);
-        }
-
-        [HttpGet]
-        public ActionResult Thi()
-        {
-            return View();
         }
     }
 }

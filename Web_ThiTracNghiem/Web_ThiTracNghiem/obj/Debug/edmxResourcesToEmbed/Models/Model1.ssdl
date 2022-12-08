@@ -22,6 +22,7 @@
     <Property Name="PHONGTHI" Type="nvarchar" MaxLength="20" />
     <Property Name="GIOLAMBAI" Type="nvarchar" MaxLength="10" />
     <Property Name="TINHTRANG" Type="bit" />
+    <Property Name="TINHTRANGTHI" Type="bit" />
   </EntityType>
   <EntityType Name="CAUHOI">
     <Key>

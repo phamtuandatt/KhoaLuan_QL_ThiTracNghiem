@@ -4,17 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a3db2b5ac77a4a19b278b54564653625" Name="Diagram1">
-        <EntityTypeShape EntityType="QL_HETHONGTHITRACNGHIEMModel.BAITHI" Width="1.5" PointX="15" PointY="16.25" IsExpanded="true" />
+      <Diagram DiagramId="19583a2f569f434f90a7b4222641ac20" Name="Diagram1">
+        <EntityTypeShape EntityType="QL_HETHONGTHITRACNGHIEMModel.BAITHI" Width="1.5" PointX="15" PointY="16.375" IsExpanded="true" />
         <EntityTypeShape EntityType="QL_HETHONGTHITRACNGHIEMModel.CATHI" Width="1.5" PointX="12.75" PointY="19.625" IsExpanded="true" />
         <EntityTypeShape EntityType="QL_HETHONGTHITRACNGHIEMModel.CAUHOI" Width="1.5" PointX="10.5" PointY="13" IsExpanded="true" />
         <EntityTypeShape EntityType="QL_HETHONGTHITRACNGHIEMModel.CHUCVU" Width="1.5" PointX="0.75" PointY="11.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="QL_HETHONGTHITRACNGHIEMModel.CT_BAITHI" Width="1.5" PointX="17.25" PointY="14.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="QL_HETHONGTHITRACNGHIEMModel.CT_CATHI" Width="1.5" PointX="18" PointY="19.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="QL_HETHONGTHITRACNGHIEMModel.CT_DETHI" Width="1.5" PointX="15.75" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_HETHONGTHITRACNGHIEMModel.CT_BAITHI" Width="1.5" PointX="17.25" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_HETHONGTHITRACNGHIEMModel.CT_CATHI" Width="1.5" PointX="18" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_HETHONGTHITRACNGHIEMModel.CT_DETHI" Width="1.5" PointX="15.75" PointY="20.125" IsExpanded="true" />
         <EntityTypeShape EntityType="QL_HETHONGTHITRACNGHIEMModel.CT_HOCPHAN" Width="1.5" PointX="10.5" PointY="18.125" IsExpanded="true" />
         <EntityTypeShape EntityType="QL_HETHONGTHITRACNGHIEMModel.CT_NGANHANGCAUHOI" Width="1.5" PointX="5.25" PointY="14" IsExpanded="true" />
-        <EntityTypeShape EntityType="QL_HETHONGTHITRACNGHIEMModel.DETHI" Width="1.5" PointX="10.5" PointY="26.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_HETHONGTHITRACNGHIEMModel.DETHI" Width="1.5" PointX="10.5" PointY="26.75" IsExpanded="true" />
         <EntityTypeShape EntityType="QL_HETHONGTHITRACNGHIEMModel.GIANGVIEN" Width="1.5" PointX="3" PointY="12.875" IsExpanded="true" />
         <EntityTypeShape EntityType="QL_HETHONGTHITRACNGHIEMModel.HOCPHAN" Width="1.5" PointX="8.25" PointY="13.25" IsExpanded="true" />
         <EntityTypeShape EntityType="QL_HETHONGTHITRACNGHIEMModel.KHOA" Width="1.5" PointX="0.75" PointY="13.75" IsExpanded="true" />

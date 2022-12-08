@@ -25,6 +25,7 @@
     <Property Name="PHONGTHI" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="GIOLAMBAI" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
     <Property Name="TINHTRANG" Type="Boolean" />
+    <Property Name="TINHTRANGTHI" Type="Boolean" />
     <NavigationProperty Name="BAITHIs" Relationship="Self.FK_BAITHI_CATHI" FromRole="CATHI" ToRole="BAITHI" />
     <NavigationProperty Name="DETHI" Relationship="Self.FK_CATHI_DETHI" FromRole="CATHI" ToRole="DETHI" />
     <NavigationProperty Name="HOCPHAN" Relationship="Self.FK_CATHI_HOCPHAN" FromRole="CATHI" ToRole="HOCPHAN" />
@@ -558,7 +559,7 @@
     <End Role="GIANGVIEN" Type="Self.GIANGVIEN" Multiplicity="*" />
     <End Role="HOCPHAN" Type="Self.HOCPHAN" Multiplicity="*" />
   </Association>
-  <EntityContainer Name="QL_HETHONGTHITRACNGHIEMEntities6" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="QL_HETHONGTHITRACNGHIEMEntities7" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="BAITHIs" EntityType="Self.BAITHI" />
     <EntitySet Name="CATHIs" EntityType="Self.CATHI" />
     <EntitySet Name="CAUHOIs" EntityType="Self.CAUHOI" />

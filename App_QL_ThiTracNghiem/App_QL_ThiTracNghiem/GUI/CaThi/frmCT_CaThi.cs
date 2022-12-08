@@ -92,6 +92,8 @@ namespace App_QL_ThiTracNghiem.GUI.CaThi
                     return;
                 }
 
+                // Kiểm tra sinh viên có tồn tại trong ca thi hay không
+                // Nếu tôn tại trong ca thi đó
                 if (CaThi_DAO.Insert_CaThi(caThis))
                 {
                     int MACATHI = CT_CaThi_DAO.Get_MaCaThi();

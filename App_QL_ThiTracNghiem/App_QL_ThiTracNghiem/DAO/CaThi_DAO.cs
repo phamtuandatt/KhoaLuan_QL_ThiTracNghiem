@@ -78,7 +78,7 @@ namespace App_QL_ThiTracNghiem.DAO
 
         public static bool Update_DeThi_CaThi(string MADECON, int MACATHI)
         {
-            string sql = string.Format("UPDATE CATHI SET MADECON = '{0}' WHERE MACATHI = {1}", MADECON, MACATHI);
+            string sql = string.Format("UPDATE CATHI SET MADECON = '{0}', NGAYTHI = '{2}'  WHERE MACATHI = {1}", MADECON, MACATHI, DateTime.UtcNow.Date);
 
             return data.insert_update_delete(sql) > 0;
         }

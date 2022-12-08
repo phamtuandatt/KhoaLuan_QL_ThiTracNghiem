@@ -23,7 +23,7 @@
             <div class="row">
                 <div class="col-6">
                     <label class="form-label" style="font-weight: bold;">Ngày sinh:</label>
-                    <label class="form-label" style="margin: 0 0 0 10px">@sv.NGAYSINH</label>
+                    <label class="form-label" style="margin: 0 0 0 10px">@string.Format("{0:dd/MM/yyyy}", sv.NGAYSINH)</label>
                 </div>
                 <div class="col-6">
                     <label class="form-label" style="font-weight: bold;">Giới tính:</label>
@@ -88,7 +88,7 @@
                         @Html.DisplayFor(modelItem => item.GIOLAMBAI)
                     </td>
                     <td>
-                        @Html.ActionLink("Thi", "Thi", new { id=item.MACATHI })
+                        <a href="~/Thi/Thi?MACATHI=@item.MACATHI">THI</a>
                     </td>
                 </tr>
             }
