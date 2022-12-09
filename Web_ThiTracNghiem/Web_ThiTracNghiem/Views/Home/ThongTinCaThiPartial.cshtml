@@ -1,0 +1,20 @@
+﻿
+@if (Session["TENMONHOC"] == null || Session["TGLAMBAI"] == null)
+{
+
+}
+else
+{
+    <div class="col-6">
+        <div style="float: right; margin: 12px 100px 0 0;">
+            <label style="font-weight: bold;">Môn học: </label>
+            <label style=""> @Session["TENMONHOC"] </label>
+        </div>
+    </div>
+    <div class="col-6">
+        <div style="margin: 12px 100px 0 0;">
+            <label style="font-weight: bold;">Thời gian làm bài: </label>
+            <span id="time"> @Session["TGLAMBAI"]  Phút</span>
+        </div>
+    </div>
+}

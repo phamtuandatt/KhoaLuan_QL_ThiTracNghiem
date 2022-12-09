@@ -1,0 +1,36 @@
+﻿@model Web_ThiTracNghiem.Models.KetQuaModel
+@{
+    ViewBag.Title = "KetQua";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="margin: 50px auto; padding: 15px 15px 30px 30px; border: 0.5px solid; border-radius: 10px; ">
+    <div class="row">
+        <div class="col-6">
+            <div style="margin: 12px 100px 0 0;">
+                <label style="font-weight: bold;">Môn học: </label>
+                <label style=""> @Model.TenMH </label>
+            </div>
+        </div>
+        <div class="col-6">
+            <div style="margin: 12px 100px 0 0;">
+                <label style="font-weight: bold;">Số câu trả lời đúng: </label>
+                <label style=""> @Model.SoCauDung </label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div style="margin: 12px 100px 0 0;">
+                <label style="font-weight: bold;">Số câu sai: </label>
+                <label style=""> @Model.SoCauSai </label>
+            </div>
+        </div>
+        <div class="col-6">
+            <div style="margin: 12px 100px 0 0;">
+                <label style="font-weight: bold;">Điểm: </label>
+                <label style="color:red"> @Model.TongDiem </label>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -11,7 +12,10 @@ namespace Web_ThiTracNghiem.Controllers
 {
     public class HomeController : Controller
     {
-        QL_HETHONGTHITRACNGHIEMEntities7 data = new QL_HETHONGTHITRACNGHIEMEntities7();
+        QL_HETHONGTHITRACNGHIEMEntities7 dt = new QL_HETHONGTHITRACNGHIEMEntities7();
+        static string[] dsCauTL = new string[] { };
+        static List<CAUHOI> dsCH = new List<CAUHOI>();
+        static CATHI cathi = new CATHI();
 
         [HttpGet]
         public ActionResult Login()
@@ -19,10 +23,16 @@ namespace Web_ThiTracNghiem.Controllers
             return View();
         }
 
+        public  ActionResult ThongTinCaThiPartial()
+        {
+            // Kiểm tra đã đăng nhập chưa -> Chưa thì k hiển thị tên môn học và thời gian làm bài
+            return PartialView();
+        }
+
         [HttpPost]
         public async Task<ActionResult> Login(string username, string password)
         {
-            var model = await data.SINHVIENs.FirstOrDefaultAsync(sv => sv.MASV == username && sv.MAKHAU == password);
+            var model = await dt.SINHVIENs.FirstOrDefaultAsync(sv => sv.MASV == username && sv.MAKHAU == password);
             if (model != null)
             {
                 Session["MASV"] = model.MASV;
@@ -43,12 +53,12 @@ namespace Web_ThiTracNghiem.Controllers
             // Khi update TINHTRANG -> UPDATE ngày thì là ngày hiện tại
             // Lấy danh sách ca thi được kích hoạt trong ngày hôm đó
             DateTime ngay = DateTime.UtcNow.Date;
-            var cts = data.CATHIs.Where(ct => ct.TINHTRANG == true && ct.NGAYTHI == ngay).ToList();
+            var cts = dt.CATHIs.Where(ct => ct.TINHTRANG == true && ct.NGAYTHI == ngay).ToList();
 
             // Lấy CT_CATHI của CATHI
             foreach (var item in cts)
             {
-                var ctct = data.CT_CATHI.Where(c => c.MACATHI == item.MACATHI).ToList();
+                var ctct = dt.CT_CATHI.Where(c => c.MACATHI == item.MACATHI).ToList();
                 foreach (var s in ctct)
                 {
                     if (s.MASV.Trim().Equals(MASV.Trim()))
@@ -60,8 +70,8 @@ namespace Web_ThiTracNghiem.Controllers
                 break;
             }
 
-            var sv = await data.SINHVIENs.FirstOrDefaultAsync(s => s.MASV == MASV);
-            var lop = await data.LOPHOCs.FirstOrDefaultAsync(l => l.MALOP == sv.MALOP);
+            var sv = await dt.SINHVIENs.FirstOrDefaultAsync(s => s.MASV == MASV);
+            var lop = await dt.LOPHOCs.FirstOrDefaultAsync(l => l.MALOP == sv.MALOP);
             ViewBag.TenLop = lop.TENLOP;
             ViewData["SINHVIEN"] = new SINHVIEN
             {
@@ -74,15 +84,15 @@ namespace Web_ThiTracNghiem.Controllers
             };
 
             // Lấy mã ca thi
-            CATHI caThi = await data.CATHIs.FirstOrDefaultAsync(ca => ca.MACATHI == MACATHI && ca.TINHTRANG == true);
+            CATHI caThi = await dt.CATHIs.FirstOrDefaultAsync(ca => ca.MACATHI == MACATHI && ca.TINHTRANG == true);
             
             if (caThi != null)
             {
                 // Lấy ct ca thi của cathi
-                var ctCaThi = await data.CT_CATHI.FirstOrDefaultAsync(ctct => ctct.MASV == MASV && ctct.MACATHI == caThi.MACATHI);
+                var ctCaThi = await dt.CT_CATHI.FirstOrDefaultAsync(ctct => ctct.MASV == MASV && ctct.MACATHI == caThi.MACATHI);
 
                 // Lấy học phần
-                var hp = await data.HOCPHANs.FirstOrDefaultAsync(h => h.MAHOCPHAN == caThi.MAHOCPHAN);
+                var hp = await dt.HOCPHANs.FirstOrDefaultAsync(h => h.MAHOCPHAN == caThi.MAHOCPHAN);
 
                 List<CaThiModel> modelCaThi = new List<CaThiModel>();
                 // Tạo model cathi
@@ -96,10 +106,145 @@ namespace Web_ThiTracNghiem.Controllers
                 modelCT.GIOLAMBAI = caThi.GIOLAMBAI;
                 modelCaThi.Add(modelCT);
 
+                Session["TENMONHOC"] = hp.TENHOCPHAN;
+
                 return View(modelCaThi);
             }
             List<CaThiModel> modelCaThis = new List<CaThiModel>();
             return View(modelCaThis);
+        }
+
+        // Thi
+        [HttpGet]
+        public ActionResult Thi(int MACATHI)
+        {
+            // Lấy MADETHI, MADECON từ CATHI
+            var cathi = dt.CATHIs.Find(MACATHI);
+            HomeController.cathi = cathi;
+
+            var MADETHI = cathi.MADETHI;
+            var MADECON = cathi.MADECON;
+
+            Session["MADETHI"] = MADETHI;
+            Session["MADECON"] = MADECON;
+            Session["MACATHI"] = cathi.MACATHI;
+
+            // Lấy CT_DETHI
+            var ctdt = dt.CT_DETHI.Where(ct => ct.MADETHI == MADETHI && ct.MADECON == MADECON).ToList();
+
+            // Lấy thông tin câu hỏi từ CT_DETHI
+            var dsCauHoi = new List<CAUHOI>();
+            foreach (var item in ctdt)
+            {
+                var ch = dt.CAUHOIs.Find(item.MACAUHOI);
+
+                dsCauHoi.Add(ch);
+            }
+
+            dsCH = dsCauHoi;
+
+            // Lấy thời gian làm bài
+            var dethi = dt.DETHIs.Find(MADETHI);
+            ViewBag.TgLamBai = dethi.TGLAMBAI;
+
+            Session["TGLAMBAI"] = dethi.TGLAMBAI + " Phút";
+
+            return View(dsCauHoi);
+        }
+
+        public ActionResult KetQua()
+        {
+            CATHI ts = new CATHI();
+            CT_BAITHI ctct = new CT_BAITHI();
+            SINHVIEN sv = new SINHVIEN();
+
+            // Thêm vào BAITHI & CT_BAITHI
+            var baithi = new BAITHI();
+            baithi.GIONOPBAI = "" + DateTime.UtcNow.Date;
+            baithi.DIEM = int.Parse(Session["TONGDIEM"].ToString().Trim());
+            baithi.MASV = Session["MASV"].ToString().Trim();
+            baithi.MACATHI = int.Parse(Session["MACATHI"].ToString().Trim());
+            
+            // cannot insert
+
+            var modelBaiThi = dt.BAITHIs.Add(baithi);
+            dt.SaveChanges();
+
+            var ctBaiThis = new List<CT_BAITHI>();
+            for (int i = 0; i < dsCH.Count; i++)
+            {
+                var ctBaiThi = new CT_BAITHI();
+                ctBaiThi.MABAITHI = modelBaiThi.MABAITHI;
+                ctBaiThi.MACAUHOI = dsCH[i].MACAUHOI;
+                ctBaiThi.CAUTRALOI = dsCauTL[1];
+
+                ctBaiThis.Add(ctBaiThi);
+            }
+            
+            var modelCTBaiThi = dt.CT_BAITHI.AddRange(ctBaiThis);
+            dt.SaveChanges();
+
+            // Cập nhật TINHTRANGTHI của ca thi = 1 -> Đã thi -> Khi hiển thị DS ca thi thì k lấy những ca thi nào có TINHTRANGTHI = 1
+            var cathi = HomeController.cathi;
+            cathi.TINHTRANGTHI = true;
+            dt.CATHIs.AddOrUpdate(cathi);
+            dt.SaveChanges();
+
+            KetQuaModel kq = new KetQuaModel();
+            kq.TenMH = Session["TENMONHOC"].ToString();
+            kq.SoCauDung = int.Parse(Session["SOCAUDUNG"].ToString());
+            kq.SoCauSai = int.Parse(Session["SOCAUSAI"].ToString());
+            kq.TongDiem = int.Parse(Session["TONGDIEM"].ToString());
+            
+            return View(kq);
+        }
+
+        [HttpPost]
+        public ActionResult ChamDiem(string[] cautraloi)
+        {
+            dsCauTL = cautraloi;
+
+            // Lấy danh sách câu hỏi của đề thi
+            int MADETHI = int.Parse(Session["MADETHI"].ToString());
+            string MADECON = Session["MADECON"].ToString();
+
+            var ctdt = dt.CT_DETHI.Where(ct => ct.MADETHI == MADETHI && ct.MADECON == MADECON).ToList();
+
+            var dsCauHoi = new List<CAUHOI>();
+            foreach (var item in ctdt)
+            {
+                var ch = dt.CAUHOIs.Find(item.MACAUHOI);
+
+                dsCauHoi.Add(ch);
+            }
+
+            // So sánh câu trả lời của sinh viên với câu trả lời đúng
+            var soCauDung = 0;
+            var soCauSai = 0;
+            for (int i = 0; i < dsCauHoi.Count; i++)
+            {
+                if (dsCauHoi[i].DAPANDUNG.Trim().ToUpper().Equals(cautraloi[i].Trim().ToUpper()))
+                {
+                    soCauDung++;
+                }
+                else
+                {
+                    soCauSai++;
+                }
+            }
+
+            double diem = 10 / dsCauHoi.Count;
+            var tongDiem = soCauDung * diem;
+
+            Session["SOCAUDUNG"] = soCauDung;
+            Session["SOCAUSAI"] = soCauSai;
+            Session["TONGDIEM"] = tongDiem;
+
+            Session.Remove("TGLAMBAI");
+
+            // Cập nhật TINHTRANGTHI của CATHI = 1;
+
+            return RedirectToAction("KetQua", "Thi");
         }
     }
 }
