@@ -86,7 +86,7 @@ namespace App_QL_ThiTracNghiem.GUI.CaThi
                         return;
                     // Cập nhật tình trạng ca thi -> true;
                     // Kiểm tra ca thi đã có đề thi hay chưa
-                    // Chưa thì bắt cập nhật đề thi trước
+                    // Chưa thì bắt cập nhật đề thi trước     
                     int rsl = gridDSCaThi.CurrentRow.Index;
                     if (gridDSCaThi.Rows[rsl].Cells[5].Value.ToString().Trim() == "CHUA CÓ")
                     {

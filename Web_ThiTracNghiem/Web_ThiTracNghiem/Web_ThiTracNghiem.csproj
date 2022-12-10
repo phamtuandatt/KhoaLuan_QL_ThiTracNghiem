@@ -130,80 +130,76 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ThiController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BAITHI.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLTTN.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CATHI.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLTTN.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CaThiModel.cs" />
     <Compile Include="Models\CAUHOI.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLTTN.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CHUCVU.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLTTN.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CT_BAITHI.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLTTN.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CT_CATHI.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLTTN.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CT_DETHI.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLTTN.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CT_HOCPHAN.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLTTN.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CT_NGANHANGCAUHOI.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLTTN.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DETHI.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLTTN.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GIANGVIEN.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLTTN.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\HOCPHAN.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLTTN.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\KetQuaModel.cs" />
     <Compile Include="Models\KHOA.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLTTN.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LOPHOC.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
+      <DependentUpon>QLTTN.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NGANHANGCAUHOI.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLTTN.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NGANHANGCAUHOI_DADUYET.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLTTN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QLTTN.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLTTN.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QLTTN.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLTTN.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QLTTN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLTTN.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\SINHVIEN.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>QLTTN.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -217,24 +213,24 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\Model1.Context.tt">
+    <Content Include="Models\QLTTN.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <DependentUpon>QLTTN.edmx</DependentUpon>
+      <LastGenOutput>QLTTN.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Model1.tt">
+    <Content Include="Models\QLTTN.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
+      <DependentUpon>QLTTN.edmx</DependentUpon>
+      <LastGenOutput>QLTTN.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\Model1.edmx">
+    <EntityDeploy Include="Models\QLTTN.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+      <LastGenOutput>QLTTN.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
+    <Content Include="Models\QLTTN.edmx.diagram">
+      <DependentUpon>QLTTN.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -260,15 +256,14 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\InfoSVLichThi.cshtml" />
-    <Content Include="Views\Thi\Thi.cshtml" />
-    <Content Include="Views\Thi\ChamDiem.cshtml" />
-    <Content Include="Views\Thi\KetQua.cshtml" />
     <Content Include="Views\Home\ThongTinCaThiPartial.cshtml" />
     <Content Include="Views\Home\Thi.cshtml" />
     <Content Include="Views\Home\KetQua.cshtml" />
+    <Content Include="Views\Home\Result.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Thi\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

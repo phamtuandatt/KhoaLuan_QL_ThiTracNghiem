@@ -7,95 +7,165 @@
     var sv = ViewData["SINHVIEN"] as SINHVIEN;
 }
 
-<div class="info">
-    <div class="info_sv">
-        <div class="content-info">
-            <div class="row">
-                <div class="col-6">
-                    <label class="form-label" style="font-weight: bold;">Tên sinh viên:</label>
-                    <label class="form-label" style="margin: 0 0 0 10px">@sv.TENSV</label>
+@if (ViewBag.SLCATHI != null)
+{
+    <div class="info">
+        <div class="info_sv">
+            <div class="content-info">
+                <div class="row">
+                    <div class="col-6">
+                        <label class="form-label" style="font-weight: bold;">Tên sinh viên:</label>
+                        <label class="form-label" style="margin: 0 0 0 10px">@sv.TENSV</label>
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label" style="font-weight: bold;">Lớp:</label>
+                        <label class="form-label" style="margin: 0 0 0 10px">@ViewBag.TenLop</label>
+                    </div>
                 </div>
-                <div class="col-6">
-                    <label class="form-label" style="font-weight: bold;">Lớp:</label>
-                    <label class="form-label" style="margin: 0 0 0 10px">@ViewBag.TenLop</label>
+                <div class="row">
+                    <div class="col-6">
+                        <label class="form-label" style="font-weight: bold;">Ngày sinh:</label>
+                        <label class="form-label" style="margin: 0 0 0 10px">@string.Format("{0:dd/MM/yyyy}", sv.NGAYSINH)</label>
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label" style="font-weight: bold;">Giới tính:</label>
+                        <label class="form-label" style="margin: 0 0 0 10px">@sv.GIOITINH</label>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-6">
-                    <label class="form-label" style="font-weight: bold;">Ngày sinh:</label>
-                    <label class="form-label" style="margin: 0 0 0 10px">@string.Format("{0:dd/MM/yyyy}", sv.NGAYSINH)</label>
-                </div>
-                <div class="col-6">
-                    <label class="form-label" style="font-weight: bold;">Giới tính:</label>
-                    <label class="form-label" style="margin: 0 0 0 10px">@sv.GIOITINH</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-6">
-                    <label class="form-label" style="font-weight: bold;">Email:</label>
-                    <label class="form-label" style="margin: 0 0 0 10px">@sv.EMAIL</label>
-                </div>
-                <div class="col-6">
-                    <label class="form-label" style="font-weight: bold;">Địa chỉ:</label>
-                    <label class="form-label" style="margin: 0 0 0 10px">@sv.DIACHI</label>
+                <div class="row">
+                    <div class="col-6">
+                        <label class="form-label" style="font-weight: bold;">Email:</label>
+                        <label class="form-label" style="margin: 0 0 0 10px">@sv.EMAIL</label>
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label" style="font-weight: bold;">Địa chỉ:</label>
+                        <label class="form-label" style="margin: 0 0 0 10px">@sv.DIACHI</label>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="cathi">
-        <table class="table">
-            <tr>
-                <th>
-                    MÃ HỌC PHẦN
-                </th>
-                <th>
-                    TÊN HỌC PHẦN
-                </th>
-                <th>
-                    MÃ ĐỀ
-                </th>
-                <th>
-                    NGÀY THI
-                </th>
-                <th>
-                    PHÒNG THI
-                </th>
-                <th>
-                    GIỜ LÀM BÀI
-                </th>
-                <th></th>
-            </tr>
-
-            @foreach (var item in Model)
-            {
+        <div class="cathi">
+            <table class="table">
                 <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.MAHOCPHAN)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.TENHOCPHAN)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.MADECON)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NGAYTHI)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.PHONGTHI)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.GIOLAMBAI)
-                    </td>
-                    <td>
-                        <a href="~/Home/Thi?MACATHI=@item.MACATHI">THI</a>
-                    </td>
+                    <th>
+                        MÃ HỌC PHẦN
+                    </th>
+                    <th>
+                        TÊN HỌC PHẦN
+                    </th>
+                    <th>
+                        MÃ ĐỀ
+                    </th>
+                    <th>
+                        NGÀY THI
+                    </th>
+                    <th>
+                        PHÒNG THI
+                    </th>
+                    <th>
+                        GIỜ LÀM BÀI
+                    </th>
+                    <th></th>
                 </tr>
-            }
 
-        </table>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MAHOCPHAN)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TENHOCPHAN)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MADECON)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NGAYTHI)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PHONGTHI)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.GIOLAMBAI)
+                        </td>
+                        <td>
+                            <a href="~/Home/Thi?MACATHI=@item.MACATHI">THI</a>
+                        </td>
+                    </tr>
+                }
 
+            </table>
+
+        </div>
     </div>
-</div>
+}
+else
+{
+    <script>
+        alert("Hãy đợi ca thi của bạn");
+    </script>
+    <div class="info">
+        <div class="info_sv">
+            <div class="content-info">
+                <div class="row">
+                    <div class="col-6">
+                        <label class="form-label" style="font-weight: bold;">Tên sinh viên:</label>
+                        <label class="form-label" style="margin: 0 0 0 10px">@sv.TENSV</label>
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label" style="font-weight: bold;">Lớp:</label>
+                        <label class="form-label" style="margin: 0 0 0 10px">@ViewBag.TenLop</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <label class="form-label" style="font-weight: bold;">Ngày sinh:</label>
+                        <label class="form-label" style="margin: 0 0 0 10px">@string.Format("{0:dd/MM/yyyy}", sv.NGAYSINH)</label>
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label" style="font-weight: bold;">Giới tính:</label>
+                        <label class="form-label" style="margin: 0 0 0 10px">@sv.GIOITINH</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <label class="form-label" style="font-weight: bold;">Email:</label>
+                        <label class="form-label" style="margin: 0 0 0 10px">@sv.EMAIL</label>
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label" style="font-weight: bold;">Địa chỉ:</label>
+                        <label class="form-label" style="margin: 0 0 0 10px">@sv.DIACHI</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cathi">
+            <table class="table">
+                <tr>
+                    <th>
+                        MÃ HỌC PHẦN
+                    </th>
+                    <th>
+                        TÊN HỌC PHẦN
+                    </th>
+                    <th>
+                        MÃ ĐỀ
+                    </th>
+                    <th>
+                        NGÀY THI
+                    </th>
+                    <th>
+                        PHÒNG THI
+                    </th>
+                    <th>
+                        GIỜ LÀM BÀI
+                    </th>
+                    <th></th>
+                </tr>
+                
+            </table>
 
-
+        </div>
+    </div>
+}

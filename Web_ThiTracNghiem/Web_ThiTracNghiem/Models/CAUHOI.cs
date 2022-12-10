@@ -17,7 +17,6 @@ namespace Web_ThiTracNghiem.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public CAUHOI()
         {
-            this.CT_BAITHI = new HashSet<CT_BAITHI>();
             this.CT_DETHI = new HashSet<CT_DETHI>();
             this.NGANHANGCAUHOI_DADUYET = new HashSet<NGANHANGCAUHOI_DADUYET>();
         }
@@ -36,8 +35,6 @@ namespace Web_ThiTracNghiem.Models
     
         public virtual HOCPHAN HOCPHAN { get; set; }
         public virtual NGANHANGCAUHOI NGANHANGCAUHOI { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CT_BAITHI> CT_BAITHI { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CT_DETHI> CT_DETHI { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

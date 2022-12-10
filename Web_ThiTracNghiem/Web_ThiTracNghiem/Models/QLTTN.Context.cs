@@ -13,10 +13,10 @@ namespace Web_ThiTracNghiem.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class QL_HETHONGTHITRACNGHIEMEntities7 : DbContext
+    public partial class QL_HETHONGTHITRACNGHIEMEntities11 : DbContext
     {
-        public QL_HETHONGTHITRACNGHIEMEntities7()
-            : base("name=QL_HETHONGTHITRACNGHIEMEntities7")
+        public QL_HETHONGTHITRACNGHIEMEntities11()
+            : base("name=QL_HETHONGTHITRACNGHIEMEntities11")
         {
         }
     
@@ -42,6 +42,5 @@ namespace Web_ThiTracNghiem.Models
         public virtual DbSet<NGANHANGCAUHOI> NGANHANGCAUHOIs { get; set; }
         public virtual DbSet<NGANHANGCAUHOI_DADUYET> NGANHANGCAUHOI_DADUYET { get; set; }
         public virtual DbSet<SINHVIEN> SINHVIENs { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }

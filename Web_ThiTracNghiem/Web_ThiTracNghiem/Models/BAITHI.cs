@@ -11,17 +11,27 @@ namespace Web_ThiTracNghiem.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class BAITHI
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public int MABAITHI { get; set; }
+
+        [StringLength(50)]
         public string GIONOPBAI { get; set; }
+
+        [Display(Name = "?i?m")]
         public Nullable<int> DIEM { get; set; }
+
+        [Display(Name = "Mã sinh viên")]
         public string MASV { get; set; }
+
+        [Display(Name = "Mã ca thi")]
         public Nullable<int> MACATHI { get; set; }
-    
-        public virtual CATHI CATHI { get; set; }
-        public virtual SINHVIEN SINHVIEN { get; set; }
-        public virtual CT_BAITHI CT_BAITHI { get; set; }
+
+
     }
 }

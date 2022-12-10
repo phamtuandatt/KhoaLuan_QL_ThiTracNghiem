@@ -1,0 +1,593 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QL_HETHONGTHITRACNGHIEMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BAITHI">
+    <Key>
+      <PropertyRef Name="MABAITHI" />
+    </Key>
+    <Property Name="MABAITHI" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GIONOPBAI" Type="nvarchar" MaxLength="50" />
+    <Property Name="DIEM" Type="int" />
+    <Property Name="MASV" Type="char" MaxLength="10" />
+    <Property Name="MACATHI" Type="int" />
+  </EntityType>
+  <EntityType Name="CATHI">
+    <Key>
+      <PropertyRef Name="MACATHI" />
+    </Key>
+    <Property Name="MACATHI" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MAHOCPHAN" Type="char" MaxLength="10" />
+    <Property Name="MADETHI" Type="int" />
+    <Property Name="MADECON" Type="nvarchar" MaxLength="10" />
+    <Property Name="NGAYTHI" Type="date" />
+    <Property Name="PHONGTHI" Type="nvarchar" MaxLength="20" />
+    <Property Name="GIOLAMBAI" Type="nvarchar" MaxLength="10" />
+    <Property Name="TINHTRANG" Type="bit" />
+    <Property Name="TINHTRANGTHI" Type="bit" />
+  </EntityType>
+  <EntityType Name="CAUHOI">
+    <Key>
+      <PropertyRef Name="MACAUHOI" />
+    </Key>
+    <Property Name="MACAUHOI" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOIDUNG" Type="nvarchar(max)" />
+    <Property Name="DAPAN1" Type="nvarchar(max)" />
+    <Property Name="DAPAN2" Type="nvarchar(max)" />
+    <Property Name="DAPAN3" Type="nvarchar(max)" />
+    <Property Name="DAPAN4" Type="nvarchar(max)" />
+    <Property Name="DAPANDUNG" Type="char" MaxLength="5" />
+    <Property Name="MANGANHANG" Type="int" />
+    <Property Name="MAHOCPHAN" Type="char" MaxLength="10" />
+    <Property Name="NGAYTAO" Type="date" />
+    <Property Name="NGAYCAPNHAT" Type="date" />
+  </EntityType>
+  <EntityType Name="CHUCVU">
+    <Key>
+      <PropertyRef Name="MACHUCVU" />
+    </Key>
+    <Property Name="MACHUCVU" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TENCHUCVU" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="CT_BAITHI">
+    <Key>
+      <PropertyRef Name="MABAITHI" />
+      <PropertyRef Name="MACAUHOI" />
+    </Key>
+    <Property Name="MABAITHI" Type="int" Nullable="false" />
+    <Property Name="MACAUHOI" Type="int" Nullable="false" />
+    <Property Name="CAUTRALOI" Type="char" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="CT_CATHI">
+    <Key>
+      <PropertyRef Name="MACATHI" />
+      <PropertyRef Name="MASV" />
+    </Key>
+    <Property Name="MACATHI" Type="int" Nullable="false" />
+    <Property Name="MASV" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="TENSV" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="CT_DETHI">
+    <Key>
+      <PropertyRef Name="STT" />
+    </Key>
+    <Property Name="STT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MADETHI" Type="int" />
+    <Property Name="MADECON" Type="char" MaxLength="10" />
+    <Property Name="MACAUHOI" Type="int" />
+  </EntityType>
+  <EntityType Name="CT_GIANGDAY">
+    <Key>
+      <PropertyRef Name="MAHOCPHAN" />
+      <PropertyRef Name="MAGV" />
+    </Key>
+    <Property Name="MAHOCPHAN" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="MAGV" Type="char" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CT_HOCPHAN">
+    <Key>
+      <PropertyRef Name="MALOPHOCPHAN" />
+      <PropertyRef Name="MASV" />
+      <PropertyRef Name="MAHOCPHAN" />
+    </Key>
+    <Property Name="MALOPHOCPHAN" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="MASV" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="MAHOCPHAN" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="MAGV" Type="char" MaxLength="10" />
+    <Property Name="THU" Type="int" />
+    <Property Name="TIET" Type="char" MaxLength="10" />
+    <Property Name="PHONG" Type="char" MaxLength="10" />
+    <Property Name="NGAYBD" Type="date" />
+    <Property Name="NGAYKT" Type="date" />
+  </EntityType>
+  <EntityType Name="CT_NGANHANGCAUHOI">
+    <Key>
+      <PropertyRef Name="MANGANHANG" />
+      <PropertyRef Name="MAGV" />
+      <PropertyRef Name="MAHOCPHAN" />
+    </Key>
+    <Property Name="MANGANHANG" Type="int" Nullable="false" />
+    <Property Name="MAGV" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="MAHOCPHAN" Type="char" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DETHI">
+    <Key>
+      <PropertyRef Name="MADETHI" />
+    </Key>
+    <Property Name="MADETHI" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MAHOCPHAN" Type="char" MaxLength="10" />
+    <Property Name="NGAYTAO" Type="date" />
+    <Property Name="TGLAMBAI" Type="int" />
+    <Property Name="SLCAUHOI" Type="int" />
+    <Property Name="TINHTRANG" Type="bit" />
+  </EntityType>
+  <EntityType Name="GIANGVIEN">
+    <Key>
+      <PropertyRef Name="MAGV" />
+    </Key>
+    <Property Name="MAGV" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="MATKHAU" Type="char" MaxLength="20" />
+    <Property Name="TENGV" Type="nvarchar" MaxLength="50" />
+    <Property Name="NGAYSINH" Type="date" />
+    <Property Name="GIOITINH" Type="nvarchar" MaxLength="5" />
+    <Property Name="QUEQUAN" Type="nvarchar" MaxLength="20" />
+    <Property Name="HOCVI" Type="nvarchar" MaxLength="50" />
+    <Property Name="SDT" Type="char" MaxLength="10" />
+    <Property Name="EMAIL" Type="nvarchar" MaxLength="100" />
+    <Property Name="DIACHI" Type="nvarchar" MaxLength="100" />
+    <Property Name="MAKHOA" Type="char" MaxLength="2" />
+    <Property Name="MACHUCVU" Type="int" />
+    <Property Name="AVATA" Type="image" />
+  </EntityType>
+  <EntityType Name="HOCPHAN">
+    <Key>
+      <PropertyRef Name="MAHOCPHAN" />
+    </Key>
+    <Property Name="MAHOCPHAN" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="TENHOCPHAN" Type="nvarchar" MaxLength="100" />
+    <Property Name="SOTC" Type="int" />
+    <Property Name="SOTIET_LT" Type="int" />
+    <Property Name="SOTIET_TH" Type="int" />
+    <Property Name="MAKHOA" Type="char" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="KHOA">
+    <Key>
+      <PropertyRef Name="MAKHOA" />
+    </Key>
+    <Property Name="MAKHOA" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="TENKHOA" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="SOLUONGGIANGVIEN" Type="int" />
+    <Property Name="SOLUONGMONHOC" Type="int" />
+    <Property Name="SONGANHDAOTAO" Type="int" />
+  </EntityType>
+  <EntityType Name="LOPHOC">
+    <Key>
+      <PropertyRef Name="MALOP" />
+    </Key>
+    <Property Name="MALOP" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="TENLOP" Type="nvarchar" MaxLength="50" />
+    <Property Name="SISO" Type="int" />
+    <Property Name="MAKHOA" Type="char" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="NGANHANGCAUHOI">
+    <Key>
+      <PropertyRef Name="MANGANHANG" />
+    </Key>
+    <Property Name="MANGANHANG" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SLCAUHOI" Type="int" />
+    <Property Name="NGAYTAO" Type="date" />
+    <Property Name="NGAYCAPNHAT" Type="date" />
+  </EntityType>
+  <EntityType Name="NGANHANGCAUHOI_DADUYET">
+    <Key>
+      <PropertyRef Name="MANH" />
+      <PropertyRef Name="MAHOCPHAN" />
+      <PropertyRef Name="MACAUHOI" />
+    </Key>
+    <Property Name="MANH" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="MAHOCPHAN" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="MACAUHOI" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SINHVIEN">
+    <Key>
+      <PropertyRef Name="MASV" />
+    </Key>
+    <Property Name="MASV" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="MAKHAU" Type="char" MaxLength="20" />
+    <Property Name="TENSV" Type="nvarchar" MaxLength="50" />
+    <Property Name="GIOITINH" Type="nvarchar" MaxLength="5" />
+    <Property Name="NGAYSINH" Type="date" />
+    <Property Name="EMAIL" Type="nvarchar" MaxLength="100" />
+    <Property Name="SDT" Type="char" MaxLength="10" />
+    <Property Name="DIACHI" Type="nvarchar" MaxLength="100" />
+    <Property Name="QUEQUAN" Type="nvarchar" MaxLength="100" />
+    <Property Name="MALOP" Type="char" MaxLength="10" />
+    <Property Name="HOCPHI" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <Association Name="FK_CATHI_DETHI">
+    <End Role="DETHI" Type="Self.DETHI" Multiplicity="0..1" />
+    <End Role="CATHI" Type="Self.CATHI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DETHI">
+        <PropertyRef Name="MADETHI" />
+      </Principal>
+      <Dependent Role="CATHI">
+        <PropertyRef Name="MADETHI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CATHI_HOCPHAN">
+    <End Role="HOCPHAN" Type="Self.HOCPHAN" Multiplicity="0..1" />
+    <End Role="CATHI" Type="Self.CATHI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOCPHAN">
+        <PropertyRef Name="MAHOCPHAN" />
+      </Principal>
+      <Dependent Role="CATHI">
+        <PropertyRef Name="MAHOCPHAN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CAUHOI_MAHOCPHAN">
+    <End Role="HOCPHAN" Type="Self.HOCPHAN" Multiplicity="0..1" />
+    <End Role="CAUHOI" Type="Self.CAUHOI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOCPHAN">
+        <PropertyRef Name="MAHOCPHAN" />
+      </Principal>
+      <Dependent Role="CAUHOI">
+        <PropertyRef Name="MAHOCPHAN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CAUHOI_NGANHANGCAUHOI">
+    <End Role="NGANHANGCAUHOI" Type="Self.NGANHANGCAUHOI" Multiplicity="0..1" />
+    <End Role="CAUHOI" Type="Self.CAUHOI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NGANHANGCAUHOI">
+        <PropertyRef Name="MANGANHANG" />
+      </Principal>
+      <Dependent Role="CAUHOI">
+        <PropertyRef Name="MANGANHANG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CT_CATHI_CATHI">
+    <End Role="CATHI" Type="Self.CATHI" Multiplicity="1" />
+    <End Role="CT_CATHI" Type="Self.CT_CATHI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CATHI">
+        <PropertyRef Name="MACATHI" />
+      </Principal>
+      <Dependent Role="CT_CATHI">
+        <PropertyRef Name="MACATHI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CT_CATHI_SINHVIEN">
+    <End Role="SINHVIEN" Type="Self.SINHVIEN" Multiplicity="1" />
+    <End Role="CT_CATHI" Type="Self.CT_CATHI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SINHVIEN">
+        <PropertyRef Name="MASV" />
+      </Principal>
+      <Dependent Role="CT_CATHI">
+        <PropertyRef Name="MASV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CT_DETHI_CAUHOI">
+    <End Role="CAUHOI" Type="Self.CAUHOI" Multiplicity="0..1" />
+    <End Role="CT_DETHI" Type="Self.CT_DETHI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CAUHOI">
+        <PropertyRef Name="MACAUHOI" />
+      </Principal>
+      <Dependent Role="CT_DETHI">
+        <PropertyRef Name="MACAUHOI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CT_DETHI_DETHI">
+    <End Role="DETHI" Type="Self.DETHI" Multiplicity="0..1" />
+    <End Role="CT_DETHI" Type="Self.CT_DETHI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DETHI">
+        <PropertyRef Name="MADETHI" />
+      </Principal>
+      <Dependent Role="CT_DETHI">
+        <PropertyRef Name="MADETHI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CT_GIANGDAY_GIANGVIEN">
+    <End Role="GIANGVIEN" Type="Self.GIANGVIEN" Multiplicity="1" />
+    <End Role="CT_GIANGDAY" Type="Self.CT_GIANGDAY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GIANGVIEN">
+        <PropertyRef Name="MAGV" />
+      </Principal>
+      <Dependent Role="CT_GIANGDAY">
+        <PropertyRef Name="MAGV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CT_GIANGDAY_HOCPHAN">
+    <End Role="HOCPHAN" Type="Self.HOCPHAN" Multiplicity="1" />
+    <End Role="CT_GIANGDAY" Type="Self.CT_GIANGDAY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOCPHAN">
+        <PropertyRef Name="MAHOCPHAN" />
+      </Principal>
+      <Dependent Role="CT_GIANGDAY">
+        <PropertyRef Name="MAHOCPHAN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CT_HOCPHAN_HOCPHAN">
+    <End Role="HOCPHAN" Type="Self.HOCPHAN" Multiplicity="1" />
+    <End Role="CT_HOCPHAN" Type="Self.CT_HOCPHAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOCPHAN">
+        <PropertyRef Name="MAHOCPHAN" />
+      </Principal>
+      <Dependent Role="CT_HOCPHAN">
+        <PropertyRef Name="MAHOCPHAN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CT_HOCPHAN_SINHVIEN">
+    <End Role="SINHVIEN" Type="Self.SINHVIEN" Multiplicity="1" />
+    <End Role="CT_HOCPHAN" Type="Self.CT_HOCPHAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SINHVIEN">
+        <PropertyRef Name="MASV" />
+      </Principal>
+      <Dependent Role="CT_HOCPHAN">
+        <PropertyRef Name="MASV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DETHI_HOCPHAN">
+    <End Role="HOCPHAN" Type="Self.HOCPHAN" Multiplicity="0..1" />
+    <End Role="DETHI" Type="Self.DETHI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOCPHAN">
+        <PropertyRef Name="MAHOCPHAN" />
+      </Principal>
+      <Dependent Role="DETHI">
+        <PropertyRef Name="MAHOCPHAN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GIANGVIEN_CHUCVU">
+    <End Role="CHUCVU" Type="Self.CHUCVU" Multiplicity="0..1" />
+    <End Role="GIANGVIEN" Type="Self.GIANGVIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CHUCVU">
+        <PropertyRef Name="MACHUCVU" />
+      </Principal>
+      <Dependent Role="GIANGVIEN">
+        <PropertyRef Name="MACHUCVU" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GIANGVIEN_KHOA">
+    <End Role="KHOA" Type="Self.KHOA" Multiplicity="0..1" />
+    <End Role="GIANGVIEN" Type="Self.GIANGVIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHOA">
+        <PropertyRef Name="MAKHOA" />
+      </Principal>
+      <Dependent Role="GIANGVIEN">
+        <PropertyRef Name="MAKHOA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HOCPHAN_KHOA">
+    <End Role="KHOA" Type="Self.KHOA" Multiplicity="0..1" />
+    <End Role="HOCPHAN" Type="Self.HOCPHAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHOA">
+        <PropertyRef Name="MAKHOA" />
+      </Principal>
+      <Dependent Role="HOCPHAN">
+        <PropertyRef Name="MAKHOA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LOPHOC_KHOA">
+    <End Role="KHOA" Type="Self.KHOA" Multiplicity="0..1" />
+    <End Role="LOPHOC" Type="Self.LOPHOC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHOA">
+        <PropertyRef Name="MAKHOA" />
+      </Principal>
+      <Dependent Role="LOPHOC">
+        <PropertyRef Name="MAKHOA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NGANHANGCAUHOI_DADUYET_CAUHOI">
+    <End Role="CAUHOI" Type="Self.CAUHOI" Multiplicity="1" />
+    <End Role="NGANHANGCAUHOI_DADUYET" Type="Self.NGANHANGCAUHOI_DADUYET" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CAUHOI">
+        <PropertyRef Name="MACAUHOI" />
+      </Principal>
+      <Dependent Role="NGANHANGCAUHOI_DADUYET">
+        <PropertyRef Name="MACAUHOI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NGANHANGCAUHOI_DADUYET_HOCPHAN">
+    <End Role="HOCPHAN" Type="Self.HOCPHAN" Multiplicity="1" />
+    <End Role="NGANHANGCAUHOI_DADUYET" Type="Self.NGANHANGCAUHOI_DADUYET" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOCPHAN">
+        <PropertyRef Name="MAHOCPHAN" />
+      </Principal>
+      <Dependent Role="NGANHANGCAUHOI_DADUYET">
+        <PropertyRef Name="MAHOCPHAN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NGANHANGCAUHOI_GIANGVIEN">
+    <End Role="GIANGVIEN" Type="Self.GIANGVIEN" Multiplicity="1" />
+    <End Role="CT_NGANHANGCAUHOI" Type="Self.CT_NGANHANGCAUHOI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GIANGVIEN">
+        <PropertyRef Name="MAGV" />
+      </Principal>
+      <Dependent Role="CT_NGANHANGCAUHOI">
+        <PropertyRef Name="MAGV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NGANHANGCAUHOI_HOCPHAN">
+    <End Role="HOCPHAN" Type="Self.HOCPHAN" Multiplicity="1" />
+    <End Role="CT_NGANHANGCAUHOI" Type="Self.CT_NGANHANGCAUHOI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOCPHAN">
+        <PropertyRef Name="MAHOCPHAN" />
+      </Principal>
+      <Dependent Role="CT_NGANHANGCAUHOI">
+        <PropertyRef Name="MAHOCPHAN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NGANHANGCAUHOI_NGANHANGCAUHOI">
+    <End Role="NGANHANGCAUHOI" Type="Self.NGANHANGCAUHOI" Multiplicity="1" />
+    <End Role="CT_NGANHANGCAUHOI" Type="Self.CT_NGANHANGCAUHOI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NGANHANGCAUHOI">
+        <PropertyRef Name="MANGANHANG" />
+      </Principal>
+      <Dependent Role="CT_NGANHANGCAUHOI">
+        <PropertyRef Name="MANGANHANG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SINHVIEN_LOPHOC">
+    <End Role="LOPHOC" Type="Self.LOPHOC" Multiplicity="0..1" />
+    <End Role="SINHVIEN" Type="Self.SINHVIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOPHOC">
+        <PropertyRef Name="MALOP" />
+      </Principal>
+      <Dependent Role="SINHVIEN">
+        <PropertyRef Name="MALOP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QL_HETHONGTHITRACNGHIEMModelStoreContainer">
+    <EntitySet Name="BAITHI" EntityType="Self.BAITHI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CATHI" EntityType="Self.CATHI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CAUHOI" EntityType="Self.CAUHOI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CHUCVU" EntityType="Self.CHUCVU" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CT_BAITHI" EntityType="Self.CT_BAITHI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CT_CATHI" EntityType="Self.CT_CATHI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CT_DETHI" EntityType="Self.CT_DETHI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CT_GIANGDAY" EntityType="Self.CT_GIANGDAY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CT_HOCPHAN" EntityType="Self.CT_HOCPHAN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CT_NGANHANGCAUHOI" EntityType="Self.CT_NGANHANGCAUHOI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DETHI" EntityType="Self.DETHI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GIANGVIEN" EntityType="Self.GIANGVIEN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HOCPHAN" EntityType="Self.HOCPHAN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KHOA" EntityType="Self.KHOA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LOPHOC" EntityType="Self.LOPHOC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NGANHANGCAUHOI" EntityType="Self.NGANHANGCAUHOI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NGANHANGCAUHOI_DADUYET" EntityType="Self.NGANHANGCAUHOI_DADUYET" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SINHVIEN" EntityType="Self.SINHVIEN" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_CATHI_DETHI" Association="Self.FK_CATHI_DETHI">
+      <End Role="DETHI" EntitySet="DETHI" />
+      <End Role="CATHI" EntitySet="CATHI" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CATHI_HOCPHAN" Association="Self.FK_CATHI_HOCPHAN">
+      <End Role="HOCPHAN" EntitySet="HOCPHAN" />
+      <End Role="CATHI" EntitySet="CATHI" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CAUHOI_MAHOCPHAN" Association="Self.FK_CAUHOI_MAHOCPHAN">
+      <End Role="HOCPHAN" EntitySet="HOCPHAN" />
+      <End Role="CAUHOI" EntitySet="CAUHOI" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CAUHOI_NGANHANGCAUHOI" Association="Self.FK_CAUHOI_NGANHANGCAUHOI">
+      <End Role="NGANHANGCAUHOI" EntitySet="NGANHANGCAUHOI" />
+      <End Role="CAUHOI" EntitySet="CAUHOI" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CT_CATHI_CATHI" Association="Self.FK_CT_CATHI_CATHI">
+      <End Role="CATHI" EntitySet="CATHI" />
+      <End Role="CT_CATHI" EntitySet="CT_CATHI" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CT_CATHI_SINHVIEN" Association="Self.FK_CT_CATHI_SINHVIEN">
+      <End Role="SINHVIEN" EntitySet="SINHVIEN" />
+      <End Role="CT_CATHI" EntitySet="CT_CATHI" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CT_DETHI_CAUHOI" Association="Self.FK_CT_DETHI_CAUHOI">
+      <End Role="CAUHOI" EntitySet="CAUHOI" />
+      <End Role="CT_DETHI" EntitySet="CT_DETHI" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CT_DETHI_DETHI" Association="Self.FK_CT_DETHI_DETHI">
+      <End Role="DETHI" EntitySet="DETHI" />
+      <End Role="CT_DETHI" EntitySet="CT_DETHI" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CT_GIANGDAY_GIANGVIEN" Association="Self.FK_CT_GIANGDAY_GIANGVIEN">
+      <End Role="GIANGVIEN" EntitySet="GIANGVIEN" />
+      <End Role="CT_GIANGDAY" EntitySet="CT_GIANGDAY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CT_GIANGDAY_HOCPHAN" Association="Self.FK_CT_GIANGDAY_HOCPHAN">
+      <End Role="HOCPHAN" EntitySet="HOCPHAN" />
+      <End Role="CT_GIANGDAY" EntitySet="CT_GIANGDAY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CT_HOCPHAN_HOCPHAN" Association="Self.FK_CT_HOCPHAN_HOCPHAN">
+      <End Role="HOCPHAN" EntitySet="HOCPHAN" />
+      <End Role="CT_HOCPHAN" EntitySet="CT_HOCPHAN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CT_HOCPHAN_SINHVIEN" Association="Self.FK_CT_HOCPHAN_SINHVIEN">
+      <End Role="SINHVIEN" EntitySet="SINHVIEN" />
+      <End Role="CT_HOCPHAN" EntitySet="CT_HOCPHAN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DETHI_HOCPHAN" Association="Self.FK_DETHI_HOCPHAN">
+      <End Role="HOCPHAN" EntitySet="HOCPHAN" />
+      <End Role="DETHI" EntitySet="DETHI" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GIANGVIEN_CHUCVU" Association="Self.FK_GIANGVIEN_CHUCVU">
+      <End Role="CHUCVU" EntitySet="CHUCVU" />
+      <End Role="GIANGVIEN" EntitySet="GIANGVIEN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GIANGVIEN_KHOA" Association="Self.FK_GIANGVIEN_KHOA">
+      <End Role="KHOA" EntitySet="KHOA" />
+      <End Role="GIANGVIEN" EntitySet="GIANGVIEN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HOCPHAN_KHOA" Association="Self.FK_HOCPHAN_KHOA">
+      <End Role="KHOA" EntitySet="KHOA" />
+      <End Role="HOCPHAN" EntitySet="HOCPHAN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LOPHOC_KHOA" Association="Self.FK_LOPHOC_KHOA">
+      <End Role="KHOA" EntitySet="KHOA" />
+      <End Role="LOPHOC" EntitySet="LOPHOC" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NGANHANGCAUHOI_DADUYET_CAUHOI" Association="Self.FK_NGANHANGCAUHOI_DADUYET_CAUHOI">
+      <End Role="CAUHOI" EntitySet="CAUHOI" />
+      <End Role="NGANHANGCAUHOI_DADUYET" EntitySet="NGANHANGCAUHOI_DADUYET" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NGANHANGCAUHOI_DADUYET_HOCPHAN" Association="Self.FK_NGANHANGCAUHOI_DADUYET_HOCPHAN">
+      <End Role="HOCPHAN" EntitySet="HOCPHAN" />
+      <End Role="NGANHANGCAUHOI_DADUYET" EntitySet="NGANHANGCAUHOI_DADUYET" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NGANHANGCAUHOI_GIANGVIEN" Association="Self.FK_NGANHANGCAUHOI_GIANGVIEN">
+      <End Role="GIANGVIEN" EntitySet="GIANGVIEN" />
+      <End Role="CT_NGANHANGCAUHOI" EntitySet="CT_NGANHANGCAUHOI" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NGANHANGCAUHOI_HOCPHAN" Association="Self.FK_NGANHANGCAUHOI_HOCPHAN">
+      <End Role="HOCPHAN" EntitySet="HOCPHAN" />
+      <End Role="CT_NGANHANGCAUHOI" EntitySet="CT_NGANHANGCAUHOI" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NGANHANGCAUHOI_NGANHANGCAUHOI" Association="Self.FK_NGANHANGCAUHOI_NGANHANGCAUHOI">
+      <End Role="NGANHANGCAUHOI" EntitySet="NGANHANGCAUHOI" />
+      <End Role="CT_NGANHANGCAUHOI" EntitySet="CT_NGANHANGCAUHOI" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SINHVIEN_LOPHOC" Association="Self.FK_SINHVIEN_LOPHOC">
+      <End Role="LOPHOC" EntitySet="LOPHOC" />
+      <End Role="SINHVIEN" EntitySet="SINHVIEN" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

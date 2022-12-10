@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
+using System.Data.Entity.Validation;
 using System.Linq;
+using System.Security.Policy;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -12,7 +14,7 @@ namespace Web_ThiTracNghiem.Controllers
 {
     public class HomeController : Controller
     {
-        QL_HETHONGTHITRACNGHIEMEntities7 dt = new QL_HETHONGTHITRACNGHIEMEntities7();
+        QL_HETHONGTHITRACNGHIEMEntities11 dt = new QL_HETHONGTHITRACNGHIEMEntities11();
         static string[] dsCauTL = new string[] { };
         static List<CAUHOI> dsCH = new List<CAUHOI>();
         static CATHI cathi = new CATHI();
@@ -53,7 +55,7 @@ namespace Web_ThiTracNghiem.Controllers
             // Khi update TINHTRANG -> UPDATE ngày thì là ngày hiện tại
             // Lấy danh sách ca thi được kích hoạt trong ngày hôm đó
             DateTime ngay = DateTime.UtcNow.Date;
-            var cts = dt.CATHIs.Where(ct => ct.TINHTRANG == true && ct.NGAYTHI == ngay).ToList();
+            var cts = dt.CATHIs.Where(ct => ct.TINHTRANG == true && ct.TINHTRANGTHI == false && ct.NGAYTHI == ngay).ToList();
 
             // Lấy CT_CATHI của CATHI
             foreach (var item in cts)
@@ -107,7 +109,11 @@ namespace Web_ThiTracNghiem.Controllers
                 modelCaThi.Add(modelCT);
 
                 Session["TENMONHOC"] = hp.TENHOCPHAN;
-
+                if (modelCaThi != null) 
+                {
+                    ViewBag.SLCATHI = "1";
+                }
+                
                 return View(modelCaThi);
             }
             List<CaThiModel> modelCaThis = new List<CaThiModel>();
@@ -148,41 +154,64 @@ namespace Web_ThiTracNghiem.Controllers
             ViewBag.TgLamBai = dethi.TGLAMBAI;
 
             Session["TGLAMBAI"] = dethi.TGLAMBAI + " Phút";
+            ViewBag.SLCAUHOI = dsCauHoi.Count;
 
             return View(dsCauHoi);
         }
 
+        public ActionResult Result()
+        {
+            KetQuaModel kq = new KetQuaModel();
+            kq.TenMH = Session["TENMONHOC"].ToString();
+            kq.SoCauDung = int.Parse(Session["SOCAUDUNG"].ToString());
+            kq.SoCauSai = int.Parse(Session["SOCAUSAI"].ToString());
+            kq.TongDiem = int.Parse(Session["TONGDIEM"].ToString());
+
+            return View(kq);
+        }
+
         public ActionResult KetQua()
         {
-            CATHI ts = new CATHI();
-            CT_BAITHI ctct = new CT_BAITHI();
-            SINHVIEN sv = new SINHVIEN();
-
+            string hnop = DateTime.UtcNow.Date.ToString();
             // Thêm vào BAITHI & CT_BAITHI
             var baithi = new BAITHI();
-            baithi.GIONOPBAI = "" + DateTime.UtcNow.Date;
+            baithi.GIONOPBAI = hnop;
             baithi.DIEM = int.Parse(Session["TONGDIEM"].ToString().Trim());
             baithi.MASV = Session["MASV"].ToString().Trim();
             baithi.MACATHI = int.Parse(Session["MACATHI"].ToString().Trim());
-            
-            // cannot insert
 
+            // Insert BaiThi
             var modelBaiThi = dt.BAITHIs.Add(baithi);
-            dt.SaveChanges();
+            try
+            {   
+                dt.SaveChanges();
+            }
+            catch (DbEntityValidationException ex)
+            {
+                Console.Write(ex);
+            }
 
+            // Insert CT_BaiThi
             var ctBaiThis = new List<CT_BAITHI>();
             for (int i = 0; i < dsCH.Count; i++)
             {
                 var ctBaiThi = new CT_BAITHI();
                 ctBaiThi.MABAITHI = modelBaiThi.MABAITHI;
                 ctBaiThi.MACAUHOI = dsCH[i].MACAUHOI;
-                ctBaiThi.CAUTRALOI = dsCauTL[1];
+                ctBaiThi.CAUTRALOI = dsCauTL[i];
 
                 ctBaiThis.Add(ctBaiThi);
             }
             
             var modelCTBaiThi = dt.CT_BAITHI.AddRange(ctBaiThis);
-            dt.SaveChanges();
+            try
+            {
+                dt.SaveChanges();
+            }
+            catch (DbEntityValidationException ex)
+            {
+                Console.Write(ex);
+            }
 
             // Cập nhật TINHTRANGTHI của ca thi = 1 -> Đã thi -> Khi hiển thị DS ca thi thì k lấy những ca thi nào có TINHTRANGTHI = 1
             var cathi = HomeController.cathi;
@@ -244,7 +273,7 @@ namespace Web_ThiTracNghiem.Controllers
 
             // Cập nhật TINHTRANGTHI của CATHI = 1;
 
-            return RedirectToAction("KetQua", "Thi");
+            return RedirectToAction("KetQua", "Home");
         }
     }
 }

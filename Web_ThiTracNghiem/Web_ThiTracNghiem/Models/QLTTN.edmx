@@ -10,7 +10,7 @@
             <PropertyRef Name="MABAITHI" />
           </Key>
           <Property Name="MABAITHI" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="GIONOPBAI" Type="nvarchar" MaxLength="20" />
+          <Property Name="GIONOPBAI" Type="nvarchar" MaxLength="50" />
           <Property Name="DIEM" Type="int" />
           <Property Name="MASV" Type="char" MaxLength="10" />
           <Property Name="MACATHI" Type="int" />
@@ -55,6 +55,7 @@
         <EntityType Name="CT_BAITHI">
           <Key>
             <PropertyRef Name="MABAITHI" />
+            <PropertyRef Name="MACAUHOI" />
           </Key>
           <Property Name="MABAITHI" Type="int" Nullable="false" />
           <Property Name="MACAUHOI" Type="int" Nullable="false" />
@@ -206,40 +207,6 @@
           <Property Name="MALOP" Type="char" MaxLength="10" />
           <Property Name="HOCPHI" Type="nvarchar" MaxLength="10" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
-        <Association Name="FK_BAITHI_CATHI">
-          <End Role="CATHI" Type="Self.CATHI" Multiplicity="0..1" />
-          <End Role="BAITHI" Type="Self.BAITHI" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CATHI">
-              <PropertyRef Name="MACATHI" />
-            </Principal>
-            <Dependent Role="BAITHI">
-              <PropertyRef Name="MACATHI" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_BAITHI_SINHVIEN">
-          <End Role="SINHVIEN" Type="Self.SINHVIEN" Multiplicity="0..1" />
-          <End Role="BAITHI" Type="Self.BAITHI" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SINHVIEN">
-              <PropertyRef Name="MASV" />
-            </Principal>
-            <Dependent Role="BAITHI">
-              <PropertyRef Name="MASV" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_CATHI_DETHI">
           <End Role="DETHI" Type="Self.DETHI" Multiplicity="0..1" />
           <End Role="CATHI" Type="Self.CATHI" Multiplicity="*" />
@@ -285,30 +252,6 @@
             </Principal>
             <Dependent Role="CAUHOI">
               <PropertyRef Name="MANGANHANG" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CT_BAITHI_BAITHI">
-          <End Role="BAITHI" Type="Self.BAITHI" Multiplicity="1" />
-          <End Role="CT_BAITHI" Type="Self.CT_BAITHI" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="BAITHI">
-              <PropertyRef Name="MABAITHI" />
-            </Principal>
-            <Dependent Role="CT_BAITHI">
-              <PropertyRef Name="MABAITHI" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CT_BAITHI_CAUHOI">
-          <End Role="CAUHOI" Type="Self.CAUHOI" Multiplicity="1" />
-          <End Role="CT_BAITHI" Type="Self.CT_BAITHI" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CAUHOI">
-              <PropertyRef Name="MACAUHOI" />
-            </Principal>
-            <Dependent Role="CT_BAITHI">
-              <PropertyRef Name="MACAUHOI" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -559,15 +502,6 @@
           <EntitySet Name="NGANHANGCAUHOI" EntityType="Self.NGANHANGCAUHOI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NGANHANGCAUHOI_DADUYET" EntityType="Self.NGANHANGCAUHOI_DADUYET" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SINHVIEN" EntityType="Self.SINHVIEN" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_BAITHI_CATHI" Association="Self.FK_BAITHI_CATHI">
-            <End Role="CATHI" EntitySet="CATHI" />
-            <End Role="BAITHI" EntitySet="BAITHI" />
-          </AssociationSet>
-          <AssociationSet Name="FK_BAITHI_SINHVIEN" Association="Self.FK_BAITHI_SINHVIEN">
-            <End Role="SINHVIEN" EntitySet="SINHVIEN" />
-            <End Role="BAITHI" EntitySet="BAITHI" />
-          </AssociationSet>
           <AssociationSet Name="FK_CATHI_DETHI" Association="Self.FK_CATHI_DETHI">
             <End Role="DETHI" EntitySet="DETHI" />
             <End Role="CATHI" EntitySet="CATHI" />
@@ -583,14 +517,6 @@
           <AssociationSet Name="FK_CAUHOI_NGANHANGCAUHOI" Association="Self.FK_CAUHOI_NGANHANGCAUHOI">
             <End Role="NGANHANGCAUHOI" EntitySet="NGANHANGCAUHOI" />
             <End Role="CAUHOI" EntitySet="CAUHOI" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CT_BAITHI_BAITHI" Association="Self.FK_CT_BAITHI_BAITHI">
-            <End Role="BAITHI" EntitySet="BAITHI" />
-            <End Role="CT_BAITHI" EntitySet="CT_BAITHI" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CT_BAITHI_CAUHOI" Association="Self.FK_CT_BAITHI_CAUHOI">
-            <End Role="CAUHOI" EntitySet="CAUHOI" />
-            <End Role="CT_BAITHI" EntitySet="CT_BAITHI" />
           </AssociationSet>
           <AssociationSet Name="FK_CT_CATHI_CATHI" Association="Self.FK_CT_CATHI_CATHI">
             <End Role="CATHI" EntitySet="CATHI" />
@@ -679,13 +605,10 @@
             <PropertyRef Name="MABAITHI" />
           </Key>
           <Property Name="MABAITHI" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="GIONOPBAI" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="GIONOPBAI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DIEM" Type="Int32" />
           <Property Name="MASV" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
           <Property Name="MACATHI" Type="Int32" />
-          <NavigationProperty Name="CATHI" Relationship="Self.FK_BAITHI_CATHI" FromRole="BAITHI" ToRole="CATHI" />
-          <NavigationProperty Name="SINHVIEN" Relationship="Self.FK_BAITHI_SINHVIEN" FromRole="BAITHI" ToRole="SINHVIEN" />
-          <NavigationProperty Name="CT_BAITHI" Relationship="Self.FK_CT_BAITHI_BAITHI" FromRole="BAITHI" ToRole="CT_BAITHI" />
         </EntityType>
         <EntityType Name="CATHI">
           <Key>
@@ -700,7 +623,6 @@
           <Property Name="GIOLAMBAI" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="TINHTRANG" Type="Boolean" />
           <Property Name="TINHTRANGTHI" Type="Boolean" />
-          <NavigationProperty Name="BAITHIs" Relationship="Self.FK_BAITHI_CATHI" FromRole="CATHI" ToRole="BAITHI" />
           <NavigationProperty Name="DETHI" Relationship="Self.FK_CATHI_DETHI" FromRole="CATHI" ToRole="DETHI" />
           <NavigationProperty Name="HOCPHAN" Relationship="Self.FK_CATHI_HOCPHAN" FromRole="CATHI" ToRole="HOCPHAN" />
           <NavigationProperty Name="CT_CATHI" Relationship="Self.FK_CT_CATHI_CATHI" FromRole="CATHI" ToRole="CT_CATHI" />
@@ -722,7 +644,6 @@
           <Property Name="NGAYCAPNHAT" Type="DateTime" Precision="0" />
           <NavigationProperty Name="HOCPHAN" Relationship="Self.FK_CAUHOI_MAHOCPHAN" FromRole="CAUHOI" ToRole="HOCPHAN" />
           <NavigationProperty Name="NGANHANGCAUHOI" Relationship="Self.FK_CAUHOI_NGANHANGCAUHOI" FromRole="CAUHOI" ToRole="NGANHANGCAUHOI" />
-          <NavigationProperty Name="CT_BAITHI" Relationship="Self.FK_CT_BAITHI_CAUHOI" FromRole="CAUHOI" ToRole="CT_BAITHI" />
           <NavigationProperty Name="CT_DETHI" Relationship="Self.FK_CT_DETHI_CAUHOI" FromRole="CAUHOI" ToRole="CT_DETHI" />
           <NavigationProperty Name="NGANHANGCAUHOI_DADUYET" Relationship="Self.FK_NGANHANGCAUHOI_DADUYET_CAUHOI" FromRole="CAUHOI" ToRole="NGANHANGCAUHOI_DADUYET" />
         </EntityType>
@@ -737,12 +658,11 @@
         <EntityType Name="CT_BAITHI">
           <Key>
             <PropertyRef Name="MABAITHI" />
+            <PropertyRef Name="MACAUHOI" />
           </Key>
           <Property Name="MABAITHI" Type="Int32" Nullable="false" />
           <Property Name="MACAUHOI" Type="Int32" Nullable="false" />
           <Property Name="CAUTRALOI" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="BAITHI" Relationship="Self.FK_CT_BAITHI_BAITHI" FromRole="CT_BAITHI" ToRole="BAITHI" />
-          <NavigationProperty Name="CAUHOI" Relationship="Self.FK_CT_BAITHI_CAUHOI" FromRole="CT_BAITHI" ToRole="CAUHOI" />
         </EntityType>
         <EntityType Name="CT_CATHI">
           <Key>
@@ -914,57 +834,10 @@
           <Property Name="QUEQUAN" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="MALOP" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
           <Property Name="HOCPHI" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="BAITHIs" Relationship="Self.FK_BAITHI_SINHVIEN" FromRole="SINHVIEN" ToRole="BAITHI" />
           <NavigationProperty Name="CT_CATHI" Relationship="Self.FK_CT_CATHI_SINHVIEN" FromRole="SINHVIEN" ToRole="CT_CATHI" />
           <NavigationProperty Name="CT_HOCPHAN" Relationship="Self.FK_CT_HOCPHAN_SINHVIEN" FromRole="SINHVIEN" ToRole="CT_HOCPHAN" />
           <NavigationProperty Name="LOPHOC" Relationship="Self.FK_SINHVIEN_LOPHOC" FromRole="SINHVIEN" ToRole="LOPHOC" />
         </EntityType>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
-        <Association Name="FK_BAITHI_CATHI">
-          <End Role="CATHI" Type="Self.CATHI" Multiplicity="0..1" />
-          <End Role="BAITHI" Type="Self.BAITHI" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CATHI">
-              <PropertyRef Name="MACATHI" />
-            </Principal>
-            <Dependent Role="BAITHI">
-              <PropertyRef Name="MACATHI" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_BAITHI_SINHVIEN">
-          <End Role="SINHVIEN" Type="Self.SINHVIEN" Multiplicity="0..1" />
-          <End Role="BAITHI" Type="Self.BAITHI" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SINHVIEN">
-              <PropertyRef Name="MASV" />
-            </Principal>
-            <Dependent Role="BAITHI">
-              <PropertyRef Name="MASV" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CT_BAITHI_BAITHI">
-          <End Role="BAITHI" Type="Self.BAITHI" Multiplicity="1" />
-          <End Role="CT_BAITHI" Type="Self.CT_BAITHI" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="BAITHI">
-              <PropertyRef Name="MABAITHI" />
-            </Principal>
-            <Dependent Role="CT_BAITHI">
-              <PropertyRef Name="MABAITHI" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_CATHI_DETHI">
           <End Role="DETHI" Type="Self.DETHI" Multiplicity="0..1" />
           <End Role="CATHI" Type="Self.CATHI" Multiplicity="*" />
@@ -1022,18 +895,6 @@
             </Principal>
             <Dependent Role="CAUHOI">
               <PropertyRef Name="MANGANHANG" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CT_BAITHI_CAUHOI">
-          <End Role="CAUHOI" Type="Self.CAUHOI" Multiplicity="1" />
-          <End Role="CT_BAITHI" Type="Self.CT_BAITHI" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CAUHOI">
-              <PropertyRef Name="MACAUHOI" />
-            </Principal>
-            <Dependent Role="CT_BAITHI">
-              <PropertyRef Name="MACAUHOI" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1233,7 +1094,7 @@
           <End Role="GIANGVIEN" Type="Self.GIANGVIEN" Multiplicity="*" />
           <End Role="HOCPHAN" Type="Self.HOCPHAN" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="QL_HETHONGTHITRACNGHIEMEntities7" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="QL_HETHONGTHITRACNGHIEMEntities11" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="BAITHIs" EntityType="Self.BAITHI" />
           <EntitySet Name="CATHIs" EntityType="Self.CATHI" />
           <EntitySet Name="CAUHOIs" EntityType="Self.CAUHOI" />
@@ -1251,19 +1112,6 @@
           <EntitySet Name="NGANHANGCAUHOIs" EntityType="Self.NGANHANGCAUHOI" />
           <EntitySet Name="NGANHANGCAUHOI_DADUYET" EntityType="Self.NGANHANGCAUHOI_DADUYET" />
           <EntitySet Name="SINHVIENs" EntityType="Self.SINHVIEN" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-          <AssociationSet Name="FK_BAITHI_CATHI" Association="Self.FK_BAITHI_CATHI">
-            <End Role="CATHI" EntitySet="CATHIs" />
-            <End Role="BAITHI" EntitySet="BAITHIs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_BAITHI_SINHVIEN" Association="Self.FK_BAITHI_SINHVIEN">
-            <End Role="SINHVIEN" EntitySet="SINHVIENs" />
-            <End Role="BAITHI" EntitySet="BAITHIs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CT_BAITHI_BAITHI" Association="Self.FK_CT_BAITHI_BAITHI">
-            <End Role="BAITHI" EntitySet="BAITHIs" />
-            <End Role="CT_BAITHI" EntitySet="CT_BAITHI" />
-          </AssociationSet>
           <AssociationSet Name="FK_CATHI_DETHI" Association="Self.FK_CATHI_DETHI">
             <End Role="DETHI" EntitySet="DETHIs" />
             <End Role="CATHI" EntitySet="CATHIs" />
@@ -1283,10 +1131,6 @@
           <AssociationSet Name="FK_CAUHOI_NGANHANGCAUHOI" Association="Self.FK_CAUHOI_NGANHANGCAUHOI">
             <End Role="NGANHANGCAUHOI" EntitySet="NGANHANGCAUHOIs" />
             <End Role="CAUHOI" EntitySet="CAUHOIs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CT_BAITHI_CAUHOI" Association="Self.FK_CT_BAITHI_CAUHOI">
-            <End Role="CAUHOI" EntitySet="CAUHOIs" />
-            <End Role="CT_BAITHI" EntitySet="CT_BAITHI" />
           </AssociationSet>
           <AssociationSet Name="FK_CT_DETHI_CAUHOI" Association="Self.FK_CT_DETHI_CAUHOI">
             <End Role="CAUHOI" EntitySet="CAUHOIs" />
@@ -1362,7 +1206,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="QL_HETHONGTHITRACNGHIEMModelStoreContainer" CdmEntityContainer="QL_HETHONGTHITRACNGHIEMEntities7">
+        <EntityContainerMapping StorageEntityContainer="QL_HETHONGTHITRACNGHIEMModelStoreContainer" CdmEntityContainer="QL_HETHONGTHITRACNGHIEMEntities11">
           <EntitySetMapping Name="BAITHIs">
             <EntityTypeMapping TypeName="QL_HETHONGTHITRACNGHIEMModel.BAITHI">
               <MappingFragment StoreEntitySet="BAITHI">
@@ -1563,17 +1407,6 @@
                 <ScalarProperty Name="QUEQUAN" ColumnName="QUEQUAN" />
                 <ScalarProperty Name="MALOP" ColumnName="MALOP" />
                 <ScalarProperty Name="HOCPHI" ColumnName="HOCPHI" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="QL_HETHONGTHITRACNGHIEMModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

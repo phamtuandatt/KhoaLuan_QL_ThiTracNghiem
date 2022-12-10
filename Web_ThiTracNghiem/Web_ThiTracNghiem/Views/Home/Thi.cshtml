@@ -63,23 +63,33 @@
         $(document).on('click', '.submit', function () {
             var ele = document.getElementsByTagName('input');
             var output = [];
+            var count = 0;
             for (i = 0; i < ele.length; i++) {
                 if (ele[i].type = "radio") {
                     var question_id = ele[i].id;
-                    if (ele[i].checked)
+                    if (ele[i].checked) {
                         output.push(ele[i].value);
+                        count += 1;
+                    }
                 }
             }
-            console.log(output);
+            var slch = 1 * @ViewBag.SLCAUHOI;
+            console.log(slch);
+            console.log(count);
 
-            $.ajax({
-                url: '/Home/ChamDiem',
-                type: "POST",
-                data: { 'cautraloi' : output },
-                success: function (data) {
-                    window.location = "KetQua";
-                },
-            });
+            if (slch == count) {
+                $.ajax({
+                    url: '/Home/ChamDiem',
+                    type: "POST",
+                    data: { 'cautraloi': output },
+                    success: function (data) {
+                        window.location = "Result";
+                    },
+                });
+            }
+            else {
+                alert("Hãy chọn tất cả các câu hỏi !");
+            }
         });
 </script>
 

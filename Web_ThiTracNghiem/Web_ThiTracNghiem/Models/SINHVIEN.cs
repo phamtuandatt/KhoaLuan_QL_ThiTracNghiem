@@ -17,7 +17,6 @@ namespace Web_ThiTracNghiem.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public SINHVIEN()
         {
-            this.BAITHIs = new HashSet<BAITHI>();
             this.CT_CATHI = new HashSet<CT_CATHI>();
             this.CT_HOCPHAN = new HashSet<CT_HOCPHAN>();
         }
@@ -34,8 +33,6 @@ namespace Web_ThiTracNghiem.Models
         public string MALOP { get; set; }
         public string HOCPHI { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BAITHI> BAITHIs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CT_CATHI> CT_CATHI { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

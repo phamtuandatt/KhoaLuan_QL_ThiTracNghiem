@@ -11,14 +11,17 @@ namespace Web_ThiTracNghiem.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class CT_BAITHI
     {
+        [Display(Name = "Mã bài thi")]
         public int MABAITHI { get; set; }
+
+        [Display(Name = "Mã câu h?i")]
         public int MACAUHOI { get; set; }
+
+        [Display(Name = "Câu tr? l?i")]
         public string CAUTRALOI { get; set; }
-    
-        public virtual BAITHI BAITHI { get; set; }
-        public virtual CAUHOI CAUHOI { get; set; }
     }
 }
