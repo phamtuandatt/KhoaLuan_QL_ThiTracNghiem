@@ -9,6 +9,7 @@
     <Property Name="DIEM" Type="Int32" />
     <Property Name="MASV" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
     <Property Name="MACATHI" Type="Int32" />
+    <Property Name="TINHTRANG" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="CATHI">
     <Key>
@@ -494,7 +495,7 @@
     <End Role="GIANGVIEN" Type="Self.GIANGVIEN" Multiplicity="*" />
     <End Role="HOCPHAN" Type="Self.HOCPHAN" Multiplicity="*" />
   </Association>
-  <EntityContainer Name="QL_HETHONGTHITRACNGHIEMEntities11" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="QL_HETHONGTHITRACNGHIEMEntities12" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="BAITHIs" EntityType="Self.BAITHI" />
     <EntitySet Name="CATHIs" EntityType="Self.CATHI" />
     <EntitySet Name="CAUHOIs" EntityType="Self.CAUHOI" />

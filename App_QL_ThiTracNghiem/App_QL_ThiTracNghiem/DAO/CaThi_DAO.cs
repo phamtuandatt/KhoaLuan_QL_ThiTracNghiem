@@ -82,5 +82,14 @@ namespace App_QL_ThiTracNghiem.DAO
 
             return data.insert_update_delete(sql) > 0;
         }
+
+        public static DataTable GetDSCaThi()
+        {
+            DataTable dt = new DataTable();
+            string sql = "EXEC GETDSCATHI";
+            dt = data.get_data(sql, "DSCT");
+
+            return dt;
+        }
     }
 }

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="QL_HETHONGTHITRACNGHIEMModelStoreContainer" CdmEntityContainer="QL_HETHONGTHITRACNGHIEMEntities11">
+  <EntityContainerMapping StorageEntityContainer="QL_HETHONGTHITRACNGHIEMModelStoreContainer" CdmEntityContainer="QL_HETHONGTHITRACNGHIEMEntities12">
     <EntitySetMapping Name="BAITHIs">
       <EntityTypeMapping TypeName="QL_HETHONGTHITRACNGHIEMModel.BAITHI">
         <MappingFragment StoreEntitySet="BAITHI">
@@ -9,6 +9,7 @@
           <ScalarProperty Name="DIEM" ColumnName="DIEM" />
           <ScalarProperty Name="MASV" ColumnName="MASV" />
           <ScalarProperty Name="MACATHI" ColumnName="MACATHI" />
+          <ScalarProperty Name="TINHTRANG" ColumnName="TINHTRANG" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

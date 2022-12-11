@@ -23,15 +23,16 @@ namespace Web_ThiTracNghiem.Models
         [StringLength(50)]
         public string GIONOPBAI { get; set; }
 
-        [Display(Name = "?i?m")]
+        [Display(Name = "Diem")]
         public Nullable<int> DIEM { get; set; }
 
-        [Display(Name = "Mã sinh viên")]
+        [Display(Name = "Ma sinh vien")]
         public string MASV { get; set; }
 
-        [Display(Name = "Mã ca thi")]
+        [Display(Name = "Ma ca thi")]
         public Nullable<int> MACATHI { get; set; }
 
-
+        [Display(Name = "Tinh trang")]
+        public string TINHTRANG { get; set; }
     }
 }

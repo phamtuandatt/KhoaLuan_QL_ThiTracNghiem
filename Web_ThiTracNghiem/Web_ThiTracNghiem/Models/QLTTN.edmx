@@ -14,6 +14,7 @@
           <Property Name="DIEM" Type="int" />
           <Property Name="MASV" Type="char" MaxLength="10" />
           <Property Name="MACATHI" Type="int" />
+          <Property Name="TINHTRANG" Type="nvarchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="CATHI">
           <Key>
@@ -609,6 +610,7 @@
           <Property Name="DIEM" Type="Int32" />
           <Property Name="MASV" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
           <Property Name="MACATHI" Type="Int32" />
+          <Property Name="TINHTRANG" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="CATHI">
           <Key>
@@ -1094,7 +1096,7 @@
           <End Role="GIANGVIEN" Type="Self.GIANGVIEN" Multiplicity="*" />
           <End Role="HOCPHAN" Type="Self.HOCPHAN" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="QL_HETHONGTHITRACNGHIEMEntities11" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="QL_HETHONGTHITRACNGHIEMEntities12" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="BAITHIs" EntityType="Self.BAITHI" />
           <EntitySet Name="CATHIs" EntityType="Self.CATHI" />
           <EntitySet Name="CAUHOIs" EntityType="Self.CAUHOI" />
@@ -1206,7 +1208,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="QL_HETHONGTHITRACNGHIEMModelStoreContainer" CdmEntityContainer="QL_HETHONGTHITRACNGHIEMEntities11">
+        <EntityContainerMapping StorageEntityContainer="QL_HETHONGTHITRACNGHIEMModelStoreContainer" CdmEntityContainer="QL_HETHONGTHITRACNGHIEMEntities12">
           <EntitySetMapping Name="BAITHIs">
             <EntityTypeMapping TypeName="QL_HETHONGTHITRACNGHIEMModel.BAITHI">
               <MappingFragment StoreEntitySet="BAITHI">
@@ -1215,6 +1217,7 @@
                 <ScalarProperty Name="DIEM" ColumnName="DIEM" />
                 <ScalarProperty Name="MASV" ColumnName="MASV" />
                 <ScalarProperty Name="MACATHI" ColumnName="MACATHI" />
+                <ScalarProperty Name="TINHTRANG" ColumnName="TINHTRANG" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

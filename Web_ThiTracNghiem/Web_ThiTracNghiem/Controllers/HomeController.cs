@@ -14,7 +14,7 @@ namespace Web_ThiTracNghiem.Controllers
 {
     public class HomeController : Controller
     {
-        QL_HETHONGTHITRACNGHIEMEntities11 dt = new QL_HETHONGTHITRACNGHIEMEntities11();
+        QL_HETHONGTHITRACNGHIEMEntities12 dt = new QL_HETHONGTHITRACNGHIEMEntities12();
         static string[] dsCauTL = new string[] { };
         static List<CAUHOI> dsCH = new List<CAUHOI>();
         static CATHI cathi = new CATHI();
@@ -124,6 +124,29 @@ namespace Web_ThiTracNghiem.Controllers
         [HttpGet]
         public ActionResult Thi(int MACATHI)
         {
+            // Sau khi click thi 
+            // Tạo ca thi
+            // Thêm vào BAITHI & CT_BAITHI
+            string hnop = string.Format("{0:HH:MI:SS}", DateTime.UtcNow.Date.ToString());
+            var baithi = new BAITHI();
+            baithi.GIONOPBAI = "";
+            baithi.DIEM = 0;
+            baithi.MASV = Session["MASV"].ToString().Trim();
+            baithi.MACATHI = MACATHI;
+            baithi.TINHTRANG = "ĐANG LÀM";
+
+            // Insert BaiThi
+            var modelBaiThi = dt.BAITHIs.Add(baithi);
+            try
+            {
+                dt.SaveChanges();
+                Session["MABAITHI"] = modelBaiThi.MABAITHI;
+            }
+            catch (DbEntityValidationException ex)
+            {
+                Console.Write(ex);
+            }
+
             // Lấy MADETHI, MADECON từ CATHI
             var cathi = dt.CATHIs.Find(MACATHI);
             HomeController.cathi = cathi;
@@ -172,16 +195,17 @@ namespace Web_ThiTracNghiem.Controllers
 
         public ActionResult KetQua()
         {
-            string hnop = DateTime.UtcNow.Date.ToString();
-            // Thêm vào BAITHI & CT_BAITHI
-            var baithi = new BAITHI();
-            baithi.GIONOPBAI = hnop;
-            baithi.DIEM = int.Parse(Session["TONGDIEM"].ToString().Trim());
-            baithi.MASV = Session["MASV"].ToString().Trim();
-            baithi.MACATHI = int.Parse(Session["MACATHI"].ToString().Trim());
+            var MABAITHI = int.Parse(Session["MABAITHI"].ToString().Trim());
+            var GIONOPBAI = DateTime.Now.ToString("{hh:mm:ss tt}");
+            var DIEM = int.Parse(Session["TONGDIEM"].ToString());
+            // CẬP NHẬT TRẠNG THÁI = "ĐÃ NỘP vào BAITHI 
+            var baithi = dt.BAITHIs.Find(MABAITHI);
+            baithi.GIONOPBAI = GIONOPBAI;
+            baithi.TINHTRANG = "ĐÃ NỘP";
+            baithi.DIEM = DIEM;
 
-            // Insert BaiThi
-            var modelBaiThi = dt.BAITHIs.Add(baithi);
+            // Update BaiThi
+            dt.BAITHIs.AddOrUpdate(baithi);
             try
             {   
                 dt.SaveChanges();
@@ -196,7 +220,7 @@ namespace Web_ThiTracNghiem.Controllers
             for (int i = 0; i < dsCH.Count; i++)
             {
                 var ctBaiThi = new CT_BAITHI();
-                ctBaiThi.MABAITHI = modelBaiThi.MABAITHI;
+                ctBaiThi.MABAITHI = MABAITHI;
                 ctBaiThi.MACAUHOI = dsCH[i].MACAUHOI;
                 ctBaiThi.CAUTRALOI = dsCauTL[i];
 
@@ -214,10 +238,10 @@ namespace Web_ThiTracNghiem.Controllers
             }
 
             // Cập nhật TINHTRANGTHI của ca thi = 1 -> Đã thi -> Khi hiển thị DS ca thi thì k lấy những ca thi nào có TINHTRANGTHI = 1
-            var cathi = HomeController.cathi;
-            cathi.TINHTRANGTHI = true;
-            dt.CATHIs.AddOrUpdate(cathi);
-            dt.SaveChanges();
+            //var cathi = HomeController.cathi;
+            //cathi.TINHTRANGTHI = true;
+            //dt.CATHIs.AddOrUpdate(cathi);
+            //dt.SaveChanges();
 
             KetQuaModel kq = new KetQuaModel();
             kq.TenMH = Session["TENMONHOC"].ToString();

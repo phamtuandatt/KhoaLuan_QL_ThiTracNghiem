@@ -9,6 +9,7 @@
     <Property Name="DIEM" Type="int" />
     <Property Name="MASV" Type="char" MaxLength="10" />
     <Property Name="MACATHI" Type="int" />
+    <Property Name="TINHTRANG" Type="nvarchar" MaxLength="20" />
   </EntityType>
   <EntityType Name="CATHI">
     <Key>

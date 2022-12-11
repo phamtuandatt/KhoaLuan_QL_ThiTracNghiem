@@ -13,10 +13,10 @@ namespace Web_ThiTracNghiem.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class QL_HETHONGTHITRACNGHIEMEntities11 : DbContext
+    public partial class QL_HETHONGTHITRACNGHIEMEntities12 : DbContext
     {
-        public QL_HETHONGTHITRACNGHIEMEntities11()
-            : base("name=QL_HETHONGTHITRACNGHIEMEntities11")
+        public QL_HETHONGTHITRACNGHIEMEntities12()
+            : base("name=QL_HETHONGTHITRACNGHIEMEntities12")
         {
         }
     

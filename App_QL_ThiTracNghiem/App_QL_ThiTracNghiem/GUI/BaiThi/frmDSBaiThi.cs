@@ -1,4 +1,5 @@
-﻿using ComponentFactory.Krypton.Toolkit;
+﻿using App_QL_ThiTracNghiem.DAO;
+using ComponentFactory.Krypton.Toolkit;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,15 +15,26 @@ namespace App_QL_ThiTracNghiem.GUI.BaiThi
     public partial class frmDSBaiThi : UserControl
     {
         KryptonPanel pnContent;
+        int MACATHI;
+        string MAHOCPHAN, TENHOCPHAN;
+        DateTime NGAYTHI;
         public frmDSBaiThi()
         {
             InitializeComponent();
         }
 
-        public frmDSBaiThi(KryptonPanel pnContent)
+        public frmDSBaiThi(KryptonPanel pnContent, int MACATHI, string MAHOCPHAN, string TENHOCPHAN, DateTime NGAYTHI)
         {
             InitializeComponent();
             this.pnContent = pnContent;
+            this.MACATHI = MACATHI;
+            this.MAHOCPHAN = MAHOCPHAN;
+            this.TENHOCPHAN = TENHOCPHAN;
+            this.NGAYTHI = NGAYTHI;
+
+            gridDSSinhVienLamBai.DataSource = BaiThi_DAO.GetDSSVLamBaiThi(MACATHI);
+            txtMocHOc.Text = TENHOCPHAN;
+            txtNgayThi.Text = string.Format("{0:dd/MM/yyyy}", NGAYTHI);
         }
 
         private void gridDSSinhVienLamBai_CellContentClick(object sender, DataGridViewCellEventArgs e)

@@ -15,13 +15,13 @@ namespace Web_ThiTracNghiem.Models
 
     public partial class CT_BAITHI
     {
-        [Display(Name = "Mã bài thi")]
+        [Display(Name = "Ma bai thi")]
         public int MABAITHI { get; set; }
 
-        [Display(Name = "Mã câu h?i")]
+        [Display(Name = "Ma cau hoi")]
         public int MACAUHOI { get; set; }
 
-        [Display(Name = "Câu tr? l?i")]
+        [Display(Name = "Cau tra loi")]
         public string CAUTRALOI { get; set; }
     }
 }
