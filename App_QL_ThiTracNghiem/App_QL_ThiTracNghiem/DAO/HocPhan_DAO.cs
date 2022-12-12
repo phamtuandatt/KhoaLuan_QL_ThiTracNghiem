@@ -83,6 +83,14 @@ namespace App_QL_ThiTracNghiem.DAO
             return null;
         }
 
+        // Kiểm tra học phần chuẩn bị tạo đã tồn tại chưa
+        public static bool HPIsExisted(HocPhans hp)
+        {
+            string sql = "";
+
+            return data.get_result_int(sql) > 0;
+        }
+
         public static bool UpdateHP(HocPhans hp)
         {
             string sql = $"UPDATE HOCPHAN SET TENHOCPHAN = N'{hp.TenHocPhan}', SOTC = {hp.SoTC} , SOTIET_LT = {hp.SoTietLT} , SOTIET_TH = {hp.SoTietTH} WHERE MAHOCPHAN = '{hp.MaHocPhan}'";

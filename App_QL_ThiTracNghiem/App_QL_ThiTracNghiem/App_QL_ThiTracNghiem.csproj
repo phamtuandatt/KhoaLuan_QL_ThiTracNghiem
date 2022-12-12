@@ -120,6 +120,12 @@
     <Compile Include="DTO\NganHangCauHois.cs" />
     <Compile Include="DTO\NganHangCauHoi_DaDuyets.cs" />
     <Compile Include="DTO\SinhViens.cs" />
+    <Compile Include="GUI\BaiThi\frmCH.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\BaiThi\frmCH.Designer.cs">
+      <DependentUpon>frmCH.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\BaiThi\frmCT_BaiThi.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -383,6 +389,10 @@
     <Compile Include="Tools\ElipseControl.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Validate\Validation.cs" />
+    <EmbeddedResource Include="GUI\BaiThi\frmCH.resx">
+      <DependentUpon>frmCH.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\BaiThi\frmCT_BaiThi.resx">
       <DependentUpon>frmCT_BaiThi.cs</DependentUpon>
     </EmbeddedResource>

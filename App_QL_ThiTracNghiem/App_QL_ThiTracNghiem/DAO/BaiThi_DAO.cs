@@ -20,5 +20,14 @@ namespace App_QL_ThiTracNghiem.DAO
 
             return dt;
         }
+
+        public static DataTable GetDSCauHoiBaiThi(int MABAITHI)
+        {
+            DataTable dt = new DataTable();
+            string sql = $"EXEC GETDSCAUHOIBAITHI {MABAITHI}";
+            dt = data.get_data(sql, "DSCHBT");
+
+            return dt;
+        }
     }
 }

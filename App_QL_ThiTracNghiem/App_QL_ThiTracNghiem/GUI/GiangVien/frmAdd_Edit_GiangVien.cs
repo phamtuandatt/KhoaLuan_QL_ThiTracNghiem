@@ -1,5 +1,6 @@
 ﻿using App_QL_ThiTracNghiem.DAO;
 using App_QL_ThiTracNghiem.DTO;
+using App_QL_ThiTracNghiem.Validate;
 using ComponentFactory.Krypton.Toolkit;
 using System;
 using System.Collections.Generic;
@@ -83,6 +84,7 @@ namespace App_QL_ThiTracNghiem.GUI.GiangVien
 
         private void btnOk_Click(object sender, EventArgs e)
         {
+            Valid();
             if (check_edit)
             {
                 GiangViens gvien = new GiangViens();
@@ -186,6 +188,38 @@ namespace App_QL_ThiTracNghiem.GUI.GiangVien
             txtQuequan.ReadOnly = false;
             txtdiachi.ReadOnly = false;
             txtEmail.ReadOnly = false;
+        }
+
+        private void Valid()
+        {
+            if (Validation.IsValid_HoTen(txtTen.Text) == false)
+            {
+                KryptonMessageBox.Show("Tên không được chứa ký tự đặc biệt !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtTen.Focus();
+                txtTen.SelectAll();
+                return;
+            }
+            if (Validation.IsNumberPhone_VN(txtSDT.Text) == false)
+            {
+                KryptonMessageBox.Show("Chưa đúng định dạng số ở Việt Nam!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtSDT.Focus();
+                txtSDT.SelectAll();
+                return;
+            }
+            if (Validation.IsValid_HoTen(txtQuequan.Text) == false)
+            {
+                KryptonMessageBox.Show("Quê quán không được chứa ký tự đặc biệt !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtQuequan.Focus();
+                txtQuequan.SelectAll();
+                return;
+            }
+            if (Validation.IsValid_DC(txtdiachi.Text) == false)
+            {
+                KryptonMessageBox.Show("Địa chỉ không được chứa ký tự đặc biệt !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtdiachi.Focus();
+                txtdiachi.SelectAll();
+                return;
+            }
         }
 
         private void txtTen_KeyPress(object sender, KeyPressEventArgs e)

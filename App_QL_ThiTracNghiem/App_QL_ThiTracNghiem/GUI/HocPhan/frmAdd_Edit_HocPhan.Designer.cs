@@ -58,7 +58,10 @@
             this.kryptonLabel3 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.txtTen = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryptonPage2 = new ComponentFactory.Krypton.Navigator.KryptonPage();
+            this.cboGiangVien = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.txtNgayKT = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
+            this.txtMaLopHocPhan = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.lblMLHP = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.txtNgayBD = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
             this.cboThu = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.cboTiet = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
@@ -69,12 +72,9 @@
             this.kryptonLabel4 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel7 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel5 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.lblMLHP = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.txtMaLopHocPhan = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryptonPanel3 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.btnThem = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnOk = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.cboGiangVien = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).BeginInit();
@@ -93,12 +93,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.cboKhoa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPage2)).BeginInit();
             this.kryptonPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cboGiangVien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboThu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboTiet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboPhong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel3)).BeginInit();
             this.kryptonPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cboGiangVien)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonPanel1
@@ -262,7 +262,7 @@
             this.pageHocPhan,
             this.kryptonPage2});
             this.kryptonNavigator1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.kryptonNavigator1.SelectedIndex = 1;
+            this.kryptonNavigator1.SelectedIndex = 0;
             this.kryptonNavigator1.Size = new System.Drawing.Size(1369, 131);
             this.kryptonNavigator1.TabIndex = 17;
             this.kryptonNavigator1.Text = "kryptonNavigator1";
@@ -354,6 +354,7 @@
             this.txtSTC.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.txtSTC.Size = new System.Drawing.Size(129, 27);
             this.txtSTC.TabIndex = 19;
+            this.txtSTC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSTC_KeyPress);
             // 
             // txtTH
             // 
@@ -362,6 +363,7 @@
             this.txtTH.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.txtTH.Size = new System.Drawing.Size(129, 27);
             this.txtTH.TabIndex = 20;
+            this.txtTH.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSTC_KeyPress);
             // 
             // txtLT
             // 
@@ -370,6 +372,7 @@
             this.txtLT.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.txtLT.Size = new System.Drawing.Size(129, 27);
             this.txtLT.TabIndex = 21;
+            this.txtLT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSTC_KeyPress);
             // 
             // kryptonLabel9
             // 
@@ -423,6 +426,16 @@
             this.kryptonPage2.ToolTipTitle = "Page ToolTip";
             this.kryptonPage2.UniqueName = "B2999407839446C12E85338B861B2F41";
             // 
+            // cboGiangVien
+            // 
+            this.cboGiangVien.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboGiangVien.DropDownWidth = 233;
+            this.cboGiangVien.Location = new System.Drawing.Point(167, 21);
+            this.cboGiangVien.Name = "cboGiangVien";
+            this.cboGiangVien.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.cboGiangVien.Size = new System.Drawing.Size(233, 25);
+            this.cboGiangVien.TabIndex = 28;
+            // 
             // txtNgayKT
             // 
             this.txtNgayKT.Location = new System.Drawing.Point(1005, 58);
@@ -430,6 +443,23 @@
             this.txtNgayKT.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.txtNgayKT.Size = new System.Drawing.Size(162, 25);
             this.txtNgayKT.TabIndex = 27;
+            // 
+            // txtMaLopHocPhan
+            // 
+            this.txtMaLopHocPhan.Location = new System.Drawing.Point(934, 20);
+            this.txtMaLopHocPhan.Name = "txtMaLopHocPhan";
+            this.txtMaLopHocPhan.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.txtMaLopHocPhan.Size = new System.Drawing.Size(233, 27);
+            this.txtMaLopHocPhan.TabIndex = 18;
+            // 
+            // lblMLHP
+            // 
+            this.lblMLHP.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
+            this.lblMLHP.Location = new System.Drawing.Point(782, 21);
+            this.lblMLHP.Name = "lblMLHP";
+            this.lblMLHP.Size = new System.Drawing.Size(138, 24);
+            this.lblMLHP.TabIndex = 25;
+            this.lblMLHP.Values.Text = "Mã lớp học phần:";
             // 
             // txtNgayBD
             // 
@@ -610,23 +640,6 @@
             this.kryptonLabel5.TabIndex = 25;
             this.kryptonLabel5.Values.Text = "Giảng viên:";
             // 
-            // lblMLHP
-            // 
-            this.lblMLHP.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.lblMLHP.Location = new System.Drawing.Point(782, 21);
-            this.lblMLHP.Name = "lblMLHP";
-            this.lblMLHP.Size = new System.Drawing.Size(138, 24);
-            this.lblMLHP.TabIndex = 25;
-            this.lblMLHP.Values.Text = "Mã lớp học phần:";
-            // 
-            // txtMaLopHocPhan
-            // 
-            this.txtMaLopHocPhan.Location = new System.Drawing.Point(934, 20);
-            this.txtMaLopHocPhan.Name = "txtMaLopHocPhan";
-            this.txtMaLopHocPhan.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.txtMaLopHocPhan.Size = new System.Drawing.Size(233, 27);
-            this.txtMaLopHocPhan.TabIndex = 18;
-            // 
             // kryptonPanel3
             // 
             this.kryptonPanel3.Controls.Add(this.btnThem);
@@ -663,16 +676,6 @@
             this.btnOk.Values.Text = "XÁC NHẬN";
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
-            // cboGiangVien
-            // 
-            this.cboGiangVien.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboGiangVien.DropDownWidth = 233;
-            this.cboGiangVien.Location = new System.Drawing.Point(167, 21);
-            this.cboGiangVien.Name = "cboGiangVien";
-            this.cboGiangVien.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.cboGiangVien.Size = new System.Drawing.Size(233, 25);
-            this.cboGiangVien.TabIndex = 28;
-            // 
             // frmAdd_Edit_HocPhan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -701,12 +704,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPage2)).EndInit();
             this.kryptonPage2.ResumeLayout(false);
             this.kryptonPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cboGiangVien)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboThu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboTiet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboPhong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel3)).EndInit();
             this.kryptonPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.cboGiangVien)).EndInit();
             this.ResumeLayout(false);
 
         }

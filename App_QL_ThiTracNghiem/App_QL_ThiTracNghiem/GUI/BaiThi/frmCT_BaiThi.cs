@@ -1,4 +1,6 @@
-﻿using ComponentFactory.Krypton.Toolkit;
+﻿using App_QL_ThiTracNghiem.DAO;
+using App_QL_ThiTracNghiem.DTO;
+using ComponentFactory.Krypton.Toolkit;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,14 +15,49 @@ namespace App_QL_ThiTracNghiem.GUI.BaiThi
 {
     public partial class frmCT_BaiThi : UserControl
     {
-        public frmCT_BaiThi()
+        int MABAITHI;
+        public frmCT_BaiThi(int MABAITHI)
         {
             InitializeComponent();
+            this.MABAITHI = MABAITHI;
+            txtDiem.ForeColor = Color.Red;
+
+            ShowDSCauHoi();
         }
 
-        private void btnXuatFile_Click(object sender, EventArgs e)
+        public void ShowDSCauHoi()
         {
+            DataTable dt = BaiThi_DAO.GetDSCauHoiBaiThi(MABAITHI);
+            double diem = 10 / (dt.Rows.Count);
+            int cauDung = 0;
+            int cauSai = 0;
+            for (int i = dt.Rows.Count - 1; i >= 0; i--)
+            {
+                CauHois ch = new CauHois();
+                ch.NoiDung = dt.Rows[i][1].ToString();
+                ch.DapAn1 = dt.Rows[i][2].ToString();
+                ch.DapAn2 = dt.Rows[i][3].ToString();
+                ch.DapAn3 = dt.Rows[i][4].ToString();
+                ch.DapAn4 = dt.Rows[i][5].ToString();
+                ch.DapAnDung = dt.Rows[i][6].ToString().Trim();
 
+                frmCH cauhoi = new frmCH(ch, dt.Rows[i][7].ToString().Trim(), i + 1);
+                cauhoi.Dock = DockStyle.Top;
+                pnCH.Controls.Add(cauhoi);
+
+                if (dt.Rows[i][6].ToString().Trim().Equals(dt.Rows[i][7].ToString().Trim()))
+                {
+                    cauDung++;
+                }
+                else
+                {
+                    cauSai++;
+                }
+            }
+            txtCauDUng.Text = cauDung + "";
+            txtCauSai.Text = cauSai + "";
+            txtDiem.Text = cauDung * diem + "";
+            
         }
     }
 }

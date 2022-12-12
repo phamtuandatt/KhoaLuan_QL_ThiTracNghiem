@@ -1,6 +1,7 @@
 ﻿using App_QL_ThiTracNghiem.DAO;
 using App_QL_ThiTracNghiem.DTO;
 using App_QL_ThiTracNghiem.GUI.CaThi;
+using App_QL_ThiTracNghiem.Validate;
 using ComponentFactory.Krypton.Toolkit;
 using System;
 using System.Collections.Generic;
@@ -118,6 +119,7 @@ namespace App_QL_ThiTracNghiem.GUI.HocPhan
             cboGiangVien.ValueMember = "MAGV";
         }
 
+
         public void ShowCboKhoa()
         {
             cboKhoa.DataSource = Khoa_DAO.GetKhoas();
@@ -127,6 +129,13 @@ namespace App_QL_ThiTracNghiem.GUI.HocPhan
 
         private void btnOk_Click(object sender, EventArgs e)
         {
+            if (Validation.IsValid_HoTen(txtTen.Text) == false)
+            {
+                KryptonMessageBox.Show("Tên không được chứa ký tự đặc biệt !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtTen.Focus();
+                txtTen.SelectAll();
+                return;
+            }
             // Cập nhật = true
             if (check_edit)
             {
@@ -300,6 +309,12 @@ namespace App_QL_ThiTracNghiem.GUI.HocPhan
                     }
                 }
             }
+        }
+
+        private void txtSTC_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
         }
 
         private void btnThem_Click(object sender, EventArgs e)
