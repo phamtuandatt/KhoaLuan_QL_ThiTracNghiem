@@ -49,6 +49,21 @@ namespace App_QL_ThiTracNghiem.GUI.HocPhan
         {
             frmAdd_Edit_HocPhan addHp = new frmAdd_Edit_HocPhan(false, true, MAKHOA, MAHOCPHAN);
             addHp.ShowDialog();
+            gridDSLOPHP.DataSource = CT_HocPhan_DAO.GetDSLopHP(MAHOCPHAN);
+        }
+
+        private void cẬPNHẬTLỚPHỌCPHẦNToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int rsl = gridDSLOPHP.CurrentRow.Index;
+            string MAHP = gridDSLOPHP.Rows[rsl].Cells[1].Value.ToString();
+            string MALOPHP = gridDSLOPHP.Rows[rsl].Cells[0].Value.ToString();
+            HocPhans hocPhan = HocPhan_DAO.GetHP(MAHP);
+
+            CT_HocPhans ct_hocphan = CT_HocPhan_DAO.CT_HocPhan(MALOPHP);
+
+            frmAdd_Edit_HocPhan edit = new frmAdd_Edit_HocPhan(true, hocPhan, ct_hocphan, MALOPHP);
+            edit.ShowDialog();
+            gridDSLOPHP.DataSource = CT_HocPhan_DAO.GetDSLopHP(MAHOCPHAN);
         }
 
         private void gridDSLOPHP_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -57,13 +72,13 @@ namespace App_QL_ThiTracNghiem.GUI.HocPhan
 
             // Sau khi nhấn vào lớp học phần -> Hiện frmEdit_....
 
-            int rsl = gridDSLOPHP.CurrentRow.Index;
-            HocPhans hocPhan = HocPhan_DAO.GetHP(MAHOCPHAN);
+            //int rsl = gridDSLOPHP.CurrentRow.Index;
+            //HocPhans hocPhan = HocPhan_DAO.GetHP(MAHOCPHAN);
 
-            CT_HocPhans ct_hocphan = CT_HocPhan_DAO.CT_HocPhan(hocPhan.MaHocPhan);
+            //CT_HocPhans ct_hocphan = CT_HocPhan_DAO.CT_HocPhan(hocPhan.MaHocPhan);
 
-            frmAdd_Edit_HocPhan edit = new frmAdd_Edit_HocPhan(true, hocPhan, ct_hocphan);
-            edit.ShowDialog();
+            //frmAdd_Edit_HocPhan edit = new frmAdd_Edit_HocPhan(true, hocPhan, ct_hocphan);
+            //edit.ShowDialog();
         }
     }
 }

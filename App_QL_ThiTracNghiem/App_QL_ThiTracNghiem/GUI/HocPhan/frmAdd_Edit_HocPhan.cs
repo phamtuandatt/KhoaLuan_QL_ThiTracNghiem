@@ -19,7 +19,7 @@ namespace App_QL_ThiTracNghiem.GUI.HocPhan
     public partial class frmAdd_Edit_HocPhan : MetroFramework.Forms.MetroForm
     {
         bool check_edit, checkAddLopHP;
-        string MAKHOA, MAHOCPHAN;
+        string MAKHOA, MAHOCPHAN, MALOPHOCPHAN;
         HocPhans hp;
         CT_HocPhans ct_hp;
         HocPhans hocPhan;
@@ -31,6 +31,7 @@ namespace App_QL_ThiTracNghiem.GUI.HocPhan
             this.check_edit = check_edit;
             this.MAKHOA = MAKHOA;
             this.MAHOCPHAN = MAHOCPHAN;
+          
             hocPhan = HocPhan_DAO.GetHP(MAHOCPHAN);
 
             // check_edit = false là đi thêm
@@ -41,27 +42,25 @@ namespace App_QL_ThiTracNghiem.GUI.HocPhan
             txtMaLopHocPhan.Visible = false;
             lblMLHP.Visible = false;
             pageHocPhan.Visible = false;
-
         }
 
-        public frmAdd_Edit_HocPhan(bool check_edit, HocPhans hp, CT_HocPhans ct_hp)
+        public frmAdd_Edit_HocPhan(bool check_edit, HocPhans hp, CT_HocPhans ct_hp, string MALOPHOCPHAN)
         {
             InitializeComponent();
             this.check_edit = check_edit;
             this.hp = hp;
             this.ct_hp = ct_hp;
+            this.MALOPHOCPHAN = MALOPHOCPHAN;
 
+            // Cập nhật = true
             if (check_edit)
             {
                 ShowCboKhoa();
                 ShowDSGV(cboKhoa.SelectedValue.ToString());
                 // Học phần
+                pageHocPhan.Visible = false;
                 cboKhoa.SelectedValue = hp.MaKhoa;
                 txtMHP.Text = hp.MaHocPhan;
-                txtTen.Text = hp.TenHocPhan;
-                txtSTC.Text = hp.SoTC + "";
-                txtLT.Text = hp.SoTietLT + "";
-                txtTH.Text = hp.SoTietTH + "";
 
                 // Chi Tiết học phần
                 if (ct_hp == null)
@@ -73,8 +72,8 @@ namespace App_QL_ThiTracNghiem.GUI.HocPhan
                     txtMaLopHocPhan.Text = ct_hp.MaLopHocPhan;
                     cboGiangVien.SelectedValue = ct_hp.MaGV;
                     cboThu.Text = ct_hp.Thu + "";
-                    cboPhong.Text = ct_hp.Phong;
-                    cboTiet.Text = ct_hp.Tiet;
+                    cboPhong.Text = ct_hp.Phong.Trim();
+                    cboTiet.Text = ct_hp.Tiet.Trim();
                     txtNgayBD.Value = ct_hp.NgayBD;
                     txtNgayKT.Value = ct_hp.NgayKT;
                 }
@@ -129,34 +128,15 @@ namespace App_QL_ThiTracNghiem.GUI.HocPhan
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            if (Validation.IsValid_HoTen(txtTen.Text) == false)
-            {
-                KryptonMessageBox.Show("Tên không được chứa ký tự đặc biệt !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtTen.Focus();
-                txtTen.SelectAll();
-                return;
-            }
             // Cập nhật = true
             if (check_edit)
             {
-                if (txtSTC.Text == "" || txtSTC.Text.Length <= 0
-                    || txtLT.Text == "" || txtLT.Text.Length <= 0
-                    || txtTH.Text == "" || txtTH.Text.Length <= 0
-                    || txtTen.Text == "" || txtTen.Text.Length <= 0
-                    || txtMHP.Text == "" || txtMHP.Text.Length <= 0
-                    || txtMaLopHocPhan.Text == "" || txtMaLopHocPhan.Text.Length <= 0
-                    || gridDSSV.RowCount <= 0)
+                if (HocPhanIsExisted(cboTiet.Text.Trim(), cboPhong.Text.Trim(), int.Parse(cboThu.Text.Trim())))
                 {
-                    KryptonMessageBox.Show("Hãy hoàn điền đầy đủ thông tin !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    var tiet = HocPhan_DAO.GetTietOfThuPhong(cboPhong.Text.Trim(), int.Parse(cboThu.Text.Trim()));
+                    KryptonMessageBox.Show($"Phòng đã được sử dụng tiết {tiet}.\nLịch học đã bị trùng. Hãy chọn lịch học khác !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                // Học phần
-                HocPhans hocPhan = new HocPhans();
-                hocPhan.MaHocPhan = hp.MaHocPhan;
-                hocPhan.TenHocPhan = txtTen.Text;
-                hocPhan.SoTC = int.Parse(txtSTC.Text.Trim());
-                hocPhan.SoTietLT = int.Parse(txtLT.Text.Trim());
-                hocPhan.SoTietTH = int.Parse(txtTH.Text.Trim());
 
                 // CT_HocPhan
                 List<CT_HocPhans> lstCT_HocPhan = new List<CT_HocPhans>();
@@ -175,15 +155,15 @@ namespace App_QL_ThiTracNghiem.GUI.HocPhan
 
                     lstCT_HocPhan.Add(ct_hp);
                 }
-                
-                if (HocPhan_DAO.UpdateHP(hocPhan) && CT_HocPhan_DAO.Update_DB_CT_HocPhan(true, txtMaLopHocPhan.Text.Trim(), lstCT_HocPhan))
+
+                if (CT_HocPhan_DAO.Update_DB_CT_HocPhan(true, txtMaLopHocPhan.Text.Trim(), lstCT_HocPhan))
                 {
-                    KryptonMessageBox.Show("Cập nhật HỌC PHẦN thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    KryptonMessageBox.Show("Cập nhật LỚP HỌC PHẦN thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
                 else
                 {
-                    KryptonMessageBox.Show("Cập nhật HỌC PHẦN KHÔNG thành công !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    KryptonMessageBox.Show("Cập nhật LỚP HỌC PHẦN KHÔNG thành công !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     this.Close();
                 }
             }
@@ -197,6 +177,14 @@ namespace App_QL_ThiTracNghiem.GUI.HocPhan
                 }
                 if (checkAddLopHP)
                 {
+                    // Kiểm tra học phần có bị trùng hay không
+                    if (HocPhanIsExisted(cboTiet.Text.Trim(), cboPhong.Text.Trim(), int.Parse(cboThu.Text.Trim())))
+                    {
+                        var tiet = HocPhan_DAO.GetTietOfThuPhong(cboPhong.Text.Trim(), int.Parse(cboThu.Text.Trim()));
+                        KryptonMessageBox.Show($"Phòng đã được sử dụng tiết {tiet}.\nLịch học đã bị trùng. Hãy chọn lịch học khác !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
                     string MHP = this.MAHOCPHAN;
                     string MLHP = CT_HocPhan_DAO.GetMaCTHP(MHP);
                     List<CT_HocPhans> lstCT_HocPhan = new List<CT_HocPhans>();
@@ -215,6 +203,7 @@ namespace App_QL_ThiTracNghiem.GUI.HocPhan
 
                         lstCT_HocPhan.Add(ct_hp);
                     }
+
                     if (CT_HocPhan_DAO.Update_DB_CT_HocPhan(false, null, lstCT_HocPhan))
                     {
                         // THÊM VÀO CT_GIANGDAY -> KHI THÊM KIỂM TRA GIẢNG VIÊN ĐÃ PHỤ TRÁCH HỌC PHẦN ĐÓ CHƯA
@@ -243,7 +232,14 @@ namespace App_QL_ThiTracNghiem.GUI.HocPhan
                     }
                 }
                 else
-                {
+                {    
+                    // Kiểm tra học phần có bị trùng hay không
+                    if (HocPhanIsExisted(cboTiet.Text.Trim(), cboPhong.Text.Trim(), int.Parse(cboThu.Text.Trim())))
+                    {
+                        var tiet = HocPhan_DAO.GetTietOfThuPhong(cboPhong.Text.Trim(), int.Parse(cboThu.Text.Trim()));
+                        KryptonMessageBox.Show($"Phòng đã được sử dụng tiết {tiet.Trim()}.\nLịch học đã bị trùng. Hãy chọn lịch học khác !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
                     HocPhans hocPhan = new HocPhans();
                     hocPhan.TenHocPhan = txtTen.Text;
                     hocPhan.SoTC = int.Parse(txtTH.Text.Trim());
@@ -271,6 +267,7 @@ namespace App_QL_ThiTracNghiem.GUI.HocPhan
 
                             lstCT_HocPhan.Add(ct_hp);
                         }
+
                         if (CT_HocPhan_DAO.Update_DB_CT_HocPhan(false, null, lstCT_HocPhan))
                         {
                             // THÊM VÀO CT_GIANGDAY -> KHI THÊM KIỂM TRA GIẢNG VIÊN ĐÃ PHỤ TRÁCH HỌC PHẦN ĐÓ CHƯA
@@ -309,6 +306,13 @@ namespace App_QL_ThiTracNghiem.GUI.HocPhan
                     }
                 }
             }
+        }
+
+        private bool HocPhanIsExisted(string TIET, string PHONG, int THU)
+        {
+            if (HocPhan_DAO.HPIsExisted(TIET, PHONG, THU))
+                return true;
+            return false;
         }
 
         private void txtSTC_KeyPress(object sender, KeyPressEventArgs e)

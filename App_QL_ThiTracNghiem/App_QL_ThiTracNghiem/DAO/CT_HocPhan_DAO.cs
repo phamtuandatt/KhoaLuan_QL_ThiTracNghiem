@@ -35,11 +35,12 @@ namespace App_QL_ThiTracNghiem.DAO
             }
             return null;
         }
-
-        public static CT_HocPhans CT_HocPhan(string MAHOCPHAN)
+         
+        public static CT_HocPhans CT_HocPhan(string MALOPHOCPHAN)
         {
             DataTable dt = new DataTable();
-            string sql = $"EXEC GET_CT_HOCPHAN '{MAHOCPHAN}'";
+            //string sql = $"EXEC GET_CT_HOCPHAN '{MAHOCPHAN}'";
+            string sql = $"EXEC GET_CT_LOPHOCPHAN '{MALOPHOCPHAN}'";
             dt = data.get_data(sql, "CTHOCPHAN");
             
             foreach (DataRow item in dt.Rows)

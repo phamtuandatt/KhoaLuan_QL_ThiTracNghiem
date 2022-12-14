@@ -38,7 +38,7 @@ namespace App_QL_ThiTracNghiem.GUI.HocPhan
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            frmAdd_Edit_HocPhan edit = new frmAdd_Edit_HocPhan(false, null, null);
+            frmAdd_Edit_HocPhan edit = new frmAdd_Edit_HocPhan(false, null, null, "");
             edit.ShowDialog();
         }
 

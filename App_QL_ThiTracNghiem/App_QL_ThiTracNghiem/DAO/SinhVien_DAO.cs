@@ -17,6 +17,7 @@ namespace App_QL_ThiTracNghiem.DAO
 
         public static DataTable GetSinhViens(string MAHOCPHAN)
         {
+            // Lấy danh sách sinh viên chưa tham gia thi học phần
             DataTable dT = new DataTable();
             string sql = string.Format("EXEC GET_DS_SV_LOPHOCPHAN '{0}'", MAHOCPHAN);
             dT = data.get_data(sql, "GETSINHVIEN");

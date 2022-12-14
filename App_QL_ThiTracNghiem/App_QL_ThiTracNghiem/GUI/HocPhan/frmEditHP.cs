@@ -64,5 +64,11 @@ namespace App_QL_ThiTracNghiem.GUI.HocPhan
         {
             this.Close();
         }
+
+        private void txtSTC_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
     }
 }

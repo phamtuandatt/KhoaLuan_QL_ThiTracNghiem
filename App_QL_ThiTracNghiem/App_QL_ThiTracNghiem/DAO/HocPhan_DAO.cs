@@ -55,8 +55,9 @@ namespace App_QL_ThiTracNghiem.DAO
 
         public static DataTable GetAllHocPhans()
         {
+            // Lấy danh sách học phần đã có ca thi
             DataTable dt_HocPhan = new DataTable();
-            string sql = "SELECT *FROM HOCPHAN";
+            string sql = $"SELECT *FROM HOCPHAN WHERE MAHOCPHAN IN (SELECT MAHOCPHAN FROM DETHI)";
             dt_HocPhan = data.get_data(sql, "GetAllHocPhans");
 
             return dt_HocPhan;
@@ -84,11 +85,25 @@ namespace App_QL_ThiTracNghiem.DAO
         }
 
         // Kiểm tra học phần chuẩn bị tạo đã tồn tại chưa
-        public static bool HPIsExisted(HocPhans hp)
+        public static bool HPIsExisted(string TIET, string PHONG, int THU)
         {
-            string sql = "";
+            string sql = $"SELECT COUNT(MAHOCPHAN) FROM CT_HOCPHAN " +
+                $"WHERE THU = {THU} AND TIET = '{TIET}' AND PHONG = '{PHONG}'";
 
             return data.get_result_int(sql) > 0;
+        }
+
+        public static string GetTietOfThuPhong(string PHONG, int THU)
+        {
+            DataTable dt = new DataTable();
+            string sql = $"SELECT *FROM CT_HOCPHAN WHERE THU = {THU} AND PHONG = '{PHONG}'";
+            dt = data.get_data(sql, "TOTTP");
+
+            foreach (DataRow item in dt.Rows)
+            {
+                return item["TIET"].ToString();
+            }
+            return "";
         }
 
         public static bool UpdateHP(HocPhans hp)
@@ -107,9 +122,39 @@ namespace App_QL_ThiTracNghiem.DAO
 
         public static bool DeleteHP(string MAHOCPHAN)
         {
-            string sql = $"DELETE FROM HOCPHAN WHERE MAHOCPHAN = '{MAHOCPHAN}'";
+            // Kiểm tra có CT_HOCPHAN nào có MAHOCPHAN hay không
+            if (CT_HPIsExisted(MAHOCPHAN))
+            {
+                if (DeleteCT_HP(MAHOCPHAN))
+                {
+                    if (CT_GiangDay_DAO.DeleteCT_GiangDay(MAHOCPHAN))
+                    {
+                        string sql = $"DELETE FROM HOCPHAN WHERE MAHOCPHAN = '{MAHOCPHAN}'";
+                        return data.insert_update_delete(sql) > 0;
+                    }
+                }
+            }
+            else
+            {
+                string sql = $"DELETE FROM HOCPHAN WHERE MAHOCPHAN = '{MAHOCPHAN}'";
+                return data.insert_update_delete(sql) > 0;
+            }
+
+            return false;
+        }
+
+        public static bool DeleteCT_HP(string MAHOCPHAN)
+        {
+            string sql = $"DELETE FROM CT_HOCPHAN WHERE MAHOCPHAN = '{MAHOCPHAN}'";
 
             return data.insert_update_delete(sql) > 0;
+        }
+
+        public static bool CT_HPIsExisted(string MAHOCPHAN)
+        {
+            string sql = $"SELECT COUNT(MAHOCPHAN) FROM CT_HOCPHAN WHERE MAHOCPHAN = '{MAHOCPHAN}'";
+
+            return data.get_result_int(sql) > 0;
         }
     }
 }

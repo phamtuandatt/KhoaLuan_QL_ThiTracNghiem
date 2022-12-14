@@ -346,6 +346,7 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
                     if (CT_DeThi_DAO.UpdateDatabase(lstCauHoi, dethi, MADETHI, cboHocPhan.SelectedValue.ToString().Trim()))
                     {
                         KryptonMessageBox.Show("Tạo đề thi thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Visible = false;
                     }
                     else
                     {
@@ -356,6 +357,7 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
                             message += " - " + item + " - ";
                         }
                         KryptonMessageBox.Show($"Tạo đề thi KHÔNG thành công !\nMôn học này đã có {sl} đề thi {message} \t", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        this.Visible = false;
                     }
                 }
                 else
@@ -367,6 +369,7 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
                         message += " - " + item + " - ";
                     }
                     KryptonMessageBox.Show($"Tạo đề thi KHÔNG thành công !\nMôn học này đã có {sl} đề thi {message} \t", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    this.Visible = false;
                 }
             }
             // Cập nhật câu hỏi cho đề thi

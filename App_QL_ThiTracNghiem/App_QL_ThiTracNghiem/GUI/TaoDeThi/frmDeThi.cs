@@ -42,5 +42,13 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
             pnContent.Controls.Add(frmDSDeThi);
             frmDSDeThi.BringToFront();
         }
+
+        private void btnCN_Click(object sender, EventArgs e)
+        {
+            frmDSDeThi frmDSDeThi = new frmDSDeThi(pnContent);
+            frmDSDeThi.Dock = System.Windows.Forms.DockStyle.Fill;
+            pnContent.Controls.Add(frmDSDeThi);
+            frmDSDeThi.BringToFront();
+        }
     }
 }

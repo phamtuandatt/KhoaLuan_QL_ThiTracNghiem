@@ -76,12 +76,19 @@ namespace App_QL_ThiTracNghiem.GUI
                 // Lấy mã ngân hàng sau khi giảng viên đăng nhập vào -> Truyền vào để lấy danh sách môn học chưa được tạo của ngân hàng
                 frmThemMonHoc frmThemMonHoc = new frmThemMonHoc(MANGANHANG, MAGV);
                 frmThemMonHoc.ShowDialog();
+                frmDS_MonHoc_CauHoi frmDS_CauHoi = new frmDS_MonHoc_CauHoi(pnContent, false, MANGANHANG, MAGV);
+                frmDS_CauHoi.Dock = System.Windows.Forms.DockStyle.Fill;
+                pnContent.Controls.Add(frmDS_CauHoi);
+                frmDS_CauHoi.BringToFront();
             }
         }
 
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
-
+            frmDS_MonHoc_CauHoi frmDS_CauHoi = new frmDS_MonHoc_CauHoi(pnContent, false, MANGANHANG, MAGV);
+            frmDS_CauHoi.Dock = System.Windows.Forms.DockStyle.Fill;
+            pnContent.Controls.Add(frmDS_CauHoi);
+            frmDS_CauHoi.BringToFront();
         }
     }
 }

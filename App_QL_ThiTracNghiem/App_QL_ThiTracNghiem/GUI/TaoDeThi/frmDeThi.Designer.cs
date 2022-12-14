@@ -32,6 +32,7 @@
             this.btnTroVe = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnTaoDeThi = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.pnContent = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.btnCN = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnContent)).BeginInit();
@@ -39,6 +40,7 @@
             // 
             // kryptonPanel1
             // 
+            this.kryptonPanel1.Controls.Add(this.btnCN);
             this.kryptonPanel1.Controls.Add(this.btnTroVe);
             this.kryptonPanel1.Controls.Add(this.btnTaoDeThi);
             this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -81,6 +83,18 @@
             this.pnContent.Size = new System.Drawing.Size(1093, 673);
             this.pnContent.TabIndex = 1;
             // 
+            // btnCN
+            // 
+            this.btnCN.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnCN.Location = new System.Drawing.Point(153, 5);
+            this.btnCN.Name = "btnCN";
+            this.btnCN.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.btnCN.Size = new System.Drawing.Size(140, 40);
+            this.btnCN.TabIndex = 0;
+            this.btnCN.Values.Text = "Cập nhật";
+            this.btnCN.Click += new System.EventHandler(this.btnCN_Click);
+            // 
             // frmDeThi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -102,5 +116,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnTroVe;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnTaoDeThi;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel pnContent;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnCN;
     }
 }

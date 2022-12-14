@@ -325,19 +325,5 @@ namespace App_QL_ThiTracNghiem.GUI.CauHoi
             cboMonHoc.DisplayMember = "TENHOCPHAN";
             cboMonHoc.ValueMember = "MAHOCPHAN";
         }
-
-        private void frmImportCH_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (gridDS_CauHoi.RowCount > 0)
-            {
-                if (KryptonMessageBox.Show("Bạn có muốn HỦY thao tác hiện tại ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-                    == DialogResult.No)
-                    e.Cancel = true;
-            }
-            else
-            {
-                e.Cancel = false;
-            }
-        }
     }
 }

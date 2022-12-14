@@ -63,6 +63,7 @@ namespace App_QL_ThiTracNghiem.GUI.CauHoi
         {
             btnHuy.Visible = false;
             btnOk.Visible = false;
+            btnUpDB.Visible = false;
             lblNoiDungCauHoi.ReadOnly = true;
             txtA.ReadOnly = true;
             txtB.ReadOnly = true;
@@ -146,6 +147,7 @@ namespace App_QL_ThiTracNghiem.GUI.CauHoi
 
             btnHuy.Visible = false;
             btnOk.Visible = false;
+            btnUpDB.Visible = false;
             lblNoiDungCauHoi.ReadOnly = true;
             txtA.ReadOnly = true;
             txtB.ReadOnly = true;

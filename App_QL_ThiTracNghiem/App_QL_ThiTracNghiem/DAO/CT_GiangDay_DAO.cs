@@ -25,5 +25,12 @@ namespace App_QL_ThiTracNghiem.DAO
 
             return data.insert_update_delete(sql) > 0;
         }
+
+        public static bool DeleteCT_GiangDay(string MAHOCPHAN)
+        {
+            string sql = $"DELETE FROM CT_GIANGDAY WHERE MAHOCPHAN = '{MAHOCPHAN}'";
+
+            return data.insert_update_delete(sql) > 0;
+        }
     }
 }

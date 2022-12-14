@@ -128,7 +128,7 @@ namespace App_QL_ThiTracNghiem.GUI.LopHoc
             }
             else
             {
-                KryptonMessageBox.Show("Thêm danh sách sinh viên KHÔNG thành công !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                KryptonMessageBox.Show("Danh sách sinh viên đã được thêm thành công !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 this.Close();
             }
         }

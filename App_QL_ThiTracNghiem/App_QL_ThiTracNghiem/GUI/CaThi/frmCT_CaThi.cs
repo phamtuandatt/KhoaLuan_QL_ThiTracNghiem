@@ -22,7 +22,7 @@ namespace App_QL_ThiTracNghiem.GUI.CaThi
 
         public frmCT_CaThi()
         {
-            InitializeComponent();
+            InitializeComponent(); 
         }
 
         public frmCT_CaThi(bool check_edit, string MAHOCPHAN, string TENHOCPHAN, List<string> lst_SV, CaThis CaThis)

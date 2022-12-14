@@ -51,6 +51,12 @@ namespace App_QL_ThiTracNghiem.GUI.LopHoc
         {
             if (check_edit)
             {
+                if (txtMaLop.Text.Length <= 0 || txtTenLop.Text.Length <= 0)
+                {
+                    KryptonMessageBox.Show("Hãy điền đầy đủ thông tin để tạo lớp !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    this.Close();
+                    return;
+                }
                 Lops lop = new Lops();
                 lop.MaLop = txtMaLop.Text;
                 lop.TenLop = txtTenLop.Text;
@@ -68,6 +74,12 @@ namespace App_QL_ThiTracNghiem.GUI.LopHoc
             }
             else
             {
+                if (txtMaLop.Text.Length <= 0 || txtTenLop.Text.Length <= 0)
+                {
+                    KryptonMessageBox.Show("Hãy điền đầy đủ thông tin để tạo lớp !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    this.Close();
+                    return;
+                }
                 Lops lop = new Lops();
                 lop.MaLop = txtMaLop.Text;
                 lop.TenLop = txtTenLop.Text;

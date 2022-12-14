@@ -43,6 +43,7 @@
             this.contexteEdit = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.xÓALỚPHỌCPHẦNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tHÊMLỚPHỌCPHẦNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cẬPNHẬTLỚPHỌCPHẦNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).BeginInit();
@@ -174,23 +175,31 @@
             this.contexteEdit.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contexteEdit.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.xÓALỚPHỌCPHẦNToolStripMenuItem,
-            this.tHÊMLỚPHỌCPHẦNToolStripMenuItem});
+            this.tHÊMLỚPHỌCPHẦNToolStripMenuItem,
+            this.cẬPNHẬTLỚPHỌCPHẦNToolStripMenuItem});
             this.contexteEdit.Name = "contextXoa";
-            this.contexteEdit.Size = new System.Drawing.Size(228, 80);
+            this.contexteEdit.Size = new System.Drawing.Size(259, 104);
             // 
             // xÓALỚPHỌCPHẦNToolStripMenuItem
             // 
             this.xÓALỚPHỌCPHẦNToolStripMenuItem.Name = "xÓALỚPHỌCPHẦNToolStripMenuItem";
-            this.xÓALỚPHỌCPHẦNToolStripMenuItem.Size = new System.Drawing.Size(227, 24);
+            this.xÓALỚPHỌCPHẦNToolStripMenuItem.Size = new System.Drawing.Size(258, 24);
             this.xÓALỚPHỌCPHẦNToolStripMenuItem.Text = "XÓA LỚP HỌC PHẦN";
             this.xÓALỚPHỌCPHẦNToolStripMenuItem.Click += new System.EventHandler(this.xÓALỚPHỌCPHẦNToolStripMenuItem_Click);
             // 
             // tHÊMLỚPHỌCPHẦNToolStripMenuItem
             // 
             this.tHÊMLỚPHỌCPHẦNToolStripMenuItem.Name = "tHÊMLỚPHỌCPHẦNToolStripMenuItem";
-            this.tHÊMLỚPHỌCPHẦNToolStripMenuItem.Size = new System.Drawing.Size(227, 24);
+            this.tHÊMLỚPHỌCPHẦNToolStripMenuItem.Size = new System.Drawing.Size(258, 24);
             this.tHÊMLỚPHỌCPHẦNToolStripMenuItem.Text = "THÊM LỚP HỌC PHẦN";
             this.tHÊMLỚPHỌCPHẦNToolStripMenuItem.Click += new System.EventHandler(this.tHÊMLỚPHỌCPHẦNToolStripMenuItem_Click);
+            // 
+            // cẬPNHẬTLỚPHỌCPHẦNToolStripMenuItem
+            // 
+            this.cẬPNHẬTLỚPHỌCPHẦNToolStripMenuItem.Name = "cẬPNHẬTLỚPHỌCPHẦNToolStripMenuItem";
+            this.cẬPNHẬTLỚPHỌCPHẦNToolStripMenuItem.Size = new System.Drawing.Size(258, 24);
+            this.cẬPNHẬTLỚPHỌCPHẦNToolStripMenuItem.Text = "CẬP NHẬT LỚP HỌC PHẦN";
+            this.cẬPNHẬTLỚPHỌCPHẦNToolStripMenuItem.Click += new System.EventHandler(this.cẬPNHẬTLỚPHỌCPHẦNToolStripMenuItem_Click);
             // 
             // frmDS_LopHocPhan
             // 
@@ -227,5 +236,6 @@
         private System.Windows.Forms.ContextMenuStrip contexteEdit;
         private System.Windows.Forms.ToolStripMenuItem xÓALỚPHỌCPHẦNToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tHÊMLỚPHỌCPHẦNToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cẬPNHẬTLỚPHỌCPHẦNToolStripMenuItem;
     }
 }

@@ -300,7 +300,7 @@
             this.cboKhoa.Name = "cboKhoa";
             this.cboKhoa.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.cboKhoa.Size = new System.Drawing.Size(457, 25);
-            this.cboKhoa.TabIndex = 30;
+            this.cboKhoa.TabIndex = 1;
             this.cboKhoa.SelectedIndexChanged += new System.EventHandler(this.cboKhoa_SelectedIndexChanged);
             // 
             // kryptonLabel1
@@ -345,7 +345,7 @@
             this.txtMHP.Name = "txtMHP";
             this.txtMHP.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.txtMHP.Size = new System.Drawing.Size(129, 27);
-            this.txtMHP.TabIndex = 18;
+            this.txtMHP.TabIndex = 3;
             // 
             // txtSTC
             // 
@@ -353,7 +353,7 @@
             this.txtSTC.Name = "txtSTC";
             this.txtSTC.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.txtSTC.Size = new System.Drawing.Size(129, 27);
-            this.txtSTC.TabIndex = 19;
+            this.txtSTC.TabIndex = 2;
             this.txtSTC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSTC_KeyPress);
             // 
             // txtTH
@@ -362,7 +362,7 @@
             this.txtTH.Name = "txtTH";
             this.txtTH.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.txtTH.Size = new System.Drawing.Size(129, 27);
-            this.txtTH.TabIndex = 20;
+            this.txtTH.TabIndex = 5;
             this.txtTH.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSTC_KeyPress);
             // 
             // txtLT
@@ -371,7 +371,7 @@
             this.txtLT.Name = "txtLT";
             this.txtLT.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.txtLT.Size = new System.Drawing.Size(129, 27);
-            this.txtLT.TabIndex = 21;
+            this.txtLT.TabIndex = 4;
             this.txtLT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSTC_KeyPress);
             // 
             // kryptonLabel9
@@ -398,7 +398,7 @@
             this.txtTen.Name = "txtTen";
             this.txtTen.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.txtTen.Size = new System.Drawing.Size(457, 27);
-            this.txtTen.TabIndex = 17;
+            this.txtTen.TabIndex = 6;
             // 
             // kryptonPage2
             // 
@@ -434,7 +434,7 @@
             this.cboGiangVien.Name = "cboGiangVien";
             this.cboGiangVien.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.cboGiangVien.Size = new System.Drawing.Size(233, 25);
-            this.cboGiangVien.TabIndex = 28;
+            this.cboGiangVien.TabIndex = 7;
             // 
             // txtNgayKT
             // 
@@ -442,7 +442,7 @@
             this.txtNgayKT.Name = "txtNgayKT";
             this.txtNgayKT.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.txtNgayKT.Size = new System.Drawing.Size(162, 25);
-            this.txtNgayKT.TabIndex = 27;
+            this.txtNgayKT.TabIndex = 13;
             // 
             // txtMaLopHocPhan
             // 
@@ -450,7 +450,7 @@
             this.txtMaLopHocPhan.Name = "txtMaLopHocPhan";
             this.txtMaLopHocPhan.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.txtMaLopHocPhan.Size = new System.Drawing.Size(233, 27);
-            this.txtMaLopHocPhan.TabIndex = 18;
+            this.txtMaLopHocPhan.TabIndex = 9;
             // 
             // lblMLHP
             // 
@@ -467,7 +467,7 @@
             this.txtNgayBD.Name = "txtNgayBD";
             this.txtNgayBD.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.txtNgayBD.Size = new System.Drawing.Size(162, 25);
-            this.txtNgayBD.TabIndex = 27;
+            this.txtNgayBD.TabIndex = 12;
             // 
             // cboThu
             // 
@@ -484,7 +484,7 @@
             this.cboThu.Name = "cboThu";
             this.cboThu.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.cboThu.Size = new System.Drawing.Size(198, 25);
-            this.cboThu.TabIndex = 26;
+            this.cboThu.TabIndex = 8;
             this.cboThu.Text = "2";
             // 
             // cboTiet
@@ -508,7 +508,7 @@
             this.cboTiet.Name = "cboTiet";
             this.cboTiet.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.cboTiet.Size = new System.Drawing.Size(121, 25);
-            this.cboTiet.TabIndex = 26;
+            this.cboTiet.TabIndex = 11;
             this.cboTiet.Text = "1-3";
             // 
             // cboPhong
@@ -583,7 +583,7 @@
             this.cboPhong.Name = "cboPhong";
             this.cboPhong.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.cboPhong.Size = new System.Drawing.Size(121, 25);
-            this.cboPhong.TabIndex = 26;
+            this.cboPhong.TabIndex = 10;
             this.cboPhong.Text = "A101";
             // 
             // kryptonLabel13

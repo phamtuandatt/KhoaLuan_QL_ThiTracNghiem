@@ -43,9 +43,11 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
             if (this.check_create_edit)
             {
                 btnThemSV.Visible = false; 
+
                 cboDSMonHoc.DataSource = HocPhan_DAO.GetAllHocPhans();
                 cboDSMonHoc.DisplayMember = "TENHOCPHAN";
                 cboDSMonHoc.ValueMember = "MAHOCPHAN";
+
                 cboDSMonHoc.SelectedIndex = 0;
                 Show_DS_SV(cboDSMonHoc.SelectedValue.ToString());
             }
