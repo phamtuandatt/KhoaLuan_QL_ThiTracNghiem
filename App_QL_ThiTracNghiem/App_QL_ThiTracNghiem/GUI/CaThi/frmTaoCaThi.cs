@@ -123,6 +123,7 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
 
                 frmCT_CaThi frmCTCaThi = new frmCT_CaThi(true, cboDSMonHoc.SelectedValue.ToString(), cboDSMonHoc.Text.Trim(), lst_SV, null);
                 frmCTCaThi.ShowDialog();
+                this.Visible = false;
             }
             // Cập nhật ca thi
             else
@@ -139,10 +140,12 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
                 cts.NgayThi = ct.NgayThi;
                 cts.GioLamBai = ct.GioLamBai;
                 cts.TinhTrang = ct.TinhTrang;
+                cts.Phong = this.ct.Phong;
 
 
                 frmCT_CaThi frmCTCaThi = new frmCT_CaThi(false, MAHOCPHAN, cboDSMonHoc.Text.Trim(), lst_SV, ct);
                 frmCTCaThi.ShowDialog();
+                this.Visible = false;
             }
         }
 
@@ -233,7 +236,10 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
-
+            if (KryptonMessageBox.Show("Bạn có muốn THAO TÁC hiện tại ? ", "Cảnh báo",
+                        MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
+                return;
+            this.Visible = false;
         }
 
         private void cboDSMonHoc_SelectedIndexChanged(object sender, EventArgs e)

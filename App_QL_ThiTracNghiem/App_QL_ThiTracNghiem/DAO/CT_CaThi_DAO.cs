@@ -27,7 +27,7 @@ namespace App_QL_ThiTracNghiem.DAO
         public static DataTable GetDSSV_ChuaThi(string MAHOCPHAN)
         {
             DataTable dt = new DataTable();
-            string sql = string.Format("EXEC GET_DSSV_CHUA_THAM_GIA_THI '{0}'", MAHOCPHAN);
+            string sql = string.Format("EXEC GETDSSVHOCPHANCHUATHI '{0}'", MAHOCPHAN);
             dt = data.get_data(sql, "DSSINHVIEN");
 
             return dt;

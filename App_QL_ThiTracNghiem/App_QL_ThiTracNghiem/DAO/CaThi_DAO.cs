@@ -91,5 +91,23 @@ namespace App_QL_ThiTracNghiem.DAO
 
             return dt;
         }
+
+        public static CaThis GetCaThi(int MACATHI)
+        {
+            CaThis caThis = new CaThis();
+            DataTable dt = new DataTable();
+            string sql = $"SELECT *FROM CATHI WHERE MACATHI = {MACATHI}";
+            dt = data.get_data(sql, "CATHI");
+
+            foreach (DataRow item in dt.Rows)
+            {
+                caThis.Phong = item["PHONGTHI"].ToString();
+                caThis.NgayThi = DateTime.Parse(item["NGAYTHI"].ToString());
+                caThis.GioLamBai = item["GIOLAMBAI"].ToString();
+
+                return caThis;
+            }
+            return caThis;
+        }
     }
 }

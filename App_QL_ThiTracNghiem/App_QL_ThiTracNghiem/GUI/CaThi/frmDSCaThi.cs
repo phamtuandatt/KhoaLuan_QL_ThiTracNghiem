@@ -69,6 +69,7 @@ namespace App_QL_ThiTracNghiem.GUI.CaThi
                 ct.MaDeThi = gridDSCaThi.Rows[rsl].Cells[4].Value.ToString();
                 ct.NgayThi = DateTime.Parse(gridDSCaThi.Rows[rsl].Cells[6].Value.ToString());
                 ct.GioLamBai = gridDSCaThi.Rows[rsl].Cells[7].Value.ToString();
+                ct.Phong = gridDSCaThi.Rows[rsl].Cells[8].Value.ToString();
 
                 frmTaoCaThi frmTaoCaThi = new frmTaoCaThi(content, false, MACATHI, MAHOCPHAN, TENHOCPHAN, ct);
                 frmTaoCaThi.Dock = DockStyle.Fill;

@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -33,6 +34,11 @@ namespace App_QL_ThiTracNghiem.GUI.CaThi
             this.TENHOCPHAN = TENHOCPHAN;
             this.lst_SV = lst_SV;
             this.CaThis = CaThis;
+
+            txtGioThi.Text = this.CaThis.GioLamBai.ToString().Trim();
+            txtNgayThi.Value = this.CaThis.NgayThi;
+            cboPhong.Text = this.CaThis.Phong.ToString().Trim();
+
 
             // Tạo mới
             if (this.check_edit)
@@ -123,6 +129,26 @@ namespace App_QL_ThiTracNghiem.GUI.CaThi
                 caThi.GioLamBai = txtGioThi.Text.Trim();
                 caThi.TinhTrang = 0;
                 caThi.Phong = cboPhong.Text.Trim();
+
+                // Kiểm tra thông tin ca thi có bị trùng với thông tin cũ hãy không
+                var cathi = CaThi_DAO.GetCaThi(caThi.MaCaThi);
+                if (caThi.NgayThi == cathi.NgayThi &&
+                    caThi.Phong == cathi.Phong &&
+                    caThi.GioLamBai == cathi.GioLamBai)
+                {
+                    KryptonMessageBox.Show("Cập nhật thông tin ca thi thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                    return;
+                }    
+                else
+                {
+                    // NGÀY ĐÓ - PHÒNG ĐÓ - TIẾT ĐÓ -> CHỈ ĐƯỢC THUỘC VỀ 1 HỌC PHẦN
+                    if (CaThi_DAO.CaThiIsExisted(caThi.NgayThi.ToString(), caThi.GioLamBai, caThi.Phong))
+                    {
+                        KryptonMessageBox.Show("Phòng thi đã được sử dụng !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                }
 
                 if (CaThi_DAO.UpdateCaThi(caThi))
                 {

@@ -91,7 +91,7 @@
             this.gridDSCaThi.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.gridDSCaThi.ReadOnly = true;
             this.gridDSCaThi.RowHeadersWidth = 51;
-            this.gridDSCaThi.RowTemplate.Height = 24;
+            this.gridDSCaThi.RowTemplate.Height = 33;
             this.gridDSCaThi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridDSCaThi.Size = new System.Drawing.Size(1089, 613);
             this.gridDSCaThi.TabIndex = 0;
@@ -168,6 +168,7 @@
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
             this.Column9.Text = "THI";
+            this.Column9.UseColumnTextForButtonValue = true;
             // 
             // frmDSCaThi
             // 
