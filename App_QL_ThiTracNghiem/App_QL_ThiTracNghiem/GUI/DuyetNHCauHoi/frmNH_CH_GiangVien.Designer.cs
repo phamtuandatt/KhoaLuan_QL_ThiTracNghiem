@@ -98,6 +98,7 @@
             this.Column1.HeaderText = "Mã giảng viên";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // Column2
             // 
@@ -105,6 +106,7 @@
             this.Column2.HeaderText = "Tên giảng viên";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
@@ -112,6 +114,7 @@
             this.Column3.HeaderText = "Số lượng môn đã tạo";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // Column4
             // 
@@ -119,6 +122,7 @@
             this.Column4.HeaderText = "Ngày cập nhật";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
             // Column5
             // 
@@ -126,6 +130,8 @@
             this.Column5.HeaderText = "Mã ngân hàng";
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Visible = false;
             // 
             // frmNH_CH_GiangVien
             // 

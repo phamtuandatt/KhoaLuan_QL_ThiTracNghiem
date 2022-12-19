@@ -54,6 +54,7 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
             // Nếu là false -> Cập nhật sửa đổi ca thi
             else
             {
+                btnOK.Text = "Chỉnh sửa";
                 btnThemSV.Visible = true;
                 btnSelectAll.Enabled = false;
                 cboDSMonHoc.Enabled = false;

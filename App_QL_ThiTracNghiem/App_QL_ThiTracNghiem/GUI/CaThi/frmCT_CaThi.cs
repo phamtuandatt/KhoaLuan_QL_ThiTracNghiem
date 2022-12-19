@@ -35,10 +35,6 @@ namespace App_QL_ThiTracNghiem.GUI.CaThi
             this.lst_SV = lst_SV;
             this.CaThis = CaThis;
 
-            txtGioThi.Text = this.CaThis.GioLamBai.ToString().Trim();
-            txtNgayThi.Value = this.CaThis.NgayThi;
-            cboPhong.Text = this.CaThis.Phong.ToString().Trim();
-
 
             // Tạo mới
             if (this.check_edit)
@@ -48,6 +44,10 @@ namespace App_QL_ThiTracNghiem.GUI.CaThi
             // Cập nhật
             else
             {
+                txtGioThi.Text = this.CaThis.GioLamBai.ToString().Trim();
+                txtNgayThi.Value = this.CaThis.NgayThi;
+                cboPhong.Text = this.CaThis.Phong.ToString().Trim();
+
                 txtMonHoc.Text = this.TENHOCPHAN;
                 txtMaDe.Enabled = false;
                 txtNgayThi.Value = DateTime.Parse(this.CaThis.NgayThi.ToString());

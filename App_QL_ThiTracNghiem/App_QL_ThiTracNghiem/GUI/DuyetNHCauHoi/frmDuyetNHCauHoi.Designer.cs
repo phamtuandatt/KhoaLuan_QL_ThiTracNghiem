@@ -155,6 +155,7 @@
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
+            this.Column5.Visible = false;
             // 
             // frmDuyetNHCauHoi
             // 

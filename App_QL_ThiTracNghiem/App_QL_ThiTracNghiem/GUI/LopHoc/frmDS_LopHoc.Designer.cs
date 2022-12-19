@@ -32,19 +32,19 @@
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonGroupBox1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.gridDSLopHoc = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.xÓAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sỬAĐỔIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.btnImport = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.cboKhoa = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.btnThem = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.xÓAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sỬAĐỔIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.cboKhoa = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.btnThem = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btnImport = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).BeginInit();
@@ -107,6 +107,85 @@
             this.gridDSLopHoc.TabIndex = 0;
             this.gridDSLopHoc.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridDSLopHoc_CellDoubleClick);
             // 
+            // contextMenu
+            // 
+            this.contextMenu.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.contextMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.xÓAToolStripMenuItem,
+            this.sỬAĐỔIToolStripMenuItem});
+            this.contextMenu.Name = "contextMenu";
+            this.contextMenu.Size = new System.Drawing.Size(138, 52);
+            // 
+            // xÓAToolStripMenuItem
+            // 
+            this.xÓAToolStripMenuItem.Name = "xÓAToolStripMenuItem";
+            this.xÓAToolStripMenuItem.Size = new System.Drawing.Size(137, 24);
+            this.xÓAToolStripMenuItem.Text = "XÓA";
+            this.xÓAToolStripMenuItem.Click += new System.EventHandler(this.xÓAToolStripMenuItem_Click);
+            // 
+            // sỬAĐỔIToolStripMenuItem
+            // 
+            this.sỬAĐỔIToolStripMenuItem.Name = "sỬAĐỔIToolStripMenuItem";
+            this.sỬAĐỔIToolStripMenuItem.Size = new System.Drawing.Size(137, 24);
+            this.sỬAĐỔIToolStripMenuItem.Text = "SỬA ĐỔI";
+            this.sỬAĐỔIToolStripMenuItem.Click += new System.EventHandler(this.sỬAĐỔIToolStripMenuItem_Click);
+            // 
+            // kryptonPanel2
+            // 
+            this.kryptonPanel2.Controls.Add(this.btnImport);
+            this.kryptonPanel2.Controls.Add(this.kryptonLabel1);
+            this.kryptonPanel2.Controls.Add(this.cboKhoa);
+            this.kryptonPanel2.Controls.Add(this.btnThem);
+            this.kryptonPanel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.kryptonPanel2.Location = new System.Drawing.Point(0, 0);
+            this.kryptonPanel2.Name = "kryptonPanel2";
+            this.kryptonPanel2.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.kryptonPanel2.Size = new System.Drawing.Size(1146, 50);
+            this.kryptonPanel2.TabIndex = 2;
+            // 
+            // btnImport
+            // 
+            this.btnImport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnImport.Location = new System.Drawing.Point(1008, 7);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.btnImport.Size = new System.Drawing.Size(133, 40);
+            this.btnImport.TabIndex = 8;
+            this.btnImport.Values.Text = "ĐỌC FILE";
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
+            // 
+            // kryptonLabel1
+            // 
+            this.kryptonLabel1.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
+            this.kryptonLabel1.Location = new System.Drawing.Point(179, 14);
+            this.kryptonLabel1.Name = "kryptonLabel1";
+            this.kryptonLabel1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.kryptonLabel1.Size = new System.Drawing.Size(53, 26);
+            this.kryptonLabel1.TabIndex = 7;
+            this.kryptonLabel1.Values.Text = "Khoa:";
+            // 
+            // cboKhoa
+            // 
+            this.cboKhoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboKhoa.DropDownWidth = 450;
+            this.cboKhoa.Location = new System.Drawing.Point(255, 15);
+            this.cboKhoa.Name = "cboKhoa";
+            this.cboKhoa.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.cboKhoa.Size = new System.Drawing.Size(446, 25);
+            this.cboKhoa.TabIndex = 6;
+            this.cboKhoa.SelectedIndexChanged += new System.EventHandler(this.cboKhoa_SelectedIndexChanged);
+            // 
+            // btnThem
+            // 
+            this.btnThem.Location = new System.Drawing.Point(6, 7);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.btnThem.Size = new System.Drawing.Size(102, 40);
+            this.btnThem.TabIndex = 3;
+            this.btnThem.Values.Text = "THÊM";
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            // 
             // Column1
             // 
             this.Column1.DataPropertyName = "MALOP";
@@ -146,85 +225,7 @@
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
-            // 
-            // contextMenu
-            // 
-            this.contextMenu.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.contextMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.xÓAToolStripMenuItem,
-            this.sỬAĐỔIToolStripMenuItem});
-            this.contextMenu.Name = "contextMenu";
-            this.contextMenu.Size = new System.Drawing.Size(138, 52);
-            // 
-            // xÓAToolStripMenuItem
-            // 
-            this.xÓAToolStripMenuItem.Name = "xÓAToolStripMenuItem";
-            this.xÓAToolStripMenuItem.Size = new System.Drawing.Size(137, 24);
-            this.xÓAToolStripMenuItem.Text = "XÓA";
-            this.xÓAToolStripMenuItem.Click += new System.EventHandler(this.xÓAToolStripMenuItem_Click);
-            // 
-            // sỬAĐỔIToolStripMenuItem
-            // 
-            this.sỬAĐỔIToolStripMenuItem.Name = "sỬAĐỔIToolStripMenuItem";
-            this.sỬAĐỔIToolStripMenuItem.Size = new System.Drawing.Size(137, 24);
-            this.sỬAĐỔIToolStripMenuItem.Text = "SỬA ĐỔI";
-            this.sỬAĐỔIToolStripMenuItem.Click += new System.EventHandler(this.sỬAĐỔIToolStripMenuItem_Click);
-            // 
-            // kryptonPanel2
-            // 
-            this.kryptonPanel2.Controls.Add(this.btnImport);
-            this.kryptonPanel2.Controls.Add(this.kryptonLabel1);
-            this.kryptonPanel2.Controls.Add(this.cboKhoa);
-            this.kryptonPanel2.Controls.Add(this.btnThem);
-            this.kryptonPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.kryptonPanel2.Location = new System.Drawing.Point(0, 0);
-            this.kryptonPanel2.Name = "kryptonPanel2";
-            this.kryptonPanel2.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.kryptonPanel2.Size = new System.Drawing.Size(1146, 50);
-            this.kryptonPanel2.TabIndex = 2;
-            // 
-            // kryptonLabel1
-            // 
-            this.kryptonLabel1.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.kryptonLabel1.Location = new System.Drawing.Point(179, 14);
-            this.kryptonLabel1.Name = "kryptonLabel1";
-            this.kryptonLabel1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.kryptonLabel1.Size = new System.Drawing.Size(53, 26);
-            this.kryptonLabel1.TabIndex = 7;
-            this.kryptonLabel1.Values.Text = "Khoa:";
-            // 
-            // cboKhoa
-            // 
-            this.cboKhoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboKhoa.DropDownWidth = 450;
-            this.cboKhoa.Location = new System.Drawing.Point(255, 15);
-            this.cboKhoa.Name = "cboKhoa";
-            this.cboKhoa.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.cboKhoa.Size = new System.Drawing.Size(446, 25);
-            this.cboKhoa.TabIndex = 6;
-            this.cboKhoa.SelectedIndexChanged += new System.EventHandler(this.cboKhoa_SelectedIndexChanged);
-            // 
-            // btnThem
-            // 
-            this.btnThem.Location = new System.Drawing.Point(6, 7);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.btnThem.Size = new System.Drawing.Size(102, 40);
-            this.btnThem.TabIndex = 3;
-            this.btnThem.Values.Text = "THÊM";
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
-            // 
-            // btnImport
-            // 
-            this.btnImport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnImport.Location = new System.Drawing.Point(1008, 7);
-            this.btnImport.Name = "btnImport";
-            this.btnImport.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.btnImport.Size = new System.Drawing.Size(133, 40);
-            this.btnImport.TabIndex = 8;
-            this.btnImport.Values.Text = "ĐỌC FILE";
-            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
+            this.Column4.Visible = false;
             // 
             // frmDS_LopHoc
             // 
@@ -256,16 +257,16 @@
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnThem;
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox kryptonGroupBox1;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView gridDSLopHoc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.ContextMenuStrip contextMenu;
         private System.Windows.Forms.ToolStripMenuItem xÓAToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sỬAĐỔIToolStripMenuItem;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox cboKhoa;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnImport;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
     }
 }

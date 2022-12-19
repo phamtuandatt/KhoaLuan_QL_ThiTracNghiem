@@ -92,6 +92,24 @@ namespace App_QL_ThiTracNghiem.DAO
             return dt;
         }
 
+        public static DataTable GetDSCaThiPhongTietNgay(string PHONG, string TIET, DateTime NGAYTHI)
+        {
+            DataTable dt = new DataTable();
+            string sql = $"EXEC GETDSCATHI_PHONG_TIET_NGAY N'{PHONG}', N'{TIET}', '{NGAYTHI}'";
+            dt = data.get_data(sql, "DSCTPHONGTIETNGAY");
+
+            return dt;
+        }
+
+        public static DataTable GetDSCaThiPhongTiet(string PHONG, string TIET)
+        {
+            DataTable dt = new DataTable();
+            string sql = $"EXEC GETDSCATHI_PHONG_TIET N'{PHONG}', N'{TIET}'";
+            dt = data.get_data(sql, "DSCTPHONGTIETNGAY");
+
+            return dt;
+        }
+
         public static CaThis GetCaThi(int MACATHI)
         {
             CaThis caThis = new CaThis();

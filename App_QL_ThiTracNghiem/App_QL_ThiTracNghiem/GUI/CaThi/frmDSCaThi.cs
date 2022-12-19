@@ -89,6 +89,12 @@ namespace App_QL_ThiTracNghiem.GUI.CaThi
                     // Kiểm tra ca thi đã có đề thi hay chưa
                     // Chưa thì bắt cập nhật đề thi trước     
                     int rsl = gridDSCaThi.CurrentRow.Index;
+                    // Kiểm tra tình trạng ca thi -> đã là 1 thì k cho update nữa
+                    if (CaThi_DAO.CheckTinhTrangCaThi(gridDSCaThi.Rows[rsl].Cells[1].Value.ToString()))
+                    {
+                        KryptonMessageBox.Show("Ca thi đã được thi !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
                     if (gridDSCaThi.Rows[rsl].Cells[5].Value.ToString().Trim() == "CHUA CÓ")
                     {
                         frmShowDS_DeThiCon dtc = new frmShowDS_DeThiCon(int.Parse(gridDSCaThi.Rows[rsl].Cells[4].Value.ToString()), int.Parse(gridDSCaThi.Rows[rsl].Cells[1].Value.ToString()));
@@ -98,15 +104,10 @@ namespace App_QL_ThiTracNghiem.GUI.CaThi
                         {
                             return;
                         }
-                        // Kiểm tra tình trạng ca thi -> đã là 1 thì k cho update nữa
-                        if (CaThi_DAO.CheckTinhTrangCaThi(gridDSCaThi.Rows[rsl].Cells[1].Value.ToString()))
-                        {
-                            KryptonMessageBox.Show("Ca thi đã được thi !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            return;
-                        }
                         if (CaThi_DAO.UpdateTinhTrangCaThi(gridDSCaThi.Rows[rsl].Cells[1].Value.ToString()))
                         {
                             KryptonMessageBox.Show("CHO PHÉP THI thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
                         }
                     }
                     else

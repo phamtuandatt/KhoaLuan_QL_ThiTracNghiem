@@ -55,7 +55,8 @@ namespace Web_ThiTracNghiem.Controllers
             // Khi update TINHTRANG -> UPDATE ngày thì là ngày hiện tại
             // Lấy danh sách ca thi được kích hoạt trong ngày hôm đó
             DateTime ngay = DateTime.UtcNow.Date;
-            var cts = dt.CATHIs.Where(ct => ct.TINHTRANG == true && ct.TINHTRANGTHI == false && ct.NGAYTHI == ngay).ToList();
+            var cts = dt.CATHIs.Where(ct => ct.TINHTRANG == true && ct.NGAYTHI == ngay).ToList();
+            ////var cts = dt.CATHIs.Where(ct => ct.TINHTRANG == true && ct.TINHTRANGTHI == false && ct.NGAYTHI == ngay).ToList();
 
             // Lấy CT_CATHI của CATHI
             foreach (var item in cts)

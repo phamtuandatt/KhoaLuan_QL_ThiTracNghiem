@@ -59,13 +59,16 @@ namespace App_QL_ThiTracNghiem.GUI.BaiThi
         private void gridDSSinhVienLamBai_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int rsl = gridDSSinhVienLamBai.CurrentRow.Index;
-            int MABAITHI = int.Parse(gridDSSinhVienLamBai.Rows[rsl].Cells[7].Value.ToString());
+            if (gridDSSinhVienLamBai.Rows[rsl].Cells[7].Value.ToString() != null)
+            {
+                int MABAITHI = int.Parse(gridDSSinhVienLamBai.Rows[rsl].Cells[7].Value.ToString());
 
-            // Hiển thị thông tin chi tiết bài thi của sinh vien
-            frmCT_BaiThi frmCT_BaiThi = new frmCT_BaiThi(MABAITHI);
-            frmCT_BaiThi.Dock = DockStyle.Fill;
-            pnContent.Controls.Add(frmCT_BaiThi);
-            frmCT_BaiThi.BringToFront();
+                // Hiển thị thông tin chi tiết bài thi của sinh vien
+                frmCT_BaiThi frmCT_BaiThi = new frmCT_BaiThi(MABAITHI);
+                frmCT_BaiThi.Dock = DockStyle.Fill;
+                pnContent.Controls.Add(frmCT_BaiThi);
+                frmCT_BaiThi.BringToFront();
+            }
 
         }
     }

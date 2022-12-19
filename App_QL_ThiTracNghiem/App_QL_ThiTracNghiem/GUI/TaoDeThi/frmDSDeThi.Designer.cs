@@ -31,6 +31,9 @@
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonGroupBox1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.gridDSDeThi = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.cboDSMonHoc = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -38,9 +41,6 @@
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.cboDSMonHoc = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).BeginInit();
@@ -103,6 +103,37 @@
             this.gridDSDeThi.TabIndex = 0;
             this.gridDSDeThi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridDSDeThi_CellContentClick);
             // 
+            // kryptonPanel2
+            // 
+            this.kryptonPanel2.Controls.Add(this.cboDSMonHoc);
+            this.kryptonPanel2.Controls.Add(this.kryptonLabel1);
+            this.kryptonPanel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.kryptonPanel2.Location = new System.Drawing.Point(0, 0);
+            this.kryptonPanel2.Name = "kryptonPanel2";
+            this.kryptonPanel2.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.kryptonPanel2.Size = new System.Drawing.Size(1009, 50);
+            this.kryptonPanel2.TabIndex = 0;
+            // 
+            // cboDSMonHoc
+            // 
+            this.cboDSMonHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboDSMonHoc.DropDownWidth = 198;
+            this.cboDSMonHoc.Location = new System.Drawing.Point(96, 13);
+            this.cboDSMonHoc.Name = "cboDSMonHoc";
+            this.cboDSMonHoc.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.cboDSMonHoc.Size = new System.Drawing.Size(373, 25);
+            this.cboDSMonHoc.TabIndex = 4;
+            this.cboDSMonHoc.SelectedIndexChanged += new System.EventHandler(this.cboDSMonHoc_SelectedIndexChanged);
+            // 
+            // kryptonLabel1
+            // 
+            this.kryptonLabel1.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
+            this.kryptonLabel1.Location = new System.Drawing.Point(10, 14);
+            this.kryptonLabel1.Name = "kryptonLabel1";
+            this.kryptonLabel1.Size = new System.Drawing.Size(80, 24);
+            this.kryptonLabel1.TabIndex = 3;
+            this.kryptonLabel1.Values.Text = "Môn học:";
+            // 
             // Column1
             // 
             this.Column1.DataPropertyName = "MADETHI";
@@ -110,6 +141,7 @@
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
             // 
             // Column2
             // 
@@ -118,6 +150,7 @@
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
+            this.Column2.Visible = false;
             // 
             // Column3
             // 
@@ -158,37 +191,6 @@
             this.Column9.MinimumWidth = 6;
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
-            // 
-            // kryptonPanel2
-            // 
-            this.kryptonPanel2.Controls.Add(this.cboDSMonHoc);
-            this.kryptonPanel2.Controls.Add(this.kryptonLabel1);
-            this.kryptonPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.kryptonPanel2.Location = new System.Drawing.Point(0, 0);
-            this.kryptonPanel2.Name = "kryptonPanel2";
-            this.kryptonPanel2.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.kryptonPanel2.Size = new System.Drawing.Size(1009, 50);
-            this.kryptonPanel2.TabIndex = 0;
-            // 
-            // cboDSMonHoc
-            // 
-            this.cboDSMonHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboDSMonHoc.DropDownWidth = 198;
-            this.cboDSMonHoc.Location = new System.Drawing.Point(96, 13);
-            this.cboDSMonHoc.Name = "cboDSMonHoc";
-            this.cboDSMonHoc.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.cboDSMonHoc.Size = new System.Drawing.Size(373, 25);
-            this.cboDSMonHoc.TabIndex = 4;
-            this.cboDSMonHoc.SelectedIndexChanged += new System.EventHandler(this.cboDSMonHoc_SelectedIndexChanged);
-            // 
-            // kryptonLabel1
-            // 
-            this.kryptonLabel1.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.kryptonLabel1.Location = new System.Drawing.Point(10, 14);
-            this.kryptonLabel1.Name = "kryptonLabel1";
-            this.kryptonLabel1.Size = new System.Drawing.Size(80, 24);
-            this.kryptonLabel1.TabIndex = 3;
-            this.kryptonLabel1.Values.Text = "Môn học:";
             // 
             // frmDSDeThi
             // 

@@ -266,6 +266,7 @@
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
             // 
             // Column2
             // 
@@ -274,6 +275,7 @@
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
+            this.Column2.Visible = false;
             // 
             // Column3
             // 
@@ -363,6 +365,8 @@
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtNgayTao;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtTrangThai;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtTenHP;
+        private ComponentFactory.Krypton.Toolkit.KryptonComboBox cboDeCon;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -371,7 +375,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private ComponentFactory.Krypton.Toolkit.KryptonComboBox cboDeCon;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel4;
     }
 }

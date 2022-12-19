@@ -36,11 +36,11 @@
             this.xÓAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sỬAĐỔIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.btnThem = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.cboKhoa = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.cboLop = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.cboKhoa = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.btnThem = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,8 +61,8 @@
             this.contextMEnu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
             this.kryptonPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cboKhoa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboLop)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboKhoa)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonPanel1
@@ -156,26 +156,15 @@
             this.kryptonPanel2.Size = new System.Drawing.Size(1520, 50);
             this.kryptonPanel2.TabIndex = 3;
             // 
-            // btnThem
+            // kryptonLabel2
             // 
-            this.btnThem.Location = new System.Drawing.Point(6, 8);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.btnThem.Size = new System.Drawing.Size(102, 40);
-            this.btnThem.TabIndex = 3;
-            this.btnThem.Values.Text = "THÊM";
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
-            // 
-            // cboKhoa
-            // 
-            this.cboKhoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboKhoa.DropDownWidth = 450;
-            this.cboKhoa.Location = new System.Drawing.Point(263, 16);
-            this.cboKhoa.Name = "cboKhoa";
-            this.cboKhoa.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.cboKhoa.Size = new System.Drawing.Size(446, 25);
-            this.cboKhoa.TabIndex = 4;
-            this.cboKhoa.SelectedIndexChanged += new System.EventHandler(this.cboKhoa_SelectedIndexChanged);
+            this.kryptonLabel2.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
+            this.kryptonLabel2.Location = new System.Drawing.Point(739, 15);
+            this.kryptonLabel2.Name = "kryptonLabel2";
+            this.kryptonLabel2.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.kryptonLabel2.Size = new System.Drawing.Size(39, 26);
+            this.kryptonLabel2.TabIndex = 5;
+            this.kryptonLabel2.Values.Text = "Lớp";
             // 
             // kryptonLabel1
             // 
@@ -198,15 +187,26 @@
             this.cboLop.TabIndex = 4;
             this.cboLop.SelectedIndexChanged += new System.EventHandler(this.cboLop_SelectedIndexChanged);
             // 
-            // kryptonLabel2
+            // cboKhoa
             // 
-            this.kryptonLabel2.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.kryptonLabel2.Location = new System.Drawing.Point(739, 15);
-            this.kryptonLabel2.Name = "kryptonLabel2";
-            this.kryptonLabel2.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
-            this.kryptonLabel2.Size = new System.Drawing.Size(39, 26);
-            this.kryptonLabel2.TabIndex = 5;
-            this.kryptonLabel2.Values.Text = "Lớp";
+            this.cboKhoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboKhoa.DropDownWidth = 450;
+            this.cboKhoa.Location = new System.Drawing.Point(263, 16);
+            this.cboKhoa.Name = "cboKhoa";
+            this.cboKhoa.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.cboKhoa.Size = new System.Drawing.Size(446, 25);
+            this.cboKhoa.TabIndex = 4;
+            this.cboKhoa.SelectedIndexChanged += new System.EventHandler(this.cboKhoa_SelectedIndexChanged);
+            // 
+            // btnThem
+            // 
+            this.btnThem.Location = new System.Drawing.Point(6, 8);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
+            this.btnThem.Size = new System.Drawing.Size(102, 40);
+            this.btnThem.TabIndex = 3;
+            this.btnThem.Values.Text = "THÊM";
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // Column1
             // 
@@ -279,6 +279,7 @@
             this.Column9.MinimumWidth = 6;
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
+            this.Column9.Visible = false;
             // 
             // Column8
             // 
@@ -306,8 +307,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).EndInit();
             this.kryptonPanel2.ResumeLayout(false);
             this.kryptonPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cboKhoa)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboLop)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboKhoa)).EndInit();
             this.ResumeLayout(false);
 
         }
