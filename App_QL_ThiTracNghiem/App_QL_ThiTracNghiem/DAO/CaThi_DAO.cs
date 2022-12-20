@@ -92,6 +92,26 @@ namespace App_QL_ThiTracNghiem.DAO
             return dt;
         }
 
+        public static DataTable GetDSCaThiCbo()
+        {
+            DataTable dt = new DataTable();
+            DataTable dataCbo = new DataTable();
+            string sql = "EXEC GETDSCATHI";
+            dt = data.get_data(sql, "DSCT");
+            dataCbo = dt.Copy();
+            dataCbo.Clear();
+            foreach (DataRow item in dt.Rows)
+            {
+                DataRow r = dataCbo.NewRow();
+                r["MACATHI"] = item["MACATHI"];
+                r["TENHOCPHAN"] = item["TENHOCPHAN"] + " - PHÒNG - " + item["PHONGTHI"] + " - GIỜ LÀM BÀI - " + item["GIOLAMBAI"];
+
+                dataCbo.Rows.Add(r);
+            }
+
+            return dataCbo;
+        }
+
         public static DataTable GetDSCaThiPhongTietNgay(string PHONG, string TIET, DateTime NGAYTHI)
         {
             DataTable dt = new DataTable();

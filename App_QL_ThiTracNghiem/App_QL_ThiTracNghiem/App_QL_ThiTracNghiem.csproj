@@ -120,6 +120,12 @@
     <Compile Include="DTO\NganHangCauHois.cs" />
     <Compile Include="DTO\NganHangCauHoi_DaDuyets.cs" />
     <Compile Include="DTO\SinhViens.cs" />
+    <Compile Include="GUI\BaiThi\frmBaiThi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\BaiThi\frmBaiThi.Designer.cs">
+      <DependentUpon>frmBaiThi.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\BaiThi\frmCH.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -390,6 +396,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Validate\Validation.cs" />
+    <EmbeddedResource Include="GUI\BaiThi\frmBaiThi.resx">
+      <DependentUpon>frmBaiThi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\BaiThi\frmCH.resx">
       <DependentUpon>frmCH.cs</DependentUpon>
     </EmbeddedResource>
