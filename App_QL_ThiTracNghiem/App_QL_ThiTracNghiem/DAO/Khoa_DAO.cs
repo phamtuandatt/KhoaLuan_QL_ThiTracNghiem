@@ -30,11 +30,19 @@ namespace App_QL_ThiTracNghiem.DAO
             return dt;
         }
 
+
         public static bool DeleteKhoa(string MAKHOA)
         {
             string sql = $"DELETE FROM KHOA WHERE MAKHOA = '{MAKHOA}'";
 
             return data.insert_update_delete(sql) > 0;
+        }
+
+        public static bool CheckKhoa(string MAKHOA)
+        {
+            string sql = $"SELECT COUNT(MAKHOA) FROM LOPHOC WHERE MAKHOA = '{MAKHOA}'";
+
+            return data.get_result_int(sql) > 0;
         }
 
         public static bool UpdateKhoa(string MAKHOA, string TENKHOA)

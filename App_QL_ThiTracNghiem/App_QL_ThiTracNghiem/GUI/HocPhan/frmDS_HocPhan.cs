@@ -57,5 +57,13 @@ namespace App_QL_ThiTracNghiem.GUI.HocPhan
             pnND.Controls.Add(ds);
             ds.BringToFront();
         }
+
+        private void btnCN_Click(object sender, EventArgs e)
+        {
+            frmDSHP ds = new frmDSHP(pnND, cboKhoa.SelectedValue.ToString());
+            ds.Dock = DockStyle.Fill;
+            pnND.Controls.Add(ds);
+            ds.BringToFront();
+        }
     }
 }

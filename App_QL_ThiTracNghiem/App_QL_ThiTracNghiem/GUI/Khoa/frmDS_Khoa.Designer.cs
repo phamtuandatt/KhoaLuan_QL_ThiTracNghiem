@@ -93,7 +93,7 @@
             this.griDSKhoa.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.griDSKhoa.ReadOnly = true;
             this.griDSKhoa.RowHeadersWidth = 51;
-            this.griDSKhoa.RowTemplate.Height = 24;
+            this.griDSKhoa.RowTemplate.Height = 33;
             this.griDSKhoa.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.griDSKhoa.Size = new System.Drawing.Size(1162, 656);
             this.griDSKhoa.TabIndex = 0;

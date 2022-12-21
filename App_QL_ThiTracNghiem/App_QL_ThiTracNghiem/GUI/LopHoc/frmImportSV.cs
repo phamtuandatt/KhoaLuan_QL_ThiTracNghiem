@@ -109,17 +109,50 @@ namespace App_QL_ThiTracNghiem.GUI.LopHoc
             }
             // Kiểm tra mã lớp đã có trong DB chưa 
             // Thêm lớp trước khi thêm sinh viên
-            foreach (DataGridViewRow item in gridDSSV.Rows)
+            int sl = 1;
+            for (int i = 0; i < gridDSSV.RowCount; i++)
             {
-                if (Lop_DAO.LopIsExisted(item.Cells[5].Value.ToString().Trim()) == false)
+                if (gridDSSV.Rows[i].Cells[5].Value.ToString().Trim().ToUpper()
+                    .Equals(gridDSSV.Rows[i + 1].Cells[5].Value.ToString().Trim().ToUpper()))
                 {
-                    Lops lopp = new Lops();
-                    lopp.MaLop = item.Cells[5].Value.ToString().Trim();
-                    lopp.TenLop = "";
-                    lopp.MaKhoa = cboKhoa.SelectedValue.ToString();
-                    bool rs = Lop_DAO.InsertLop(lopp);
+                    sl++; 
+                }
+                else
+                {
+                    // Lớp chưa có -> Tạo lớp
+                    if (Lop_DAO.LopIsExisted(gridDSSV.Rows[i].Cells[5].Value.ToString().Trim()) == false)
+                    {
+                        // Khi thêm lớp -> Đếm số lượng sinh viên của lớp đó 
+                        Lops lopp = new Lops();
+                        lopp.MaLop = gridDSSV.Rows[i].Cells[5].Value.ToString().Trim();
+                        lopp.TenLop = "";
+                        lopp.MaKhoa = cboKhoa.SelectedValue.ToString();
+                        lopp.Siso = sl;
+
+                        bool rs = Lop_DAO.InsertLop(lopp);
+                        sl = 1;
+                    }
+                    // Lớp đã có -> Cập nhật lại sỉ số
+                    else
+                    {
+                        bool rs = Lop_DAO.UpdateSiSo(sl, gridDSSV.Rows[i].Cells[5].Value.ToString().Trim());
+                        sl = 1;
+                    }
                 }
             }
+            //foreach (DataGridViewRow item in gridDSSV.Rows)
+            //{
+            //    if (Lop_DAO.LopIsExisted(item.Cells[5].Value.ToString().Trim()) == false)
+            //    {
+            //        // Khi thêm lớp -> Đếm số lượng sinh viên của lớp đó 
+            //        Lops lopp = new Lops();
+            //        lopp.MaLop = item.Cells[5].Value.ToString().Trim();
+            //        lopp.TenLop = "";
+            //        lopp.MaKhoa = cboKhoa.SelectedValue.ToString();
+
+            //        bool rs = Lop_DAO.InsertLop(lopp);
+            //    }
+            //}
 
             if (SinhVien_DAO.UpdateDBSinhVien(lstSv))
             {

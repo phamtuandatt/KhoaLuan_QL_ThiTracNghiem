@@ -28,20 +28,27 @@ namespace App_QL_ThiTracNghiem.GUI.HocPhan
 
         private void xÓALỚPHỌCPHẦNToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int rsl = gridDSLOPHP.CurrentRow.Index;
-            string MALOPHOCPHAN = gridDSLOPHP.Rows[rsl].Cells[0].Value.ToString();
-            //string TENHOCPHAN = gridDSLOPHP.Rows[rsl].Cells[1].Value.ToString();
-            if (KryptonMessageBox.Show($"Bạn có muốn xóa LỚP HỌC PHÂN [{""}] không ?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
-                return;
-            if (CT_HocPhan_DAO.DeleteCT_HocPhan(MALOPHOCPHAN))
+            if (gridDSLOPHP.RowCount <= 0)
             {
-                KryptonMessageBox.Show("Đã xóa LỚP HỌC PHẦN !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                gridDSLOPHP.DataSource = CT_HocPhan_DAO.GetDSLopHP(MAHOCPHAN);
+                return;
             }
             else
             {
-                KryptonMessageBox.Show("Xóa LỚP HỌC PHẦN KHÔNG thành công !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                gridDSLOPHP.DataSource = CT_HocPhan_DAO.GetDSLopHP(MAHOCPHAN);
+                int rsl = gridDSLOPHP.CurrentRow.Index;
+                string MALOPHOCPHAN = gridDSLOPHP.Rows[rsl].Cells[0].Value.ToString();
+                //string TENHOCPHAN = gridDSLOPHP.Rows[rsl].Cells[1].Value.ToString();
+                if (KryptonMessageBox.Show($"Bạn có muốn xóa LỚP HỌC PHÂN [{""}] không ?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
+                    return;
+                if (CT_HocPhan_DAO.DeleteCT_HocPhan(MALOPHOCPHAN))
+                {
+                    KryptonMessageBox.Show("Đã xóa LỚP HỌC PHẦN !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    gridDSLOPHP.DataSource = CT_HocPhan_DAO.GetDSLopHP(MAHOCPHAN);
+                }
+                else
+                {
+                    KryptonMessageBox.Show("Xóa LỚP HỌC PHẦN KHÔNG thành công !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    gridDSLOPHP.DataSource = CT_HocPhan_DAO.GetDSLopHP(MAHOCPHAN);
+                }
             }
         }
 
@@ -54,16 +61,23 @@ namespace App_QL_ThiTracNghiem.GUI.HocPhan
 
         private void cẬPNHẬTLỚPHỌCPHẦNToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int rsl = gridDSLOPHP.CurrentRow.Index;
-            string MAHP = gridDSLOPHP.Rows[rsl].Cells[1].Value.ToString();
-            string MALOPHP = gridDSLOPHP.Rows[rsl].Cells[0].Value.ToString();
-            HocPhans hocPhan = HocPhan_DAO.GetHP(MAHP);
+            if (gridDSLOPHP.RowCount <= 0)
+            {
+                return;
+            }
+            else
+            {
+                int rsl = gridDSLOPHP.CurrentRow.Index;
+                string MAHP = gridDSLOPHP.Rows[rsl].Cells[1].Value.ToString();
+                string MALOPHP = gridDSLOPHP.Rows[rsl].Cells[0].Value.ToString();
+                HocPhans hocPhan = HocPhan_DAO.GetHP(MAHP);
 
-            CT_HocPhans ct_hocphan = CT_HocPhan_DAO.CT_HocPhan(MALOPHP);
+                CT_HocPhans ct_hocphan = CT_HocPhan_DAO.CT_HocPhan(MALOPHP);
 
-            frmAdd_Edit_HocPhan edit = new frmAdd_Edit_HocPhan(true, hocPhan, ct_hocphan, MALOPHP);
-            edit.ShowDialog();
-            gridDSLOPHP.DataSource = CT_HocPhan_DAO.GetDSLopHP(MAHOCPHAN);
+                frmAdd_Edit_HocPhan edit = new frmAdd_Edit_HocPhan(true, hocPhan, ct_hocphan, MALOPHP);
+                edit.ShowDialog();
+                gridDSLOPHP.DataSource = CT_HocPhan_DAO.GetDSLopHP(MAHOCPHAN);
+            }
         }
 
         private void gridDSLOPHP_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

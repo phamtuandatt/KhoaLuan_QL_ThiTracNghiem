@@ -71,9 +71,9 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
             }
         }
 
-        public void Show_DS_SV(string MAHOCPHAN)
+        public void Show_DS_SV(string mhp)
         {
-            gridDSSinhVien.DataSource = SinhVien_DAO.GetSinhViens(MAHOCPHAN);
+            gridDSSinhVien.DataSource = SinhVien_DAO.GetSinhViens(mhp);
         }
 
         public void Show_DSSV_CaThi(int MACATHI)

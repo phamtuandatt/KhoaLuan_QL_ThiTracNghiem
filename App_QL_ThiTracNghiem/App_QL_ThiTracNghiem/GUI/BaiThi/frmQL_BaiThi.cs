@@ -17,7 +17,7 @@ namespace App_QL_ThiTracNghiem.GUI.BaiThi
         public frmQL_BaiThi()
         {
             InitializeComponent();
-
+            txtNgayThi.Text = DateTime.UtcNow.ToShortDateString();
             LoadCaThi();
 
             //frmDSCaThi_DaThi frmDSCaThi_DaThi = new frmDSCaThi_DaThi(pnContent);
@@ -46,37 +46,44 @@ namespace App_QL_ThiTracNghiem.GUI.BaiThi
             // Tạo cbo box hiển thị chi tiêt ca thi - MÔN HỌC - PHÒNG - TIẾT - 
             // Tạo DataTable gồm 2 thuộc tính - Tên: - MÔN HỌC - PHÒNG - TIẾT - 
             //                                - ID: - MÃ CA THI -
-            // Gán vào cbo
+
             gridDSSinhVienLamBai.DataSource = BaiThi_DAO.GetDSSVLamBaiThi(int.Parse(cboCaThi.SelectedValue.ToString()));
+            int svDaNop = 0;
+            int svDangThi = 0;
+            foreach (DataGridViewRow item in gridDSSinhVienLamBai.Rows)
+            {
+                if (item.Cells[6].Value.ToString().Length > 0) { svDaNop++; }
+                if (item.Cells[5].Value.ToString().Length > 0) { svDangThi++; }
+            }
+            txtDaNop.Text = svDaNop + "";
+            txtDangThi.Text = svDangThi + "";
         }
 
         private void btnCN_Click(object sender, EventArgs e)
         {
-            //gridDSSinhVienLamBai.DataSource = BaiThi_DAO.GetDSSVLamBaiThi(MACATHI);
-            //int svDaNop = 0;
-            //int svDangThi = 0;
-            //foreach (DataGridViewRow item in gridDSSinhVienLamBai.Rows)
-            //{
-            //    if (item.Cells[5].Value.ToString().Length > 0) { svDaNop++; }
-            //    else { svDangThi++; }
-            //}
-            //txtDaNop.Text = svDaNop + "";
-            //txtDangThi.Text = svDangThi + "";
+            gridDSSinhVienLamBai.DataSource = BaiThi_DAO.GetDSSVLamBaiThi(int.Parse(cboCaThi.SelectedValue.ToString()));
+            int svDaNop = 0;
+            int svDangThi = 0;
+            foreach (DataGridViewRow item in gridDSSinhVienLamBai.Rows)
+            {
+                if (item.Cells[6].Value.ToString().Length > 0) { svDaNop++; }
+                if (item.Cells[5].Value.ToString().Length > 0) { svDangThi++; }
+            }
+            txtDaNop.Text = svDaNop + "";
+            txtDangThi.Text = svDangThi + "";
+           
         }
 
         private void gridDSSinhVienLamBai_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int rsl = gridDSSinhVienLamBai.CurrentRow.Index;
-            if (gridDSSinhVienLamBai.Rows[rsl].Cells[7].Value.ToString() != null)
+            if (gridDSSinhVienLamBai.Rows[rsl].Cells[7].Value.ToString() != null
+                && gridDSSinhVienLamBai.Rows[rsl].Cells[6].Value.ToString().Length > 0)
             {
                 int MACATHI = int.Parse(gridDSSinhVienLamBai.Rows[rsl].Cells[7].Value.ToString());
                 frmBaiThi bt = new frmBaiThi(MACATHI);
                 bt.ShowDialog();
             }
         }
-
-
-        // Tìm kiếm bài thi theo môn học, tiết thi, phòng thi
-        // Nếu click chọn ngày thì tìm kiếm theo ngày và theo môn học, tiết thi, phòng thi
     }
 }

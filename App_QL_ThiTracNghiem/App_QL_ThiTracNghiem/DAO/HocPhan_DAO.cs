@@ -55,7 +55,7 @@ namespace App_QL_ThiTracNghiem.DAO
 
         public static DataTable GetAllHocPhans()
         {
-            // Lấy danh sách học phần đã có ca thi
+            // Lấy danh sách học phần đã CÓ ĐỀ THIS
             DataTable dt_HocPhan = new DataTable();
             string sql = $"SELECT *FROM HOCPHAN WHERE MAHOCPHAN IN (SELECT MAHOCPHAN FROM DETHI)";
             dt_HocPhan = data.get_data(sql, "GetAllHocPhans");

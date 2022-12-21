@@ -44,36 +44,50 @@ namespace App_QL_ThiTracNghiem.GUI.HocPhan
 
         private void sỬAĐỔIToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int rsl = gridDSHP.CurrentRow.Index;
-            HocPhans hocPhan = new HocPhans();
-            hocPhan.MaHocPhan = gridDSHP.Rows[rsl].Cells[0].Value.ToString();
-            hocPhan.TenHocPhan = gridDSHP.Rows[rsl].Cells[1].Value.ToString();
-            hocPhan.SoTC = int.Parse(gridDSHP.Rows[rsl].Cells[2].Value.ToString());
-            hocPhan.SoTietLT = int.Parse(gridDSHP.Rows[rsl].Cells[3].Value.ToString());
-            hocPhan.SoTietTH = int.Parse(gridDSHP.Rows[rsl].Cells[4].Value.ToString());
-            hocPhan.MaKhoa = gridDSHP.Rows[rsl].Cells[6].Value.ToString();
+            if (gridDSHP.RowCount <= 0)
+            {
+                return;
+            }
+            else
+            {
+                int rsl = gridDSHP.CurrentRow.Index;
+                HocPhans hocPhan = new HocPhans();
+                hocPhan.MaHocPhan = gridDSHP.Rows[rsl].Cells[0].Value.ToString();
+                hocPhan.TenHocPhan = gridDSHP.Rows[rsl].Cells[1].Value.ToString();
+                hocPhan.SoTC = int.Parse(gridDSHP.Rows[rsl].Cells[2].Value.ToString());
+                hocPhan.SoTietLT = int.Parse(gridDSHP.Rows[rsl].Cells[3].Value.ToString());
+                hocPhan.SoTietTH = int.Parse(gridDSHP.Rows[rsl].Cells[4].Value.ToString());
+                hocPhan.MaKhoa = gridDSHP.Rows[rsl].Cells[6].Value.ToString();
 
-            frmEditHP edit = new frmEditHP(hocPhan);
-            edit.ShowDialog();
-            Show_DSHP(MAKHOA);
+                frmEditHP edit = new frmEditHP(hocPhan);
+                edit.ShowDialog();
+                Show_DSHP(MAKHOA);
+            }
         }
 
         private void xÓAToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int rsl = gridDSHP.CurrentRow.Index;
-            string MAHOCPHAN = gridDSHP.Rows[rsl].Cells[0].Value.ToString();
-            string TENHOCPHAN = gridDSHP.Rows[rsl].Cells[1].Value.ToString();
-            if (KryptonMessageBox.Show($"Bạn có muốn xóa HỌC PHÂN [{TENHOCPHAN}] không ?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
-                return;
-            if (HocPhan_DAO.DeleteHP(MAHOCPHAN))
+            if (gridDSHP.RowCount <= 0)
             {
-                KryptonMessageBox.Show("Đã xóa HỌC PHẦN !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Show_DSHP(MAKHOA);
+                return;
             }
             else
             {
-                KryptonMessageBox.Show("Xóa HỌC PHẦN KHÔNG thành công !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                Show_DSHP(MAKHOA);
+                int rsl = gridDSHP.CurrentRow.Index;
+                string MAHOCPHAN = gridDSHP.Rows[rsl].Cells[0].Value.ToString();
+                string TENHOCPHAN = gridDSHP.Rows[rsl].Cells[1].Value.ToString();
+                if (KryptonMessageBox.Show($"Bạn có muốn xóa HỌC PHẦN [{TENHOCPHAN}] không ?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
+                    return;
+                if (HocPhan_DAO.DeleteHP(MAHOCPHAN))
+                {
+                    KryptonMessageBox.Show("Đã xóa HỌC PHẦN !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Show_DSHP(MAKHOA);
+                }
+                else
+                {
+                    KryptonMessageBox.Show("Xóa HỌC PHẦN KHÔNG thành công !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    Show_DSHP(MAKHOA);
+                }
             }
         }
     }

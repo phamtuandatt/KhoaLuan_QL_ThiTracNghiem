@@ -78,9 +78,37 @@ namespace App_QL_ThiTracNghiem.DAO
 
         public static bool DeleteGV(string MAGV)
         {
+            // Xóa CT_GiangDay
+            string sqlCTGiangDay = $"DELETE FROM CT_GIANGDAY WHERE MAGV = '{MAGV}'";
+            int rsCTGD = data.insert_update_delete(sqlCTGiangDay);
+
+            // Xóa CT_NganHangCauHoi
+            string sqlNHCH = $"DELETE FROM CT_NGANHANGCAUHOI WHERE MAGV = '{MAGV}'";
+            int rsNH = data.insert_update_delete(sqlNHCH);
+
+            // Xóa CT_HocPhan
+            string sqlCTHP = $"DELETE FROM CT_HOCPHAN WHERE MAGV = '{MAGV}'";
+            int rsCTHP = data.insert_update_delete(sqlCTHP);
+
             string sql = $"DELETE FROM GIANGVIEN WHERE MAGV = '{MAGV}'";
 
             return data.insert_update_delete(sql) > 0;
+        }
+
+        // Kiểm tra giảng viên có đang thực hiện giảng dạy hay không
+        public static bool CheckGVGiangDay(string MAGV)
+        {
+            string sql = $"SELECT COUNT(MAGV) FROM CT_GIANGDAY WHERE MAGV = '{MAGV}'";
+
+            return data.get_result_int(sql) > 0;
+        }
+
+        // Kiểm tra giảng viên có ngân hàng câu hỏi hay không
+        public static bool CheckGVCT_HocPHan(string MAGV)
+        {
+            string sql = $"SELECT COUNT(MAGV) FROM CT_HOCPHAN WHERE MAGV = '{MAGV}'";
+
+            return data.get_result_int(sql) > 0;
         }
 
         public static bool Insert(GiangViens gv)

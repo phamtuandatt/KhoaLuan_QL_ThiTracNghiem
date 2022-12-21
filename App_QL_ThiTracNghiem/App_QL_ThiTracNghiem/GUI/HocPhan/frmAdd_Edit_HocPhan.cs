@@ -323,6 +323,11 @@ namespace App_QL_ThiTracNghiem.GUI.HocPhan
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            if (gridDSSV.RowCount <= 0)
+            {
+                KryptonMessageBox.Show("Hãy chọn sinh viên muốn thêm !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             if (checkAddLopHP)
             {
                 frmThemSV addSvLopHP = new frmThemSV(int.Parse(cboThu.Text.Trim()),

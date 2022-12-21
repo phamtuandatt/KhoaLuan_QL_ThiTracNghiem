@@ -56,6 +56,13 @@ namespace App_QL_ThiTracNghiem.GUI.GiangVien
             int rsl = gridDSGiangVien.CurrentRow.Index;
             string MAGV = gridDSGiangVien.Rows[rsl].Cells[0].Value.ToString().Trim();
             string TENGV = gridDSGiangVien.Rows[rsl].Cells[1].Value.ToString().Trim();
+
+            if (GiangVien_DAO.CheckGVCT_HocPHan(MAGV))
+            {     
+                KryptonMessageBox.Show("Giảng viên đang tham gia lớp học phần !\nHãy thay đổi thông tin giảng dạy để xóa Giảng Viên ?", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                return;
+            }
+
             if (KryptonMessageBox.Show($"Bạn có muốn xóa giảng viên [{TENGV}] không ?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
                 return;
             if (GiangVien_DAO.DeleteGV(MAGV))
@@ -80,6 +87,11 @@ namespace App_QL_ThiTracNghiem.GUI.GiangVien
             frmAdd_Edit_GiangVien add = new frmAdd_Edit_GiangVien(false, null);
             add.ShowDialog();
             Show_DSGV();
+        }
+
+        private void contextDelete_Opening(object sender, CancelEventArgs e)
+        {
+
         }
     }
 }

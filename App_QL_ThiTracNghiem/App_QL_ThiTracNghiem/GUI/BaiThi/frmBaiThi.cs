@@ -12,13 +12,14 @@ using System.Windows.Forms;
 
 namespace App_QL_ThiTracNghiem.GUI.BaiThi
 {
-    public partial class frmBaiThi : Form
+    public partial class frmBaiThi : MetroFramework.Forms.MetroForm
     {
         int MABAITHI = 0;
         public frmBaiThi(int MABAITHI)
         {
             InitializeComponent();
             this.MABAITHI = MABAITHI;
+            txtDiem.ForeColor = Color.Red;
 
             ShowDSCauHoi();
         }
@@ -44,7 +45,7 @@ namespace App_QL_ThiTracNghiem.GUI.BaiThi
 
                     frmCH cauhoi = new frmCH(ch, dt.Rows[i][7].ToString().Trim(), i + 1);
                     cauhoi.Dock = DockStyle.Top;
-                    krpContent.Controls.Add(cauhoi);
+                    pnContent.Controls.Add(cauhoi);
 
                     if (dt.Rows[i][6].ToString().Trim().Equals(dt.Rows[i][7].ToString().Trim()))
                     {
@@ -55,9 +56,9 @@ namespace App_QL_ThiTracNghiem.GUI.BaiThi
                         cauSai++;
                     }
                 }
-                //txtCauDUng.Text = cauDung + "";
-                //txtCauSai.Text = cauSai + "";
-                //txtDiem.Text = cauDung * diem + "";
+                txtCauDUng.Text = cauDung + "";
+                txtCauSai.Text = cauSai + "";
+                txtDiem.Text = cauDung * diem + "";
             }
         }
     }

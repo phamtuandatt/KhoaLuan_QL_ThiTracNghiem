@@ -31,6 +31,13 @@ namespace App_QL_ThiTracNghiem.GUI.GiangVien
 
         private void btnIOK_Click(object sender, EventArgs e)
         {
+            if (!txtXNMK.Text.Trim().ToLower().Equals(txtMKMoi.Text.Trim().ToLower()))
+            {
+                KryptonMessageBox.Show("Mật khẩu chưa trùng khớp !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtXNMK.Focus();
+                txtXNMK.SelectAll();
+                return;
+            }
             if (GiangVien_DAO.ChangePassword(gv.MaGV, txtMKMoi.Text.Trim()))
             {
                 KryptonMessageBox.Show("Thay đổi mật khẩu thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

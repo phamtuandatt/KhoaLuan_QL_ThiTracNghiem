@@ -96,7 +96,8 @@ namespace App_QL_ThiTracNghiem.DAO
         {
             DataTable dt = new DataTable();
             DataTable dataCbo = new DataTable();
-            string sql = "EXEC GETDSCATHI";
+            //string sql = $"EXEC GETDSCATHINGAY '{DateTime.UtcNow.ToString()}'"; - Khi chạy thì mở hàm lấy dòng này để lấy các ca thi trong ngày
+            string sql = $"EXEC GETDSCATHI";
             dt = data.get_data(sql, "DSCT");
             dataCbo = dt.Copy();
             dataCbo.Clear();

@@ -47,6 +47,13 @@ namespace App_QL_ThiTracNghiem.DAO
             return data.insert_update_delete(sql) > 0;
         }
 
+        public static bool UpdateSiSo(int SISO, string MALOP)
+        {
+            string sql = $"UPDATE LOPHOC SET SISO = {SISO} WHERE MALOP = '{MALOP}'";
+
+            return data.insert_update_delete(sql) > 0;
+        }
+
         public static bool InsertLop(Lops lops)
         {
             string sql = $"INSERT INTO LOPHOC VALUES ('{lops.MaLop}', N'{lops.TenLop}', '{lops.Siso}', '{lops.MaKhoa}')";

@@ -41,6 +41,13 @@ namespace App_QL_ThiTracNghiem.GUI.Khoa
             int rsl = griDSKhoa.CurrentRow.Index;
             string MAKHOA = griDSKhoa.Rows[rsl].Cells[0].Value.ToString().Trim();
             string TENKHOA = griDSKhoa.Rows[rsl].Cells[1].Value.ToString().Trim();
+
+            if (Khoa_DAO.CheckKhoa(MAKHOA))
+            {
+                if (KryptonMessageBox.Show($"KHOA [{TENKHOA}] đang hoạt động.\nBạn có chắc muốn xóa KHOA [{TENKHOA}] không ?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
+                    return;
+            }
+
             if (KryptonMessageBox.Show($"Bạn có muốn xóa KHOA [{TENKHOA}] không ?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
                 return;
             if (Khoa_DAO.DeleteKhoa(MAKHOA))

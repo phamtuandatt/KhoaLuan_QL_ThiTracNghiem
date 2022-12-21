@@ -99,7 +99,7 @@
             this.gridDSLOPHP.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.gridDSLOPHP.ReadOnly = true;
             this.gridDSLOPHP.RowHeadersWidth = 51;
-            this.gridDSLOPHP.RowTemplate.Height = 24;
+            this.gridDSLOPHP.RowTemplate.Height = 33;
             this.gridDSLOPHP.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridDSLOPHP.Size = new System.Drawing.Size(1344, 568);
             this.gridDSLOPHP.TabIndex = 1;
@@ -178,7 +178,7 @@
             this.tHÊMLỚPHỌCPHẦNToolStripMenuItem,
             this.cẬPNHẬTLỚPHỌCPHẦNToolStripMenuItem});
             this.contexteEdit.Name = "contextXoa";
-            this.contexteEdit.Size = new System.Drawing.Size(259, 104);
+            this.contexteEdit.Size = new System.Drawing.Size(259, 76);
             // 
             // xÓALỚPHỌCPHẦNToolStripMenuItem
             // 

@@ -31,9 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.kryptonGroupBox1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.gridDSHP = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.xÓAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sỬAĐỔIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,6 +38,9 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.xÓAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sỬAĐỔIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1.Panel)).BeginInit();
             this.kryptonGroupBox1.Panel.SuspendLayout();
@@ -83,35 +83,11 @@
             this.gridDSHP.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.gridDSHP.ReadOnly = true;
             this.gridDSHP.RowHeadersWidth = 51;
-            this.gridDSHP.RowTemplate.Height = 24;
+            this.gridDSHP.RowTemplate.Height = 33;
             this.gridDSHP.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridDSHP.Size = new System.Drawing.Size(1301, 626);
             this.gridDSHP.TabIndex = 0;
             this.gridDSHP.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridDSHP_CellDoubleClick);
-            // 
-            // contextMenu
-            // 
-            this.contextMenu.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.contextMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.xÓAToolStripMenuItem,
-            this.sỬAĐỔIToolStripMenuItem});
-            this.contextMenu.Name = "contextMenu";
-            this.contextMenu.Size = new System.Drawing.Size(138, 52);
-            // 
-            // xÓAToolStripMenuItem
-            // 
-            this.xÓAToolStripMenuItem.Name = "xÓAToolStripMenuItem";
-            this.xÓAToolStripMenuItem.Size = new System.Drawing.Size(137, 24);
-            this.xÓAToolStripMenuItem.Text = "XÓA";
-            this.xÓAToolStripMenuItem.Click += new System.EventHandler(this.xÓAToolStripMenuItem_Click);
-            // 
-            // sỬAĐỔIToolStripMenuItem
-            // 
-            this.sỬAĐỔIToolStripMenuItem.Name = "sỬAĐỔIToolStripMenuItem";
-            this.sỬAĐỔIToolStripMenuItem.Size = new System.Drawing.Size(137, 24);
-            this.sỬAĐỔIToolStripMenuItem.Text = "SỬA ĐỔI";
-            this.sỬAĐỔIToolStripMenuItem.Click += new System.EventHandler(this.sỬAĐỔIToolStripMenuItem_Click);
             // 
             // Column1
             // 
@@ -169,6 +145,30 @@
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
             this.Column7.Visible = false;
+            // 
+            // contextMenu
+            // 
+            this.contextMenu.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.contextMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.xÓAToolStripMenuItem,
+            this.sỬAĐỔIToolStripMenuItem});
+            this.contextMenu.Name = "contextMenu";
+            this.contextMenu.Size = new System.Drawing.Size(138, 52);
+            // 
+            // xÓAToolStripMenuItem
+            // 
+            this.xÓAToolStripMenuItem.Name = "xÓAToolStripMenuItem";
+            this.xÓAToolStripMenuItem.Size = new System.Drawing.Size(137, 24);
+            this.xÓAToolStripMenuItem.Text = "XÓA";
+            this.xÓAToolStripMenuItem.Click += new System.EventHandler(this.xÓAToolStripMenuItem_Click);
+            // 
+            // sỬAĐỔIToolStripMenuItem
+            // 
+            this.sỬAĐỔIToolStripMenuItem.Name = "sỬAĐỔIToolStripMenuItem";
+            this.sỬAĐỔIToolStripMenuItem.Size = new System.Drawing.Size(137, 24);
+            this.sỬAĐỔIToolStripMenuItem.Text = "SỬA ĐỔI";
+            this.sỬAĐỔIToolStripMenuItem.Click += new System.EventHandler(this.sỬAĐỔIToolStripMenuItem_Click);
             // 
             // frmDSHP
             // 
