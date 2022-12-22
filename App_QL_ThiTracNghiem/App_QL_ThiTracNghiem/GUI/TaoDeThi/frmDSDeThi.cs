@@ -31,7 +31,12 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
             gridDSDeThi.DataSource = DeThi_DAO.GetDS_DeThi(cboDSMonHoc.SelectedValue.ToString().Trim());
         }
 
-        private void gridDSDeThi_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void cboDSMonHoc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            gridDSDeThi.DataSource = DeThi_DAO.GetDS_DeThi(cboDSMonHoc.SelectedValue.ToString().Trim());
+        }
+
+        private void gridDSDeThi_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int rsl = gridDSDeThi.CurrentRow.Index;
             DeThis deThis = new DeThis();
@@ -54,11 +59,6 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
             frmCT_DeThi.Dock = DockStyle.Fill;
             panel.Controls.Add(frmCT_DeThi);
             frmCT_DeThi.BringToFront();
-        }
-
-        private void cboDSMonHoc_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            gridDSDeThi.DataSource = DeThi_DAO.GetDS_DeThi(cboDSMonHoc.SelectedValue.ToString().Trim());
         }
     }
 }

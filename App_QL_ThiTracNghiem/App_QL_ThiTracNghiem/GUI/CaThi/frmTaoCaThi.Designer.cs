@@ -157,7 +157,7 @@
             this.gridDSSVDuocChon.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.gridDSSVDuocChon.ReadOnly = true;
             this.gridDSSVDuocChon.RowHeadersWidth = 51;
-            this.gridDSSVDuocChon.RowTemplate.Height = 24;
+            this.gridDSSVDuocChon.RowTemplate.Height = 33;
             this.gridDSSVDuocChon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridDSSVDuocChon.Size = new System.Drawing.Size(1775, 282);
             this.gridDSSVDuocChon.TabIndex = 1;
@@ -249,7 +249,7 @@
             this.gridDSSinhVien.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.gridDSSinhVien.ReadOnly = true;
             this.gridDSSinhVien.RowHeadersWidth = 51;
-            this.gridDSSinhVien.RowTemplate.Height = 24;
+            this.gridDSSinhVien.RowTemplate.Height = 33;
             this.gridDSSinhVien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridDSSinhVien.Size = new System.Drawing.Size(1775, 281);
             this.gridDSSinhVien.TabIndex = 0;

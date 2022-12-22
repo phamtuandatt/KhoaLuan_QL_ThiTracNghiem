@@ -254,7 +254,7 @@
             this.gridDSCauHoi_DeThi.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.gridDSCauHoi_DeThi.ReadOnly = true;
             this.gridDSCauHoi_DeThi.RowHeadersWidth = 51;
-            this.gridDSCauHoi_DeThi.RowTemplate.Height = 24;
+            this.gridDSCauHoi_DeThi.RowTemplate.Height = 33;
             this.gridDSCauHoi_DeThi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridDSCauHoi_DeThi.Size = new System.Drawing.Size(1660, 514);
             this.gridDSCauHoi_DeThi.TabIndex = 0;

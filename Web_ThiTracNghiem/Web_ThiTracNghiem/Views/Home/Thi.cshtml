@@ -5,27 +5,29 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@{int cau = 1; }
 @foreach (var item in Model)
 {
     <div style="padding: 15px;border: 0.5px solid black;border-radius: 10px; margin: 10px;">
-        <label style="margin-bottom:5px">@item.NOIDUNG</label>
+        <label style="margin-bottom:5px">Câu @cau: @item.NOIDUNG</label>
         <div class="form-check">
             <input class="form-check-input" type="radio" name="@item.MACAUHOI" id="@item.MACAUHOI" value="A">
-            <label class="form-check-label" for="">@item.DAPAN1</label>
+            <label class="form-check-label" for="">A. @item.DAPAN1</label>
         </div>
         <div class="form-check">
             <input class="form-check-input" type="radio" name="@item.MACAUHOI" id="@item.MACAUHOI" value="B">
-            <label class="form-check-label" for="">@item.DAPAN2</label>
+            <label class="form-check-label" for="">B. @item.DAPAN2</label>
         </div>
         <div class="form-check">
             <input class="form-check-input" type="radio" name="@item.MACAUHOI" id="@item.MACAUHOI" value="C">
-            <label class="form-check-label" for="">@item.DAPAN3</label>
+            <label class="form-check-label" for="">C. @item.DAPAN3</label>
         </div>
         <div class="form-check">
             <input class="form-check-input" type="radio" name="@item.MACAUHOI" id="@item.MACAUHOI" value="D">
-            <label class="form-check-label" for="">@item.DAPAN4</label>
+            <label class="form-check-label" for="">D. @item.DAPAN4</label>
         </div>
     </div>
+    cau++;
 }
 <button class="submit form-check btn btn-primary" style="float:right; margin:5px 5px 0 0"> HOÀN THÀNH BÀI THI </button>
 

@@ -86,7 +86,7 @@
             this.gridDSGiangVien.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.gridDSGiangVien.ReadOnly = true;
             this.gridDSGiangVien.RowHeadersWidth = 51;
-            this.gridDSGiangVien.RowTemplate.Height = 24;
+            this.gridDSGiangVien.RowTemplate.Height = 33;
             this.gridDSGiangVien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridDSGiangVien.Size = new System.Drawing.Size(1126, 640);
             this.gridDSGiangVien.TabIndex = 0;

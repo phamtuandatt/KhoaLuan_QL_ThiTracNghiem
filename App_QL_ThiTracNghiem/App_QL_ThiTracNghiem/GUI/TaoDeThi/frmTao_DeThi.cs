@@ -189,9 +189,10 @@ namespace App_QL_ThiTracNghiem.GUI.TaoDeThi
             }
         }
 
-        int number_question = 0;
+        
         private void btnRanDom_Click(object sender, EventArgs e)
         {
+            int number_question = 0;
             if (gridDSCHDuocChon.RowCount > 0)
             {
                 if (KryptonMessageBox.Show("Bạn đã thực hiện RANDOM câu hỏi+ cho cho đề thì môn [" + cboHocPhan.Text.ToUpper() + "]\nBạn có muốn RANDOM lại không ?", "Cảnh báo",

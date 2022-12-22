@@ -32,15 +32,6 @@
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonGroupBox1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.gridDSSV = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.contextMEnu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.xÓAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sỬAĐỔIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.cboLop = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.cboKhoa = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.btnThem = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,6 +42,15 @@
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMEnu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.xÓAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sỬAĐỔIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.cboLop = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.cboKhoa = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.btnThem = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).BeginInit();
@@ -113,10 +113,91 @@
             this.gridDSSV.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.gridDSSV.ReadOnly = true;
             this.gridDSSV.RowHeadersWidth = 51;
-            this.gridDSSV.RowTemplate.Height = 24;
+            this.gridDSSV.RowTemplate.Height = 33;
             this.gridDSSV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridDSSV.Size = new System.Drawing.Size(1516, 654);
             this.gridDSSV.TabIndex = 0;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "MASV";
+            this.Column1.HeaderText = "Mã sinh viên";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "TENSV";
+            this.Column2.HeaderText = "Tên sinh viên";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "GIOITINH";
+            this.Column3.HeaderText = "Giới tính";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column10
+            // 
+            this.Column10.DataPropertyName = "NGAYSINH";
+            this.Column10.HeaderText = "Ngày sinh";
+            this.Column10.MinimumWidth = 6;
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "EMAIL";
+            this.Column4.HeaderText = "Email";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "SDT";
+            this.Column5.HeaderText = "Số điện thoại";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "DIACHI";
+            this.Column6.HeaderText = "Địa chỉ";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "QUEQUAN";
+            this.Column7.HeaderText = "Quê quán";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "HOCPHI";
+            this.Column9.HeaderText = "Học phí";
+            this.Column9.MinimumWidth = 6;
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            this.Column9.Visible = false;
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "MALOP";
+            this.Column8.HeaderText = "Lớp";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
             // 
             // contextMEnu
             // 
@@ -207,87 +288,6 @@
             this.btnThem.TabIndex = 3;
             this.btnThem.Values.Text = "THÊM";
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "MASV";
-            this.Column1.HeaderText = "Mã sinh viên";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "TENSV";
-            this.Column2.HeaderText = "Tên sinh viên";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "GIOITINH";
-            this.Column3.HeaderText = "Giới tính";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column10
-            // 
-            this.Column10.DataPropertyName = "NGAYSINH";
-            this.Column10.HeaderText = "Ngày sinh";
-            this.Column10.MinimumWidth = 6;
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "EMAIL";
-            this.Column4.HeaderText = "Email";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "SDT";
-            this.Column5.HeaderText = "Số điện thoại";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "DIACHI";
-            this.Column6.HeaderText = "Địa chỉ";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.DataPropertyName = "QUEQUAN";
-            this.Column7.HeaderText = "Quê quán";
-            this.Column7.MinimumWidth = 6;
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column9
-            // 
-            this.Column9.DataPropertyName = "HOCPHI";
-            this.Column9.HeaderText = "Học phí";
-            this.Column9.MinimumWidth = 6;
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            this.Column9.Visible = false;
-            // 
-            // Column8
-            // 
-            this.Column8.DataPropertyName = "MALOP";
-            this.Column8.HeaderText = "Lớp";
-            this.Column8.MinimumWidth = 6;
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
             // 
             // frmDS_SinhVien
             // 

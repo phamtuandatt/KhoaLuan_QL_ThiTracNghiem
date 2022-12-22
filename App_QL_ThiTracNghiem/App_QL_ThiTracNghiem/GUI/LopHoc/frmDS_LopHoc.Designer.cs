@@ -32,6 +32,11 @@
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonGroupBox1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.gridDSLopHoc = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.xÓAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sỬAĐỔIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,11 +45,6 @@
             this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.cboKhoa = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.btnThem = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).BeginInit();
@@ -101,11 +101,53 @@
             this.gridDSLopHoc.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.gridDSLopHoc.ReadOnly = true;
             this.gridDSLopHoc.RowHeadersWidth = 51;
-            this.gridDSLopHoc.RowTemplate.Height = 24;
+            this.gridDSLopHoc.RowTemplate.Height = 33;
             this.gridDSLopHoc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridDSLopHoc.Size = new System.Drawing.Size(1142, 646);
             this.gridDSLopHoc.TabIndex = 0;
+            this.gridDSLopHoc.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridDSLopHoc_CellContentClick);
             this.gridDSLopHoc.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridDSLopHoc_CellDoubleClick);
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "MALOP";
+            this.Column1.HeaderText = "Mã lớp";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "TENLOP";
+            this.Column2.HeaderText = "Tên lớp";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "SISO";
+            this.Column3.HeaderText = "Sỉ số";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "TENKHOA";
+            this.Column6.HeaderText = "Khoa";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "MAKHOA";
+            this.Column4.HeaderText = "Mã khoa";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Visible = false;
             // 
             // contextMenu
             // 
@@ -185,47 +227,6 @@
             this.btnThem.TabIndex = 3;
             this.btnThem.Values.Text = "THÊM";
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "MALOP";
-            this.Column1.HeaderText = "Mã lớp";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "TENLOP";
-            this.Column2.HeaderText = "Tên lớp";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "SISO";
-            this.Column3.HeaderText = "Sỉ số";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "TENKHOA";
-            this.Column6.HeaderText = "Khoa";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "MAKHOA";
-            this.Column4.HeaderText = "Mã khoa";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Visible = false;
             // 
             // frmDS_LopHoc
             // 

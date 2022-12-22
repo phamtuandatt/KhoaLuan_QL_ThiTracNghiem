@@ -91,5 +91,10 @@ namespace App_QL_ThiTracNghiem.GUI.LopHoc
             import.ShowDialog();
 
         }
+
+        private void gridDSLopHoc_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

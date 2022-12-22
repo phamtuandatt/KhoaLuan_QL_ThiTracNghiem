@@ -97,11 +97,11 @@
             this.gridDSDeThi.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.gridDSDeThi.ReadOnly = true;
             this.gridDSDeThi.RowHeadersWidth = 51;
-            this.gridDSDeThi.RowTemplate.Height = 24;
+            this.gridDSDeThi.RowTemplate.Height = 33;
             this.gridDSDeThi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridDSDeThi.Size = new System.Drawing.Size(1005, 578);
             this.gridDSDeThi.TabIndex = 0;
-            this.gridDSDeThi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridDSDeThi_CellContentClick);
+            this.gridDSDeThi.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridDSDeThi_CellDoubleClick);
             // 
             // kryptonPanel2
             // 
@@ -150,7 +150,6 @@
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
-            this.Column2.Visible = false;
             // 
             // Column3
             // 
@@ -191,6 +190,7 @@
             this.Column9.MinimumWidth = 6;
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
+            this.Column9.Visible = false;
             // 
             // frmDSDeThi
             // 

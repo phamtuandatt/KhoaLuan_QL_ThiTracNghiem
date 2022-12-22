@@ -21,6 +21,8 @@ namespace App_QL_ThiTracNghiem.GUI.CaThi
         bool add_sv_hocphan = false;
         string MAKHOA, MALOPHOCPHAN, MAHOCPHAN, TENHOCPHAN;
         List<string> lst_SinhVien;
+        int SLSVThem = 0;
+        bool ClickOne = false;
         public bool check { get; set; }
 
         public List<SinhViens> svs { get; set; }
@@ -83,17 +85,24 @@ namespace App_QL_ThiTracNghiem.GUI.CaThi
         {
             if (add_sv_hocphan == false)
             {
-                if (CT_CaThi_DAO.Insert_CT_CaThi(lst_SinhVien, MACATHI))
+                if (SLSVThem > 0)
                 {
-                    if (CT_CaThi_DAO.Up_DB_CT_CaThi())
+                    if (CT_CaThi_DAO.Insert_CT_CaThi(lst_SinhVien, MACATHI))
                     {
-                        KryptonMessageBox.Show("Cập nhật danh sách sinh viên tham gia ca thi thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Close();
+                        if (CT_CaThi_DAO.Up_DB_CT_CaThi())
+                        {
+                            KryptonMessageBox.Show("Cập nhật danh sách sinh viên tham gia ca thi thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Close();
+                        }
+                        else
+                        {
+                            KryptonMessageBox.Show("Cập nhật danh sách sinh viên tham gia ca thi KHÔNG thành công !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
                     }
-                    else
-                    {
-                        KryptonMessageBox.Show("Cập nhật danh sách sinh viên tham gia ca thi KHÔNG thành công !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
+                }
+                else
+                {
+                    this.Close();
                 }
             }
             else
@@ -117,6 +126,7 @@ namespace App_QL_ThiTracNghiem.GUI.CaThi
                     {
                         lst_SinhVien.Add(MASV);
                         gridDSSinhVien.Rows[rsl].Cells[0].Value = true;
+                        SLSVThem++;
                     }
                     else
                     {
@@ -130,6 +140,7 @@ namespace App_QL_ThiTracNghiem.GUI.CaThi
                                 lst_SinhVien.RemoveAt(i);
                                 status = true;
                                 gridDSSinhVien.Rows[rsl].Cells[0].Value = false;
+                                SLSVThem--;
                                 return;
                             }
                         }
@@ -137,6 +148,7 @@ namespace App_QL_ThiTracNghiem.GUI.CaThi
                         {
                             lst_SinhVien.Add(MASV);
                             gridDSSinhVien.Rows[rsl].Cells[0].Value = true;
+                            SLSVThem++;
                         }
                     }
                 }
@@ -163,6 +175,7 @@ namespace App_QL_ThiTracNghiem.GUI.CaThi
                     {
                         gridDSSinhVien.Rows[rsl].Cells[0].Value = true;
                         svs.Add(sv);
+                        SLSVThem++;
                     }
                     else
                     {
@@ -176,6 +189,7 @@ namespace App_QL_ThiTracNghiem.GUI.CaThi
                                 svs.RemoveAt(i);
                                 status = true;
                                 gridDSSinhVien.Rows[rsl].Cells[0].Value = false;
+                                SLSVThem--;
                                 return;
                             }
                         }
@@ -183,6 +197,7 @@ namespace App_QL_ThiTracNghiem.GUI.CaThi
                         {
                             gridDSSinhVien.Rows[rsl].Cells[0].Value = true;
                             svs.Add(sv);
+                            SLSVThem++;
                         }
                     }
                 }
@@ -191,49 +206,53 @@ namespace App_QL_ThiTracNghiem.GUI.CaThi
 
         private void btnSelectAll_Click(object sender, EventArgs e)
         {
-            frmChon_SL_CauHoi sl = new frmChon_SL_CauHoi(true, false);
-            sl.ShowDialog();
-            if (sl.Check == false)
+            if (ClickOne == false)
             {
-                return;
-            }
-            int soLuong = sl.SoLuong;
-
-            if (soLuong > gridDSSinhVien.RowCount)
-            {
-                KryptonMessageBox.Show("Số lượng sinh viên muốn chọn vượt quá số lượng đang có !\nHãy chọn lại hoặc bổ sung sinh viên.", "Cảnh báo",
-                        MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                return;
-            }
-            if (add_sv_hocphan == false)
-            {
-                for (int i = 0; i < soLuong; i++)
+                frmChon_SL_CauHoi sl = new frmChon_SL_CauHoi(true, false);
+                sl.ShowDialog();
+                if (sl.Check == false)
                 {
-                    gridDSSinhVien.Rows[i].Cells[0].Value = true;
-                    lst_SinhVien.Add(gridDSSinhVien.Rows[i].Cells[1].Value.ToString());
+                    return;
+                }
+                int soLuong = sl.SoLuong;
+
+                if (soLuong > gridDSSinhVien.RowCount)
+                {
+                    KryptonMessageBox.Show("Số lượng sinh viên muốn chọn vượt quá số lượng đang có !\nHãy chọn lại hoặc bổ sung sinh viên.", "Cảnh báo",
+                            MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (add_sv_hocphan == false)
+                {
+                    for (int i = 0; i < soLuong; i++)
+                    {
+                        gridDSSinhVien.Rows[i].Cells[0].Value = true;
+                        lst_SinhVien.Add(gridDSSinhVien.Rows[i].Cells[1].Value.ToString());
+                    }
+                    ClickOne = true;
+                }
+                else
+                {
+                    for (int i = 0; i < soLuong; i++)
+                    {
+                        gridDSSinhVien.Rows[i].Cells[0].Value = true;
+                        SinhViens sv = new SinhViens();
+                        sv.MaSV = gridDSSinhVien.Rows[i].Cells[1].Value.ToString();
+                        sv.TenSV = gridDSSinhVien.Rows[i].Cells[2].Value.ToString();
+                        sv.GioiTinh = gridDSSinhVien.Rows[i].Cells[3].Value.ToString();
+                        sv.NgaySinh = DateTime.Parse(gridDSSinhVien.Rows[i].Cells[4].Value.ToString());
+                        sv.Email = gridDSSinhVien.Rows[i].Cells[5].Value.ToString();
+                        sv.Sdt = gridDSSinhVien.Rows[i].Cells[6].Value.ToString();
+                        sv.DiaChi = gridDSSinhVien.Rows[i].Cells[7].Value.ToString();
+                        sv.QueQuan = gridDSSinhVien.Rows[i].Cells[8].Value.ToString();
+                        sv.MaLop = gridDSSinhVien.Rows[i].Cells[10].Value.ToString().Trim();
+                        sv.HocPhi = gridDSSinhVien.Rows[i].Cells[9].Value.ToString();
+
+                        svs.Add(sv);
+                    }
+                    ClickOne = true;
                 }
             }
-            else
-            {
-                for (int i = 0; i < soLuong; i++)
-                {
-                    gridDSSinhVien.Rows[i].Cells[0].Value = true;
-                    SinhViens sv = new SinhViens();
-                    sv.MaSV = gridDSSinhVien.Rows[i].Cells[1].Value.ToString();
-                    sv.TenSV = gridDSSinhVien.Rows[i].Cells[2].Value.ToString();
-                    sv.GioiTinh = gridDSSinhVien.Rows[i].Cells[3].Value.ToString();
-                    sv.NgaySinh = DateTime.Parse(gridDSSinhVien.Rows[i].Cells[4].Value.ToString());
-                    sv.Email = gridDSSinhVien.Rows[i].Cells[5].Value.ToString();
-                    sv.Sdt = gridDSSinhVien.Rows[i].Cells[6].Value.ToString();
-                    sv.DiaChi = gridDSSinhVien.Rows[i].Cells[7].Value.ToString();
-                    sv.QueQuan = gridDSSinhVien.Rows[i].Cells[8].Value.ToString();
-                    sv.MaLop = gridDSSinhVien.Rows[i].Cells[10].Value.ToString().Trim();
-                    sv.HocPhi = gridDSSinhVien.Rows[i].Cells[9].Value.ToString();
-
-                    svs.Add(sv);
-                }
-            }
-            
         }
     }
 }

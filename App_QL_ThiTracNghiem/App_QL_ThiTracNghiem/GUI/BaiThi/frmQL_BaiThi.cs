@@ -47,6 +47,8 @@ namespace App_QL_ThiTracNghiem.GUI.BaiThi
             // Tạo DataTable gồm 2 thuộc tính - Tên: - MÔN HỌC - PHÒNG - TIẾT - 
             //                                - ID: - MÃ CA THI -
 
+            // Xây dựng lại proc GETDS SINH VIÊN THAM GIA CA THI
+
             gridDSSinhVienLamBai.DataSource = BaiThi_DAO.GetDSSVLamBaiThi(int.Parse(cboCaThi.SelectedValue.ToString()));
             int svDaNop = 0;
             int svDangThi = 0;

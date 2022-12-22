@@ -20,6 +20,8 @@ namespace App_QL_ThiTracNghiem.GUI.DuyetNHCauHoi
         int maMh;
         int MANGANHANG;
         string MAHOCPHAN, TENHOCPHAN;
+        int SLCauHoiDuyet = 0;
+        bool ClickOne = false;
         public frmDuyetCauHoi(int maMh)
         {
             InitializeComponent();
@@ -124,6 +126,7 @@ namespace App_QL_ThiTracNghiem.GUI.DuyetNHCauHoi
                 {
                     gridDSCauHoi.Rows[row_sl].Cells[0].Value = true;
                     gridDS_CauHoi_Duyet.Rows.Add(row);
+                    SLCauHoiDuyet++;
                 }
                 else
                 {
@@ -137,7 +140,9 @@ namespace App_QL_ThiTracNghiem.GUI.DuyetNHCauHoi
                         {
                             gridDSCauHoi.Rows[row_sl].Cells[0].Value = false;
                             gridDS_CauHoi_Duyet.Rows.RemoveAt(i);
+                            SLCauHoiDuyet--;
                             status = true;
+                            txtSLCauHoiDuyet.Text = SLCauHoiDuyet + "";
                             return;
                         }
                     }
@@ -145,22 +150,26 @@ namespace App_QL_ThiTracNghiem.GUI.DuyetNHCauHoi
                     {
                         gridDSCauHoi.Rows[row_sl].Cells[0].Value = true;
                         gridDS_CauHoi_Duyet.Rows.Add(row);
+                        SLCauHoiDuyet++;
                     }
                 }
+                txtSLCauHoiDuyet.Text = SLCauHoiDuyet + "";
             }
         }
 
         private void btnChonNhieu_Click(object sender, EventArgs e)
         {
-            if (gridDS_CauHoi_Duyet.RowCount >= 0)
+            if (ClickOne == false)
             {
-                gridDS_CauHoi_Duyet.Rows.Clear();
-            }
-            foreach (DataGridViewRow item in gridDSCauHoi.Rows)
-            {
-                item.Cells[0].Value = true;
-                string[] row = new string[]
+                if (gridDS_CauHoi_Duyet.RowCount >= 0)
                 {
+                    gridDS_CauHoi_Duyet.Rows.Clear();
+                }
+                foreach (DataGridViewRow item in gridDSCauHoi.Rows)
+                {
+                    item.Cells[0].Value = true;
+                    string[] row = new string[]
+                    {
                     item.Cells[2].Value.ToString(),
                     item.Cells[7].Value.ToString(),
                     item.Cells[3].Value.ToString(),
@@ -168,8 +177,12 @@ namespace App_QL_ThiTracNghiem.GUI.DuyetNHCauHoi
                     item.Cells[5].Value.ToString(),
                     item.Cells[6].Value.ToString(),
                     item.Cells[1].Value.ToString(),
-                };
-                gridDS_CauHoi_Duyet.Rows.Add(row);
+                    };
+                    gridDS_CauHoi_Duyet.Rows.Add(row);
+                    SLCauHoiDuyet++;
+                }
+                txtSLCauHoiDuyet.Text = SLCauHoiDuyet + "";
+                ClickOne = true;
             }
         }
     }

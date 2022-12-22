@@ -83,7 +83,7 @@
             this.gridDSSV.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.gridDSSV.ReadOnly = true;
             this.gridDSSV.RowHeadersWidth = 51;
-            this.gridDSSV.RowTemplate.Height = 24;
+            this.gridDSSV.RowTemplate.Height = 33;
             this.gridDSSV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridDSSV.Size = new System.Drawing.Size(1493, 562);
             this.gridDSSV.TabIndex = 2;

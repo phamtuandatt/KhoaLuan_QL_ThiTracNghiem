@@ -37,7 +37,7 @@ namespace App_QL_ThiTracNghiem.GUI.CaThi
         {
             if (CaThi_DAO.Update_DeThi_CaThi(cboDSDeThi.SelectedValue.ToString().Trim(), MACATHI))
             {
-                KryptonMessageBox.Show("Cập nhật ĐỀ THI cho CA THI thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //KryptonMessageBox.Show("Cập nhật ĐỀ THI cho CA THI thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 check = true;
                 this.Close();
             }

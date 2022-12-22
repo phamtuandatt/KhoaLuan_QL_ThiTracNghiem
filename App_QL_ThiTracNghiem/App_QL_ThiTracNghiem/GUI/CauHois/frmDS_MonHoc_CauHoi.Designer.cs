@@ -75,7 +75,7 @@
             this.gridDSMonHoc.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.gridDSMonHoc.ReadOnly = true;
             this.gridDSMonHoc.RowHeadersWidth = 51;
-            this.gridDSMonHoc.RowTemplate.Height = 24;
+            this.gridDSMonHoc.RowTemplate.Height = 33;
             this.gridDSMonHoc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridDSMonHoc.Size = new System.Drawing.Size(1137, 725);
             this.gridDSMonHoc.TabIndex = 0;

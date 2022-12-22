@@ -62,9 +62,9 @@ namespace App_QL_ThiTracNghiem.DAO
 
         public static bool Insert_CaThi(CaThis caThis)
         {
-            string sql = string.Format("SET DATEFORMAT DMY INSERT INTO CATHI(MAHOCPHAN, MADETHI, MADECON, NGAYTHI, GIOLAMBAI, TINHTRANG, PHONGTHI)\n" +
-                                        "VALUES ('{0}', '{1}', '{2}', N'{3}', N'{4}', {5}, N'{6}')", caThis.MaHocPhan, caThis.MaDeThi, "CHƯA CÓ", caThis.NgayThi,
-                                        caThis.GioLamBai, caThis.TinhTrang, caThis.Phong);
+            string sql = string.Format("SET DATEFORMAT DMY INSERT INTO CATHI(MAHOCPHAN, MADETHI, MADECON, NGAYTHI, GIOLAMBAI, TINHTRANG, PHONGTHI, TINHTRANGTHI)\n" +
+                                        "VALUES ('{0}', '{1}', '{2}', N'{3}', N'{4}', {5}, N'{6}', {7})", caThis.MaHocPhan, caThis.MaDeThi, "CHƯA CÓ", caThis.NgayThi,
+                                        caThis.GioLamBai, caThis.TinhTrang, caThis.Phong, 0);
             return data.insert_update_delete(sql) > 0;
         }
 

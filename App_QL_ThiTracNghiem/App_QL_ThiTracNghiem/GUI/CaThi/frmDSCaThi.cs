@@ -133,6 +133,13 @@ namespace App_QL_ThiTracNghiem.GUI.CaThi
                 if (e.ColumnIndex == 5)
                 {
                     int rsl = gridDSCaThi.CurrentRow.Index;
+                    // Kiểm tra tình trạng ca thi -> Nếu đang thi thì không được đổi đề
+                    if (CaThi_DAO.CheckTinhTrangCaThi(gridDSCaThi.Rows[rsl].Cells[1].Value.ToString()))
+                    {
+                        KryptonMessageBox.Show("Ca thi ĐANG ĐƯỢC THI !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
                     // Hiện các đề của tổ hợp đề cho chọn
                     frmShowDS_DeThiCon dtc = new frmShowDS_DeThiCon(int.Parse(gridDSCaThi.Rows[rsl].Cells[4].Value.ToString()), int.Parse(gridDSCaThi.Rows[rsl].Cells[1].Value.ToString()));
                     dtc.ShowDialog();

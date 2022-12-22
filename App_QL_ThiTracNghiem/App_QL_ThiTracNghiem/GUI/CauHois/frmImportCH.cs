@@ -216,6 +216,10 @@ namespace App_QL_ThiTracNghiem.GUI.CauHoi
 
         private void gridDS_CauHoi_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (gridDS_CauHoi.RowCount <= 0)
+            {
+                return;
+            }
             int id_row = gridDS_CauHoi.CurrentRow.Index;
             lblNoiDungCauHoi.Text = gridDS_CauHoi.Rows[id_row].Cells[0].Value.ToString();
             txtA.Text = gridDS_CauHoi.Rows[id_row].Cells[1].Value.ToString();
